@@ -1,0 +1,17 @@
+[project]
+name = "diploma"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "faiss-cpu>=1.13.2",
+    "langchain>=1.2.3",
+    "langchain-community>=0.4.1",
+    "langchain-text-splitters>=1.1.0",
+    "llama-cpp-python>=0.3.16",
+    "pydantic>=2.12.5",
+    "sentence-transformers>=5.2.0",
+    "torch>=2.9.1",
+    "torchvision>=0.24.1",
+]
