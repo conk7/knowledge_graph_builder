@@ -35,6 +35,4 @@
 1. [https://github.com/jimbrig/JimsObsidianVault/blob/main/00%20-%20INBOX/Shapefiles%20(ArcGIS).md](https://github.com/jimbrig/JimsObsidianVault/blob/main/00%20-%20INBOX/Shapefiles%20\(ArcGIS\).md)
 
 ### Links
-* Использует метод из: [[ideas]]
 * Является частью: [[algo]]
-* Является частью: [[main]]

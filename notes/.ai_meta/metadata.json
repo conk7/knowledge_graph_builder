@@ -1,13 +1,13 @@
 {
     "files": {
-        "main.md": {
-            "file_path": "main.md",
-            "hash": "87acdc7c46a2b5469ecb1c09afe9b3da3f865d383fc67714a75a52686791005d",
+        "ideas.md": {
+            "file_path": "ideas.md",
+            "hash": "b0e05146d99fc793a94e699440267ea885cd27608b5522dcdde862d7bbe86033",
             "chunks": [
                 {
                     "faiss_id": 1,
                     "chunk_index": 0,
-                    "text_preview": "МОДАЛЬНОСТИ: текст  ЗАДАЧА: построить obsidian vault (структурированный репозиторий из .md файлов) с..."
+                    "text_preview": "**1. Вопросно-ответная система (Q&A / RAG)**  Это самый логичный и мощный следующий шаг.  Когда поль..."
                 }
             ],
             "tags": []
@@ -24,14 +24,14 @@
             ],
             "tags": []
         },
-        "применимость.md": {
-            "file_path": "применимость.md",
-            "hash": "ea19eeb8267026f3345dedd12f6e43d5084b993b3b7e560e4b98fc3e1cf1d14a",
+        "datasets.md": {
+            "file_path": "datasets.md",
+            "hash": "538447842dcd0bb47fcbb8790525707a5025884604ef116041c91f7a85c48f12",
             "chunks": [
                 {
                     "faiss_id": 3,
                     "chunk_index": 0,
-                    "text_preview": "# usecases  1. Исследователь / Ученый / Аспирант производит Анализ научной литературы. \"У меня 200 P..."
+                    "text_preview": "ПОСМОТРЕТЬ КАК ЧЕЛЫ ИСПОЛЬЗУЮТ ОБСИДИАН  СОЗДАТЬ ПАПКУ tags И ТЭГАТЬ СВЯЗЯМИ ВМЕСТО #tags  1. блоги/..."
                 }
             ],
             "tags": []
@@ -48,26 +48,26 @@
             ],
             "tags": []
         },
-        "ideas.md": {
-            "file_path": "ideas.md",
-            "hash": "edad7991d62bc24af3d4ebf0e6832a898ded4cd158202da9a5d4094911d8288a",
+        "применимость.md": {
+            "file_path": "применимость.md",
+            "hash": "d7d2d26384bde899aa7d33f9551d4b9f7d145294461983bcb1614bbedfad4c54",
             "chunks": [
                 {
                     "faiss_id": 5,
                     "chunk_index": 0,
-                    "text_preview": "**1. Вопросно-ответная система (Q&A / RAG)**  Это самый логичный и мощный следующий шаг.  Когда поль..."
+                    "text_preview": "# usecases  1. Исследователь / Ученый / Аспирант производит Анализ научной литературы. \"У меня 200 P..."
                 }
             ],
             "tags": []
         },
-        "datasets.md": {
-            "file_path": "datasets.md",
-            "hash": "538447842dcd0bb47fcbb8790525707a5025884604ef116041c91f7a85c48f12",
+        "main.md": {
+            "file_path": "main.md",
+            "hash": "23aad6bb523724717fb384f1187fa9a03f4a8db02e92500f9376123de0038dc1",
             "chunks": [
                 {
                     "faiss_id": 6,
                     "chunk_index": 0,
-                    "text_preview": "ПОСМОТРЕТЬ КАК ЧЕЛЫ ИСПОЛЬЗУЮТ ОБСИДИАН  СОЗДАТЬ ПАПКУ tags И ТЭГАТЬ СВЯЗЯМИ ВМЕСТО #tags  1. блоги/..."
+                    "text_preview": "МОДАЛЬНОСТИ: текст  ЗАДАЧА: построить obsidian vault (структурированный репозиторий из .md файлов) с..."
                 }
             ],
             "tags": []

@@ -1,7 +1,9 @@
 import logging
+import numpy as np
 from collections import defaultdict
 from pathlib import Path
 from typing import List, Dict, Set, Tuple
+from pydantic import BaseModel
 
 from vault_manager import VaultManager
 from metadata_manager import MetadataManager, FileMetadata, ChunkMetadata
@@ -29,6 +31,16 @@ from config import (
     RELATIONSHIP_TEMPLATE,
     SIMILARITY_DISTANCE_THRESHOLD,
 )
+
+
+class NewlyAddedChunk(BaseModel):
+    faiss_id: int
+    content: str
+    vector: np.ndarray
+    file_path: str  # Relative path
+
+    class Config:
+        arbitrary_types_allowed = True
 
 
 class KnowledgeGraphBuilder:
@@ -156,12 +168,12 @@ class KnowledgeGraphBuilder:
                 ids_to_add.append(new_faiss_id)
 
                 newly_added_chunks.append(
-                    {
-                        "faiss_id": new_faiss_id,
-                        "content": chunk_text,
-                        "vector": embeddings[i],
-                        "file_path": rel_path_str,
-                    }
+                    NewlyAddedChunk(
+                        faiss_id=new_faiss_id,
+                        content=chunk_text,
+                        vector=embeddings[i],
+                        file_path=rel_path_str,
+                    )
                 )
 
             self.vector_store.add(embeddings, ids_to_add)
@@ -176,85 +188,84 @@ class KnowledgeGraphBuilder:
 
         return newly_added_chunks
 
-    def _find_and_save_new_links(self, new_chunks_data: List[Dict]):
-        logging.info(f"Searching for links {len(new_chunks_data)} new chunks...")
+    def _find_and_save_new_links(self, new_chunks_data: List[NewlyAddedChunk]):
+        logging.info(f"Searching for links in {len(new_chunks_data)} new chunks...")
 
         links_to_write: Dict[str, Set[str]] = defaultdict(set)
 
-        for i, chunk_data in enumerate(new_chunks_data, start=1):
+        for i, curr_chunk in enumerate(new_chunks_data, start=1):
             logging.info(
-                f"Searching for chunk {i}/{len(new_chunks_data)} from '{chunk_data['file_path']}'..."
+                f"Searching in chunk {i}/{len(new_chunks_data)} from '{curr_chunk.file_path}'..."
             )
 
-            distances, neighbor_ids = self.vector_store.search(
-                chunk_data["vector"], SIMILARITY_SEARCH_K
+            distances, other_chunk_ids = self.vector_store.search(
+                curr_chunk.vector, SIMILARITY_SEARCH_K
             )
 
-            for distance, neighbor_id in zip(distances, neighbor_ids):
-                if neighbor_id == chunk_data["faiss_id"]:
+            for distance, other_chunk_id in zip(distances, other_chunk_ids):
+                if other_chunk_id == curr_chunk.faiss_id:
                     continue
 
-                neighbor_info = self.metadata_manager.get_chunk_info_by_faiss_id(
-                    neighbor_id
+                other_chunk = self.metadata_manager.get_chunk_info_by_faiss_id(
+                    other_chunk_id
                 )
-                if (
-                    not neighbor_info
-                    or neighbor_info["file_path"] == chunk_data["file_path"]
-                ):
+                if not other_chunk or other_chunk["file_path"] == curr_chunk.file_path:
                     continue
 
                 logging.debug(
-                    f"distance = {distance:.2f}, {chunk_data['file_path']} vs {neighbor_info['file_path']}"
+                    f"distance = {distance:.2f}, {curr_chunk.file_path} vs {other_chunk['file_path']}"
                 )
                 if distance > SIMILARITY_DISTANCE_THRESHOLD:
                     continue
 
-                neighbor_file_path = VAULT_PATH / neighbor_info["file_path"]
-                neighbor_full_content = self.vault_manager.get_file_content(
-                    neighbor_file_path
+                other_file_path = VAULT_PATH / other_chunk["file_path"]
+                other_full_content = self.vault_manager.get_file_content(
+                    other_file_path
                 )
-                neighbor_chunks = self.embedding_service.chunk_text(
-                    neighbor_full_content
-                )
-                neighbor_chunk_index = neighbor_info["chunk_index"]
+                other_chunks = self.embedding_service.chunk_text(other_full_content)
+                other_chunk_index = other_chunk["chunk_index"]
 
-                if neighbor_chunk_index >= len(neighbor_chunks):
+                if other_chunk_index >= len(other_chunks):
                     logging.warning(
-                        f"Inxed of {neighbor_chunk_index} in out of range of {neighbor_file_path}."
+                        f"Inxed of {other_chunk_index} in out of range of {other_file_path}."
                     )
                     continue
-                neighbor_content = neighbor_chunks[neighbor_chunk_index]
+                other_chunk_content = other_chunks[other_chunk_index]
 
                 is_relevant = self.llm_service.check_relevance(
-                    text_a=chunk_data["content"], text_b=neighbor_content
+                    text_a=curr_chunk.content, text_b=other_chunk_content
                 )
                 if not is_relevant:
-                    logging.info("  Skip link: irrelevant")
+                    logging.info("  Skipping irrelevant link...")
                     continue
 
                 relation = self.llm_service.classify_relationship(
-                    text_a=chunk_data["content"],
-                    text_b=neighbor_content,
+                    text_a=curr_chunk.content,
+                    text_b=other_chunk_content,
                     relation_types=LLM_RELATION_TYPES,
                 )
 
                 if relation:
-                    target_file_name = (VAULT_PATH / neighbor_info["file_path"]).stem
+                    target_file_name = (VAULT_PATH / other_chunk["file_path"]).stem
                     relation_text = RELATION_DISPLAY_MAP.get(relation, relation)
 
                     link_str = RELATIONSHIP_TEMPLATE.format(
                         relation_type=relation_text, target_file_name=target_file_name
                     )
-                    links_to_write[chunk_data["file_path"]].add(link_str)
+                    links_to_write[curr_chunk.file_path].add(link_str)
+
+                logging.info(
+                    f"Made a '{relation_text}' link between {curr_chunk.file_path} and {other_chunk['file_path']}"
+                )
 
         if links_to_write:
-            logging.info("Saving new links..")
+            logging.info("Saving new links...")
             for rel_path_str, links in links_to_write.items():
                 file_abs_path = VAULT_PATH / rel_path_str
                 self.vault_manager.append_links_to_file(file_abs_path, links)
 
     def _save_state(self):
-        logging.info("Saving vault state..")
+        logging.info("Saving vault state...")
         self.metadata_manager.save()
         self.vector_store.save()
 

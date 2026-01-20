@@ -1,5 +1,6 @@
 # config.py
 from pathlib import Path
+import logging
 
 #
 # OBSIDIAN
@@ -46,7 +47,7 @@ CHUNK_OVERLAP = 150
 CHUNK_SEPARATORS = ["\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
 
 SIMILARITY_SEARCH_K = 5
-SIMILARITY_DISTANCE_THRESHOLD = 10.0
+SIMILARITY_DISTANCE_THRESHOLD = 5.0
 
 TAG_CONFIDENCE_THRESHOLD = 0.75
 FOLDER_CREATION_THRESHOLD = 3
@@ -82,3 +83,4 @@ RELATION_DISPLAY_MAP = {
 
 LOG_LEVEL = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
 LOG_FILE = VAULT_PATH / "obsidian_ai_linker.log"
+logging.basicConfig(level=LOG_LEVEL, format="%(asctime)s - %(levelname)s - %(message)s")

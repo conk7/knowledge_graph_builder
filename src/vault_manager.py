@@ -3,11 +3,6 @@ import logging
 from pathlib import Path
 from typing import List, Set
 
-from config import LOG_LEVEL
-
-
-logging.basicConfig(level=LOG_LEVEL, format="%(asctime)s - %(levelname)s - %(message)s")
-
 
 class VaultManager:
     def __init__(self, vault_path: Path, ignored_dirs: List[Path]):
@@ -46,7 +41,7 @@ class VaultManager:
 
     def calculate_file_hash(self, file_path: Path) -> str:
         content = self.get_file_content(file_path)
-        return hashlib.sha256(content.encode("utf-8")).hexdigest()
+        return hashlib.sha256(content.encode()).hexdigest()
 
     def append_links_to_file(self, file_path: Path, new_links: Set[str]):
         if not new_links:
@@ -86,20 +81,14 @@ class VaultManager:
             logging.warning(f"Could not find file: {source_path}")
             return
 
-        try:
-            destination_dir.mkdir(parents=True, exist_ok=True)
+        destination_dir.mkdir(parents=True, exist_ok=True)
 
-            destination_path = destination_dir / source_path.name
-            source_path.rename(destination_path)
-            logging.info(f"Moved {source_path.name} to {destination_dir}")
-        except Exception as e:
-            logging.error(f"Could not move file {source_path.name}: {e}")
+        destination_path = destination_dir / source_path.name
+        source_path.rename(destination_path)
+        logging.info(f"Moved {source_path.name} to {destination_dir}")
 
     def ensure_dir_exists(self, dir_path: Path):
-        try:
-            dir_path.mkdir(parents=True, exist_ok=True)
-        except Exception as e:
-            logging.error(f"Could not create {dir_path}: {e}")
+        dir_path.mkdir(parents=True, exist_ok=True)
 
     def clear_all_ai_links(self, files_to_clear: List[Path]):
         links_header = "\n\n### Links\n"
