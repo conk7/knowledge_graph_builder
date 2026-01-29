@@ -5,6 +5,12 @@ from pathlib import Path
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional, Any
 
+from config import (
+    DEFAULT_LINK_TYPES,
+    DEFAULT_LINK_EN2RU_TRANSLATION,
+    DEFAULT_LINK_TEMPLATE,
+)
+
 
 @dataclass
 class ChunkMetadata:
@@ -57,11 +63,11 @@ class FileMetadata:
 
 
 @dataclass
-class KnowledgeVault:
+class VaultMetadata:
     files: Dict[str, FileMetadata] = field(default_factory=dict)
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> KnowledgeVault:
+    def from_dict(cls, data: Dict[str, Any]) -> VaultMetadata:
         return cls(
             files={
                 path: FileMetadata.from_dict(meta)
@@ -83,45 +89,127 @@ class KnowledgeVault:
             del self.files[file_path_str]
 
 
+@dataclass
+class LinkConfig:
+    link_template: str
+    llm_link_types: List[str]
+    link_en2ru_translation: Dict[str, str]
+
+    @classmethod
+    def get_defaults(cls) -> LinkConfig:
+        return cls(
+            link_template=DEFAULT_LINK_TEMPLATE,
+            llm_link_types=DEFAULT_LINK_TYPES,
+            link_en2ru_translation=DEFAULT_LINK_EN2RU_TRANSLATION,
+        )
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "link_template": self.link_template,
+            "llm_link_types": self.llm_link_types,
+            "link_en2ru_translation": self.link_en2ru_translation,
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict[str, Any]) -> LinkConfig:
+        defaults = cls.get_defaults()
+        return cls(
+            link_template=data.get("link_template", defaults.link_template),
+            llm_link_types=data.get("llm_link_types", defaults.llm_link_types),
+            link_en2ru_translation=data.get(
+                "link_en2ru_translation", defaults.link_en2ru_translation
+            ),
+        )
+
+
 class MetadataManager:
     def __init__(self, metadata_path: Path):
         self.metadata_path = metadata_path
-        self.vault = KnowledgeVault()
+        self.config_path = self.metadata_path.parent / "links_config.json"
+        self.vault = VaultMetadata()
         self.faiss_id_to_chunk_info: Dict[int, Dict[str, Any]] = {}
         self.__next_faiss_id = 1
-        self.__is_fresh_start = False
+        self._is_fresh_start = False
 
+        self._load_metadata()
+        self._load_config()
+
+    def _load_metadata(self):
         logging.info(f"Attempting to load metadata from {self.metadata_path}")
         if not self.metadata_path.exists():
             logging.info("Metadata file not found. Starting with a fresh state.")
-            self.__is_fresh_start = True
+            self._is_fresh_start = True
             return
         try:
             with self.metadata_path.open("r", encoding="utf-8") as f:
                 raw_data = json.load(f)
-            self.vault = KnowledgeVault.from_dict(raw_data)
+            self.vault = VaultMetadata.from_dict(raw_data)
             self._build_reverse_map_and_set_next_id()
+            logging.info(
+                f"Metadata loaded successfully. Tracking {len(self.vault.files)} files."
+            )
         except (json.JSONDecodeError, IOError, KeyError) as e:
             logging.error(
                 f"Error loading or parsing metadata file: {e}. Starting with a fresh state."
             )
-            self.vault = KnowledgeVault()
+            self.vault = VaultMetadata()
 
-        logging.info(
-            f"Metadata loaded successfully. Tracking {len(self.vault.files)} files."
-        )
+    def _load_config(self):
+        logging.info(f"Attempting to load config from {self.config_path}")
+        if not self.config_path.exists():
+            logging.info("Config file not found. Using defaults")
+            self.config = LinkConfig.get_defaults()
+            return
+
+        try:
+            with self.config_path.open("r", encoding="utf-8") as f:
+                raw_config = json.load(f)
+            self.config = LinkConfig.from_dict(raw_config)
+        except (json.JSONDecodeError, IOError) as e:
+            logging.error(f"Error loading config file: {e}. Using internal defaults.")
+            self.config = LinkConfig.get_defaults()
+
+        logging.info("link configuration loaded successfully.")
 
     def is_fresh_start(self) -> bool:
-        return self.__is_fresh_start
+        return self._is_fresh_start
 
     def save(self):
         try:
             self.metadata_path.parent.mkdir(parents=True, exist_ok=True)
+        except Exception as e:
+            logging.error(f"Failed to create metadata folder: {e}")
+
+        try:
             with self.metadata_path.open("w", encoding="utf-8") as f:
                 json.dump(self.vault.to_dict(), f, indent=4, ensure_ascii=False)
             logging.info(f"Metadata saved successfully to {self.metadata_path}")
         except IOError as e:
             logging.error(f"Failed to save metadata: {e}")
+
+        try:
+            with self.config_path.open("w", encoding="utf-8") as f:
+                json.dump(self.config.to_dict(), f, indent=4, ensure_ascii=False)
+            logging.info(f"Configuration saved successfully to {self.config_path}")
+        except IOError as e:
+            logging.error(f"Failed to save configuration: {e}")
+
+    def clear_metadata(self):
+        logging.warning("Clearing all metadata and resetting knowledge vault state...")
+
+        self.vault = VaultMetadata()
+        self.faiss_id_to_chunk_info = {}
+        self.__next_faiss_id = 1
+        self._is_fresh_start = True
+
+        if self.metadata_path.exists():
+            try:
+                self.metadata_path.unlink()
+                logging.info(f"Deleted metadata file: {self.metadata_path}")
+            except OSError as e:
+                logging.error(f"Error deleting metadata file: {e}")
+        else:
+            logging.info("No metadata file found on disk to delete.")
 
     def _build_reverse_map_and_set_next_id(self):
         self.faiss_id_to_chunk_info = {}

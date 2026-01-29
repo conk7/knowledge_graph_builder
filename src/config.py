@@ -5,7 +5,7 @@ import logging
 #
 # OBSIDIAN
 #
-VAULT_PATH = Path("/home/conk/Files/Diploma/notes")
+VAULT_PATH = Path("/home/conk/Files/Diploma/testfield/1. CS/")
 
 INBOX_DIR = VAULT_PATH / "00_Inbox"
 NOTES_DIR = VAULT_PATH / "10_Notes"
@@ -36,6 +36,7 @@ LLM_MODEL_PATH = Path(
 LLM_TEMPERATURE = 0.0
 LLM_N_GPU_LAYERS = -1
 LLM_N_CTX = 8192
+LLM_N_BATCH = 4
 LLM_BACKEND = "vulkan"
 
 
@@ -56,30 +57,49 @@ FOLDER_CREATION_THRESHOLD = 3
 #
 # MISC
 #
-RELATIONSHIP_TEMPLATE = "* {relation_type}: [[{target_file_name}]]"
+DEFAULT_LINK_TEMPLATE = "{relation_type}:: [[{target_file_name}]]"
 
-LLM_RELATION_TYPES = [
-    "is_example_of",
-    "explains_concept",
-    "contradicts",
+DEFAULT_LINK_TYPES = [
+    "uses_concept",
     "uses_method",
-    "is_part_of",
-    "references_source",
-    "similar",
-    "mentions",
+    "discovered",
+    "contradicts",
+    "exemplifies"
 ]
 
-RELATION_DISPLAY_MAP = {
-    "exemplifies": "Является примером для",
-    "is_example_of": "Является примером для",
-    "explains_concept": "Объясняет концепцию из",
-    "contradicts": "Противоречит",
+DEFAULT_LINK_EN2RU_TRANSLATION = {
+    "uses_concept": "Использует понятие",
     "uses_method": "Использует метод из",
-    "is_part_of": "Является частью",
-    "references_source": "Ссылается на источник",
-    "similar": "Похож на",
-    "mentions": "Упоминает",
+    "discovered": "Открыло",
+    "contradicts": "Противоречит",
+    "exemplifies": "Является примером"
 }
+
+
+# DEFAULT_LINK_TYPES = [
+#     "is_example_of",
+#     "explains_concept",
+#     "contradicts",
+#     "uses_method",
+#     "is_part_of",
+#     "references_source",
+#     "similar",
+#     "mentions",
+# ]
+
+# DEFAULT_LINK_EN2RU_TRANSLATION = {
+#     "exemplifies": "Является примером для",
+#     "is_example_of": "Является примером для",
+#     "explains_concept": "Объясняет концепцию из",
+#     "contradicts": "Противоречит",
+#     "uses_method": "Использует метод из",
+#     "is_part_of": "Является частью",
+#     "references_source": "Ссылается на источник",
+#     "similar": "Похож на",
+#     "mentions": "Упоминает",
+# }
+
+LINK_HEADER = "\n\n### Связи\n\n"
 
 LOG_LEVEL = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
 LOG_FILE = VAULT_PATH / "obsidian_ai_linker.log"

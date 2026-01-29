@@ -3,6 +3,8 @@ import logging
 from pathlib import Path
 from typing import List, Set
 
+from config import LINK_HEADER
+
 
 class VaultManager:
     def __init__(self, vault_path: Path, ignored_dirs: List[Path]):
@@ -48,7 +50,7 @@ class VaultManager:
             return
 
         content = self.get_file_content(file_path)
-        links_header = "\n\n### Links\n"
+        links_header = LINK_HEADER
 
         existing_links = set()
         if links_header in content:
@@ -91,7 +93,7 @@ class VaultManager:
         dir_path.mkdir(parents=True, exist_ok=True)
 
     def clear_all_ai_links(self, files_to_clear: List[Path]):
-        links_header = "\n\n### Links\n"
+        links_header = LINK_HEADER
         logging.info(f"Clearing AI-generated links from {len(files_to_clear)} files...")
         cleared_count = 0
         for file_path in files_to_clear:

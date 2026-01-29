@@ -1,11 +1,11 @@
-RELATIONSHIP_PROMPT_TEMPLATE = """You are a highly specialized API endpoint that only returns JSON.
-Your task is to analyze the semantic relationship from Document A to Document B.
+PROMPT_TEMPLATE_FOR_LINKING = """You are a highly specialized API endpoint that only returns JSON.
+Your task is to analyze the semantic link from Document A to Document B.
 Your entire response MUST be a single, valid JSON object and nothing else.
 
 Follow these formatting instructions precisely:
 {format_instructions}
 
-The possible relationship types are: {relation_types}
+The possible link types are: {relation_types}
 
 ---
 Document A: {text_a}
@@ -15,9 +15,9 @@ Document B: {text_b}
 
 Now, perform the analysis and return the JSON object."""
 
-RELEVANCE_PROMPT_TEMPLATE = """You are a relevance analysis expert. Your task is to determine if a meaningful, 
-non-trivial semantic relationship exists between Document A and Document B.
-A trivial relationship is one of just "similarity". A meaningful relationship could be {relationship_types}, etc.
+PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK = """You are a relevance analysis expert. Your task is to determine if a meaningful, 
+non-trivial semantic link exists between Document A and Document B.
+A trivial link is one of just "similarity". A meaningful link could be {link_types}, etc.
 Think step-by-step and then conclude your answer with a single word: "Yes" or "No".
 
 {format_instructions}

@@ -2,7 +2,7 @@ import logging
 import numpy as np
 from collections import defaultdict
 from pathlib import Path
-from typing import List, Dict, Set, Tuple
+from typing import List, Dict, Tuple
 from pydantic import BaseModel
 
 from vault_manager import VaultManager
@@ -26,9 +26,6 @@ from config import (
     LLM_N_CTX,
     LLM_TEMPERATURE,
     SIMILARITY_SEARCH_K,
-    LLM_RELATION_TYPES,
-    RELATION_DISPLAY_MAP,
-    RELATIONSHIP_TEMPLATE,
     SIMILARITY_DISTANCE_THRESHOLD,
 )
 
@@ -44,7 +41,11 @@ class NewlyAddedChunk(BaseModel):
 
 
 class KnowledgeGraphBuilder:
-    def __init__(self):
+    def __init__(
+        self,
+        fresh_start: bool = False,
+        use_google_api: bool = False,
+    ):
         self.vault_manager = VaultManager(
             vault_path=VAULT_PATH, ignored_dirs=IGNORED_DIRS
         )
@@ -63,9 +64,11 @@ class KnowledgeGraphBuilder:
             n_gpu_layers=LLM_N_GPU_LAYERS,
             n_ctx=LLM_N_CTX,
             temperature=LLM_TEMPERATURE,
+            use_google_api=use_google_api,
         )
 
-        if self.metadata_manager.is_fresh_start():
+        if self.metadata_manager.is_fresh_start() or fresh_start:
+            self.metadata_manager.clear_metadata()
             all_files = self.vault_manager.scan_markdown_files()
             self.vault_manager.clear_all_ai_links(all_files)
 
@@ -92,15 +95,15 @@ class KnowledgeGraphBuilder:
 
     def _determine_changes(self) -> Tuple[List[Path], List[Path], List[Path]]:
         logging.info("Looking for changes in vault..")
-        disk_files_paths = self.vault_manager.scan_markdown_files()
-        disk_files_rel = {p.relative_to(VAULT_PATH) for p in disk_files_paths}
+        files_paths = self.vault_manager.scan_markdown_files()
+        files_rel_paths = {p.relative_to(VAULT_PATH) for p in files_paths}
 
         tracked_files_rel = set(map(Path, self.metadata_manager.vault.files.keys()))
 
-        added_files = [VAULT_PATH / p for p in (disk_files_rel - tracked_files_rel)]
-        removed_files = [VAULT_PATH / p for p in (tracked_files_rel - disk_files_rel)]
+        added_files = [VAULT_PATH / p for p in (files_rel_paths - tracked_files_rel)]
+        removed_files = [VAULT_PATH / p for p in (tracked_files_rel - files_rel_paths)]
 
-        potential_updates = disk_files_rel.intersection(tracked_files_rel)
+        potential_updates = files_rel_paths.intersection(tracked_files_rel)
         updated_files = []
         for file_rel in potential_updates:
             file_abs = VAULT_PATH / file_rel
@@ -191,7 +194,7 @@ class KnowledgeGraphBuilder:
     def _find_and_save_new_links(self, new_chunks_data: List[NewlyAddedChunk]):
         logging.info(f"Searching for links in {len(new_chunks_data)} new chunks...")
 
-        links_to_write: Dict[str, Set[str]] = defaultdict(set)
+        links_to_write = defaultdict(set)
 
         for i, curr_chunk in enumerate(new_chunks_data, start=1):
             logging.info(
@@ -201,6 +204,9 @@ class KnowledgeGraphBuilder:
             distances, other_chunk_ids = self.vector_store.search(
                 curr_chunk.vector, SIMILARITY_SEARCH_K
             )
+
+            relevance_batch_input = []
+            candidate_metadata = []
 
             for distance, other_chunk_id in zip(distances, other_chunk_ids):
                 if other_chunk_id == curr_chunk.faiss_id:
@@ -227,36 +233,80 @@ class KnowledgeGraphBuilder:
 
                 if other_chunk_index >= len(other_chunks):
                     logging.warning(
-                        f"Inxed of {other_chunk_index} in out of range of {other_file_path}."
+                        f" Inxed of {other_chunk_index} in out of range of {other_file_path}."
                     )
                     continue
-                other_chunk_content = other_chunks[other_chunk_index]
 
-                is_relevant = self.llm_service.check_relevance(
-                    text_a=curr_chunk.content, text_b=other_chunk_content
+                relevance_batch_input.append(
+                    {
+                        "text_a": curr_chunk.content,
+                        "text_b": other_chunks[other_chunk_index],
+                    }
                 )
-                if not is_relevant:
-                    logging.info("  Skipping irrelevant link...")
+                candidate_metadata.append(
+                    {
+                        "curr_chunk_file_path": curr_chunk.file_path,
+                        "other_chunk_file_path": other_chunk["file_path"],
+                        "other_chunk_content": other_chunks[other_chunk_index],
+                    }
+                )
+
+                if not relevance_batch_input:
                     continue
-
-                relation = self.llm_service.classify_relationship(
-                    text_a=curr_chunk.content,
-                    text_b=other_chunk_content,
-                    relation_types=LLM_RELATION_TYPES,
-                )
-
-                if relation:
-                    target_file_name = (VAULT_PATH / other_chunk["file_path"]).stem
-                    relation_text = RELATION_DISPLAY_MAP.get(relation, relation)
-
-                    link_str = RELATIONSHIP_TEMPLATE.format(
-                        relation_type=relation_text, target_file_name=target_file_name
-                    )
-                    links_to_write[curr_chunk.file_path].add(link_str)
 
                 logging.info(
-                    f"Made a '{relation_text}' link between {curr_chunk.file_path} and {other_chunk['file_path']}"
+                    f"Checking relevance for {len(relevance_batch_input)} potential links..."
                 )
+                relevance_results = self.llm_service.batch_check_relevance(
+                    relevance_batch_input
+                )
+
+                classification_batch_input = []
+                classification_metadata = []
+
+                for is_relevant, meta in zip(relevance_results, candidate_metadata):
+                    if is_relevant:
+                        classification_batch_input.append(
+                            {
+                                "text_a": curr_chunk.content,
+                                "text_b": meta["other_chunk_content"],
+                            }
+                        )
+                        classification_metadata.append(meta)
+                    else:
+                        logging.info(
+                            f"Skipping irrelevant link between {meta['curr_chunk_file_path']} and {meta['other_chunk_file_path']}..."
+                        )
+
+                if not classification_batch_input:
+                    continue
+
+                logging.info(
+                    f"Classifying {len(classification_batch_input)} relevant links..."
+                )
+                relation_results = self.llm_service.batch_classify_link(
+                    classification_batch_input,
+                    relation_types=self.metadata_manager.config.llm_link_types,
+                )
+
+                for relation, meta in zip(relation_results, classification_metadata):
+                    if not relation:
+                        continue
+
+                    target_file_name = (VAULT_PATH / meta["other_chunk_file_path"]).stem
+                    relation_text = (
+                        self.metadata_manager.config.link_en2ru_translation.get(
+                            relation, relation
+                        )
+                    )
+                    link_str = self.metadata_manager.config.link_template.format(
+                        relation_type=relation_text,
+                        target_file_name=target_file_name,
+                    )
+                    links_to_write[meta["curr_chunk_file_path"]].add(link_str)
+                    logging.info(
+                        f"Made a '{relation_text}' link between {meta['curr_chunk_file_path']} and {meta['other_chunk_file_path']}"
+                    )
 
         if links_to_write:
             logging.info("Saving new links...")
