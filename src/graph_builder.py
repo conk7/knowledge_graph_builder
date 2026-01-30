@@ -2,8 +2,9 @@ import logging
 import numpy as np
 from collections import defaultdict
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict, Set, Tuple
 from pydantic import BaseModel
+from tqdm import tqdm
 
 from vault_manager import VaultManager
 from metadata_manager import MetadataManager, FileMetadata, ChunkMetadata
@@ -12,6 +13,8 @@ from vector_store import VectorStore
 from llm_service import LLMService
 
 from config import (
+    RERANKER_THRESHOLD,
+    RERANKER_TOP_K,
     VAULT_PATH,
     IGNORED_DIRS,
     METADATA_PATH,
@@ -25,8 +28,8 @@ from config import (
     LLM_N_GPU_LAYERS,
     LLM_N_CTX,
     LLM_TEMPERATURE,
-    SIMILARITY_SEARCH_K,
-    SIMILARITY_DISTANCE_THRESHOLD,
+    INITIAL_RETRIEVAL_K,
+    RERANKER_MODEL_NAME,
 )
 
 
@@ -51,7 +54,8 @@ class KnowledgeGraphBuilder:
         )
         self.metadata_manager = MetadataManager(METADATA_PATH)
         self.embedding_service = EmbeddingService(
-            model_name=EMBEDDING_MODEL_NAME,
+            embedding_model_name=EMBEDDING_MODEL_NAME,
+            reranker_model_name=RERANKER_MODEL_NAME,
             chunk_size=CHUNK_SIZE,
             chunk_overlap=CHUNK_OVERLAP,
             separators=CHUNK_SEPARATORS,
@@ -85,10 +89,22 @@ class KnowledgeGraphBuilder:
             )
 
             if new_chunks_data:
-                self._find_and_save_new_links(new_chunks_data)
+                batch_inputs, batch_metadata = self._collect_reranked_candidates(
+                    new_chunks_data
+                )
+                if batch_inputs:
+                    links_to_write = self._classify_and_format_links(
+                        batch_inputs, batch_metadata
+                    )
+
+                    if links_to_write:
+                        self._save_new_links(links_to_write)
+                    else:
+                        logging.info("LLM classified all candidates as irrelevant.")
+                else:
+                    logging.info("No candidates passed the reranker threshold.")
             else:
                 logging.info("No new files for linking.")
-
         finally:
             self._save_state()
             logging.info("Updated finished.")
@@ -191,128 +207,125 @@ class KnowledgeGraphBuilder:
 
         return newly_added_chunks
 
-    def _find_and_save_new_links(self, new_chunks_data: List[NewlyAddedChunk]):
-        logging.info(f"Searching for links in {len(new_chunks_data)} new chunks...")
+    def _collect_reranked_candidates(
+        self, new_chunks_data: List[NewlyAddedChunk]
+    ) -> Tuple[List[Dict[str, str]], List[Dict[str, str]]]:
+        logging.info(f"Finding candidates for {len(new_chunks_data)} new chunks...")
 
-        links_to_write = defaultdict(set)
-
-        for i, curr_chunk in enumerate(new_chunks_data, start=1):
-            logging.info(
-                f"Searching in chunk {i}/{len(new_chunks_data)} from '{curr_chunk.file_path}'..."
-            )
+        all_text_inputs = []
+        all_metadata = []
+        pbar = tqdm(
+            enumerate(new_chunks_data, start=1), total=len(new_chunks_data), leave=False
+        )
+        for i, curr_chunk in pbar:
+            pbar.set_description(f"Processing chunk {i} from '{curr_chunk.file_path}'")
 
             distances, other_chunk_ids = self.vector_store.search(
-                curr_chunk.vector, SIMILARITY_SEARCH_K
+                curr_chunk.vector, INITIAL_RETRIEVAL_K
             )
 
-            relevance_batch_input = []
-            candidate_metadata = []
+            candidates_map = {}
+            candidate_texts = []
 
             for distance, other_chunk_id in zip(distances, other_chunk_ids):
                 if other_chunk_id == curr_chunk.faiss_id:
                     continue
 
-                other_chunk = self.metadata_manager.get_chunk_info_by_faiss_id(
+                other_chunk_info = self.metadata_manager.get_chunk_info_by_faiss_id(
                     other_chunk_id
                 )
-                if not other_chunk or other_chunk["file_path"] == curr_chunk.file_path:
+                if (
+                    not other_chunk_info
+                    or other_chunk_info["file_path"] == curr_chunk.file_path
+                ):
                     continue
 
-                logging.debug(
-                    f"distance = {distance:.2f}, {curr_chunk.file_path} vs {other_chunk['file_path']}"
-                )
-                if distance > SIMILARITY_DISTANCE_THRESHOLD:
-                    continue
-
-                other_file_path = VAULT_PATH / other_chunk["file_path"]
+                other_file_path = VAULT_PATH / other_chunk_info["file_path"]
                 other_full_content = self.vault_manager.get_file_content(
                     other_file_path
                 )
                 other_chunks = self.embedding_service.chunk_text(other_full_content)
-                other_chunk_index = other_chunk["chunk_index"]
+                other_chunk_index = other_chunk_info["chunk_index"]
 
                 if other_chunk_index >= len(other_chunks):
-                    logging.warning(
-                        f" Inxed of {other_chunk_index} in out of range of {other_file_path}."
-                    )
                     continue
 
-                relevance_batch_input.append(
+                other_text = other_chunks[other_chunk_index]
+
+                candidate_texts.append(other_text)
+                candidates_map[other_text] = {
+                    "file_path": other_chunk_info["file_path"],
+                }
+
+            if not candidate_texts:
+                continue
+
+            reranked_results = self.embedding_service.rerank(
+                query=curr_chunk.content,
+                candidates=candidate_texts,
+                top_k=RERANKER_TOP_K,
+                threshold=RERANKER_THRESHOLD,
+            )
+
+            for text, _ in reranked_results:
+                meta = candidates_map[text]
+
+                all_text_inputs.append(
                     {
                         "text_a": curr_chunk.content,
-                        "text_b": other_chunks[other_chunk_index],
+                        "text_b": text,
                     }
                 )
-                candidate_metadata.append(
+
+                all_metadata.append(
                     {
                         "curr_chunk_file_path": curr_chunk.file_path,
-                        "other_chunk_file_path": other_chunk["file_path"],
-                        "other_chunk_content": other_chunks[other_chunk_index],
+                        "other_chunk_file_path": meta["file_path"],
                     }
                 )
 
-                if not relevance_batch_input:
-                    continue
+        logging.info(f"Total candidates passed to LLM: {len(all_text_inputs)}")
+        return all_text_inputs, all_metadata
 
-                logging.info(
-                    f"Checking relevance for {len(relevance_batch_input)} potential links..."
-                )
-                relevance_results = self.llm_service.batch_check_relevance(
-                    relevance_batch_input
-                )
+    def _classify_and_format_links(
+        self, text_inputs: List[Dict[str, str]], text_metadata: List[Dict[str, str]]
+    ) -> Dict[str, Set[str]]:
+        logging.info(f"Classifying {len(text_inputs)} pairs using LLM...")
 
-                classification_batch_input = []
-                classification_metadata = []
+        relation_results = self.llm_service.batch_classify_link(
+            text_inputs,
+            relation_types=self.metadata_manager.config.llm_link_types,
+        )
 
-                for is_relevant, meta in zip(relevance_results, candidate_metadata):
-                    if is_relevant:
-                        classification_batch_input.append(
-                            {
-                                "text_a": curr_chunk.content,
-                                "text_b": meta["other_chunk_content"],
-                            }
-                        )
-                        classification_metadata.append(meta)
-                    else:
-                        logging.info(
-                            f"Skipping irrelevant link between {meta['curr_chunk_file_path']} and {meta['other_chunk_file_path']}..."
-                        )
+        links_to_write = defaultdict(set)
+        valid_link_count = 0
 
-                if not classification_batch_input:
-                    continue
+        for relation, meta in zip(relation_results, text_metadata):
+            if not relation:
+                continue
 
-                logging.info(
-                    f"Classifying {len(classification_batch_input)} relevant links..."
-                )
-                relation_results = self.llm_service.batch_classify_link(
-                    classification_batch_input,
-                    relation_types=self.metadata_manager.config.llm_link_types,
-                )
+            target_file_name = (VAULT_PATH / meta["other_chunk_file_path"]).stem
+            relation_text = self.metadata_manager.config.link_en2ru_translation.get(
+                relation, relation
+            )
 
-                for relation, meta in zip(relation_results, classification_metadata):
-                    if not relation:
-                        continue
+            link_str = self.metadata_manager.config.link_template.format(
+                relation_type=relation_text,
+                target_file_name=target_file_name,
+            )
 
-                    target_file_name = (VAULT_PATH / meta["other_chunk_file_path"]).stem
-                    relation_text = (
-                        self.metadata_manager.config.link_en2ru_translation.get(
-                            relation, relation
-                        )
-                    )
-                    link_str = self.metadata_manager.config.link_template.format(
-                        relation_type=relation_text,
-                        target_file_name=target_file_name,
-                    )
-                    links_to_write[meta["curr_chunk_file_path"]].add(link_str)
-                    logging.info(
-                        f"Made a '{relation_text}' link between {meta['curr_chunk_file_path']} and {meta['other_chunk_file_path']}"
-                    )
+            links_to_write[meta["curr_chunk_file_path"]].add(link_str)
+            valid_link_count += 1
 
-        if links_to_write:
-            logging.info("Saving new links...")
-            for rel_path_str, links in links_to_write.items():
-                file_abs_path = VAULT_PATH / rel_path_str
-                self.vault_manager.append_links_to_file(file_abs_path, links)
+        logging.info(f"LLM identified {valid_link_count} valid semantic links.")
+        return links_to_write
+
+    def _save_new_links(self, links_to_write: Dict[str, Set[str]]):
+        logging.info("Saving new links to files...")
+        for rel_path_str, links in links_to_write.items():
+            file_abs_path = VAULT_PATH / rel_path_str
+            self.vault_manager.append_links_to_file(file_abs_path, links)
+            logging.info(f"Appended {len(links)} links to {rel_path_str}")
 
     def _save_state(self):
         logging.info("Saving vault state...")

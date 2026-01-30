@@ -28,6 +28,14 @@ EMBEDDING_DIMENSION = 384
 
 
 #
+# RERANKER MODEL
+#
+RERANKER_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
+RERANKER_TOP_K = 5
+RERANKER_THRESHOLD = 0.35
+
+
+#
 # LLM
 #
 LLM_MODEL_PATH = Path(
@@ -47,7 +55,7 @@ CHUNK_SIZE = 4000
 CHUNK_OVERLAP = 150
 CHUNK_SEPARATORS = ["\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
 
-SIMILARITY_SEARCH_K = 5
+INITIAL_RETRIEVAL_K = 5
 SIMILARITY_DISTANCE_THRESHOLD = 5.0
 
 TAG_CONFIDENCE_THRESHOLD = 0.75
@@ -64,7 +72,7 @@ DEFAULT_LINK_TYPES = [
     "uses_method",
     "discovered",
     "contradicts",
-    "exemplifies"
+    "exemplifies",
 ]
 
 DEFAULT_LINK_EN2RU_TRANSLATION = {
@@ -72,7 +80,7 @@ DEFAULT_LINK_EN2RU_TRANSLATION = {
     "uses_method": "Использует метод из",
     "discovered": "Открыло",
     "contradicts": "Противоречит",
-    "exemplifies": "Является примером"
+    "exemplifies": "Является примером",
 }
 
 

@@ -15,6 +15,7 @@ import gc
 import os
 
 import torch
+from tqdm import tqdm
 from dotenv import load_dotenv
 from pathlib import Path
 from langchain_community.llms import LlamaCpp
@@ -88,30 +89,6 @@ class LLMService:
 
         return prompt | self.llm | parser
 
-    def check_relevance(self, text_a: str, text_b: str) -> bool:
-        text_a = self._sanitize_text_input(text_a)
-        text_b = self._sanitize_text_input(text_b)
-
-        logging.debug(
-            f"Checking link relevance of\ntext_a:\n{text_a}\n\ntext_b:\n{text_b}\n"
-        )
-        try:
-            response = self._relevance_chain.invoke(
-                {"text_a": text_a, "text_b": text_b}
-            )
-            logging.debug(f"Models response: \n\n{response}\n")
-        except Exception as e:
-            logging.debug(f"Could not invoke relevance chain: {e}")
-            return False
-
-        try:
-            is_revelant = Relevance.validate(response).is_revelant.lower()
-        except Exception as e:
-            logging.error(f"Could not validate model response: {e}")
-            return False
-
-        return "yes" in self._sanitize_model_response(is_revelant)
-
     def batch_check_relevance(
         self, inputs: List[Dict[str, str]], max_concurrency: int = LLM_N_BATCH
     ) -> List[bool]:
@@ -163,48 +140,17 @@ class LLMService:
 
         return prompt | self.llm | parser
 
-    def classify_link(
-        self, text_a: str, text_b: str, relation_types: List[str]
-    ) -> Optional[str]:
-        text_a = self._sanitize_text_input(text_a)
-        text_b = self._sanitize_text_input(text_b)
-        try:
-            response = self._link_chain.invoke(
-                {
-                    "text_a": text_a,
-                    "text_b": text_b,
-                    "relation_types": ", ".join(relation_types),
-                }
-            )
-        except Exception as e:
-            logging.error(f"An error occurred during classification of a link: {e}")
-        try:
-            link = Link.validate(response).relation_type.lower()
-        except Exception as e:
-            logging.error(f"Could not parse model response: {e}")
-            return None
-
-        link_parsed = self._sanitize_model_response(link)
-
-        if link_parsed in relation_types:
-            return link_parsed
-        else:
-            logging.warning(
-                f"LLM returned an invalid link type: '{link}' (parsed: '{link_parsed}')."
-            )
-            return None
-
     def batch_classify_link(
         self,
         inputs: List[Dict[str, str]],
         relation_types: List[str],
-        max_concurrency: int = LLM_N_BATCH,
+        n_batch: int = LLM_N_BATCH,
     ) -> List[Optional[str]]:
         if not inputs:
             return []
 
         relation_types_str = ", ".join(relation_types)
-        batch_inputs = [
+        inputs = [
             {
                 "text_a": self._sanitize_text_input(item["text_a"]),
                 "text_b": self._sanitize_text_input(item["text_b"]),
@@ -212,34 +158,47 @@ class LLMService:
             }
             for item in inputs
         ]
+        logging.debug(f"Classifying links for a batch of {len(inputs)} items.")
 
-        logging.debug(f"Classifying links for a batch of {len(batch_inputs)} items.")
         results = []
+        config = RunnableConfig(max_concurrency=n_batch)
 
-        config = RunnableConfig(max_concurrency=max_concurrency)
-        try:
-            responses = self._link_chain.batch(batch_inputs, config=config)
-        except Exception as e:
-            logging.error(f"An error occurred during batch link classification: {e}")
-            return [None] * len(inputs)
+        with tqdm(
+            total=len(inputs), desc="Classifying Semantic Links", unit="pair"
+        ) as pbar:
+            for i in range(0, len(inputs), n_batch):
+                mini_batch = inputs[i : i + n_batch]
+                try:
+                    batch_responses = self._link_chain.batch(
+                        mini_batch, config=config, return_exceptions=True
+                    )
+                except Exception as e:
+                    logging.error(f"Critical error in batch {i // n_batch}: {e}")
+                    batch_responses = [None] * len(mini_batch)
 
-        for response in responses:
-            try:
-                link = Link.validate(response).relation_type.lower()
-            except Exception as e:
-                logging.error(
-                    f"Could not parse a model response in batch: {response} - Error: {e}"
-                )
-                results.append(None)
+                for response in batch_responses:
+                    if isinstance(response, Exception):
+                        logging.warning(f"Item failed during LLM execution: {response}")
+                        results.append(None)
+                        continue
 
-            sanitized_link = self._sanitize_model_response(link)
-            if sanitized_link in relation_types:
-                results.append(sanitized_link)
-            else:
-                logging.warning(
-                    f"LLM returned an invalid link type in batch: '{link}' (sanitized: '{sanitized_link}')."
-                )
-                results.append(None)
+                    try:
+                        link_type = Link.validate(response).relation_type.lower()
+                        sanitized_link = self._sanitize_model_response(link_type)
+
+                        if sanitized_link in relation_types:
+                            results.append(sanitized_link)
+                        else:
+                            logging.debug(
+                                f"Invalid relation type returned: {sanitized_link}"
+                            )
+                            results.append(None)
+
+                    except Exception as e:
+                        logging.warning(f"Failed to parse LLM response: {e}")
+                        results.append(None)
+
+                pbar.update(len(mini_batch))
 
         return results
 
