@@ -68,7 +68,7 @@ class KnowledgeGraphBuilder:
             n_gpu_layers=LLM_N_GPU_LAYERS,
             n_ctx=LLM_N_CTX,
             temperature=LLM_TEMPERATURE,
-            use_google_api=use_google_api,
+            use_api=use_google_api,
         )
 
         if self.metadata_manager.is_fresh_start() or fresh_start:
@@ -89,13 +89,9 @@ class KnowledgeGraphBuilder:
             )
 
             if new_chunks_data:
-                batch_inputs, batch_metadata = self._collect_reranked_candidates(
-                    new_chunks_data
-                )
-                if batch_inputs:
-                    links_to_write = self._classify_and_format_links(
-                        batch_inputs, batch_metadata
-                    )
+                texts, meta = self._collect_candidates(new_chunks_data)
+                if texts:
+                    links_to_write = self._classify_and_format_links(texts, meta)
 
                     if links_to_write:
                         self._save_new_links(links_to_write)
@@ -207,18 +203,16 @@ class KnowledgeGraphBuilder:
 
         return newly_added_chunks
 
-    def _collect_reranked_candidates(
+    def _collect_candidates(
         self, new_chunks_data: List[NewlyAddedChunk]
     ) -> Tuple[List[Dict[str, str]], List[Dict[str, str]]]:
         logging.info(f"Finding candidates for {len(new_chunks_data)} new chunks...")
 
         all_text_inputs = []
         all_metadata = []
-        pbar = tqdm(
-            enumerate(new_chunks_data, start=1), total=len(new_chunks_data), leave=False
-        )
-        for i, curr_chunk in pbar:
-            pbar.set_description(f"Processing chunk {i} from '{curr_chunk.file_path}'")
+        pbar = tqdm(new_chunks_data, total=len(new_chunks_data), leave=False)
+        for curr_chunk in pbar:
+            pbar.set_description(f"Processing '{curr_chunk.file_path}'")
 
             distances, other_chunk_ids = self.vector_store.search(
                 curr_chunk.vector, INITIAL_RETRIEVAL_K
@@ -279,8 +273,8 @@ class KnowledgeGraphBuilder:
 
                 all_metadata.append(
                     {
-                        "curr_chunk_file_path": curr_chunk.file_path,
-                        "other_chunk_file_path": meta["file_path"],
+                        "path_a": Path(curr_chunk.file_path),
+                        "path_b": Path(meta["file_path"]),
                     }
                 )
 
@@ -288,23 +282,24 @@ class KnowledgeGraphBuilder:
         return all_text_inputs, all_metadata
 
     def _classify_and_format_links(
-        self, text_inputs: List[Dict[str, str]], text_metadata: List[Dict[str, str]]
+        self, texts: List[Dict[str, str]], text_meta: List[Dict[str, Path]]
     ) -> Dict[str, Set[str]]:
-        logging.info(f"Classifying {len(text_inputs)} pairs using LLM...")
+        logging.info(f"Classifying {len(texts)} pairs using LLM...")
 
         relation_results = self.llm_service.batch_classify_link(
-            text_inputs,
+            texts,
+            text_meta,
             relation_types=self.metadata_manager.config.llm_link_types,
         )
 
         links_to_write = defaultdict(set)
         valid_link_count = 0
 
-        for relation, meta in zip(relation_results, text_metadata):
+        for relation, meta in zip(relation_results, text_meta):
             if not relation:
                 continue
 
-            target_file_name = (VAULT_PATH / meta["other_chunk_file_path"]).stem
+            target_file_name = (VAULT_PATH / meta["path_b"]).stem
             relation_text = self.metadata_manager.config.link_en2ru_translation.get(
                 relation, relation
             )
@@ -314,7 +309,7 @@ class KnowledgeGraphBuilder:
                 target_file_name=target_file_name,
             )
 
-            links_to_write[meta["curr_chunk_file_path"]].add(link_str)
+            links_to_write[meta["path_a"]].add(link_str)
             valid_link_count += 1
 
         logging.info(f"LLM identified {valid_link_count} valid semantic links.")

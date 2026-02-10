@@ -1,19 +1,40 @@
-PROMPT_TEMPLATE_FOR_LINKING = """You are a highly specialized API endpoint that only returns JSON.
-Your task is to analyze the semantic link from Document A to Document B.
-Your entire response MUST be a single, valid JSON object and nothing else.
+PROMPT_TEMPLATE_FOR_LINKING = """You are an expert Knowledge Graph Architect. 
+Your task is to analyze the semantic relationship between two document excerpts from a personal knowledge base (Obsidian).
 
-Follow these formatting instructions precisely:
+You must determine the most appropriate relationship type from Document A to Document B.
+
+### Available Relation Types:
+{relation_types}
+(Note: Use 'no_link' if the documents are unrelated or the connection is too weak).
+
+### Formatting Instructions:
+Return ONLY a valid JSON object. Do not add any markdown formatting (like ```json).
 {format_instructions}
 
-The possible link types are: {relation_types}
+### Example Output:
+{{
+    "reasoning": "Document A discusses neural networks, specifically backpropagation. Document B explains gradient descent. Since backpropagation relies on gradient descent, there is a causal/dependency link.",
+    "relation_type": "depends_on"
+}}
 
 ---
-Document A: {text_a}
----
-Document B: {text_b}
+
+### Document A
+**Filename:** {filename_a}
+**Content:**
+"{text_a}"
+
 ---
 
-Now, perform the analysis and return the JSON object."""
+### Document B
+**Filename:** {filename_b}
+**Content:**
+"{text_b}"
+
+---
+
+Analyze the context (filenames and content) and determine the link.
+"""
 
 PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK = """You are a relevance analysis expert. Your task is to determine if a meaningful, 
 non-trivial semantic link exists between Document A and Document B.

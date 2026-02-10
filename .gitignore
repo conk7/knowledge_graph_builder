@@ -11,5 +11,6 @@ wheels/
 
 datasets/
 testfield/
+Test_Vault/
 notes/
 *.env

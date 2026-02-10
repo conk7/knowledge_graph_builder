@@ -43,12 +43,12 @@ class LLMService:
         n_ctx: int = LLM_N_CTX,
         n_batch: int = LLM_N_BATCH,
         temperature: float = LLM_TEMPERATURE,
-        use_google_api: bool = False,
+        use_api: bool = False,
     ):
         self.model_name = str(model_path)
 
         logging.info(f"Loading GGUF model via LlamaCpp from: {model_path}...")
-        if use_google_api:
+        if use_api:
             load_dotenv()
             api_key = os.environ.get("GOOGLE_API_KEY")
             model = os.environ.get("MODEL")
@@ -132,7 +132,13 @@ class LLMService:
 
         prompt = PromptTemplate(
             template=PROMPT_TEMPLATE_FOR_LINKING,
-            input_variables=["text_a", "text_b", "relation_types"],
+            input_variables=[
+                "text_a",
+                "text_b",
+                "relation_types",
+                "filename_a",
+                "filename_a",
+            ],
             partial_variables={
                 "format_instructions": parser.get_format_instructions(),
             },
@@ -142,49 +148,61 @@ class LLMService:
 
     def batch_classify_link(
         self,
-        inputs: List[Dict[str, str]],
+        texts: List[Dict[str, str]],
+        text_meta: List[Dict[str, Path]],
         relation_types: List[str],
         n_batch: int = LLM_N_BATCH,
     ) -> List[Optional[str]]:
-        if not inputs:
+        if not texts:
             return []
 
         relation_types_str = ", ".join(relation_types)
-        inputs = [
+        texts = [
             {
-                "text_a": self._sanitize_text_input(item["text_a"]),
-                "text_b": self._sanitize_text_input(item["text_b"]),
+                "text_a": self._sanitize_text_input(text["text_a"]),
+                "text_b": self._sanitize_text_input(text["text_b"]),
+                "filename_a": meta["path_a"].stem,
+                "filename_b": meta["path_b"].stem,
                 "relation_types": relation_types_str,
             }
-            for item in inputs
+            for text, meta in zip(texts, text_meta)
         ]
-        logging.debug(f"Classifying links for a batch of {len(inputs)} items.")
+        logging.debug(f"Classifying links for a batch of {len(texts)} items.")
 
         results = []
         config = RunnableConfig(max_concurrency=n_batch)
 
         with tqdm(
-            total=len(inputs), desc="Classifying Semantic Links", unit="pair"
+            total=len(texts),
+            desc="Classifying Semantic Links",
+            unit="pair",
+            leave=False,
         ) as pbar:
-            for i in range(0, len(inputs), n_batch):
-                mini_batch = inputs[i : i + n_batch]
+            for i in range(0, len(texts), n_batch):
+                mini_batch = texts[i : i + n_batch]
                 try:
-                    batch_responses = self._link_chain.batch(
+                    responses = self._link_chain.batch(
                         mini_batch, config=config, return_exceptions=True
                     )
                 except Exception as e:
                     logging.error(f"Critical error in batch {i // n_batch}: {e}")
-                    batch_responses = [None] * len(mini_batch)
+                    responses = [None] * len(mini_batch)
 
-                for response in batch_responses:
+                for i, response in enumerate(responses):
                     if isinstance(response, Exception):
-                        logging.warning(f"Item failed during LLM execution: {response}")
+                        logging.debug(f"Item failed during LLM execution: {response}")
                         results.append(None)
                         continue
 
                     try:
                         link_type = Link.validate(response).relation_type.lower()
                         sanitized_link = self._sanitize_model_response(link_type)
+
+                        logging.info(
+                            f"LLM classified link between '{mini_batch[i]['filename_a']}' and "
+                            f"'{mini_batch[i]['filename_b']}' as '{sanitized_link}'"
+                        )
+                        logging.info(f"    Raw response: {response}")
 
                         if sanitized_link in relation_types:
                             results.append(sanitized_link)

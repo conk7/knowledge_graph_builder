@@ -5,7 +5,7 @@ import logging
 #
 # OBSIDIAN
 #
-VAULT_PATH = Path("/home/conk/Files/Diploma/testfield/1. CS/")
+VAULT_PATH = Path("/home/conk/Files/Diploma/notes")
 
 INBOX_DIR = VAULT_PATH / "00_Inbox"
 NOTES_DIR = VAULT_PATH / "10_Notes"
@@ -43,7 +43,7 @@ LLM_MODEL_PATH = Path(
 )
 LLM_TEMPERATURE = 0.0
 LLM_N_GPU_LAYERS = -1
-LLM_N_CTX = 8192
+LLM_N_CTX = 8192 * 2
 LLM_N_BATCH = 4
 LLM_BACKEND = "vulkan"
 
