@@ -1,8 +1,9 @@
-import faiss
-import numpy as np
 import logging
 from pathlib import Path
 from typing import List, Tuple
+
+import faiss
+import numpy as np
 
 
 class VectorStore:

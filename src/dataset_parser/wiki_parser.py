@@ -1,57 +1,55 @@
-from sentence_transformers import SentenceTransformer
-from concurrent.futures import ThreadPoolExecutor
-import wikipediaapi
-import os
-import re
-import logging
 import heapq
-from typing import List, Dict, Tuple, Set
+import logging
+import re
+import time
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from typing import Dict, List, Set, Tuple
+
+import wikipediaapi
 from sentence_transformers import CrossEncoder
 
-LANG = "ru"
-VAULT_PATH = "./Test_Vault"
-SEED_TOPIC = "Искусственный интеллект"
-RERANKER_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
-EMBED_MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-
-MAX_PAGES = 30
-MAX_DEPTH = 3
-MIN_SCORE = 0.1
-CANDIDATES_LIMIT = 20
-
-MMR_DIVERSITY = 0.4
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
-)
 logger = logging.getLogger(__name__)
-
-os.makedirs(VAULT_PATH, exist_ok=True)
 
 
 class Crawler:
-    def __init__(self, seed_topic: str):
+    def __init__(
+        self,
+        seed_topic: str,
+        vault_path: str,
+        lang: str = "ru",
+        links_header: str = "## Related Connections",
+        max_pages: int = 100,
+        max_depth: int = 3,
+        min_score: float = 0.1,
+        candidates_limit: int = 100,
+        sleep_sec: int = 10,
+        reranker_model: str = "BAAI/bge-reranker-v2-m3",
+        embed_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    ):
         self.seed_topic = seed_topic
+        self.vault_path = Path(vault_path)
+        self.lang = lang
+        self.links_header = links_header
+        self.max_pages = max_pages
+        self.max_depth = max_depth
+        self.min_score = min_score
+        self.candidates_limit = candidates_limit
+        self.sleep_sec = sleep_sec
 
         self.visited: Set[str] = set()
-
         self.saved_titles: Set[str] = set()
-
         self.raw_outlinks: Dict[str, List[str]] = {}
-
         self.frontier = []
 
-        logger.info(f"Initializing Cross-Encoder: {RERANKER_MODEL_NAME}")
-        self.reranker = CrossEncoder(RERANKER_MODEL_NAME, max_length=1024)
-
-        logger.info(f"Loading Bi-Encoder: {EMBED_MODEL_NAME}")
-        self.embedder = SentenceTransformer(EMBED_MODEL_NAME)
+        logger.info(f"Initializing Cross-Encoder: {reranker_model}")
+        self.reranker = CrossEncoder(reranker_model, max_length=1024)
 
         self.wiki_obj = wikipediaapi.Wikipedia(
-            language=LANG, user_agent="WikiGraphBuilder/2.0 (production-ready)"
+            language=self.lang, user_agent="WikiGraphBuilder/2.0 (production-ready)"
         )
+
+        self.vault_path.mkdir(parents=True, exist_ok=True)
 
     def normalize_filename(self, title: str) -> str:
         return title.strip().replace(" ", "_").replace("/", "-").replace('"', "")
@@ -89,11 +87,9 @@ class Crawler:
         content = self.clean_text(content)
 
         filename = f"{self.normalize_filename(title)}.md"
-        path = os.path.join(VAULT_PATH, filename)
+        path = self.vault_path / filename
 
-        md_content = f"""# {title}
-
-{summary}
+        md_content = f"""{summary}
 
 {content}
 """
@@ -101,7 +97,9 @@ class Crawler:
             f.write(md_content)
 
         self.saved_titles.add(title)
-        logger.info(f"Page saved: '{title}' (Score: {score:.4f}, Depth: {depth})")
+        logger.info(
+            f"Page saved: '{title}' (filename={filename}) (Score: {score:.4f}, Depth: {depth})"
+        )
 
     def finalize_connections(self):
         logger.info("Starting post-processing of connections...")
@@ -113,13 +111,13 @@ class Crawler:
 
             if not valid_links:
                 continue
-            links_block = "\n\n## Related Connections\n"
+            links_block = f"\n\n{self.links_header}\n"
             links_block += "\n".join(
                 [f"- [[{self.normalize_filename(link)}]]" for link in valid_links]
             )
 
             filename = f"{self.normalize_filename(title)}.md"
-            path = os.path.join(VAULT_PATH, filename)
+            path = self.vault_path / filename
 
             try:
                 with open(path, "a", encoding="utf-8") as f:
@@ -147,7 +145,7 @@ class Crawler:
 
         scored_candidates = []
         for i, score in enumerate(scores):
-            if score > MIN_SCORE:
+            if score > self.min_score:
                 scored_candidates.append((titles[i], score))
 
         return scored_candidates
@@ -156,7 +154,7 @@ class Crawler:
         heapq.heappush(self.frontier, (-10.0, 0, self.seed_topic))
         self.visited.add(self.seed_topic)
 
-        while self.frontier and len(self.saved_titles) < MAX_PAGES:
+        while self.frontier and len(self.saved_titles) < self.max_pages:
             neg_score, depth, current_title = heapq.heappop(self.frontier)
             score = -neg_score
 
@@ -169,18 +167,20 @@ class Crawler:
                     continue
             except Exception as e:
                 logger.error(f"API Error fetching page {current_title}: {e}")
+                time.sleep(self.sleep_sec)
+                heapq.heappush(self.frontier, (neg_score, depth, current_title))
                 continue
 
             self.save_page(page.title, page.summary, page.text, depth, score)
 
             self.raw_outlinks[page.title] = list(page.links.keys())
 
-            if depth >= MAX_DEPTH:
+            if depth >= self.max_depth:
                 continue
 
             raw_links_to_check = [
                 t for t in page.links.keys() if ":" not in t and t not in self.visited
-            ][:CANDIDATES_LIMIT]
+            ][: self.candidates_limit]
 
             if not raw_links_to_check:
                 continue
@@ -208,6 +208,20 @@ class Crawler:
         logger.info(f"Crawling completed. Total saved pages: {len(self.saved_titles)}")
 
 
-if __name__ == "__main__":
-    crawler = Crawler(SEED_TOPIC)
+def run_parser(
+    seed_topic: str,
+    vault_path: str,
+    max_pages: int = 100,
+    max_depth: int = 3,
+    lang: str = "ru",
+    links_header: str = "## Related Connections",
+):
+    crawler = Crawler(
+        seed_topic=seed_topic,
+        vault_path=vault_path,
+        lang=lang,
+        links_header=links_header,
+        max_pages=max_pages,
+        max_depth=max_depth,
+    )
     crawler.crawl()

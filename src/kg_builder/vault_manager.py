@@ -3,7 +3,7 @@ import logging
 from pathlib import Path
 from typing import List, Set
 
-from config import LINK_HEADER
+from .config import LINK_HEADER
 
 
 class VaultManager:

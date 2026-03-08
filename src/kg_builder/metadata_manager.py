@@ -1,14 +1,15 @@
 from __future__ import annotations
+
 import json
 import logging
-from pathlib import Path
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional, Any
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
-from config import (
-    DEFAULT_LINK_TYPES,
+from .config import (
     DEFAULT_LINK_EN2RU_TRANSLATION,
     DEFAULT_LINK_TEMPLATE,
+    DEFAULT_LINK_TYPES,
 )
 
 

@@ -1,8 +1,9 @@
-import numpy as np
-from typing import List, Tuple
-from sentence_transformers import SentenceTransformer, CrossEncoder
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 import logging
+from typing import List, Tuple
+
+import numpy as np
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from sentence_transformers import CrossEncoder, SentenceTransformer
 
 
 class EmbeddingService:

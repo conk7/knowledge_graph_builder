@@ -1,36 +1,37 @@
 import logging
-import numpy as np
 from collections import defaultdict
 from pathlib import Path
-from typing import List, Dict, Set, Tuple
+from typing import Dict, List, Set, Tuple
+
+import numpy as np
+import torch
 from pydantic import BaseModel
 from tqdm import tqdm
 
-from vault_manager import VaultManager
-from metadata_manager import MetadataManager, FileMetadata, ChunkMetadata
-from embedding_service import EmbeddingService
-from vector_store import VectorStore
-from llm_service import LLMService
-
-from config import (
+from .config import (
+    CHUNK_OVERLAP,
+    CHUNK_SEPARATORS,
+    CHUNK_SIZE,
+    EMBEDDING_DIMENSION,
+    EMBEDDING_MODEL_NAME,
+    IGNORED_DIRS,
+    INDEX_PATH,
+    INITIAL_RETRIEVAL_K,
+    LLM_MODEL_PATH,
+    LLM_N_CTX,
+    LLM_N_GPU_LAYERS,
+    LLM_TEMPERATURE,
+    METADATA_PATH,
+    RERANKER_MODEL_NAME,
     RERANKER_THRESHOLD,
     RERANKER_TOP_K,
     VAULT_PATH,
-    IGNORED_DIRS,
-    METADATA_PATH,
-    EMBEDDING_MODEL_NAME,
-    CHUNK_SIZE,
-    CHUNK_OVERLAP,
-    CHUNK_SEPARATORS,
-    INDEX_PATH,
-    EMBEDDING_DIMENSION,
-    LLM_MODEL_PATH,
-    LLM_N_GPU_LAYERS,
-    LLM_N_CTX,
-    LLM_TEMPERATURE,
-    INITIAL_RETRIEVAL_K,
-    RERANKER_MODEL_NAME,
 )
+from .embedding_service import EmbeddingService
+from src.shared.llm_service import LLMService
+from .metadata_manager import ChunkMetadata, FileMetadata, MetadataManager
+from .vault_manager import VaultManager
+from .vector_store import VectorStore
 
 
 class NewlyAddedChunk(BaseModel):
@@ -47,29 +48,19 @@ class KnowledgeGraphBuilder:
     def __init__(
         self,
         fresh_start: bool = False,
-        use_google_api: bool = False,
+        use_api: bool = False,
     ):
         self.vault_manager = VaultManager(
             vault_path=VAULT_PATH, ignored_dirs=IGNORED_DIRS
         )
         self.metadata_manager = MetadataManager(METADATA_PATH)
-        self.embedding_service = EmbeddingService(
-            embedding_model_name=EMBEDDING_MODEL_NAME,
-            reranker_model_name=RERANKER_MODEL_NAME,
-            chunk_size=CHUNK_SIZE,
-            chunk_overlap=CHUNK_OVERLAP,
-            separators=CHUNK_SEPARATORS,
-        )
         self.vector_store = VectorStore(
             index_path=INDEX_PATH, dimension=EMBEDDING_DIMENSION
         )
-        self.llm_service = LLMService(
-            model_path=LLM_MODEL_PATH,
-            n_gpu_layers=LLM_N_GPU_LAYERS,
-            n_ctx=LLM_N_CTX,
-            temperature=LLM_TEMPERATURE,
-            use_api=use_google_api,
-        )
+
+        self.embedding_service = None
+        self.llm_service = None
+        self.use_api = use_api
 
         if self.metadata_manager.is_fresh_start() or fresh_start:
             self.metadata_manager.clear_metadata()
@@ -78,29 +69,77 @@ class KnowledgeGraphBuilder:
 
         logging.info("Successfully inited graph builder.")
 
+    def _init_embedding_service(self):
+        if self.embedding_service is None:
+            logging.info("Loading Embedding Service...")
+            self.embedding_service = EmbeddingService(
+                embedding_model_name=EMBEDDING_MODEL_NAME,
+                reranker_model_name=RERANKER_MODEL_NAME,
+                chunk_size=CHUNK_SIZE,
+                chunk_overlap=CHUNK_OVERLAP,
+                separators=CHUNK_SEPARATORS,
+            )
+
+    def _unload_embedding_service(self):
+        if self.embedding_service:
+            logging.info("Unloading Embedding Service...")
+            del self.embedding_service
+            self.embedding_service = None
+            torch.cuda.empty_cache()
+
+    def _init_llm_service(self):
+        if self.llm_service is None:
+            logging.info("Loading LLM Service...")
+            from .config import LLM_BACKEND, LLM_CONCURRENCY, DEFAULT_LINK_TYPES
+            from .config import LLM_BACKEND, LLM_CONCURRENCY, DEFAULT_LINK_TYPES, LLM_N_BATCH
+            self.llm_service = LLMService(
+                model_path=LLM_MODEL_PATH,
+                n_gpu_layers=LLM_N_GPU_LAYERS,
+                n_ctx=LLM_N_CTX,
+                n_batch=LLM_N_BATCH,
+                temperature=LLM_TEMPERATURE,
+                use_api=self.use_api,
+                backend=LLM_BACKEND,
+                concurrency=LLM_CONCURRENCY,
+                default_link_types=DEFAULT_LINK_TYPES,
+            )
+
+    def _unload_llm_service(self):
+        if self.llm_service:
+            logging.info("Unloading LLM Service...")
+            del self.llm_service
+            self.llm_service = None
+            torch.cuda.empty_cache()
+
     def run_update(self):
         try:
             files_to_add, files_to_update, files_to_remove = self._determine_changes()
 
             self._process_removals(files_to_update + files_to_remove)
 
+            self._init_embedding_service()
             new_chunks_data = self._process_additions_and_updates(
                 files_to_add + files_to_update
             )
 
-            if new_chunks_data:
-                texts, meta = self._collect_candidates(new_chunks_data)
-                if texts:
-                    links_to_write = self._classify_and_format_links(texts, meta)
-
-                    if links_to_write:
-                        self._save_new_links(links_to_write)
-                    else:
-                        logging.info("LLM classified all candidates as irrelevant.")
-                else:
-                    logging.info("No candidates passed the reranker threshold.")
-            else:
+            if not new_chunks_data:
                 logging.info("No new files for linking.")
+                return
+
+            texts, meta = self._collect_candidates(new_chunks_data)
+
+            self._unload_embedding_service()
+
+            if texts:
+                self._init_llm_service()
+                links_to_write = self._classify_and_format_links(texts, meta)
+
+                if links_to_write:
+                    self._save_new_links(links_to_write)
+
+                self._unload_llm_service()
+            else:
+                logging.info("No candidates passed the reranker threshold.")
         finally:
             self._save_state()
             logging.info("Updated finished.")
@@ -328,4 +367,5 @@ class KnowledgeGraphBuilder:
         self.vector_store.save()
 
     def close(self):
-        self.llm_service.close()
+        if self.llm_service:
+            self.llm_service.close()
