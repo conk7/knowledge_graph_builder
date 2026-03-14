@@ -9,9 +9,17 @@ wheels/
 # Virtual environments
 .venv
 
-datasets/
+datasets/external_datasets_backup.zip
+datasets/external
+datasets/0. Raw
+datasets/2. Real
 testfield/
 Test_Vault/
 notes/
 *.env
-data_parser/
+parsed_data/
+
+.obsidian/
+.ai_meta/
+
+.vscode

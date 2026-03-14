@@ -22,7 +22,6 @@ HEADERS = {"User-Agent": "WikiLinkClassifier/1.1 (mailto:your_email@example.com)
 
 
 def normalize_title(title):
-    """Преобразует название из формата файла/json в формат для API."""
     if not title:
         return ""
     return title.replace("_", " ").strip()
@@ -35,7 +34,7 @@ def get_qids_batch(titles, lang="ru"):
     chunk_size = 50
     for i in range(0, len(titles), chunk_size):
         chunk = titles[i : i + chunk_size]
-        logger.info(f"Запрос Q-ID для батча из {len(chunk)} статей...")
+        logger.info(f"Requesting Q-IDs for a batch of {len(chunk)} articles...")
         titles_str = "|".join(chunk)
 
         params = {
@@ -59,7 +58,7 @@ def get_qids_batch(titles, lang="ru"):
                         if title:
                             title_to_qid[title] = qid
         except Exception as e:
-            logger.error(f"Ошибка API: {e}")
+            logger.error(f"API Error: {e}")
 
         time.sleep(0.5)
 
@@ -72,7 +71,7 @@ def get_bulk_relations(qid_pairs, lang="ru"):
 
     url = "https://query.wikidata.org/sparql"
     relations_map = {}
-    chunk_size = 50  # Разбиваем на батчи, чтобы не получить ошибку слишком длинного URI
+    chunk_size = 50
 
     for i in range(0, len(qid_pairs), chunk_size):
         chunk = qid_pairs[i : i + chunk_size]
@@ -88,7 +87,6 @@ def get_bulk_relations(qid_pairs, lang="ru"):
         """
 
         try:
-            # Используем POST вместо GET
             post_headers = {
                 "User-Agent": HEADERS["User-Agent"],
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -100,7 +98,7 @@ def get_bulk_relations(qid_pairs, lang="ru"):
 
             if response.status_code != 200:
                 logger.error(
-                    f"Ошибка SPARQL {response.status_code}: {response.text[:100]}"
+                    f"SPARQL Error {response.status_code}: {response.text[:100]}"
                 )
                 continue
 
@@ -117,7 +115,7 @@ def get_bulk_relations(qid_pairs, lang="ru"):
                 relations_map[pair].append(relation)
 
         except Exception as e:
-            logger.error(f"Ошибка SPARQL-запроса: {e}")
+            logger.error(f"SPARQL query error: {e}")
 
         time.sleep(1)
 
@@ -130,20 +128,17 @@ def process_links_with_wikidata(
     with open(input_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # 1. Собираем нормализованные заголовки для API
     all_titles = set()
     for source, links in data.items():
         all_titles.add(normalize_title(source))
         for link in links:
             all_titles.add(normalize_title(link["target"]))
 
-    logger.info(f"Найдено уникальных статей: {len(all_titles)}")
+    logger.info(f"Unique articles found: {len(all_titles)}")
 
-    # 2. Получаем Q-ID
     title_to_qid = get_qids_batch(list(all_titles), lang=lang)
-    logger.info(f"Успешно получено Q-ID: {len(title_to_qid)}")
+    logger.info(f"Successfully retrieved Q-IDs: {len(title_to_qid)}")
 
-    # 3. Формируем пары Q-ID (ВАЖНО: нормализуем ключи при поиске в словаре)
     qid_pairs = set()
     for source, links in data.items():
         q_source = title_to_qid.get(normalize_title(source))
@@ -155,11 +150,9 @@ def process_links_with_wikidata(
             if q_target:
                 qid_pairs.add((q_source, q_target))
 
-    # 4. Получаем связи
-    logger.info(f"Отправляем SPARQL-запросы для {len(qid_pairs)} пар...")
+    logger.info(f"Sending SPARQL queries for {len(qid_pairs)} pairs...")
     relations_map = get_bulk_relations(list(qid_pairs), lang=lang)
 
-    # 5. Обновляем JSON (снова нормализуем ключи для поиска)
     count_classified = 0
     for source, links in data.items():
         q_source = title_to_qid.get(normalize_title(source))
@@ -178,23 +171,24 @@ def process_links_with_wikidata(
             link["q_source"] = q_source
             link["q_target"] = q_target
 
-    # 6. LLM Fallback for unclassified links
     unclassified_links = []
-    link_refs = []  # Keep references to update the original dict
+    link_refs = []
     for source, links in data.items():
         for link in links:
             if not link.get("relation_type"):
+                all_contexts = [ctx.get("text", "") for ctx in link.get("contexts", [])]
+
                 unclassified_links.append(
                     {
                         "source": source,
                         "target": link["target"],
-                        "context": link.get("context", ""),
+                        "contexts": all_contexts,
                     }
                 )
                 link_refs.append(link)
-    logger.info(f"Найдено {len(unclassified_links)} неклассифицированных ссылок.")
+    logger.info(f"Found {len(unclassified_links)} unclassified links.")
     if unclassified_links and use_llm_fallback:
-        logger.info("Запуск LLM Fallback...")
+        logger.info("Starting LLM Fallback...")
 
         llm_service = LLMService(
             model_path=LLM_MODEL_PATH,
@@ -202,15 +196,15 @@ def process_links_with_wikidata(
             n_ctx=LLM_N_CTX,
             n_batch=LLM_N_BATCH,
             temperature=LLM_TEMPERATURE,
-            use_api=False,  # Configure via CLI args if necessary
+            use_api=False,
             backend=LLM_BACKEND,
             concurrency=LLM_CONCURRENCY,
             default_link_types=DEFAULT_LINK_TYPES,
         )
 
         llm_results = llm_service.batch_classify_context_link(
-            contexts=unclassified_links,
-            relation_types=DEFAULT_LINK_TYPES,
+            unclassified_links,
+            DEFAULT_LINK_TYPES,
         )
 
         llm_classified_count = 0
@@ -220,12 +214,12 @@ def process_links_with_wikidata(
                 llm_classified_count += 1
 
         logger.info(
-            f"LLM классифицировал {llm_classified_count} из {len(unclassified_links)} ссылок."
+            f"LLM classified {llm_classified_count} out of {len(unclassified_links)} links."
         )
         llm_service.close()
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-    logger.info(f"Готово! Классифицировано {count_classified} ссылок через Wikidata.")
-    logger.info(f"Результаты сохранены в {output_file}")
+    logger.info(f"Done! Classified {count_classified} links via Wikidata.")
+    logger.info(f"Results saved to {output_file}")

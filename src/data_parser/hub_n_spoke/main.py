@@ -23,7 +23,7 @@ def main():
     parser.add_argument(
         "--seed",
         type=str,
-        default="Машинное обучение",
+        required=True,
         help="Seed topic for Wikipedia crawling",
     )
     parser.add_argument(
@@ -45,7 +45,7 @@ def main():
     parser.add_argument(
         "--contexts-output",
         type=str,
-        default="link_contexts.json",
+        default=None,
         help="Output JSON for contexts",
     )
     parser.add_argument(
@@ -64,6 +64,12 @@ def main():
     parser.add_argument(
         "--ce-threshold", type=float, default=None, help="Cross-encoder threshold"
     )
+    parser.add_argument(
+        "--max-contexts",
+        type=int,
+        default=5,
+        help="Max number of contexts to extract per link",
+    )
 
     # Link Filter Args
     parser.add_argument(
@@ -74,8 +80,7 @@ def main():
     )
     parser.add_argument(
         "--use-llm-fallback",
-        type=bool,
-        default=False,
+        action="store_true",
         help="Use LLM for link classification if they are not classified in wiki",
     )
 
@@ -87,7 +92,7 @@ def main():
         "--skip-extract", action="store_true", help="Skip context extraction step"
     )
     parser.add_argument(
-        "--skip-filter", action="store_true", help="Skip Wikidata filtering step"
+        "--skip-classify", action="store_true", help="Skip link classification step"
     )
     parser.add_argument(
         "--skip-apply",
@@ -98,8 +103,12 @@ def main():
     args = parser.parse_args()
 
     vault_path = Path(args.vault)
-    contexts_json = Path(args.contexts_output)
-    final_json = Path(args.final_output)
+    contexts_json = (
+        Path(args.contexts_output)
+        if args.contexts_output is not None
+        else Path(args.vault) / ".link_contexts.json"
+    )
+    final_json = contexts_json
 
     # 1. Wikipedia Crawling
     if not args.skip_crawl:
@@ -119,12 +128,12 @@ def main():
     if not args.skip_extract:
         logger.info("Starting Step 2: Context Extraction...")
 
-        # Build config
         config = ExtractConfig(
             language=args.lang,
             links_header=args.links_header,
             keep_prepositions=args.keep_prepositions,
             use_cross_encoder=args.use_cross_encoder,
+            max_contexts=args.max_contexts,
         )
         if args.ce_model:
             config.cross_encoder_model = args.ce_model
@@ -137,11 +146,13 @@ def main():
     else:
         logger.info("Skipping Step 2: Context Extraction")
 
-    # 3. Wikidata Filtering/Classification
-    if not args.skip_filter:
-        logger.info("Starting Step 3: Wikidata Filtering...")
+    # 3. Link Classification
+    if not args.skip_classify:
+        logger.info("Starting Step 3: Wikidata Classification...")
         if not contexts_json.exists():
-            logger.error(f"Contexts file {contexts_json} not found. Cannot run filter.")
+            logger.error(
+                f"Contexts file {contexts_json} not found. Cannot run classification."
+            )
         else:
             process_links_with_wikidata(
                 input_file=str(contexts_json),
@@ -150,9 +161,9 @@ def main():
                 use_llm_fallback=args.use_llm_fallback,
             )
     else:
-        logger.info("Skipping Step 3: Wikidata Filtering")
+        logger.info("Skipping Step 3: Link Classification")
 
-    # 4. Apply Classifications
+    # 4. Apply Filtered and Classified Links
     if not args.skip_apply:
         logger.info("Starting Step 4: Applying Classifications to Markdown...")
         if not final_json.exists():
@@ -165,7 +176,7 @@ def main():
                 lang=args.lang,
             )
     else:
-        logger.info("Skipping Step 4: Applying Classifications")
+        logger.info("Skipping Step 4: Applying Filtered and Classified Links")
 
     logger.info("Pipeline execution finished.")
 

@@ -22,7 +22,6 @@ dependencies = [
     "llama-cpp-python>=0.3.16",
     "langchain-cerebras>=0.8.2",
     "spacy>=3.8.11",
-    "ru-core-news-sm",
 ]
 
 
@@ -35,7 +34,6 @@ explicit = true
 torch = { index = "pytorch-rocm" }
 torchvision = { index = "pytorch-rocm" }
 pytorch-triton-rocm = { index = "pytorch-rocm" }
-ru-core-news-sm = { url = "https://github.com/explosion/spacy-models/releases/download/ru_core_news_sm-3.8.0/ru_core_news_sm-3.8.0-py3-none-any.whl" }
 
 [tool.basedpyright]
 typeCheckingMode = "off"

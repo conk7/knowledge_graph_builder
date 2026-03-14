@@ -8,6 +8,8 @@ import torch
 from pydantic import BaseModel
 from tqdm import tqdm
 
+from src.shared.llm_service import LLMService
+
 from .config import (
     CHUNK_OVERLAP,
     CHUNK_SEPARATORS,
@@ -28,7 +30,6 @@ from .config import (
     VAULT_PATH,
 )
 from .embedding_service import EmbeddingService
-from src.shared.llm_service import LLMService
 from .metadata_manager import ChunkMetadata, FileMetadata, MetadataManager
 from .vault_manager import VaultManager
 from .vector_store import VectorStore
@@ -38,7 +39,7 @@ class NewlyAddedChunk(BaseModel):
     faiss_id: int
     content: str
     vector: np.ndarray
-    file_path: str  # Relative path
+    file_path: str
 
     class Config:
         arbitrary_types_allowed = True
@@ -90,8 +91,13 @@ class KnowledgeGraphBuilder:
     def _init_llm_service(self):
         if self.llm_service is None:
             logging.info("Loading LLM Service...")
-            from .config import LLM_BACKEND, LLM_CONCURRENCY, DEFAULT_LINK_TYPES
-            from .config import LLM_BACKEND, LLM_CONCURRENCY, DEFAULT_LINK_TYPES, LLM_N_BATCH
+            from .config import (
+                DEFAULT_LINK_TYPES,
+                LLM_BACKEND,
+                LLM_CONCURRENCY,
+                LLM_N_BATCH,
+            )
+
             self.llm_service = LLMService(
                 model_path=LLM_MODEL_PATH,
                 n_gpu_layers=LLM_N_GPU_LAYERS,

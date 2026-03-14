@@ -20,12 +20,10 @@ from pydantic import BaseModel, Field
 from tqdm import tqdm
 
 from .templates import (
-    HUMAN_TEMPLATE_FOR_LINKING,
-    HUMAN_TEMPLATE_FOR_RELEVANCE_CHECK,
-    SYSTEM_TEMPLATE_FOR_LINKING,
-    SYSTEM_TEMPLATE_FOR_RELEVANCE_CHECK,
-    SYSTEM_TEMPLATE_FOR_CONTEXT_LINKING,
-    HUMAN_TEMPLATE_FOR_CONTEXT_LINKING,
+    HUMAN_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING,
+    HUMAN_PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK,
+    SYSTEM_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING,
+    SYSTEM_PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK,
 )
 
 
@@ -152,8 +150,8 @@ class LLMService:
 
     def _create_structured_chain(
         self,
-        system_template: str,
-        human_template: str,
+        system_prompt: str,
+        human_prompt: str,
         schema: Type[BaseModel],
         partial_variables: Optional[Dict[str, Any]] = None,
     ) -> Any:
@@ -161,8 +159,8 @@ class LLMService:
 
         prompt = ChatPromptTemplate.from_messages(
             [
-                ("system", system_template),
-                ("human", human_template),
+                ("system", system_prompt),
+                ("human", human_prompt),
             ]
         )
         prompt = prompt.partial(
@@ -181,8 +179,8 @@ class LLMService:
 
     def _create_relevance_chain(self):
         return self._create_structured_chain(
-            system_template=SYSTEM_TEMPLATE_FOR_RELEVANCE_CHECK,
-            human_template=HUMAN_TEMPLATE_FOR_RELEVANCE_CHECK,
+            system_prompt=SYSTEM_PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK,
+            human_prompt=HUMAN_PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK,
             schema=Relevance,
             partial_variables={"link_types": self.default_link_types},
         )
@@ -240,10 +238,14 @@ class LLMService:
 
         return results
 
-    def _create_link_chain(self):
+    def _create_link_chain(
+        self,
+        system_prompt: str = SYSTEM_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING,
+        human_prompt: str = HUMAN_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING,
+    ):
         return self._create_structured_chain(
-            system_template=SYSTEM_TEMPLATE_FOR_LINKING,
-            human_template=HUMAN_TEMPLATE_FOR_LINKING,
+            system_prompt,
+            human_prompt,
             schema=Link,
         )
 
@@ -331,40 +333,58 @@ class LLMService:
 
         return results
 
-    
-    def _create_context_link_chain(self):
+    def _create_context_link_chain(
+        self,
+        system_prompt: str = SYSTEM_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING,
+        human_prompt: str = HUMAN_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING,
+    ):
         return self._create_structured_chain(
-            system_template=SYSTEM_TEMPLATE_FOR_CONTEXT_LINKING,
-            human_template=HUMAN_TEMPLATE_FOR_CONTEXT_LINKING,
+            system_prompt,
+            human_prompt,
             schema=Link,
         )
 
     def batch_classify_context_link(
         self,
-        contexts: List[Dict[str, str]],
+        contexts_data: List[Dict[str, Any]],
         relation_types: List[str],
         max_concurrency: Optional[int] = None,
     ) -> List[Optional[str]]:
-        if not contexts:
+        if not contexts_data:
             return []
 
         relation_types_str = ", ".join(relation_types)
-        formatted_inputs = [
-            {
-                "source_title": self._sanitize_text_input(item["source"]),
-                "target_title": self._sanitize_text_input(item["target"]),
-                "context": self._sanitize_text_input(item["context"]),
-                "relation_types": relation_types_str,
-            }
-            for item in contexts
-        ]
-        logging.debug(f"Classifying context links for a batch of {len(contexts)} items.")
+        formatted_inputs = []
+        for item in contexts_data:
+            raw_contexts = item.get("contexts", [])
+            if not raw_contexts:
+                formatted_contexts = "No context provided."
+            else:
+                formatted_contexts = "\n".join(
+                    [
+                        f"- {self._sanitize_text_input(c).replace('\n', ' ')}"
+                        for c in raw_contexts
+                    ]
+                )
+
+            formatted_inputs.append(
+                {
+                    "source_title": self._sanitize_text_input(item["source"]),
+                    "target_title": self._sanitize_text_input(item["target"]),
+                    "contexts": formatted_contexts,
+                    "relation_types": relation_types_str,
+                }
+            )
+
+        logging.debug(
+            f"Classifying context links for a batch of {len(contexts_data)} items."
+        )
 
         max_concurrency = max_concurrency or self.concurrency
         effective_concurrency = 1 if not self.use_api else max_concurrency
         config = RunnableConfig(max_concurrency=effective_concurrency)
-        
-        if not hasattr(self, '_context_link_chain'):
+
+        if not hasattr(self, "_context_link_chain"):
             self._context_link_chain = self._create_context_link_chain()
 
         results = []
@@ -381,7 +401,9 @@ class LLMService:
                         mini_batch, config=config, return_exceptions=True
                     )
                 except Exception as e:
-                    logging.error(f"Critical error in batch {i // max_concurrency}: {e}")
+                    logging.error(
+                        f"Critical error in batch {i // max_concurrency}: {e}"
+                    )
                     responses = [None] * len(mini_batch)
 
                 import traceback
@@ -399,11 +421,8 @@ class LLMService:
                         link_type = response.relation_type.lower()
                         sanitized_link = self._sanitize_model_response(link_type)
 
-                        if sanitized_link in relation_types:
+                        if sanitized_link != "no_link":
                             results.append(sanitized_link)
-                        else:
-                            logging.warning(f"Invalid relation type returned: {sanitized_link}")
-                            results.append(None)
                     except Exception as e:
                         logging.warning(f"Failed to parse LLM response: {e}")
                         results.append(None)

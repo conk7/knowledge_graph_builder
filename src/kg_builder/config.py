@@ -56,7 +56,6 @@ CHUNK_OVERLAP = 300
 CHUNK_SEPARATORS = ["\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
 
 INITIAL_RETRIEVAL_K = 15
-# SIMILARITY_DISTANCE_THRESHOLD = 5.0
 
 TAG_CONFIDENCE_THRESHOLD = 0.75
 FOLDER_CREATION_THRESHOLD = 3
@@ -67,49 +66,48 @@ FOLDER_CREATION_THRESHOLD = 3
 #
 DEFAULT_LINK_TEMPLATE = "{relation_type}:: [[{target_file_name}]]"
 
-# DEFAULT_LINK_TYPES = [
-#     "uses_concept",
-#     "developed_by",
-#     "precedes",
-#     "follows_from",
-#     "part_of",
-#     "contradicts",
-#     "defined_by",
-#     "analogous_to",
-#     "solves_problem",
-#     "mathematical_relation",
-#     "influenced_by",
-#     "named_after",
-#     "exemplifies",
-#     "inverse_of",
-#     "related_to",
-# ]
-
-# DEFAULT_LINK_EN2RU_TRANSLATION = {
-#     "uses_concept": "Использует понятие",
-#     "developed_by": "Разработано",
-#     "precedes": "Предшествует",
-#     "follows_from": "Следует из",
-#     "part_of": "Является частью",
-#     "contradicts": "Противоречит",
-#     "defined_by": "Определяется через",
-#     "analogous_to": "Аналогично",
-#     "solves_problem": "Решает проблему",
-#     "mathematical_relation": "Математически связано с",
-#     "influenced_by": "Попало под влияние",
-#     "named_after": "Названо в честь",
-#     "exemplifies": "Является примером",
-#     "inverse_of": "Является обратным для",
-#     "related_to": "Относится к",
-# }
-
-DEFAULT_LINK_TYPES = ["uses_concept", "uses_method", "discovered", "contradicts"]
+DEFAULT_LINK_TYPES = [
+    "Is a",
+    "Uses",
+    "Used",
+    "Discovered",
+    "Discovered by",
+    "Developed",
+    "Developed by",
+    "Precedes",
+    "Follows from",
+    "Part of",
+    "Solves problem",
+    "Influenced on",
+    "Influenced by",
+    "Exemplifies",
+    "Supports",
+    "Contradicts",
+    "Extends",
+    "Compared with",
+    "Mentions",
+]
 
 DEFAULT_LINK_EN2RU_TRANSLATION = {
-    "uses_concept": "Использует понятие",
-    "uses_method": "Использует метод из",
-    "discovered": "Открыло",
-    "contradicts": "Противоречит",
+    "Is a": "Является",
+    "Uses": "Использует",
+    "Used": "Использовано",
+    "Discovered": "Открыло",
+    "Discovered by": "Открыто",
+    "Developed": "Разработал(а)",
+    "Developed by": "Разработано",
+    "Precedes": "Предшествует",
+    "Follows from": "Следует из",
+    "Part of": "Является частью",
+    "Solves problem": "Решает проблему",
+    "Influenced on": "Повлияло на",
+    "Influenced by": "Попало под влияние",
+    "Exemplifies": "Является примером",
+    "Supports": "Подтверждает",
+    "Contradicts": "Противоречит",
+    "Extends": "Расширяет",
+    "Compared with": "Сравнивает с",
+    "Mentions": "Упоминает",
 }
 
 

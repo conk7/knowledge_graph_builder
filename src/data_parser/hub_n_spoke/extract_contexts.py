@@ -11,7 +11,6 @@ from .config import ExtractConfig
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-# Prepositions and particles that significantly affect meaning.
 MEANINGFUL_FUNCTION_WORDS = frozenset(
     {
         "без",
@@ -57,7 +56,7 @@ def load_nlp(lang: str = "ru"):
         "ru": "ru_core_news_sm",
         "en": "en_core_web_sm",
     }
-    model_name = model_map.get(lang, "ru_core_news_sm")
+    model_name = model_map.get(lang)
     try:
         return spacy.load(model_name)
     except OSError:
@@ -68,7 +67,6 @@ def load_nlp(lang: str = "ru"):
 
 
 def load_cross_encoder(model_name: str):
-    """Lazily load CrossEncoder only when needed."""
     from sentence_transformers import CrossEncoder
 
     logging.info(f"Loading cross-encoder model: {model_name}...")
@@ -77,20 +75,10 @@ def load_cross_encoder(model_name: str):
     return model
 
 
-# ---------------------------------------------------------------------------
-# Lemma extraction
-# ---------------------------------------------------------------------------
-
-
 def _extract_lemmas_and_head_from_doc(
     doc, keep_prepositions: bool = False
 ) -> Tuple[List[str], Optional[str]]:
-    """
-    Extracts significant lemmas and head word from a pre-processed spaCy Doc.
-    If keep_prepositions is True, tokens whose lemma is in MEANINGFUL_FUNCTION_WORDS
-    are kept alongside the standard POS tags (NOUN, ADJ, VERB, PROPN).
-    """
-    significant_pos = {"NOUN", "ADJ", "VERB", "PROPN"}
+    significant_pos = {"NOUN", "ADJ", "VERB", "PROPN", "NUM"}
     meaningful_tokens = [w for w in doc if w.pos_ in significant_pos]
 
     if keep_prepositions:
@@ -101,12 +89,10 @@ def _extract_lemmas_and_head_from_doc(
             and w not in meaningful_tokens
         ]
         meaningful_tokens.extend(preposition_tokens)
-        # Restore original token order
         meaningful_tokens.sort(key=lambda w: w.i)
 
-    # Fallback to all alpha tokens if no significant ones found
     if not meaningful_tokens:
-        meaningful_tokens = [w for w in doc if w.is_alpha]
+        meaningful_tokens = [w for w in doc if w.is_alpha or w.like_num]
 
     lemmas = [w.lemma_.lower() for w in meaningful_tokens]
 
@@ -114,7 +100,6 @@ def _extract_lemmas_and_head_from_doc(
     roots = [w for w in doc if w.dep_ == "ROOT" or w.head == w]
     if roots:
         head_lemma = roots[0].lemma_.lower()
-        # If head lemma is a stop word, fallback to first noun or first meaningful word
         if head_lemma not in lemmas and meaningful_tokens:
             nouns = [w for w in meaningful_tokens if w.pos_ in {"NOUN", "PROPN"}]
             if nouns:
@@ -125,24 +110,9 @@ def _extract_lemmas_and_head_from_doc(
     return lemmas, head_lemma
 
 
-def extract_lemmas_and_head(
-    phrase: str, nlp_model, keep_prepositions: bool = False
-) -> Tuple[List[str], Optional[str]]:
-    """
-    Extracts significant lemmas (NOUN, ADJ, VERB, PROPN) from a phrase
-    and identifies the head word.
-    """
-    phrase = phrase.replace("_", " ")
-    doc = nlp_model(phrase)
-    return _extract_lemmas_and_head_from_doc(doc, keep_prepositions=keep_prepositions)
-
-
 def batch_extract_lemmas_and_heads(
     phrases: List[str], nlp_model, keep_prepositions: bool = False
 ) -> List[Tuple[List[str], Optional[str]]]:
-    """
-    Batch version of extract_lemmas_and_head using nlp.pipe() for better performance.
-    """
     cleaned = [p.replace("_", " ") for p in phrases]
     return [
         _extract_lemmas_and_head_from_doc(doc, keep_prepositions=keep_prepositions)
@@ -150,21 +120,11 @@ def batch_extract_lemmas_and_heads(
     ]
 
 
-# ---------------------------------------------------------------------------
-# Matching strategies
-# ---------------------------------------------------------------------------
-
-
 def check_match_with_proximity(
     target_lemmas: List[str],
     target_head_lemma: Optional[str],
     sent_lemma_seq: List[str],
 ) -> bool:
-    """
-    Checks if target_lemmas closely match inside sent_lemma_seq within a specific window limit.
-    Requires 100% of lemmas if target has <=2 words, and at least 75% for 3+ words.
-    Also requires the head word to be present.
-    """
     if not target_lemmas:
         return False
 
@@ -176,22 +136,17 @@ def check_match_with_proximity(
 
     target_set = set(target_lemmas)
 
-    # Indices in the sentence where any target lemma appears
     match_indices = [i for i, lemma in enumerate(sent_lemma_seq) if lemma in target_set]
 
-    # Fast exit
     if len(set(sent_lemma_seq[i] for i in match_indices)) < required:
         return False
 
-    # Linear sliding window: maximum span of 15 tokens between first and last match
     end = 0
     for start in range(len(match_indices)):
-        # Advance end pointer to include all indices within the 15-token window
         while (
             end < len(match_indices) and match_indices[end] - match_indices[start] <= 15
         ):
             end += 1
-        # Check uniqueness in window [start, end)
         unique_lemmas = set(sent_lemma_seq[k] for k in match_indices[start:end])
         if len(unique_lemmas) >= required and (
             not target_head_lemma or target_head_lemma in unique_lemmas
@@ -206,52 +161,37 @@ def check_match_with_cross_encoder(
     link_phrase: str,
     sentences_info: List[Dict[str, Any]],
     threshold: float,
-) -> Optional[Tuple[str, float]]:
-    """
-    Uses a CrossEncoder reranker to find the best matching sentence for a link phrase.
-    Returns (sentence_text, score) if best score >= threshold, otherwise None.
-    """
+) -> List[Tuple[str, float]]:
     if not sentences_info:
-        return None
+        return []
 
     sentence_texts = [s["text"] for s in sentences_info]
     pairs = [[link_phrase, sent] for sent in sentence_texts]
 
     scores = cross_encoder.predict(pairs, show_progress_bar=False)
 
-    best_idx = int(scores.argmax())
-    best_score = float(scores[best_idx])
+    results = []
+    for idx, score in enumerate(scores):
+        if score >= threshold:
+            results.append((sentence_texts[idx], float(score)))
 
-    if best_score >= threshold:
-        return sentence_texts[best_idx], best_score
-
-    return None
-
-
-# ---------------------------------------------------------------------------
-# Text processing
-# ---------------------------------------------------------------------------
+    results.sort(key=lambda x: x[1], reverse=True)
+    return results
 
 
 def process_text_sentences(text: str, nlp_model) -> List[Dict[str, Any]]:
-    """
-    Parses the text, returns a list of dictionaries with sentence text and sequence of lemmas.
-    """
     doc = nlp_model(text)
     sentences_info = []
     for sent in doc.sents:
         sentences_info.append(
             {
                 "text": sent.text.strip(),
-                "lemmas": [w.lemma_.lower() for w in sent if w.is_alpha],
+                "lemmas": [
+                    w.lemma_.lower() for w in sent if not w.is_punct and not w.is_space
+                ],
             }
         )
     return sentences_info
-
-
-# ---------------------------------------------------------------------------
-# Main extraction pipeline
-# ---------------------------------------------------------------------------
 
 
 def extract_contexts(
@@ -259,13 +199,8 @@ def extract_contexts(
     output_json: Path,
     config: ExtractConfig,
 ) -> None:
-    """
-    Extract contexts for all valid links in the markdown vault.
-    Links not found in the main text body are ignored.
-    """
     nlp = load_nlp(config.language)
 
-    # Lazy-load cross-encoder only when needed
     cross_encoder = None
     if config.use_cross_encoder:
         cross_encoder = load_cross_encoder(config.cross_encoder_model)
@@ -285,7 +220,6 @@ def extract_contexts(
         main_text = parts[0].strip()
         links_block = parts[1].strip()
 
-        # Strip extraneous sections (См. также, Литература, etc.)
         stop_sections = [
             "См. также",
             "Литература",
@@ -318,13 +252,10 @@ def extract_contexts(
             )
             main_text = main_text[:min_idx].strip()
 
-        # Pre-evaluate sentences from main text
         sentences_info = process_text_sentences(main_text, nlp)
 
-        # Extract links (Obsidian format: [[Target]] or [[Target|Alias]])
         links = re.findall(r"\[\[(.*?)\]\]", links_block)
 
-        # Parse link targets and aliases
         parsed_links = []
         for link_str in links:
             if "|" in link_str:
@@ -333,7 +264,6 @@ def extract_contexts(
                 target, alias = link_str, None
             parsed_links.append((target, alias))
 
-        # Pre-compute lemmas for proximity matching
         phrases_to_process: List[str] = []
         phrase_to_idx: Dict[str, int] = {}
         phrase_lemmas: Dict[str, Tuple[List[str], Optional[str]]] = {}
@@ -352,46 +282,59 @@ def extract_contexts(
                 phrase: batch_results[idx] for phrase, idx in phrase_to_idx.items()
             }
 
-        # Match links against sentences
         valid_links = []
         for target, alias in parsed_links:
-            context = None
-            score = None
+            found_contexts = []
             candidates = [alias, target] if alias and alias != target else [target]
 
             if config.use_cross_encoder:
-                # Run all candidates through cross-encoder, pick best score
-                best_score = -1.0
+                all_candidates_results = []
                 for phrase in candidates:
-                    result = check_match_with_cross_encoder(
+                    results = check_match_with_cross_encoder(
                         cross_encoder,
                         phrase,
                         sentences_info,
                         config.cross_encoder_threshold,
                     )
-                    if result and result[1] > best_score:
-                        context, score = result
-                        best_score = result[1]
+                    all_candidates_results.extend(results)
+
+                unique_results = {}
+                for text, score in all_candidates_results:
+                    if text not in unique_results or score > unique_results[text]:
+                        unique_results[text] = score
+
+                sorted_results = sorted(
+                    unique_results.items(), key=lambda x: x[1], reverse=True
+                )
+                for text, score in sorted_results[: config.max_contexts]:
+                    found_contexts.append({"text": text, "score": score})
             else:
-                # Proximity matching: try alias first, then target
+                seen_texts = set()
                 for phrase in candidates:
                     lemmas, head = phrase_lemmas[phrase]
                     for sent_info in sentences_info:
+                        if len(found_contexts) >= config.max_contexts:
+                            break
+                        if sent_info["text"] in seen_texts:
+                            continue
+
                         if check_match_with_proximity(
                             lemmas, head, sent_info["lemmas"]
                         ):
-                            context = sent_info["text"]
-                            break
-                    if context:
+                            found_contexts.append(
+                                {"text": sent_info["text"], "score": None}
+                            )
+                            seen_texts.add(sent_info["text"])
+
+                    if len(found_contexts) >= config.max_contexts:
                         break
 
-            if context:
+            if found_contexts:
                 valid_links.append(
                     {
                         "target": target,
-                        "context": context,
-                        "score": score,
-                        "relation_type": None,  # To be filled by classifier
+                        "contexts": found_contexts,
+                        "relation_type": None,
                     }
                 )
 

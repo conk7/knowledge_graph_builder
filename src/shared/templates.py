@@ -1,4 +1,4 @@
-SYSTEM_TEMPLATE_FOR_LINKING = """You are an expert Knowledge Graph Architect.
+SYSTEM_PROMPT_TEMPLATE_FOR_LINKING = """You are an expert Knowledge Graph Architect.
 Your task is to analyze the semantic relationship between two document excerpts from a personal knowledge base (Obsidian).
 
 You must determine the most appropriate relationship type from Document A to Document B.
@@ -17,7 +17,7 @@ You must determine the most appropriate relationship type from Document A to Doc
 }}"""
 
 
-HUMAN_TEMPLATE_FOR_LINKING = """Analyze the relationship between the two documents and provide your response in the required JSON format.
+HUMAN_PROMPT_TEMPLATE_FOR_LINKING = """Analyze the relationship between the two documents and provide your response in the required JSON format.
 
 ### Document A
 **Filename:** {filename_a}
@@ -36,7 +36,7 @@ HUMAN_TEMPLATE_FOR_LINKING = """Analyze the relationship between the two documen
 Analyze the context (filenames and content) and determine the link."""
 
 
-SYSTEM_TEMPLATE_FOR_RELEVANCE_CHECK = """You are a relevance analysis expert. Your task is to determine if a meaningful, non-trivial semantic link exists between two documents.
+SYSTEM_PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK = """You are a relevance analysis expert. Your task is to determine if a meaningful, non-trivial semantic link exists between two documents.
 
 A trivial link is one of just "similarity". A meaningful link could be {link_types}, etc.
 
@@ -45,7 +45,7 @@ Think step-by-step and then conclude your answer.
 {format_instructions}"""
 
 
-HUMAN_TEMPLATE_FOR_RELEVANCE_CHECK = """Determine if a meaningful, non-trivial semantic link exists between Document A and Document B.
+HUMAN_PROMPT_TEMPLATE_FOR_RELEVANCE_CHECK = """Determine if a meaningful, non-trivial semantic link exists between Document A and Document B.
 
 Document A:
 ---
@@ -57,13 +57,14 @@ Document B:
 {text_b}
 ---"""
 
-SYSTEM_TEMPLATE_FOR_CONTEXT_LINKING = """You are an expert Knowledge Graph Architect.
+SYSTEM_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING = """You are an expert Knowledge Graph Architect.
 Your task is to analyze a short context from an encyclopedia article and determine the semantic relationship between the source article and the target article mentioned in the context.
 
-You must determine the most appropriate relationship type from the Source Article to the Target Article based ONLY on the provided context.
+You must determine the most appropriate relationship type from the Source Article to the Target Article based on the provided context.
 
-### Available Relation Types:
+### Examples of Relation Types:
 {relation_types}
+(Note: You are not limited with provided types)
 (Note: Use 'no_link' if the relationship is not clear or the connection is too weak).
 
 ### Formatting Instructions:
@@ -75,14 +76,14 @@ You must determine the most appropriate relationship type from the Source Articl
     "relation_type": "solves_problem"
 }}"""
 
-HUMAN_TEMPLATE_FOR_CONTEXT_LINKING = """Analyze the context to determine the relationship between the Source Article and Target Article. Provide your response in the required JSON format.
+HUMAN_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING = """Analyze the provided context(s) to determine the relationship between the Source Article and Target Article. Provide your response in the required JSON format.
 
 **Source Article:** {source_title}
 **Target Article:** {target_title}
 
-**Context (where Target Article is mentioned):**
-"{context}"
+**Contexts (where Target Article is mentioned):**
+{contexts}
 
 ---
 
-Analyze the context and determine the link."""
+Analyze the context(s) and determine the link."""
