@@ -5,6 +5,8 @@ from typing import List, Tuple
 import faiss
 import numpy as np
 
+logger = logging.getLogger(__name__)
+
 
 class VectorStore:
     def __init__(self, index_path: Path, dimension: int):
@@ -13,19 +15,19 @@ class VectorStore:
 
         try:
             if self.index_path.exists():
-                logging.info(f"Loading existing FAISS index from: {self.index_path}")
+                logger.info(f"Loading existing FAISS index from: {self.index_path}")
                 self.index = faiss.read_index(str(self.index_path))
 
                 if self.index.d != self.dimension:
-                    logging.error(
+                    logger.error(
                         f"Index dimension mismatch! Expected {self.dimension}, got {self.index.d}. Re-creating index."
                     )
                     self._create_new_index()
             else:
-                logging.info("No FAISS index found. Creating a new one.")
+                logger.info("No FAISS index found. Creating a new one.")
                 self._create_new_index()
         except Exception as e:
-            logging.error(
+            logger.error(
                 f"Failed to load or create FAISS index: {e}. Re-creating index."
             )
             self._create_new_index()
@@ -37,7 +39,7 @@ class VectorStore:
     def save(self):
         self.index_path.parent.mkdir(parents=True, exist_ok=True)
 
-        logging.info(f"Saving FAISS index to: {self.index_path}")
+        logger.info(f"Saving FAISS index to: {self.index_path}")
         faiss.write_index(self.index, str(self.index_path))
 
     def add(self, vectors: np.ndarray, ids: List[int]):
@@ -49,7 +51,7 @@ class VectorStore:
 
         id_array = np.array(ids, dtype=np.int64)
         self.index.add_with_ids(vectors, id_array)
-        logging.debug(f"Added {len(vectors)} vectors to the index.")
+        logger.debug(f"Added {len(vectors)} vectors to the index.")
 
     def remove(self, ids_to_remove: List[int]) -> int:
         if not ids_to_remove:
@@ -59,7 +61,7 @@ class VectorStore:
         num_removed = self.index.remove_ids(selector)
 
         if num_removed > 0:
-            logging.debug(f"Removed {num_removed} vectors from the index.")
+            logger.debug(f"Removed {num_removed} vectors from the index.")
         return num_removed
 
     def search(self, query_vector: np.ndarray, k: int) -> Tuple[List[float], List[int]]:

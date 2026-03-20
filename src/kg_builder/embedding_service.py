@@ -5,6 +5,8 @@ import numpy as np
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import CrossEncoder, SentenceTransformer
 
+logger = logging.getLogger(__name__)
+
 
 class EmbeddingService:
     def __init__(
@@ -15,13 +17,13 @@ class EmbeddingService:
         chunk_overlap: int,
         separators: List[str],
     ):
-        logging.info(f"Loading embedding model: {embedding_model_name}...")
+        logger.info(f"Loading embedding model: {embedding_model_name}...")
         self.model = SentenceTransformer(embedding_model_name)
-        logging.info("Embedding model loaded successfully.")
+        logger.info("Embedding model loaded successfully.")
 
-        logging.info(f"Loading reranker model: {reranker_model_name}...")
+        logger.info(f"Loading reranker model: {reranker_model_name}...")
         self.reranker = CrossEncoder(reranker_model_name)
-        logging.info("Reranker model loaded successfully.")
+        logger.info("Reranker model loaded successfully.")
 
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=chunk_size,

@@ -1,0 +1,183 @@
+\documentclass{article}
+
+\usepackage[left=30mm,right=10mm,top=20mm,bottom=20mm,papersize={210mm,297mm}]{geometry}
+
+% межстрочный интервал
+\linespread{1.5}
+
+% top page pagination
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\fancyhead[C]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+% times new roman support
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+% more font sizes
+\usepackage{scrextend}
+
+% Formatting TOC
+\usepackage{tocloft}
+\renewcommand{\cftsecfont}{\normalfont\mdseries}% titles in non-bold
+\renewcommand{\cftsecpagefont}{\normalfont\mdseries}% page numbers in non-bold
+\renewcommand{\cftsecleader}{\mdseries\cftdotfill{\cftdotsep}}% dot leaders in non-bold
+% \renewcommand{\cftsecnumwidth}{0pt} % Remove section numbers
+% \renewcommand{\cftsecindent}{0pt} % Remove indentation for sections
+\renewcommand{\contentsname}{}
+% \setlocalecaption{russian}{contents}{}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\center\bfseries\uppercase}{}{0em}{}
+\titleformat{\subsection}{\normalfont\center\bfseries}{\thesubsection}{0.5em}{}
+% \titlespacing{\section}{0pt}{0.2\baselineskip}{0.2\baselineskip}
+% \titlespacing{\subsection}{0pt}{0.2\baselineskip}{0.2\baselineskip}
+
+% remove footnote margin
+\usepackage{footmisc}
+\usepackage{url}
+\urlstyle{same}
+
+% tables support
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{tablefootnote}
+\usepackage{caption} 
+% custom captions
+\renewcommand{\figurename}{Рис.}
+\renewcommand{\tablename}{Таблица}
+\captionsetup[table]{labelsep=endash,justification=centering,singlelinecheck=false,font=normalsize}
+\captionsetup[figure]{labelsep=endash,justification=centering,singlelinecheck=false,font=normalsize}
+
+% image support
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+% math symbols (R, C, N)
+\usepackage{amssymb}
+
+
+% plots
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.17}
+
+
+% disable hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% prevent footnote spreading onto next page
+\interfootnotelinepenalty=10000
+
+% не курсивных текст в формулах через \text{}
+\usepackage{amsmath}
+
+% [1] нумерация в списке литературы
+\usepackage{enumitem}
+
+% =============================================
+
+
+\title{CourseWork}
+\author{}
+\date{}
+
+\begin{document}
+
+% абзацный отступ
+\setlength{\parindent}{35pt}
+% remove footnote margin
+\setlength{\footnotemargin}{5pt}
+% text justification
+\sloppy
+\frenchspacing % fixes double spaces after commas
+
+\thispagestyle{empty}
+\begin{center}
+    \KOMAoption{fontsize}{13pt}
+
+    ФЕДЕРАЛЬНОЕ  ГОСУДАРСТВЕННОЕ АВТОНОМНОЕ ОБРАЗОВАТЕЛЬНОЕ
+    УЧРЕЖДЕНИЕ \\
+    ВЫСШЕГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ \\
+    «НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\
+    «ВЫСШАЯ ШКОЛА ЭКОНОМИКИ»
+
+    \bigbreak
+    \bigbreak
+
+    \textbf{Факультет информатики, математики и компьютерных наук} \\
+    \textbf{Программа подготовки бакалавров по направлению} \\
+    \textbf{01.03.02 Прикладная математика и информатика} \\
+
+    \bigbreak
+    \bigbreak
+
+    \textit{Тюрин Владислав Николаевич} \\
+
+    \KOMAoption{fontsize}{14pt}
+    \textbf{ДИПЛОМНАЯ РАБОТА} \\
+
+    \KOMAoption{fontsize}{16pt}
+    Построение графа знаний на основе пользовательских данных с возможностью экспорта в Obsidian
+\end{center}
+
+\KOMAoption{fontsize}{14pt} % font size = 14
+\renewcommand{\footnotesize}{\fontsize{14pt}{14pt}\selectfont} % footnote font size = 14
+\vspace{10pt}
+
+\begin{flushright}
+    Научный руководитель \\
+    Приглашенный преподаватель \\
+    \underline{\hspace{5cm}} \\
+    В. М. Кочеганов
+\end{flushright}
+
+\begin{center}
+    \vspace*{\fill}
+    Нижний Новгород, 2026
+\end{center}
+
+
+\newpage
+
+\begin{center}
+    \textbf{ОГЛАВЛЕНИЕ}
+\end{center}
+
+\tocloftpagestyle{fancy}
+\tableofcontents
+
+
+\newpage
+
+\input{text/0_Введение.tex}
+
+% \input{text/1.1_Модальности_Данных.tex}
+
+% \input{text/1.2_Обзор_датасетов.tex}
+
+% \input{text/1.3_Разработка_Модели.tex}
+
+% \input{text/1.4_Слияние.tex}
+
+% \input{text/2.1_Выбор_датасета.tex}
+
+% \input{text/2.2_Поиск_решений.tex}
+
+% \input{text/2.3_Эксперименты.tex}
+
+% \input{text/3_Заключение.tex}
+
+% \input{text/4_Литература.tex}
+
+
+\end{document}

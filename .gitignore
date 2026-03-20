@@ -12,12 +12,14 @@ wheels/
 datasets/external_datasets_backup.zip
 datasets/external
 datasets/0. Raw
+datasets/1. Toy
 datasets/2. Real
+datasets/3. Complex
 testfield/
 Test_Vault/
 notes/
 *.env
-parsed_data/
+src/data_parser/parsers
 
 .obsidian/
 .ai_meta/
