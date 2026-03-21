@@ -68,6 +68,11 @@ def main():
         help="Use an external API for LLM classification instead of a local model",
     )
     run_parser.add_argument(
+        "--ignore-local-config",
+        action="store_true",
+        help="Ignore saved hyperparameters in the vault and use local config.py instead",
+    )
+    run_parser.add_argument(
         "--export-path",
         type=str,
         help="Target path for exporting the enriched vault (only used in 'export' mode)",
@@ -129,6 +134,7 @@ def main():
             vault_path=vault_path,
             ignored_dirs=ignored_paths,
             fresh_start=args.fresh_start,
+            ignore_local_config=args.ignore_local_config,
             use_api=args.api,
             save_mode=save_mode,
             export_path=export_path,

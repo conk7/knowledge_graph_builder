@@ -5,9 +5,9 @@ from pathlib import Path
 # DIRS
 #
 META_DIR_NAME = ".ai_meta"
-INDEX_FILE_NAME = "index.faiss"
 METADATA_FILE_NAME = "metadata.json"
 LINKS_FILE_NAME = "links.json"
+LOG_FILE_NAME = "obsidian_ai_linker.log"
 
 #
 # EMBEDDING MODEL
@@ -47,12 +47,14 @@ CHUNK_OVERLAP = 300
 CHUNK_SEPARATORS = ["\n# ", "\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
 
 INITIAL_RETRIEVAL_K = 25
+VECTOR_SEARCH_WEIGHT = 0.0
 
 
 #
 # LINKS
 #
-DEFAULT_LINK_TEMPLATE = "{relation_type}:: [[{target_file_name}]]"
+DEFAULT_LINK_TEMPLATE = "- {relation_type}:: [[{target_file_name}]]"
+LINK_HEADER = "\n\n## Related Connections\n\n"
 
 DEFAULT_LINK_TYPES = [
     "Is a",
@@ -69,8 +71,6 @@ DEFAULT_LINK_TYPES = [
     "Mentions",
 ]
 
-LINK_HEADER = "\n\n## Related Connections\n\n"
-
 
 #
 # LOGGING DEFAULTS
@@ -83,7 +83,7 @@ LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"
 def setup_logging(vault_path: Path, log_level: str = DEFAULT_LOG_LEVEL):
     meta_dir = vault_path / ".ai_meta"
     meta_dir.mkdir(parents=True, exist_ok=True)
-    log_file = meta_dir / "obsidian_ai_linker.log"
+    log_file = meta_dir / LOG_FILE_NAME
 
     _resolved_level = getattr(logging, log_level.upper(), logging.INFO)
 

@@ -6,7 +6,6 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-import numpy as np
 import torch
 from pydantic import BaseModel
 from tqdm import tqdm
@@ -20,8 +19,8 @@ from .config import (
     DEFAULT_LINK_TYPES,
     EMBEDDING_DIMENSION,
     EMBEDDING_MODEL_NAME,
-    INDEX_FILE_NAME,
     INITIAL_RETRIEVAL_K,
+    LINK_HEADER,
     LINKS_FILE_NAME,
     LLM_BACKEND,
     LLM_CONCURRENCY,
@@ -30,14 +29,27 @@ from .config import (
     LLM_N_CTX,
     LLM_N_GPU_LAYERS,
     LLM_TEMPERATURE,
+    LLM_TOP_P,
+    LOG_FILE_NAME,
     META_DIR_NAME,
     METADATA_FILE_NAME,
     RERANKER_MODEL_NAME,
     RERANKER_THRESHOLD,
     RERANKER_TOP_K,
+    VECTOR_SEARCH_WEIGHT,
 )
-from .embedding_service import EmbeddingService
-from .metadata_manager import ChunkMetadata, FileMetadata, MetadataManager, RunStage
+from .metadata_manager import (
+    ChunkingSnapshot,
+    EmbeddingSnapshot,
+    FileMetadata,
+    LlmSnapshot,
+    MetadataManager,
+    ModelsSnapshot,
+    RerankerSnapshot,
+    RetrievalSnapshot,
+    RunStage,
+    RuntimeSnapshot,
+)
 from .vault_manager import VaultManager
 from .vector_store import VectorStore
 
@@ -51,10 +63,7 @@ class SaveMode(Enum):
 
 
 class NewlyAddedChunk(BaseModel):
-    faiss_id: int
-    chunk_index: int
     content: str
-    vector: np.ndarray
     file_path: str
 
     class Config:
@@ -67,6 +76,7 @@ class KnowledgeGraphBuilder:
         vault_path: Path,
         ignored_dirs: List[Path] = None,
         fresh_start: bool = False,
+        ignore_local_config: bool = False,
         use_api: bool = False,
         save_mode: SaveMode = SaveMode.INPLACE,
         export_path: Optional[Path] = None,
@@ -74,7 +84,7 @@ class KnowledgeGraphBuilder:
     ):
         self.vault_path = vault_path
         self.meta_dir = self.vault_path / META_DIR_NAME
-        self.index_path = self.meta_dir / INDEX_FILE_NAME
+        self.index_path = self.meta_dir
         self.metadata_path = self.meta_dir / METADATA_FILE_NAME
 
         self.save_mode = save_mode
@@ -83,64 +93,95 @@ class KnowledgeGraphBuilder:
         )
         self.output_json_path = output_json_path or (self.meta_dir / LINKS_FILE_NAME)
 
+        self.use_api = use_api
+        self.metadata_manager = MetadataManager(self.metadata_path)
+
+        current_config = self._resolve_runtime_config(fresh_start, ignore_local_config)
+        self.runtime_config: RuntimeSnapshot = current_config
+
         ignored = ignored_dirs or []
         if self.meta_dir not in ignored:
             ignored.append(self.meta_dir)
 
         self.vault_manager = VaultManager(
-            vault_path=self.vault_path, ignored_dirs=ignored
+            vault_path=self.vault_path,
+            ignored_dirs=ignored,
+            link_header=current_config.link_header,
         )
 
-        self.embedding_service = None
         self.llm_service = None
-        self.use_api = use_api
 
         if fresh_start:
             logger.info("Fresh start.")
+            self.metadata_manager.clear_metadata()
             self._purge_meta_dir_files()
             all_files = self.vault_manager.scan_markdown_files()
             self.vault_manager.clear_all_ai_links(all_files)
 
-        self.metadata_manager = MetadataManager(self.metadata_path)
         self.vector_store = VectorStore(
-            index_path=self.index_path, dimension=EMBEDDING_DIMENSION
+            index_path=self.index_path,
+            embedding_model_name=current_config.models.embedding.model_name,
+            reranker_model_name=current_config.models.reranker.model_name,
+            chunk_size=current_config.chunking.chunk_size,
+            chunk_overlap=current_config.chunking.chunk_overlap,
+            separators=current_config.chunking.separators,
+            vector_weight=current_config.retrieval.vector_search_weight,
+            fresh_start=fresh_start,
         )
 
-        self.metadata_manager.set_runtime_snapshot(
-            {
-                "chunking": {
-                    "chunk_size": CHUNK_SIZE,
-                    "chunk_overlap": CHUNK_OVERLAP,
-                    "separators": CHUNK_SEPARATORS,
-                },
-                "retrieval": {
-                    "initial_retrieval_k": INITIAL_RETRIEVAL_K,
-                },
-                "models": {
-                    "embedding": {
-                        "model_name": EMBEDDING_MODEL_NAME,
-                        "dimension": EMBEDDING_DIMENSION,
-                    },
-                    "reranker": {
-                        "model_name": RERANKER_MODEL_NAME,
-                        "top_k": RERANKER_TOP_K,
-                        "threshold": RERANKER_THRESHOLD,
-                    },
-                    "llm": {
-                        "use_api": self.use_api,
-                        "model_path": str(LLM_MODEL_PATH),
-                        "backend": LLM_BACKEND,
-                        "temperature": LLM_TEMPERATURE,
-                        "n_gpu_layers": LLM_N_GPU_LAYERS,
-                        "n_ctx": LLM_N_CTX,
-                        "n_batch": LLM_N_BATCH,
-                        "concurrency": LLM_CONCURRENCY,
-                    },
-                },
-            }
-        )
+        self.metadata_manager.set_runtime_snapshot(current_config)
 
         logger.info(f"Successfully inited graph builder for: {self.vault_path}")
+
+    def _resolve_runtime_config(
+        self, fresh_start: bool, ignore_local_config: bool
+    ) -> RuntimeSnapshot:
+        local_config = RuntimeSnapshot(
+            chunking=ChunkingSnapshot(
+                chunk_size=CHUNK_SIZE,
+                chunk_overlap=CHUNK_OVERLAP,
+                separators=CHUNK_SEPARATORS,
+            ),
+            retrieval=RetrievalSnapshot(
+                initial_retrieval_k=INITIAL_RETRIEVAL_K,
+                vector_search_weight=VECTOR_SEARCH_WEIGHT,
+            ),
+            models=ModelsSnapshot(
+                embedding=EmbeddingSnapshot(
+                    model_name=EMBEDDING_MODEL_NAME,
+                    dimension=EMBEDDING_DIMENSION,
+                ),
+                reranker=RerankerSnapshot(
+                    model_name=RERANKER_MODEL_NAME,
+                    top_k=RERANKER_TOP_K,
+                    threshold=RERANKER_THRESHOLD,
+                ),
+                llm=LlmSnapshot(
+                    use_api=self.use_api,
+                    model_path=str(LLM_MODEL_PATH),
+                    backend=LLM_BACKEND,
+                    temperature=LLM_TEMPERATURE,
+                    top_p=LLM_TOP_P,
+                    n_gpu_layers=LLM_N_GPU_LAYERS,
+                    n_ctx=LLM_N_CTX,
+                    n_batch=LLM_N_BATCH,
+                    concurrency=LLM_CONCURRENCY,
+                ),
+            ),
+            link_header=LINK_HEADER,
+        )
+
+        if fresh_start or ignore_local_config:
+            logger.info("Using hyperparameters from config.py.")
+            return local_config
+
+        saved_snapshot = self.metadata_manager.run_state.runtime_snapshot
+        if not saved_snapshot:
+            logger.info("No saved hyperparameters found. Using config.py.")
+            return local_config
+
+        logger.info("Restoring hyperparameters from saved metadata (run_state.json).")
+        return saved_snapshot
 
     def _purge_meta_dir_files(self):
         if not self.meta_dir.exists():
@@ -149,6 +190,8 @@ class KnowledgeGraphBuilder:
         try:
             for p in sorted(self.meta_dir.rglob("*"), reverse=True):
                 if p.is_file() or p.is_symlink():
+                    if p.name == LOG_FILE_NAME:
+                        continue
                     try:
                         p.unlink()
                     except OSError as e:
@@ -163,36 +206,20 @@ class KnowledgeGraphBuilder:
         except Exception as e:
             logger.warning(f"Failed to purge meta dir {self.meta_dir}: {e}")
 
-    def _init_embedding_service(self):
-        if self.embedding_service is None:
-            logger.info("Loading Embedding Service...")
-            self.embedding_service = EmbeddingService(
-                embedding_model_name=EMBEDDING_MODEL_NAME,
-                reranker_model_name=RERANKER_MODEL_NAME,
-                chunk_size=CHUNK_SIZE,
-                chunk_overlap=CHUNK_OVERLAP,
-                separators=CHUNK_SEPARATORS,
-            )
-
-    def _unload_embedding_service(self):
-        if self.embedding_service:
-            logger.info("Unloading Embedding Service...")
-            del self.embedding_service
-            self.embedding_service = None
-            torch.cuda.empty_cache()
-
     def _init_llm_service(self):
         if self.llm_service is None:
             logger.info("Loading LLM Service...")
+            llm_cfg = self.runtime_config.models.llm
             self.llm_service = LLMService(
-                model_path=LLM_MODEL_PATH,
-                n_gpu_layers=LLM_N_GPU_LAYERS,
-                n_ctx=LLM_N_CTX,
-                n_batch=LLM_N_BATCH,
-                temperature=LLM_TEMPERATURE,
-                use_api=self.use_api,
-                backend=LLM_BACKEND,
-                concurrency=LLM_CONCURRENCY,
+                model_path=Path(llm_cfg.model_path),
+                n_gpu_layers=llm_cfg.n_gpu_layers,
+                n_ctx=llm_cfg.n_ctx,
+                n_batch=llm_cfg.n_batch,
+                temperature=llm_cfg.temperature,
+                top_p=llm_cfg.top_p,
+                use_api=llm_cfg.use_api,
+                backend=llm_cfg.backend,
+                concurrency=llm_cfg.concurrency,
                 default_link_types=DEFAULT_LINK_TYPES,
             )
 
@@ -249,8 +276,6 @@ class KnowledgeGraphBuilder:
 
             self._process_removals(files_to_update + files_to_remove)
 
-            self._init_embedding_service()
-
             new_chunks_data = self._process_additions_and_updates(
                 files_to_add + files_to_update
             )
@@ -268,8 +293,6 @@ class KnowledgeGraphBuilder:
             else:
                 self.metadata_manager.set_stage(RunStage.NO_CANDIDATES)
                 self.metadata_manager.save()
-
-            self._unload_embedding_service()
 
             if texts:
                 self.metadata_manager.set_stage(
@@ -336,22 +359,17 @@ class KnowledgeGraphBuilder:
             return
         logger.info(f"Processing {len(files_to_process)} updated/deleted files...")
 
-        all_ids_to_remove = []
         for file_path in files_to_process:
             rel_path_str = str(file_path.relative_to(self.vault_path))
-            ids = self.metadata_manager.remove_file_record(rel_path_str)
-            all_ids_to_remove.extend(ids)
-
-        if all_ids_to_remove:
-            self.vector_store.remove(all_ids_to_remove)
-            logger.info(f"Deleted {len(all_ids_to_remove)} vectors from index storage.")
+            self.metadata_manager.remove_file_record(rel_path_str)
+            self.vector_store.remove_document(rel_path_str)
 
     def _process_additions_and_updates(
         self, files_to_process: List[Path]
-    ) -> List[Dict]:
+    ) -> List[NewlyAddedChunk]:
         if not files_to_process:
             return []
-        logger.info(f"Indexing {len(files_to_process)} new/updated files...")
+        logger.info(f"Indexing/Retrieving {len(files_to_process)} files...")
 
         newly_added_chunks = []
         for file_path in files_to_process:
@@ -360,45 +378,22 @@ class KnowledgeGraphBuilder:
             if not content:
                 continue
 
-            chunks = self.embedding_service.chunk_text(content)
-            if not chunks:
+            file_hash = self.vault_manager.calculate_file_hash(file_path)
+            chunk_texts = self.vector_store.get_and_update_file_chunks(
+                rel_path_str, content, file_hash
+            )
+
+            if not chunk_texts:
                 continue
 
-            embeddings = self.embedding_service.get_embeddings(chunks)
-            file_hash = self.vault_manager.calculate_file_hash(file_path)
-
-            chunk_records: List[ChunkMetadata] = []
-            ids_to_add = []
-
-            for i, chunk_text in enumerate(chunks):
-                new_faiss_id = self.metadata_manager.generate_new_faiss_id()
-                chunk_meta = ChunkMetadata(
-                    faiss_id=new_faiss_id,
-                    chunk_index=i,
-                    text_preview=chunk_text[:100].replace("\n", " ") + "...",
-                )
-                chunk_records.append(chunk_meta)
-                ids_to_add.append(new_faiss_id)
-
+            for chunk_text in chunk_texts:
                 newly_added_chunks.append(
-                    NewlyAddedChunk(
-                        faiss_id=new_faiss_id,
-                        chunk_index=i,
-                        content=chunk_text,
-                        vector=embeddings[i],
-                        file_path=rel_path_str,
-                    )
+                    NewlyAddedChunk(content=chunk_text, file_path=rel_path_str)
                 )
 
-            self.vector_store.add(embeddings, ids_to_add)
-
-            file_meta = FileMetadata(
-                file_path=rel_path_str, hash=file_hash, chunks=chunk_records
-            )
+            file_meta = FileMetadata(file_path=rel_path_str, hash=file_hash)
             self.metadata_manager.add_or_update_file_record(file_meta)
-            logger.info(
-                f"Successfully indexed '{file_path.name}' ({len(chunks)} chunks)."
-            )
+            logger.info(f"Processed '{file_path.name}' ({len(chunk_texts)} chunks).")
 
         return newly_added_chunks
 
@@ -417,57 +412,42 @@ class KnowledgeGraphBuilder:
         all_metadata = []
         pending_pairs: List[Dict[str, Any]] = []
         pbar = tqdm(new_chunks_data, total=len(new_chunks_data), leave=False)
+
+        retrieval_k = self.runtime_config.retrieval.initial_retrieval_k
+        reranker_top_k = self.runtime_config.models.reranker.top_k
+        reranker_threshold = self.runtime_config.models.reranker.threshold
+
         for curr_chunk in pbar:
             pbar.set_description(f"Processing '{curr_chunk.file_path}'")
 
-            distances, other_chunk_ids = self.vector_store.search(
-                curr_chunk.vector, INITIAL_RETRIEVAL_K
-            )
+            search_results = self.vector_store.search(curr_chunk.content, retrieval_k)
 
             candidates_map = {}
             candidate_texts = []
 
-            for distance, other_chunk_id in zip(distances, other_chunk_ids):
-                if other_chunk_id == curr_chunk.faiss_id:
+            for result in search_results:
+                other_text = result["text"]
+                other_file_path = result["file_path"]
+                distance = result.get("_distance", 0.0)
+
+                if other_file_path == curr_chunk.file_path:
                     continue
 
-                other_chunk_info = self.metadata_manager.get_chunk_info_by_faiss_id(
-                    other_chunk_id
-                )
-                if (
-                    not other_chunk_info
-                    or other_chunk_info["file_path"] == curr_chunk.file_path
-                ):
-                    continue
-
-                other_file_path = self.vault_path / other_chunk_info["file_path"]
-                other_full_content = self.vault_manager.get_file_content(
-                    other_file_path
-                )
-                other_chunks = self.embedding_service.chunk_text(other_full_content)
-                other_chunk_index = other_chunk_info["chunk_index"]
-
-                if other_chunk_index >= len(other_chunks):
-                    continue
-
-                other_text = other_chunks[other_chunk_index]
-
-                candidate_texts.append(other_text)
-                candidates_map[other_text] = {
-                    "file_path": other_chunk_info["file_path"],
-                    "faiss_id": other_chunk_id,
-                    "chunk_index": other_chunk_index,
-                    "vector_distance": distance,
-                }
+                if other_text not in candidates_map:
+                    candidate_texts.append(other_text)
+                    candidates_map[other_text] = {
+                        "file_path": other_file_path,
+                        "vector_distance": distance,
+                    }
 
             if not candidate_texts:
                 continue
 
-            reranked_results = self.embedding_service.rerank(
+            reranked_results = self.vector_store.rerank(
                 query=curr_chunk.content,
                 candidates=candidate_texts,
-                top_k=RERANKER_TOP_K,
-                threshold=RERANKER_THRESHOLD,
+                top_k=reranker_top_k,
+                threshold=reranker_threshold,
             )
 
             for text, score in reranked_results:
@@ -484,10 +464,6 @@ class KnowledgeGraphBuilder:
                     {
                         "path_a": Path(curr_chunk.file_path),
                         "path_b": Path(meta["file_path"]),
-                        "source_faiss_id": curr_chunk.faiss_id,
-                        "source_chunk_index": curr_chunk.chunk_index,
-                        "target_faiss_id": meta["faiss_id"],
-                        "target_chunk_index": meta["chunk_index"],
                         "vector_distance": meta.get("vector_distance"),
                         "reranker_score": float(score),
                     }
@@ -499,10 +475,6 @@ class KnowledgeGraphBuilder:
                         "text_b": text,
                         "path_a": curr_chunk.file_path,
                         "path_b": meta["file_path"],
-                        "source_faiss_id": curr_chunk.faiss_id,
-                        "source_chunk_index": curr_chunk.chunk_index,
-                        "target_faiss_id": meta["faiss_id"],
-                        "target_chunk_index": meta["chunk_index"],
                         "vector_distance": meta.get("vector_distance"),
                         "reranker_score": float(score),
                     }
@@ -553,7 +525,9 @@ class KnowledgeGraphBuilder:
         relation_results: List[Optional[str]],
     ) -> Dict[str, List[Dict[str, Any]]]:
         pair_predictions: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
-        for relation, text_item, meta_item in zip(relation_results, batch_texts, batch_meta):
+        for relation, text_item, meta_item in zip(
+            relation_results, batch_texts, batch_meta
+        ):
             if not relation:
                 continue
 
@@ -565,10 +539,6 @@ class KnowledgeGraphBuilder:
                     "relation_type": relation,
                     "text_a": text_item["text_a"],
                     "text_b": text_item["text_b"],
-                    "source_chunk_index": meta_item.get("source_chunk_index"),
-                    "target_chunk_index": meta_item.get("target_chunk_index"),
-                    "source_faiss_id": meta_item.get("source_faiss_id"),
-                    "target_faiss_id": meta_item.get("target_faiss_id"),
                     "reranker_score": meta_item.get("reranker_score"),
                     "vector_distance": meta_item.get("vector_distance"),
                 }
@@ -623,7 +593,9 @@ class KnowledgeGraphBuilder:
             conflict_keys.append(pair_key)
 
         if conflict_inputs:
-            logger.info(f"Resolving {len(conflict_inputs)} link-type conflicts via LLM...")
+            logger.info(
+                f"Resolving {len(conflict_inputs)} link-type conflicts via LLM..."
+            )
             resolved_relations = self.llm_service.batch_resolve_link_conflicts(
                 conflict_inputs,
                 relation_types=self.metadata_manager.config.llm_link_types,
@@ -644,9 +616,7 @@ class KnowledgeGraphBuilder:
 
     def _build_link_string(self, relation: str, target_rel_path: Path) -> str:
         target_file_name = (self.vault_path / target_rel_path).stem
-        relation_text = self.metadata_manager.config.link_en2ru_translation.get(
-            relation, relation
-        )
+        relation_text = relation
         return self.metadata_manager.config.link_template.format(
             relation_type=relation_text,
             target_file_name=target_file_name,

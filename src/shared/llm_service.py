@@ -44,6 +44,7 @@ class LLMService:
         n_ctx: int = 8192,
         n_batch: int = 512,
         temperature: float = 0.0,
+        top_p: float = 0.1,
         use_api: bool = False,
         backend: str = "vulkan",
         concurrency: int = 1,
@@ -54,6 +55,7 @@ class LLMService:
         self.default_link_types = default_link_types or []
         self.model_name = str(model_path)
         self.temperature = temperature
+        self.top_p = top_p
         self.use_api = use_api
         self.provider = None
 
@@ -87,6 +89,7 @@ class LLMService:
             api_key=api_key,
             base_url=base_url,
             temperature=self.temperature,
+            model_kwargs={"top_p": self.top_p},
             streaming=False,
         )
 
@@ -105,12 +108,8 @@ class LLMService:
             model=model,
             google_api_key=api_key,
             temperature=self.temperature,
+            top_p=self.top_p,
         )
-
-        # try:
-        #     llm = llm.bind(response_format={"type": "json_object"})
-        # except Exception as e:
-        #     logger.debug(f"Could not bind json_object response format: {e}")
 
         return llm
 
@@ -121,6 +120,8 @@ class LLMService:
         llm = ChatCerebras(
             model=model,
             api_key=api_key,
+            temperature=self.temperature,
+            top_p=self.top_p,
         )
 
         try:
@@ -136,6 +137,7 @@ class LLMService:
         return ChatLlamaCpp(
             model_path=str(model_path),
             temperature=self.temperature,
+            top_p=self.top_p,
             n_gpu_layers=n_gpu_layers,
             n_ctx=n_ctx,
             n_batch=n_batch,

@@ -9,12 +9,13 @@ wheels/
 # Virtual environments
 .venv
 
-datasets/external_datasets_backup.zip
-datasets/external
-datasets/0. Raw
-datasets/1. Toy
-datasets/2. Real
-datasets/3. Complex
+data_vaults/external_datasets_backup.zip
+data_vaults/external
+data_vaults/0. Raw
+data_vaults/1. Toy
+data_vaults/2. Real
+data_vaults/3. Complex
+data_vaults/.gold_raw
 testfield/
 Test_Vault/
 notes/

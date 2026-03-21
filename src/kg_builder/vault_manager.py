@@ -9,11 +9,12 @@ logger = logging.getLogger(__name__)
 
 
 class VaultManager:
-    def __init__(self, vault_path: Path, ignored_dirs: List[Path]):
+    def __init__(self, vault_path: Path, ignored_dirs: List[Path], link_header: str = LINK_HEADER):
         if not vault_path.is_dir():
             raise FileNotFoundError(f"Invalid vault path: {vault_path}")
         self.vault_path = vault_path
         self.ignored_dirs = [p.resolve() for p in ignored_dirs]
+        self.link_header = link_header
         logger.info(f"VaultManager initiated for : {self.vault_path}")
 
     def _is_path_ignored(self, path: Path) -> bool:
@@ -52,7 +53,7 @@ class VaultManager:
             return
 
         content = self.get_file_content(file_path)
-        links_header = LINK_HEADER
+        links_header = self.link_header
 
         existing_links = set()
         if links_header in content:
@@ -95,7 +96,7 @@ class VaultManager:
         dir_path.mkdir(parents=True, exist_ok=True)
 
     def clear_all_ai_links(self, files_to_clear: List[Path]):
-        links_header = LINK_HEADER
+        links_header = self.link_header
         logger.info(f"Clearing AI-generated links from {len(files_to_clear)} files...")
         cleared_count = 0
         for file_path in files_to_clear:
