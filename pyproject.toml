@@ -22,6 +22,10 @@ dependencies = [
     "llama-cpp-python>=0.3.16",
     "langchain-cerebras>=0.8.2",
     "spacy>=3.8.11",
+    "python-frontmatter>=1.1.0",
+    "pip>=26.0.1",
+    "pylance>=3.0.1",
+    "langchain-groq>=1.1.2",
 ]
 
 

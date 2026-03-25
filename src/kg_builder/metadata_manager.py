@@ -12,7 +12,12 @@ from pydantic import BaseModel, Field, ValidationError
 from .config import (
     DEFAULT_LINK_TEMPLATE,
     DEFAULT_LINK_TYPES,
+    DEFAULT_VAULT_LANG,
+    LINKS_CONFIG_FILE_NAME,
+    OUTPUT_DIR,
+    RUN_STATE_FILE_NAME,
 )
+from .models import CandidatePair
 
 logger = logging.getLogger(__name__)
 
@@ -70,18 +75,21 @@ class VaultMetadata:
 class LinkConfig:
     link_template: str
     llm_link_types: List[str]
+    lang: str
 
     @classmethod
     def get_defaults(cls) -> LinkConfig:
         return cls(
             link_template=DEFAULT_LINK_TEMPLATE,
             llm_link_types=DEFAULT_LINK_TYPES,
+            lang=DEFAULT_VAULT_LANG,
         )
 
     def to_dict(self) -> Dict[str, Any]:
         return {
             "link_template": self.link_template,
             "llm_link_types": self.llm_link_types,
+            "lang": self.lang,
         }
 
     @classmethod
@@ -90,6 +98,7 @@ class LinkConfig:
         return cls(
             link_template=data.get("link_template", defaults.link_template),
             llm_link_types=data.get("llm_link_types", defaults.llm_link_types),
+            lang=data.get("lang", defaults.lang),
         )
 
 
@@ -125,6 +134,7 @@ class ChunkingSnapshot(BaseModel):
 class RetrievalSnapshot(BaseModel):
     initial_retrieval_k: int
     vector_search_weight: float
+    broad_query_mode: str
 
 
 class EmbeddingSnapshot(BaseModel):
@@ -163,16 +173,6 @@ class RuntimeSnapshot(BaseModel):
     link_header: str
 
 
-class CandidatePair(BaseModel):
-    text_a: str
-    text_b: str
-    path_a: str
-    path_b: str
-
-    vector_distance: Optional[float] = None
-    reranker_score: Optional[float] = None
-
-
 class RunState(BaseModel):
     stage: Optional[RunStage] = None
     stage_details: Dict[str, Any] = Field(default_factory=dict)
@@ -188,12 +188,18 @@ class RunState(BaseModel):
 class MetadataManager:
     def __init__(self, metadata_path: Path):
         self.metadata_path = metadata_path
-        self.config_path = self.metadata_path.parent / "links_config.json"
-        self.run_state_path = self.metadata_path.parent / "run_state.json"
-        self.candidates_path = self.metadata_path.parent / "candidates.json"
-        self.partial_links_path = self.metadata_path.parent / "links_partial.json"
+        self.config_path = self.metadata_path.parent / LINKS_CONFIG_FILE_NAME
+        self.run_state_path = (
+            self.metadata_path.parent / OUTPUT_DIR / RUN_STATE_FILE_NAME
+        )
+        self.candidates_path = (
+            self.metadata_path.parent / OUTPUT_DIR / "candidates.json"
+        )
+        self.partial_links_path = (
+            self.metadata_path.parent / OUTPUT_DIR / "links_partial.json"
+        )
         self.partial_predictions_path = (
-            self.metadata_path.parent / "predictions_partial.json"
+            self.metadata_path.parent / OUTPUT_DIR / "predictions_partial.json"
         )
         self.vault = VaultMetadata()
         self._is_fresh_start = False
@@ -473,25 +479,6 @@ class MetadataManager:
     def has_pending_pairs(self) -> bool:
         return bool(self.pending_pairs)
 
-    def get_pending_pairs_as_llm_inputs(
-        self,
-    ) -> tuple[List[Dict[str, str]], List[Dict[str, Any]]]:
-        texts: List[Dict[str, str]] = []
-        meta: List[Dict[str, Any]] = []
-
-        for p in self.pending_pairs:
-            texts.append({"text_a": p.text_a, "text_b": p.text_b})
-            meta.append(
-                {
-                    "path_a": Path(p.path_a),
-                    "path_b": Path(p.path_b),
-                    "vector_distance": p.vector_distance,
-                    "reranker_score": p.reranker_score,
-                }
-            )
-
-        return texts, meta
-
     def clear_run_state(self, keep_snapshot: bool = True):
         self.pending_pairs = []
         if self.candidates_path.exists():
@@ -536,3 +523,29 @@ class MetadataManager:
     def remove_file_record(self, file_path_str: str):
         self.vault.remove_file(file_path_str)
         logger.debug(f"Removed record for file: {file_path_str}")
+
+    def purge_meta_dir_files(self):
+        meta_dir = self.metadata_path.parent
+        from .config import LOG_FILE_NAME
+
+        if not meta_dir.exists():
+            return
+
+        try:
+            for p in sorted(meta_dir.rglob("*"), reverse=True):
+                if p.is_file() or p.is_symlink():
+                    if p.name == LOG_FILE_NAME:
+                        continue
+                    try:
+                        p.unlink()
+                    except OSError as e:
+                        logger.warning(f"Could not delete meta file {p}: {e}")
+
+            for p in sorted(meta_dir.rglob("*"), reverse=True):
+                if p.is_dir():
+                    try:
+                        p.rmdir()
+                    except OSError:
+                        pass
+        except Exception as e:
+            logger.warning(f"Failed to purge meta dir {meta_dir}: {e}")

@@ -4,7 +4,12 @@ import sys
 from pathlib import Path
 
 from .config import DEFAULT_LOG_LEVEL, setup_logging
-from .graph_builder import KnowledgeGraphBuilder, SaveMode
+from .graph_builder import (
+    BroadQueryMode,
+    KnowledgeGraphBuilder,
+    RetrievalStrategyMode,
+    SaveMode,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -58,6 +63,20 @@ def main():
         help="How to save identified links (inplace, json, export)",
     )
     run_parser.add_argument(
+        "--retrieval-strategy",
+        type=str,
+        choices=[mode.value for mode in RetrievalStrategyMode],
+        default=RetrievalStrategyMode.STRICT.value,
+        help="Strategy to use for retrieving semantic candidates",
+    )
+    run_parser.add_argument(
+        "--broad-query-mode",
+        type=str,
+        choices=[mode.value for mode in BroadQueryMode],
+        default=BroadQueryMode.TITLE_SUMMARY.value,
+        help="Broad mode query source: chunk (default) or title_summary",
+    )
+    run_parser.add_argument(
         "--fresh-start",
         action="store_true",
         help="Start with a fresh index, clearing previous AI-generated links and metadata",
@@ -65,7 +84,12 @@ def main():
     run_parser.add_argument(
         "--api",
         action="store_true",
-        help="Use an external API for LLM classification instead of a local model",
+        help="Use an external API for LLM classification instead of a local model. API type and credentials are loaded from environment",
+    )
+    run_parser.add_argument(
+        "--lang",
+        type=str,
+        help="Retrieval lang",
     )
     run_parser.add_argument(
         "--ignore-local-config",
@@ -125,6 +149,8 @@ def main():
                 ignored_paths.append(path.resolve())
 
         save_mode = SaveMode(args.save_mode)
+        retrieval_strategy = RetrievalStrategyMode(args.retrieval_strategy)
+        broad_query_mode = BroadQueryMode(args.broad_query_mode)
         export_path = Path(args.export_path).resolve() if args.export_path else None
         output_json_path = (
             Path(args.output_json).resolve() if args.output_json else None
@@ -139,6 +165,9 @@ def main():
             save_mode=save_mode,
             export_path=export_path,
             output_json_path=output_json_path,
+            retrieval_strategy_name=retrieval_strategy,
+            broad_query_mode=broad_query_mode,
+            lang=args.lang,
         )
 
         builder.run_update()
