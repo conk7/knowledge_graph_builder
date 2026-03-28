@@ -5,6 +5,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Dict, Set
 
+from .config import META_DIR_NAME
 from .vault_manager import VaultManager
 
 logger = logging.getLogger(__name__)
@@ -61,7 +62,7 @@ class ExportService:
         shutil.copytree(
             self.vault_path,
             self.export_path,
-            ignore=shutil.ignore_patterns(".ai_meta", ".obsidian", "*.log"),
+            ignore=shutil.ignore_patterns(META_DIR_NAME, ".obsidian", "*.log"),
         )
 
         for rel_path_str, links in links_to_write.items():

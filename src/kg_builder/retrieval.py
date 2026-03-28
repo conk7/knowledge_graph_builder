@@ -1,3 +1,4 @@
+import hashlib
 import re
 from abc import ABC, abstractmethod
 from enum import Enum
@@ -335,17 +336,19 @@ class CombinedRetrievalStrategy(CandidateRetrievalStrategy):
             chunks, full_docs, show_progress=show_progress
         )
 
-        merged_cands = []
-        merged_meta = strict_meta.copy()
+        def _pair_hash(c: CandidatePair) -> str:
+            key = f"{c.source_path}|{c.target_path}|{c.target_content}"
+            return hashlib.md5(key.encode("utf-8")).hexdigest()
 
-        strict_targets = {
-            (str(c.source_path), str(c.target_path)) for c in strict_cands
-        }
-        merged_cands.extend(strict_cands)
+        merged_cands = list(strict_cands)
+        merged_meta = list(strict_meta)
+        seen_hashes = {_pair_hash(c) for c in strict_cands}
 
         for i, c in enumerate(broad_cands):
-            if (str(c.source_path), str(c.target_path)) not in strict_targets:
+            h = _pair_hash(c)
+            if h not in seen_hashes:
                 merged_cands.append(c)
                 merged_meta.append(broad_meta[i])
+                seen_hashes.add(h)
 
         return merged_cands, merged_meta

@@ -1,7 +1,7 @@
 import hashlib
 import logging
 from pathlib import Path
-from typing import Dict, List, Set, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
 import frontmatter
 
@@ -47,9 +47,11 @@ class VaultManager:
         logger.info(f"Found {len(valid_files)} files")
         return valid_files
 
-    def build_global_entity_dict(self) -> Dict[str, DocumentEntity]:
+    def build_global_entity_dict(
+        self, files: Optional[List[Path]] = None
+    ) -> Dict[str, DocumentEntity]:
         entity_dict = {}
-        for file_path in self.scan_markdown_files():
+        for file_path in (files if files is not None else self.scan_markdown_files()):
             rel_path = str(file_path.relative_to(self.vault_path))
             title = file_path.stem
 
@@ -81,9 +83,13 @@ class VaultManager:
             logger.error(f"Could not read {file_path}: {e}")
             return ""
 
+    @staticmethod
+    def calculate_hash_from_content(content: str) -> str:
+        return hashlib.sha256(content.encode()).hexdigest()
+
     def calculate_file_hash(self, file_path: Path) -> str:
         content = self.get_file_content(file_path)
-        return hashlib.sha256(content.encode()).hexdigest()
+        return self.calculate_hash_from_content(content)
 
     def append_links_to_file(self, file_path: Path, new_links: Set[str]):
         if not new_links:
@@ -168,9 +174,12 @@ class VaultManager:
             file_abs = self.vault_path / file_rel
             if not file_abs.exists():
                 continue
-            old_hash = metadata_manager.get_file_record(str(file_rel)).hash
+            record = metadata_manager.get_file_record(str(file_rel))
+            if record is None:
+                updated_files.append(file_abs)
+                continue
             new_hash = self.calculate_file_hash(file_abs)
-            if old_hash != new_hash:
+            if record.hash != new_hash:
                 updated_files.append(file_abs)
 
         logger.info(
@@ -206,9 +215,10 @@ class VaultManager:
             if not content:
                 continue
 
-            file_hash = self.calculate_file_hash(file_path)
+            main_content, _ = self._split_content_and_links(content)
+            file_hash = self.calculate_hash_from_content(content)
             chunk_texts = vector_store.get_and_update_file_chunks(
-                rel_path_str, content, file_hash
+                rel_path_str, main_content, file_hash
             )
 
             if not chunk_texts:

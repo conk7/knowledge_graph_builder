@@ -2,4 +2,4 @@
 
 ## Related Connections
 
-- Scheduled on:: [[21 марта 2026]]
+- Scheduled on:: [[21 марта]]

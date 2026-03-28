@@ -10,12 +10,35 @@ from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, ValidationError
 
 from .config import (
+    BROAD_QUERY_MODE_DEFAULT,
+    CHUNK_OVERLAP,
+    CHUNK_SEPARATORS,
+    CHUNK_SIZE,
+    SENTENCE_WINDOW_AFTER,
+    SENTENCE_WINDOW_BEFORE,
+    SPLITTER_TYPE,
     DEFAULT_LINK_TEMPLATE,
     DEFAULT_LINK_TYPES,
     DEFAULT_VAULT_LANG,
+    EMBEDDING_DIMENSION,
+    EMBEDDING_MODEL_NAME,
+    INITIAL_RETRIEVAL_K,
+    LINK_HEADER,
     LINKS_CONFIG_FILE_NAME,
+    LLM_BACKEND,
+    LLM_CONCURRENCY,
+    LLM_MODEL_PATH,
+    LLM_N_BATCH,
+    LLM_N_CTX,
+    LLM_N_GPU_LAYERS,
+    LLM_TEMPERATURE,
+    LLM_TOP_P,
     OUTPUT_DIR,
+    RERANKER_MODEL_NAME,
+    RERANKER_THRESHOLD,
+    RERANKER_TOP_K,
     RUN_STATE_FILE_NAME,
+    VECTOR_SEARCH_WEIGHT,
 )
 from .models import CandidatePair
 
@@ -71,37 +94,6 @@ class VaultMetadata:
             del self.files[file_path_str]
 
 
-@dataclass
-class LinkConfig:
-    link_template: str
-    llm_link_types: List[str]
-    lang: str
-
-    @classmethod
-    def get_defaults(cls) -> LinkConfig:
-        return cls(
-            link_template=DEFAULT_LINK_TEMPLATE,
-            llm_link_types=DEFAULT_LINK_TYPES,
-            lang=DEFAULT_VAULT_LANG,
-        )
-
-    def to_dict(self) -> Dict[str, Any]:
-        return {
-            "link_template": self.link_template,
-            "llm_link_types": self.llm_link_types,
-            "lang": self.lang,
-        }
-
-    @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> LinkConfig:
-        defaults = cls.get_defaults()
-        return cls(
-            link_template=data.get("link_template", defaults.link_template),
-            llm_link_types=data.get("llm_link_types", defaults.llm_link_types),
-            lang=data.get("lang", defaults.lang),
-        )
-
-
 def _pydantic_validate(model_cls, data: Any):
     if hasattr(model_cls, "model_validate"):
         return model_cls.model_validate(data)
@@ -126,57 +118,81 @@ class RunStage(str, Enum):
 
 
 class ChunkingSnapshot(BaseModel):
-    chunk_size: int
-    chunk_overlap: int
-    separators: List[str]
+    chunk_size: int = Field(default=CHUNK_SIZE)
+    chunk_overlap: int = Field(default=CHUNK_OVERLAP)
+    separators: List[str] = Field(default_factory=lambda: list(CHUNK_SEPARATORS))
+    splitter_type: str = Field(default=SPLITTER_TYPE)
+    sentence_window_before: int = Field(default=SENTENCE_WINDOW_BEFORE)
+    sentence_window_after: int = Field(default=SENTENCE_WINDOW_AFTER)
 
 
 class RetrievalSnapshot(BaseModel):
-    initial_retrieval_k: int
-    vector_search_weight: float
-    broad_query_mode: str
+    initial_retrieval_k: int = Field(default=INITIAL_RETRIEVAL_K)
+    vector_search_weight: float = Field(default=VECTOR_SEARCH_WEIGHT)
+    broad_query_mode: str = Field(default=BROAD_QUERY_MODE_DEFAULT)
 
 
 class EmbeddingSnapshot(BaseModel):
-    model_name: str
-    dimension: int
+    model_name: str = Field(default=EMBEDDING_MODEL_NAME)
+    dimension: int = Field(default=EMBEDDING_DIMENSION)
 
 
 class RerankerSnapshot(BaseModel):
-    model_name: str
-    top_k: int
-    threshold: float
+    model_name: str = Field(default=RERANKER_MODEL_NAME)
+    top_k: int = Field(default=RERANKER_TOP_K)
+    threshold: float = Field(default=RERANKER_THRESHOLD)
 
 
 class LlmSnapshot(BaseModel):
-    use_api: bool
-    model_path: str
-    backend: str
-    temperature: float
-    top_p: float
-    n_gpu_layers: int
-    n_ctx: int
-    n_batch: int
-    concurrency: int
+    use_api: bool = Field(default=False)
+    model_path: str = Field(default_factory=lambda: str(LLM_MODEL_PATH))
+    backend: str = Field(default=LLM_BACKEND)
+    temperature: float = Field(default=LLM_TEMPERATURE)
+    top_p: float = Field(default=LLM_TOP_P)
+    n_gpu_layers: int = Field(default=LLM_N_GPU_LAYERS)
+    n_ctx: int = Field(default=LLM_N_CTX)
+    n_batch: int = Field(default=LLM_N_BATCH)
+    concurrency: int = Field(default=LLM_CONCURRENCY)
 
 
 class ModelsSnapshot(BaseModel):
-    embedding: EmbeddingSnapshot
-    reranker: RerankerSnapshot
-    llm: LlmSnapshot
+    embedding: EmbeddingSnapshot = Field(default_factory=EmbeddingSnapshot)
+    reranker: RerankerSnapshot = Field(default_factory=RerankerSnapshot)
+    llm: LlmSnapshot = Field(default_factory=LlmSnapshot)
 
 
 class RuntimeSnapshot(BaseModel):
-    chunking: ChunkingSnapshot
-    retrieval: RetrievalSnapshot
-    models: ModelsSnapshot
-    link_header: str
+    chunking: ChunkingSnapshot = Field(default_factory=ChunkingSnapshot)
+    retrieval: RetrievalSnapshot = Field(default_factory=RetrievalSnapshot)
+    models: ModelsSnapshot = Field(default_factory=ModelsSnapshot)
+    link_header: str = Field(default=LINK_HEADER)
+
+
+class VaultConfig(BaseModel):
+    link_template: str = Field(default=DEFAULT_LINK_TEMPLATE)
+    llm_link_types: List[str] = Field(default_factory=lambda: list(DEFAULT_LINK_TYPES))
+    lang: str = Field(default=DEFAULT_VAULT_LANG)
+    link_header: str = Field(default=LINK_HEADER)
+    chunking: ChunkingSnapshot = Field(default_factory=ChunkingSnapshot)
+    retrieval: RetrievalSnapshot = Field(default_factory=RetrievalSnapshot)
+    models: ModelsSnapshot = Field(default_factory=ModelsSnapshot)
+
+    @classmethod
+    def get_defaults(cls) -> "VaultConfig":
+        return cls()
+
+    def to_runtime_snapshot(self) -> RuntimeSnapshot:
+        return RuntimeSnapshot(
+            chunking=self.chunking,
+            retrieval=self.retrieval,
+            models=self.models,
+            link_header=self.link_header,
+        )
 
 
 class RunState(BaseModel):
     stage: Optional[RunStage] = None
     stage_details: Dict[str, Any] = Field(default_factory=dict)
-    runtime_snapshot: Optional[RuntimeSnapshot] = None
     candidates_file: Optional[str] = None
     partial_links_file: Optional[str] = None
     partial_predictions_file: Optional[str] = None
@@ -188,18 +204,12 @@ class RunState(BaseModel):
 class MetadataManager:
     def __init__(self, metadata_path: Path):
         self.metadata_path = metadata_path
-        self.config_path = self.metadata_path.parent / LINKS_CONFIG_FILE_NAME
-        self.run_state_path = (
-            self.metadata_path.parent / OUTPUT_DIR / RUN_STATE_FILE_NAME
-        )
-        self.candidates_path = (
-            self.metadata_path.parent / OUTPUT_DIR / "candidates.json"
-        )
-        self.partial_links_path = (
-            self.metadata_path.parent / OUTPUT_DIR / "links_partial.json"
-        )
+        self.config_path = self.metadata_path / LINKS_CONFIG_FILE_NAME
+        self.run_state_path = self.metadata_path / OUTPUT_DIR / RUN_STATE_FILE_NAME
+        self.candidates_path = self.metadata_path / OUTPUT_DIR / "candidates.json"
+        self.partial_links_path = self.metadata_path / OUTPUT_DIR / "links_partial.json"
         self.partial_predictions_path = (
-            self.metadata_path.parent / OUTPUT_DIR / "predictions_partial.json"
+            self.metadata_path / OUTPUT_DIR / "predictions_partial.json"
         )
         self.vault = VaultMetadata()
         self._is_fresh_start = False
@@ -233,19 +243,19 @@ class MetadataManager:
     def _load_config(self):
         logger.info(f"Attempting to load config from {self.config_path}")
         if not self.config_path.exists():
-            logger.info("Config file not found. Using defaults")
-            self.config = LinkConfig.get_defaults()
+            logger.info("Config file not found. Using defaults.")
+            self.config = VaultConfig.get_defaults()
             return
 
         try:
             with self.config_path.open("r", encoding="utf-8") as f:
                 raw_config = json.load(f)
-            self.config = LinkConfig.from_dict(raw_config)
-        except (json.JSONDecodeError, IOError) as e:
+            self.config = _pydantic_validate(VaultConfig, raw_config)
+        except (json.JSONDecodeError, IOError, ValidationError) as e:
             logger.error(f"Error loading config file: {e}. Using internal defaults.")
-            self.config = LinkConfig.get_defaults()
+            self.config = VaultConfig.get_defaults()
 
-        logger.info("link configuration loaded successfully.")
+        logger.info("Vault configuration loaded successfully.")
 
     def _load_run_state(self):
         logger.info(f"Attempting to load run state from {self.run_state_path}")
@@ -311,7 +321,7 @@ class MetadataManager:
 
         try:
             with self.config_path.open("w", encoding="utf-8") as f:
-                json.dump(self.config.to_dict(), f, indent=4, ensure_ascii=False)
+                json.dump(_pydantic_dump(self.config), f, indent=4, ensure_ascii=False)
             logger.info(f"Configuration saved successfully to {self.config_path}")
         except IOError as e:
             logger.error(f"Failed to save configuration: {e}")
@@ -437,11 +447,12 @@ class MetadataManager:
                 logger.error(f"Failed to delete partial predictions file: {e}")
 
     def set_runtime_snapshot(self, snapshot: RuntimeSnapshot | Dict[str, Any]):
-        self.run_state.runtime_snapshot = (
-            snapshot
-            if isinstance(snapshot, RuntimeSnapshot)
-            else _pydantic_validate(RuntimeSnapshot, snapshot)
-        )
+        if isinstance(snapshot, dict):
+            snapshot = _pydantic_validate(RuntimeSnapshot, snapshot)
+        self.config.chunking = snapshot.chunking
+        self.config.retrieval = snapshot.retrieval
+        self.config.models = snapshot.models
+        self.config.link_header = snapshot.link_header
 
     def set_stage(self, stage: RunStage, details: Optional[Dict[str, Any]] = None):
         self.run_state.stage = stage
@@ -479,7 +490,9 @@ class MetadataManager:
     def has_pending_pairs(self) -> bool:
         return bool(self.pending_pairs)
 
-    def clear_run_state(self, keep_snapshot: bool = True):
+    def clear_run_state(self, keep_snapshot: bool = True):  # noqa: ARG002
+        # keep_snapshot is no longer meaningful: config (including hyperparameters)
+        # is always persisted independently of run state. Parameter kept for compat.
         self.pending_pairs = []
         if self.candidates_path.exists():
             try:
@@ -488,13 +501,7 @@ class MetadataManager:
                 logger.error(f"Failed to delete candidates file: {e}")
         self.clear_partial_links()
         self.clear_partial_predictions()
-
-        if keep_snapshot:
-            snapshot = self.run_state.runtime_snapshot
-            self.run_state = RunState(runtime_snapshot=snapshot, pending_pairs_count=0)
-        else:
-            self.run_state = RunState(pending_pairs_count=0)
-
+        self.run_state = RunState(pending_pairs_count=0)
         self._save_run_state()
 
     def clear_metadata(self):

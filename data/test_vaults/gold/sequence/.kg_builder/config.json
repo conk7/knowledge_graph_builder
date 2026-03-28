@@ -1,0 +1,60 @@
+{
+    "link_template": "- {relation_type}:: [[{target_file_name}]]",
+    "llm_link_types": [
+        "Produces",
+        "Reveals",
+        "Precedes",
+        "Supersedes",
+        "Extends",
+        "Tests",
+        "Contradicts",
+        "Supports",
+        "Incorporates",
+        "Mentions"
+    ],
+    "lang": "en",
+    "link_header": "\n\n## Related Connections\n\n",
+    "chunking": {
+        "chunk_size": 300,
+        "chunk_overlap": 100,
+        "separators": [
+            "\n# ",
+            "\n## ",
+            "\n### ",
+            "\n\n",
+            ". ",
+            "? ",
+            "! ",
+            "\n",
+            " ",
+            ""
+        ]
+    },
+    "retrieval": {
+        "initial_retrieval_k": 15,
+        "vector_search_weight": 0.5,
+        "broad_query_mode": "title_summary"
+    },
+    "models": {
+        "embedding": {
+            "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+            "dimension": 384
+        },
+        "reranker": {
+            "model_name": "BAAI/bge-reranker-v2-m3",
+            "top_k": 5,
+            "threshold": 0.7
+        },
+        "llm": {
+            "use_api": false,
+            "model_path": "/home/conk/.lmstudio/models/lmstudio-community/Qwen3.5-9B-GGUF/Qwen3.5-9B-Q4_K_M.gguf",
+            "backend": "vulkan",
+            "temperature": 0.0,
+            "top_p": 0.1,
+            "n_gpu_layers": -1,
+            "n_ctx": 8192,
+            "n_batch": 512,
+            "concurrency": 1
+        }
+    }
+}

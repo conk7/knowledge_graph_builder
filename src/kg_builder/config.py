@@ -1,14 +1,14 @@
 import logging
+import os
 from pathlib import Path
 
 #
 # DIRS
 #
-META_DIR_NAME = ".ai_meta"
+META_DIR_NAME = ".kg_builder"
 METADATA_FILE_NAME = "metadata.json"
-LINKS_CONFIG_FILE_NAME = "links_config.json"
-
-OUTPUT_DIR = "out"
+LINKS_CONFIG_FILE_NAME = "config.json"
+OUTPUT_DIR = ".out"
 OUTPUT_LINKS_FILE_NAME = "links.json"
 CANDIDATES_FILE_NAME = "candidates.json"
 RERANKED_CANDIDATES_FILE_NAME = "reranked_candidates.json"
@@ -34,7 +34,7 @@ RERANKER_THRESHOLD = 0.7
 # LLM
 #
 LLM_MODEL_PATH = Path(
-    "/home/conk/.lmstudio/models/lmstudio-community/Qwen3.5-9B-GGUF/Qwen3.5-9B-Q4_K_M.gguf"
+    os.environ.get("LLM_MODEL_PATH", "")
 )
 LLM_TEMPERATURE = 0.0
 LLM_TOP_P = 0.1
@@ -49,12 +49,17 @@ MAX_RETRIES = 10
 #
 # KNOWLEDGE GRAPH
 #
-CHUNK_SIZE = 2000
-CHUNK_OVERLAP = 300
+CHUNK_SIZE = 300
+CHUNK_OVERLAP = 100
 CHUNK_SEPARATORS = ["\n# ", "\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
+
+SPLITTER_TYPE = "recursive"  # "recursive" | "sentence_window"
+SENTENCE_WINDOW_BEFORE = 1
+SENTENCE_WINDOW_AFTER = 1
 
 INITIAL_RETRIEVAL_K = 15
 VECTOR_SEARCH_WEIGHT = 0.5
+BROAD_QUERY_MODE_DEFAULT = "title_summary"
 
 
 #

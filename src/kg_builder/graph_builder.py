@@ -3,8 +3,6 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from tqdm import tqdm
-
 from src.shared.llm_service import LLMService
 
 from .config import (
@@ -12,6 +10,9 @@ from .config import (
     CHUNK_OVERLAP,
     CHUNK_SEPARATORS,
     CHUNK_SIZE,
+    SENTENCE_WINDOW_AFTER,
+    SENTENCE_WINDOW_BEFORE,
+    SPLITTER_TYPE,
     EMBEDDING_DIMENSION,
     EMBEDDING_MODEL_NAME,
     INITIAL_RETRIEVAL_K,
@@ -25,7 +26,6 @@ from .config import (
     LLM_TEMPERATURE,
     LLM_TOP_P,
     META_DIR_NAME,
-    METADATA_FILE_NAME,
     OUTPUT_DIR,
     OUTPUT_LINKS_FILE_NAME,
     RERANKED_CANDIDATES_FILE_NAME,
@@ -74,12 +74,15 @@ class KnowledgeGraphBuilder:
         retrieval_strategy_name: RetrievalStrategyMode = RetrievalStrategyMode.STRICT,
         broad_query_mode: BroadQueryMode = BroadQueryMode.TITLE_SUMMARY,
         lang: Optional[str] = None,
+        splitter_type: str = SPLITTER_TYPE,
+        sentence_window_before: int = SENTENCE_WINDOW_BEFORE,
+        sentence_window_after: int = SENTENCE_WINDOW_AFTER,
     ):
         self.vault_path = vault_path
         self.meta_dir = self.vault_path / META_DIR_NAME
         self.output_dir = self.meta_dir / OUTPUT_DIR
-        self.index_path = self.meta_dir
-        self.metadata_path = self.meta_dir / METADATA_FILE_NAME
+        self.index_path = self.output_dir
+        self.metadata_path = self.meta_dir
         self.candidates_path = self.output_dir / CANDIDATES_FILE_NAME
         self.reranked_candidates_path = self.output_dir / RERANKED_CANDIDATES_FILE_NAME
 
@@ -97,6 +100,9 @@ class KnowledgeGraphBuilder:
         self.metadata_manager = MetadataManager(self.metadata_path)
 
         self.lang = lang
+        self.splitter_type = splitter_type
+        self.sentence_window_before = sentence_window_before
+        self.sentence_window_after = sentence_window_after
 
         current_config = self._resolve_runtime_config(fresh_start, ignore_local_config)
         self.runtime_config: RuntimeSnapshot = current_config
@@ -141,6 +147,9 @@ class KnowledgeGraphBuilder:
             vector_weight=current_config.retrieval.vector_search_weight,
             fresh_start=fresh_start,
             lang=self.lang,
+            splitter_type=current_config.chunking.splitter_type,
+            sentence_window_before=current_config.chunking.sentence_window_before,
+            sentence_window_after=current_config.chunking.sentence_window_after,
         )
 
         self.metadata_manager.set_runtime_snapshot(current_config)
@@ -155,6 +164,9 @@ class KnowledgeGraphBuilder:
                 chunk_size=CHUNK_SIZE,
                 chunk_overlap=CHUNK_OVERLAP,
                 separators=CHUNK_SEPARATORS,
+                splitter_type=self.splitter_type,
+                sentence_window_before=self.sentence_window_before,
+                sentence_window_after=self.sentence_window_after,
             ),
             retrieval=RetrievalSnapshot(
                 initial_retrieval_k=INITIAL_RETRIEVAL_K,
@@ -190,12 +202,12 @@ class KnowledgeGraphBuilder:
             logger.info("Using hyperparameters from config.py.")
             return local_config
 
-        saved_snapshot = self.metadata_manager.run_state.runtime_snapshot
-        if not saved_snapshot:
+        if self.metadata_manager.is_fresh_start():
             logger.info("No saved hyperparameters found. Using config.py.")
             return local_config
 
-        logger.info("Restoring hyperparameters from saved metadata (run_state.json).")
+        saved_snapshot = self.metadata_manager.config.to_runtime_snapshot()
+        logger.info("Restoring hyperparameters from saved config (config.json).")
         if saved_snapshot.retrieval.broad_query_mode != self.broad_query_mode.value:
             logger.info(
                 "Overriding broad query mode from CLI: %s",
@@ -226,14 +238,16 @@ class KnowledgeGraphBuilder:
                 self.metadata_manager.save_run_state_only()
 
                 self.llm_service.load()
-                links_to_write = self.llm_service.classify_pairs_with_checkpoints(
-                    candidate_pairs,
-                    stage=RunStage.RESUMING_LLM_CLASSIFICATION,
-                    strategy=self.retrieval_strategy_name,
-                )
-                if links_to_write:
-                    self.export_service.save_new_links(links_to_write, self.save_mode)
-                self.llm_service.unload()
+                try:
+                    links_to_write = self.llm_service.classify_pairs_with_checkpoints(
+                        candidate_pairs,
+                        stage=RunStage.RESUMING_LLM_CLASSIFICATION,
+                        strategy=self.retrieval_strategy_name,
+                    )
+                    if links_to_write:
+                        self.export_service.save_new_links(links_to_write, self.save_mode)
+                finally:
+                    self.llm_service.unload()
                 resumed_ok = True
             except Exception as e:
                 self.metadata_manager.set_stage(
@@ -283,7 +297,6 @@ class KnowledgeGraphBuilder:
                 )
                 self.metadata_manager.save_run_state_only()
                 self.llm_service.load()
-
                 try:
                     links_to_write = self.llm_service.classify_pairs_with_checkpoints(
                         candidate_pairs,
@@ -301,8 +314,8 @@ class KnowledgeGraphBuilder:
                     )
                     self.metadata_manager.save_run_state_only()
                     raise
-
-                self.llm_service.unload()
+                finally:
+                    self.llm_service.unload()
                 self.metadata_manager.set_stage(RunStage.COMPLETED)
                 self.metadata_manager.clear_run_state(keep_snapshot=True)
             else:
@@ -369,13 +382,15 @@ class KnowledgeGraphBuilder:
                 f"Unknown retrieval strategy: {self.retrieval_strategy_name}"
             )
 
+        needs_full_docs = self.retrieval_strategy_name != RetrievalStrategyMode.BROAD or self.broad_query_mode == BroadQueryMode.TITLE_SUMMARY
         full_docs = {}
-        for chunk in new_chunks_data:
-            if chunk.file_path not in full_docs:
-                abs_path = self.vault_path / chunk.file_path
-                full_docs[chunk.file_path] = self.vault_manager.get_file_content(
-                    abs_path
-                )
+        if needs_full_docs:
+            for chunk in new_chunks_data:
+                if chunk.file_path not in full_docs:
+                    abs_path = self.vault_path / chunk.file_path
+                    full_docs[chunk.file_path] = self.vault_manager.get_file_content(
+                        abs_path
+                    )
 
         self.vector_store.load_reranker()
         try:
@@ -387,11 +402,8 @@ class KnowledgeGraphBuilder:
 
         all_initial_candidates_to_save.extend(initial_candidates_meta)
 
-        for cand in tqdm(
-            final_candidates, desc="Saving matched candidates", leave=False
-        ):
-            all_candidate_pairs.append(cand)
-
+        all_candidate_pairs.extend(final_candidates)
+        for cand in final_candidates:
             all_reranked_candidates_to_save.append(
                 {
                     "source_path": str(cand.source_path),
@@ -431,5 +443,5 @@ class KnowledgeGraphBuilder:
         self.vector_store.save()
 
     def close(self):
-        if self.llm_service:
+        if self.llm_service and self.llm_service.llm:
             self.llm_service.close()

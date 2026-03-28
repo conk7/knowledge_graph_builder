@@ -1,7 +1,9 @@
 import gc
+import json
 import logging
 import os
 import re
+import traceback
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple, Type
@@ -71,6 +73,7 @@ class LLMService:
         self._link_chain = None
         self._link_strict_chain = None
         self._link_conflict_chain = None
+        self._context_link_chain = None
 
         self.vault_path = vault_path
         self.metadata_manager = metadata_manager
@@ -107,6 +110,7 @@ class LLMService:
             SYSTEM_PROMPT_TEMPLATE_STRICT, HUMAN_PROMPT_TEMPLATE_STRICT
         )
         self._link_conflict_chain = self._create_link_conflict_chain()
+        self._context_link_chain = self._create_context_link_chain()
 
     def _init_openai(self) -> ChatOpenAI:
         api_key = os.environ.get("OPENAI_API_KEY", "")
@@ -124,7 +128,7 @@ class LLMService:
         )
 
         try:
-            llm = llm.bind(response_format={"type": "json_schema"})
+            llm = llm.bind(response_format={"type": "json_object"})
         except Exception as e:
             logger.debug(f"Could not bind json_object response format: {e}")
 
@@ -183,7 +187,8 @@ class LLMService:
             self.llm.client.close()
         del self.llm
         gc.collect()
-        torch.cuda.empty_cache()
+        if not self.use_api:
+            torch.cuda.empty_cache()
         logger.info("LLM client resources released.")
 
     def _create_structured_chain(
@@ -316,8 +321,6 @@ class LLMService:
                     logger.error(f"Critical error in batch {i // concurrency}: {e}")
                     responses = [None] * len(mini_batch)
 
-                import traceback
-
                 for j, response in enumerate(responses):
                     if isinstance(response, Exception):
                         logger.debug(
@@ -421,12 +424,10 @@ class LLMService:
             f"Classifying context links for a batch of {len(contexts_data)} items."
         )
 
-        max_concurrency = max_concurrency or self.concurrency
-        effective_concurrency = 1 if not self.use_api else max_concurrency
+        effective_concurrency = (
+            1 if not self.use_api else (max_concurrency or self.concurrency)
+        )
         config = RunnableConfig(max_concurrency=effective_concurrency)
-
-        if not hasattr(self, "_context_link_chain"):
-            self._context_link_chain = self._create_context_link_chain()
 
         results = []
         with tqdm(
@@ -435,17 +436,17 @@ class LLMService:
             unit="link",
             leave=False,
         ) as pbar:
-            for i in range(0, len(formatted_inputs), max_concurrency):
-                mini_batch = formatted_inputs[i : i + max_concurrency]
+            for i in range(0, len(formatted_inputs), effective_concurrency):
+                mini_batch = formatted_inputs[i : i + effective_concurrency]
                 try:
                     responses = self._context_link_chain.batch(
                         mini_batch, config=config, return_exceptions=True
                     )
                 except Exception as e:
-                    logger.error(f"Critical error in batch {i // max_concurrency}: {e}")
+                    logger.error(
+                        f"Critical error in batch {i // effective_concurrency}: {e}"
+                    )
                     responses = [None] * len(mini_batch)
-
-                import traceback
 
                 for j, response in enumerate(responses):
                     if isinstance(response, Exception):
@@ -467,7 +468,7 @@ class LLMService:
                         else:
                             logger.warning(
                                 f"Invalid context relation type returned: '{sanitized_link}'. "
-                                f"Expected one of: {relation_types} or 'no link'"
+                                f"Expected one of: {relation_types_normalized} or 'no link'"
                             )
                             results.append(None)
                     except Exception as e:
@@ -483,7 +484,7 @@ class LLMService:
         return re.sub(r"\s+", " ", text).strip().lower()
 
     def _sanitize_text_input(self, text: str) -> str:
-        return re.sub(r"[^\w\s]", "", text)
+        return re.sub(r"[^\w\s.,;:()\-\"\'\[\]@#=+/&]", "", text)
 
     def _extract_document_summary(self, target_path: Path) -> str:
         if not self.vault_path:
@@ -498,7 +499,9 @@ class LLMService:
         try:
             with open(abs_path, "r", encoding="utf-8") as f:
                 content = f.read()
-            content = re.sub(r"^---\n.*?\n---\n", "", content, flags=re.DOTALL).lstrip()
+            content = re.sub(
+                r"^---\r?\n.*?\r?\n---\r?\n", "", content, flags=re.DOTALL
+            ).lstrip()
             summary = content.split("\n\n")[0].strip()
             return summary
         except Exception as e:
@@ -516,7 +519,7 @@ class LLMService:
             return []
 
         relation_types_str = ", ".join(relation_types)
-        relation_types = [t.lower() for t in relation_types]
+        relation_types_normalized = [t.lower() for t in relation_types]
 
         prepared_conflicts = []
         for conflict in conflicts:
@@ -561,8 +564,6 @@ class LLMService:
                     )
                     responses = [None] * len(mini_batch)
 
-                import traceback
-
                 for response in responses:
                     if isinstance(response, Exception):
                         logger.debug(
@@ -578,12 +579,12 @@ class LLMService:
                         sanitized_link = self._sanitize_model_response(link_type)
                         if sanitized_link == "no link":
                             results.append(None)
-                        elif sanitized_link in relation_types:
+                        elif sanitized_link in relation_types_normalized:
                             results.append(sanitized_link)
                         else:
                             logger.warning(
                                 f"Invalid resolved relation type: '{sanitized_link}'. "
-                                f"Expected one of: {relation_types} or 'no link'"
+                                f"Expected one of: {relation_types_normalized} or 'no link'"
                             )
                             results.append(None)
                     except Exception as e:
@@ -616,7 +617,8 @@ class LLMService:
             return "- No evidence rows provided."
 
         rows = []
-        for idx, row in enumerate(evidence_rows[:12], start=1):
+        MAX_EVIDENCE_ROWS = 12  # limit to keep conflict resolution prompt within context window
+        for idx, row in enumerate(evidence_rows[:MAX_EVIDENCE_ROWS], start=1):
             relation = row.relation_type
             source_chunk = self._sanitize_text_input(row.text_a)[:400]
             target_chunk = self._sanitize_text_input(row.text_b)[:400]
@@ -640,7 +642,7 @@ class LLMService:
     def load(self):
         if self.llm is None and self.metadata_manager:
             logger.info("Loading LLM Service...")
-            llm_cfg = self.metadata_manager.run_state.runtime_snapshot.models.llm
+            llm_cfg = self.metadata_manager.config.models.llm
             self.use_api = llm_cfg.use_api
             self.backend = llm_cfg.backend
             self.temperature = llm_cfg.temperature
@@ -660,6 +662,10 @@ class LLMService:
             logger.info("Unloading LLM Service...")
             self.close()
             self.llm = None
+            self._link_chain = None
+            self._link_strict_chain = None
+            self._link_conflict_chain = None
+            self._context_link_chain = None
 
     def classify_pairs_with_checkpoints(
         self,
@@ -667,8 +673,6 @@ class LLMService:
         stage: RunStage,
         strategy: str = "broad",
     ) -> Dict[Path, Set[str]]:
-        from tqdm import tqdm
-
         total = len(candidate_pairs)
         if total == 0:
             return {}
@@ -683,7 +687,7 @@ class LLMService:
 
         llm_concurrency = self.concurrency if self.use_api else 1
         llm_concurrency = max(1, int(llm_concurrency))
-        batch_size = max(llm_concurrency, 10 * llm_concurrency)
+        batch_size = 10 * llm_concurrency
 
         with tqdm(
             total=total,
@@ -842,8 +846,6 @@ class LLMService:
     def _update_reranked_candidates_with_llm_results(
         self, pair_predictions_accum: Dict[str, List[Dict[str, Any]]]
     ):
-        import json
-
         if (
             not self.reranked_candidates_path
             or not self.reranked_candidates_path.exists()

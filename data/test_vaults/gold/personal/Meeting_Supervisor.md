@@ -5,5 +5,5 @@
 ## Related Connections
 
 - Discusses:: [[Diploma_Project]]
-- Scheduled on:: [[20 марта 2026]]
+- Scheduled on:: [[20 марта]]
 - Discusses:: [[Research_Small_LLMs]]

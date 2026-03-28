@@ -4,7 +4,7 @@ import logging
 from pathlib import Path
 from typing import Any, Dict, List
 
-from src.kg_builder.config import META_DIR_NAME, OUTPUT_LINKS_FILE_NAME
+from src.kg_builder.config import LINK_HEADER, LINKS_CONFIG_FILE_NAME, META_DIR_NAME
 from src.kg_builder.models import DocumentEntity
 from src.kg_builder.retrieval import StrictRetrievalStrategy
 
@@ -12,22 +12,37 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def get_sample_lang(sample_dir: Path, default_lang: str) -> str:
-    config_path = sample_dir / META_DIR_NAME / OUTPUT_LINKS_FILE_NAME
+DEFAULT_LANG = "en"
+
+
+def get_sample_config(sample_dir: Path) -> tuple[str, str]:
+    """Returns (lang, link_header) from .kg_builder/config.json, or defaults."""
+    config_path = sample_dir / META_DIR_NAME / LINKS_CONFIG_FILE_NAME
     if config_path.exists():
         try:
             with config_path.open("r", encoding="utf-8") as f:
                 data = json.load(f)
-            if lang := data.get("lang"):
-                return lang
+            lang = data.get("lang") or DEFAULT_LANG
+            link_header = data.get("link_header") or LINK_HEADER
+            return lang, link_header
         except (json.JSONDecodeError, IOError):
             pass
-    return default_lang
+    return DEFAULT_LANG, LINK_HEADER
 
 
 class MockVectorStore:
     def __init__(self, lang: str):
         self.lang = lang
+        self._nlp = None
+
+    def _get_nlp(self):
+        if self._nlp is None:
+            import spacy
+
+            model_name = "ru_core_news_sm" if self.lang == "ru" else "en_core_web_sm"
+            logger.info(f"Loading spacy model '{model_name}'...")
+            self._nlp = spacy.load(model_name)
+        return self._nlp
 
 
 def get_entities_from_dir(directory: Path) -> Dict[str, DocumentEntity]:
@@ -39,8 +54,9 @@ def get_entities_from_dir(directory: Path) -> Dict[str, DocumentEntity]:
     return entities
 
 
-def process_sample(sample_dir: Path, lang: str) -> List[Dict[str, Any]]:
-    """Processes a single sample directory and returns findings."""
+def process_sample(
+    sample_dir: Path, lang: str, link_header: str
+) -> List[Dict[str, Any]]:
     logger.info(f"Processing sample: {sample_dir.name}")
 
     entities = get_entities_from_dir(sample_dir)
@@ -63,7 +79,10 @@ def process_sample(sample_dir: Path, lang: str) -> List[Dict[str, Any]]:
         file_path = Path(file_path_str)
         try:
             with open(file_path, "r", encoding="utf-8") as f:
-                full_docs[file_path_str] = f.read()
+                content = f.read()
+            if link_header in content:
+                content = content[: content.index(link_header)]
+            full_docs[file_path_str] = content
         except Exception as e:
             logger.error(f"Failed to read {file_path}: {e}")
 
@@ -89,9 +108,7 @@ def save_results(results: List[Dict[str, Any]], output_path: Path):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Generate retrieval validation dataset from gold vaults."
-    )
+    parser = argparse.ArgumentParser()
     parser.add_argument(
         "--dir",
         "--vault",
@@ -104,13 +121,6 @@ def main():
         required=True,
         help="Path to the output directory or base filename.",
     )
-    parser.add_argument(
-        "--lang",
-        default="ru",
-        choices=["ru", "en"],
-        help="Language of the articles (default: ru).",
-    )
-
     args = parser.parse_args()
 
     vault_path = Path(args.vault_dir)
@@ -131,13 +141,13 @@ def main():
     ]
 
     if not subdirs:
-        lang = get_sample_lang(vault_path, args.lang)
-        results = process_sample(vault_path, lang)
+        lang, link_header = get_sample_config(vault_path)
+        results = process_sample(vault_path, lang, link_header)
         save_results(results, output_dir / f"{vault_path.name}.json")
     else:
         for subdir in subdirs:
-            lang = get_sample_lang(subdir, args.lang)
-            results = process_sample(subdir, lang)
+            lang, link_header = get_sample_config(subdir)
+            results = process_sample(subdir, lang, link_header)
             save_results(results, output_dir / f"{subdir.name}.json")
 
 

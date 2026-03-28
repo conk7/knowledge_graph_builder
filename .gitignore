@@ -9,13 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
-data_vaults/external_datasets_backup.zip
-data_vaults/external
-data_vaults/0. Raw
-data_vaults/1. Toy
-data_vaults/2. Real
-data_vaults/3. Complex
-data_vaults/.gold_raw
+data/archive
+.gold_raw/
 results
 testfield/
 Test_Vault/
@@ -24,6 +19,6 @@ notes/
 src/data_parser/parsers
 
 .obsidian/
-.ai_meta/
+.out/
 
 .vscode

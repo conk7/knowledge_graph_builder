@@ -92,9 +92,28 @@ def main():
         help="Retrieval lang",
     )
     run_parser.add_argument(
+        "--splitter-type",
+        type=str,
+        choices=["recursive", "sentence_window"],
+        default="recursive",
+        help="Text splitter type: 'recursive' (default) or 'sentence_window'",
+    )
+    run_parser.add_argument(
+        "--sentence-window-before",
+        type=int,
+        default=1,
+        help="Number of sentences before the anchor sentence in a window chunk (default: 1)",
+    )
+    run_parser.add_argument(
+        "--sentence-window-after",
+        type=int,
+        default=1,
+        help="Number of sentences after the anchor sentence in a window chunk (default: 1)",
+    )
+    run_parser.add_argument(
         "--ignore-local-config",
         action="store_true",
-        help="Ignore saved hyperparameters in the vault and use local config.py instead",
+        help="Ignore saved hyperparameters in the vault and use config.py instead",
     )
     run_parser.add_argument(
         "--export-path",
@@ -168,6 +187,9 @@ def main():
             retrieval_strategy_name=retrieval_strategy,
             broad_query_mode=broad_query_mode,
             lang=args.lang,
+            splitter_type=args.splitter_type,
+            sentence_window_before=args.sentence_window_before,
+            sentence_window_after=args.sentence_window_after,
         )
 
         builder.run_update()

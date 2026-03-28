@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import json
 import logging
 import shutil
@@ -14,6 +15,9 @@ from src.kg_builder.config import (
     CHUNK_SIZE,
     EMBEDDING_MODEL_NAME,
     INITIAL_RETRIEVAL_K,
+    LINK_HEADER,
+    LINKS_CONFIG_FILE_NAME,
+    META_DIR_NAME,
     RERANKER_MODEL_NAME,
     RERANKER_THRESHOLD,
     RERANKER_TOP_K,
@@ -30,6 +34,10 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
+def _content_hash(text: str) -> str:
+    return hashlib.md5(text.strip().encode("utf-8")).hexdigest()
+
+
 def merge_combined_results(
     strict_result: Tuple[List[CandidatePair], List[Dict[str, Any]]],
     broad_result: Tuple[List[CandidatePair], List[Dict[str, Any]]],
@@ -39,12 +47,18 @@ def merge_combined_results(
 
     merged_cands = list(strict_cands)
     merged_meta = list(strict_meta)
-    strict_targets = {(str(c.source_path), str(c.target_path)) for c in strict_cands}
+
+    def _pair_hash(c: CandidatePair) -> str:
+        return _content_hash(f"{c.source_path}|{c.target_path}|{c.target_content}")
+
+    seen_hashes = {_pair_hash(c) for c in strict_cands}
 
     for i, cand in enumerate(broad_cands):
-        if (str(cand.source_path), str(cand.target_path)) not in strict_targets:
+        h = _pair_hash(cand)
+        if h not in seen_hashes:
             merged_cands.append(cand)
             merged_meta.append(broad_meta[i])
+            seen_hashes.add(h)
 
     return merged_cands, merged_meta
 
@@ -69,10 +83,55 @@ class Metrics:
         return 2 * (p * r) / (p + r) if (p + r) > 0 else 0.0
 
 
+_nlp_cache: Dict[str, Any] = {}
+
+FUZZY_MATCH_THRESHOLD = 0.5
+
+
+def get_sample_lang(sample_dir: Path) -> str:
+    """Read lang from .kg_builder/config.json, or return default."""
+    config_path = sample_dir / META_DIR_NAME / LINKS_CONFIG_FILE_NAME
+    if config_path.exists():
+        try:
+            with config_path.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            return data.get("lang")
+        except (json.JSONDecodeError, IOError):
+            pass
+
+
+def _get_nlp(lang: str):
+    if lang not in _nlp_cache:
+        import spacy
+
+        model = "ru_core_news_sm" if lang == "ru" else "en_core_web_sm"
+        _nlp_cache[lang] = spacy.load(model, disable=["parser", "ner"])
+    return _nlp_cache[lang]
+
+
+def _lemma_set(text: str, nlp) -> set:
+    return {
+        token.lemma_.lower()
+        for token in nlp(text)
+        if not token.is_stop and not token.is_punct and token.is_alpha
+    }
+
+
+def is_fuzzy_match(
+    gold_sent: str, pred_content: str, nlp, threshold: float = FUZZY_MATCH_THRESHOLD
+) -> bool:
+    gold_lemmas = _lemma_set(gold_sent, nlp)
+    pred_lemmas = _lemma_set(pred_content, nlp)
+    if not gold_lemmas:
+        return gold_sent.strip() in pred_content
+    intersection = gold_lemmas & pred_lemmas
+    return len(intersection) / len(gold_lemmas) >= threshold
+
+
 def get_entities_from_dir(directory: Path) -> Dict[str, DocumentEntity]:
     entities = {}
     for md_file in directory.glob("*.md"):
-        rel_path = str(md_file.resolve())
+        rel_path = str(md_file)
         title = md_file.stem
         entities[rel_path] = DocumentEntity(rel_path=rel_path, title=title, aliases=[])
     return entities
@@ -92,7 +151,10 @@ def evaluate_sample(
     for file_path_str in entities.keys():
         file_path = Path(file_path_str)
         with open(file_path, "r", encoding="utf-8") as f:
-            full_docs[file_path_str] = f.read()
+            content = f.read()
+        if LINK_HEADER in content:
+            content = content[: content.index(LINK_HEADER)]
+        full_docs[file_path_str] = content
 
     temp_dir = tempfile.mkdtemp()
     try:
@@ -102,6 +164,7 @@ def evaluate_sample(
             reranker_model_name=RERANKER_MODEL_NAME,
             chunk_size=CHUNK_SIZE,
             chunk_overlap=CHUNK_OVERLAP,
+            splitter_type="sentence_window",
             separators=CHUNK_SEPARATORS,
             vector_weight=VECTOR_SEARCH_WEIGHT,
             fresh_start=True,
@@ -119,8 +182,8 @@ def evaluate_sample(
         strict_strat = StrictRetrievalStrategy(
             vector_store=vs,
             global_entity_dict=entities,
-            context_sents_before=1,
-            context_sents_after=1,
+            context_sents_before=0,
+            context_sents_after=0,
         )
         broad_strat = VectorSearchRerankStrategy(
             vector_store=vs,
@@ -148,6 +211,8 @@ def evaluate_sample(
                 retrieval_cache["Strict"], retrieval_cache["Broad"]
             )
 
+            nlp = _get_nlp(lang)
+
             for name in ("Strict", "Broad", "Combined"):
                 metrics = Metrics()
                 pred_candidates, _ = retrieval_cache[name]
@@ -164,11 +229,10 @@ def evaluate_sample(
                     gold_sent = gold_item["sentence"].strip()
 
                     if gold_key in pred_map:
-                        found = False
-                        for pred_content in pred_map[gold_key]:
-                            if gold_sent in pred_content:
-                                found = True
-                                break
+                        found = any(
+                            is_fuzzy_match(gold_sent, pred_content, nlp)
+                            for pred_content in pred_map[gold_key]
+                        )
                         if found:
                             metrics.tp += 1
                         else:
@@ -178,12 +242,13 @@ def evaluate_sample(
 
                 for key, contents in pred_map.items():
                     for content in contents:
-                        match_found = False
-                        for gold_item in gold_data:
-                            if key == (gold_item["source_file"], gold_item["entity"]):
-                                if gold_item["sentence"].strip() in content:
-                                    match_found = True
-                                    break
+                        match_found = any(
+                            key == (gold_item["source_file"], gold_item["entity"])
+                            and is_fuzzy_match(
+                                gold_item["sentence"].strip(), content, nlp
+                            )
+                            for gold_item in gold_data
+                        )
                         if not match_found:
                             metrics.fp += 1
 
@@ -209,9 +274,6 @@ def main():
         "--gold-dir",
         required=True,
         help="Path to the directory containing gold JSON files.",
-    )
-    parser.add_argument(
-        "--lang", default="ru", choices=["ru", "en"], help="Language (default: ru)."
     )
     parser.add_argument(
         "--show-inner-progress",
@@ -264,10 +326,11 @@ def main():
         with open(gold_file, "r", encoding="utf-8") as f:
             gold_data = json.load(f)
 
+        sample_lang = get_sample_lang(subdir)
         sample_results, retrieval_data = evaluate_sample(
             subdir,
             gold_data,
-            args.lang,
+            sample_lang,
             show_inner_progress=args.show_inner_progress,
         )
 

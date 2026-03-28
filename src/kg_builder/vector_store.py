@@ -1,7 +1,7 @@
 import gc
 import logging
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 import lancedb
 import torch
@@ -16,7 +16,32 @@ from .models import RerankResult, SearchResult
 logger = logging.getLogger(__name__)
 
 
+class SentenceWindowSplitter:
+    """Splits text into overlapping sentence-window chunks using spaCy."""
+
+    def __init__(self, nlp, window_before: int = 1, window_after: int = 1):
+        self.nlp = nlp
+        self.window_before = window_before
+        self.window_after = window_after
+
+    def split_text(self, text: str) -> List[str]:
+        doc = self.nlp(text)
+        sents = [s.text.strip() for s in doc.sents if s.text.strip()]
+        chunks = []
+        for i in range(len(sents)):
+            start = max(0, i - self.window_before)
+            end = min(len(sents), i + self.window_after + 1)
+            chunk = " ".join(sents[start:end])
+            if chunk:
+                chunks.append(chunk)
+        return chunks
+
+
 class VectorStore:
+    @staticmethod
+    def _escape_filter_value(value: str) -> str:
+        return value.replace("'", "''")
+
     def __init__(
         self,
         index_path: Path,
@@ -28,6 +53,9 @@ class VectorStore:
         vector_weight: float = 0.5,
         fresh_start: bool = False,
         lang: str = "ru",
+        splitter_type: str = "recursive",
+        sentence_window_before: int = 1,
+        sentence_window_after: int = 1,
     ):
         self.lang = lang
         self.index_path = index_path
@@ -36,6 +64,10 @@ class VectorStore:
         self.reranker_model_name = reranker_model_name
         self.reranker = None
         self._nlp = None
+        self._splitter_type = splitter_type
+        self._sentence_window_before = sentence_window_before
+        self._sentence_window_after = sentence_window_after
+        self._sentence_splitter: Optional[SentenceWindowSplitter] = None
 
         self.index_path.mkdir(parents=True, exist_ok=True)
         self.db = lancedb.connect(str(self.index_path))
@@ -136,6 +168,17 @@ class VectorStore:
                 raise
         return self._nlp
 
+    def _get_splitter(self):
+        if self._splitter_type == "sentence_window":
+            if self._sentence_splitter is None:
+                self._sentence_splitter = SentenceWindowSplitter(
+                    nlp=self._get_nlp(),
+                    window_before=self._sentence_window_before,
+                    window_after=self._sentence_window_after,
+                )
+            return self._sentence_splitter
+        return self.text_splitter
+
     def _get_lemmatized_text(self, text: str) -> str:
         nlp = self._get_nlp()
         doc = nlp(text)
@@ -146,7 +189,7 @@ class VectorStore:
     ) -> List[str]:
         existing = (
             self.table.search()
-            .where(f"file_path = '{file_path}'")
+            .where(f"file_path = '{self._escape_filter_value(file_path)}'")
             .select(["text", "file_hash"])
             .limit(1)
             .to_list()
@@ -156,7 +199,7 @@ class VectorStore:
             logger.debug(f"Cache hit for {file_path}. Retrieving existing chunks.")
             all_chunks = (
                 self.table.search()
-                .where(f"file_path = '{file_path}'")
+                .where(f"file_path = '{self._escape_filter_value(file_path)}'")
                 .select(["text"])
                 .to_list()
             )
@@ -174,7 +217,7 @@ class VectorStore:
         if not content:
             return []
 
-        chunks = self.text_splitter.split_text(content)
+        chunks = self._get_splitter().split_text(content)
         if not chunks:
             return []
 
@@ -197,7 +240,7 @@ class VectorStore:
 
     def remove_document(self, file_path: str) -> int:
         before = self.total_vectors
-        self.table.delete(f"file_path = '{file_path}'")
+        self.table.delete(f"file_path = '{self._escape_filter_value(file_path)}'")
         after = self.total_vectors
 
         removed = max(0, before - after)
@@ -280,7 +323,7 @@ class VectorStore:
             return ""
         results = (
             self.table.search()
-            .where(f"file_path = '{file_path}'")
+            .where(f"file_path = '{self._escape_filter_value(file_path)}'")
             .select(["text"])
             .limit(1)
             .to_list()
