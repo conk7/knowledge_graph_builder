@@ -221,367 +221,297 @@
   },
   {
     "entity": "System_on_a_chip",
-    "source_file": "Apple_M1",
+    "source_file": "Apple_M1.md",
     "sentence": "The SoC and DRAM chips are mounted together in a system-in-a-package design."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Apple_M1",
+    "source_file": "Apple_M1.md",
     "sentence": "The SoC and DRAM chips are mounted together in a system-in-a-package design."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "Acorn chose VLSI Technology as the 'silicon partner', as they were a source of ROMs and custom chips for Acorn."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "One was the publication of a series of reports from the University of California, Berkeley, which suggested that a simple chip design could nevertheless have extremely high performance, much higher than the latest 32-bit designs on the market."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "With over 230 billion ARM chips produced, since at least 2003, and with its dominance increasing every year, ARM is the most widely used family of instruction set architectures."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "In 2013, 10 billion were produced and 'ARM-based chips are found in nearly 60 percent of the world's mobile devices'."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "The original design manufacturer combines the ARM core with other parts to produce a complete device, typically one that can be built in existing semiconductor fabrication plants (fabs) at low cost and still deliver substantial performance."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "Merchant foundries can be a special case; not only are they allowed to sell finished silicon containing ARM cores, they generally hold the right to re-manufacture ARM cores for other customers."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "In exchange for acquiring the ARM core through the foundry's in-house design services, the customer can reduce or eliminate payment of ARM's upfront licence fee."
   },
   {
     "entity": "System_on_a_chip",
-    "source_file": "ARM_architecture_family",
+    "source_file": "ARM_architecture_family.md",
     "sentence": "The original design manufacturer combines the ARM core with other parts to produce a complete device, typically one that can be built in existing semiconductor fabrication plants (fabs) at low cost and still deliver substantial performance."
   },
   {
     "entity": "Extreme_ultraviolet_lithography",
-    "source_file": "ASML_Holding",
+    "source_file": "ASML_Holding.md",
     "sentence": "The machine weighs 180 tons and needs three Boeing 747s to transport."
   },
   {
     "entity": "Extreme_ultraviolet_lithography",
-    "source_file": "ASML_Holding",
+    "source_file": "ASML_Holding.md",
     "sentence": "The platform is designated High-NA as it increases the numerical aperture (NA) from 0.33 to 0.55; each system costs approximately $370 million."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "ASML_Holding",
+    "source_file": "ASML_Holding.md",
     "sentence": "In the category for Popular Prize, Vadim Banine received the 2018 European Inventor Award for shaping the future of microchip manufacturing."
   },
   {
     "entity": "Photolithography",
-    "source_file": "ASML_Holding",
+    "source_file": "ASML_Holding.md",
     "sentence": "In March 2023, the Dutch government placed restrictions on chip equipment exports in order to protect national security."
   },
   {
     "entity": "Photolithography",
-    "source_file": "ASML_Holding",
+    "source_file": "ASML_Holding.md",
     "sentence": "In January 2024, the Dutch government placed further restrictions on the shipment of some advanced chip-making equipment to China."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "Cleanroom",
+    "source_file": "Cleanroom.md",
     "sentence": "Such rooms are commonly needed for scientific research and in industrial production for all nanoscale processes, such as semiconductor device manufacturing."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "Cleanroom",
+    "source_file": "Cleanroom.md",
     "sentence": "A clean room manufactures is a necessity in the manufacturing of semiconductors, rechargeable batteries, pharmaceutical products, and any other field that is highly sensitive to environmental contamination."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Cleanroom",
+    "source_file": "Cleanroom.md",
     "sentence": "Static discharge is of particular concern in the electronics industry, where it can instantly destroy components and circuitry."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Cleanroom",
+    "source_file": "Cleanroom.md",
     "sentence": "This is a particular concern within the semiconductor business, because static discharge can easily damage modern circuit designs."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "Cleanroom",
+    "source_file": "Cleanroom.md",
     "sentence": "Because of this, most workers in high electronics and semiconductor facilities have to wear conductive boots while working."
   },
   {
     "entity": "ASML_Holding",
-    "source_file": "Extreme_ultraviolet_lithography",
+    "source_file": "Extreme_ultraviolet_lithography.md",
     "sentence": "Their first prototype in 2006 produced one wafer in 23 hours."
   },
   {
-    "entity": "Extreme_ultraviolet_lithography",
-    "source_file": "Extreme_ultraviolet_lithography",
-    "sentence": "Because it is such a key technology for development in many fields, the United States licenser pressured Dutch authorities to not sell these machines to China."
-  },
-  {
-    "entity": "Extreme_ultraviolet_lithography",
-    "source_file": "Extreme_ultraviolet_lithography",
-    "sentence": "ASML has followed the guidelines of Dutch export controls and until further notice will have no authority to ship the machines to China."
-  },
-  {
-    "entity": "Extreme_ultraviolet_lithography",
-    "source_file": "Extreme_ultraviolet_lithography",
-    "sentence": "As of 2022, a scanner produces up to 200 wafers per hour."
-  },
-  {
-    "entity": "Extreme_ultraviolet_lithography",
-    "source_file": "Extreme_ultraviolet_lithography",
-    "sentence": "The scanner uses Zeiss optics, which that company calls the most precise mirrors in the world, produced by locating imperfections and then knocking off individual molecules with techniques such as ion beam figuring."
-  },
-  {
-    "entity": "Fin_field-effect_transistor",
-    "source_file": "Fin_field-effect_transistor",
-    "sentence": "It is the basis for modern nanoelectronic semiconductor device fabrication."
-  },
-  {
-    "entity": "Fin_field-effect_transistor",
-    "source_file": "Fin_field-effect_transistor",
-    "sentence": "Although some device width is sacrificed by cutting it into narrow widths, the conduction of the side wall of narrow fins more than make up for the loss, for tall fins."
-  },
-  {
-    "entity": "Fin_field-effect_transistor",
-    "source_file": "Fin_field-effect_transistor",
-    "sentence": "The device had a 35 nm channel width and 70 nm channel length."
-  },
-  {
-    "entity": "Fin_field-effect_transistor",
-    "source_file": "Fin_field-effect_transistor",
-    "sentence": "These devices shipped from 2012 onwards."
-  },
-  {
     "entity": "Transistor",
-    "source_file": "Fin_field-effect_transistor",
+    "source_file": "Fin_field-effect_transistor.md",
     "sentence": "They demonstrated that short-channel effects can be significantly reduced by sandwiching a fully depleted silicon-on-insulator (SOI) device between two gate electrodes connected together."
   },
   {
     "entity": "Transistor",
-    "source_file": "Fin_field-effect_transistor",
+    "source_file": "Fin_field-effect_transistor.md",
     "sentence": "Although some device width is sacrificed by cutting it into narrow widths, the conduction of the side wall of narrow fins more than make up for the loss, for tall fins."
   },
   {
     "entity": "Transistor",
-    "source_file": "Fin_field-effect_transistor",
+    "source_file": "Fin_field-effect_transistor.md",
     "sentence": "The device had a 35 nm channel width and 70 nm channel length."
   },
   {
     "entity": "Transistor",
-    "source_file": "Fin_field-effect_transistor",
+    "source_file": "Fin_field-effect_transistor.md",
     "sentence": "These devices shipped from 2012 onwards."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Fin_field-effect_transistor",
+    "source_file": "Fin_field-effect_transistor.md",
     "sentence": "Microchips utilizing FinFET gates first became commercialized in the first half of the 2010s, and became the dominant gate design at 14 nm, 10 nm and 7 nm process nodes."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Fin_field-effect_transistor",
+    "source_file": "Fin_field-effect_transistor.md",
     "sentence": "Commercially produced chips at 22 nm and below have generally utilised FinFET gate designs (but planar processes do exist down to 18 nm, with 12 nm in development)."
   },
   {
     "entity": "Moores_law",
-    "source_file": "Integrated_circuit",
+    "source_file": "Integrated_circuit.md",
     "sentence": "Moore originally stated it would double every year, but he went on to change the claim to every two years in 1975."
   },
   {
     "entity": "Photolithography",
-    "source_file": "Integrated_circuit",
+    "source_file": "Integrated_circuit.md",
     "sentence": "Instead, ultraviolet (UV) photons of shorter wavelength are employed to expose each layer."
   },
   {
     "entity": "System_on_a_chip",
-    "source_file": "Integrated_circuit",
+    "source_file": "Integrated_circuit.md",
     "sentence": "The design of such a device can be complex and costly, and whilst performance benefits can be had from integrating all needed components on one die, the cost of licensing and developing a one-die machine still outweigh having separate devices."
   },
   {
     "entity": "Silicon",
-    "source_file": "Integrated_circuit",
+    "source_file": "Integrated_circuit.md",
     "sentence": "It took decades to perfect methods of creating crystals with minimal defects in semiconducting materials' crystal structure."
   },
   {
-    "entity": "Moores_law",
-    "source_file": "Moores_law",
-    "sentence": "Rather than a law of physics, it is an empirical relationship."
-  },
-  {
-    "entity": "Moores_law",
-    "source_file": "Moores_law",
-    "sentence": "It is an experience curve effect, a type of observation quantifying efficiency gains from learned experience in production."
-  },
-  {
-    "entity": "Moores_law",
-    "source_file": "Moores_law",
-    "sentence": "In 1975, looking forward to the next decade, he revised the forecast to doubling every two years, a compound annual growth rate (CAGR) of 41%."
-  },
-  {
-    "entity": "Moores_law",
-    "source_file": "Moores_law",
-    "sentence": "The observation was even seen as a self-fulfilling prophecy."
-  },
-  {
-    "entity": "Moores_law",
-    "source_file": "Moores_law",
-    "sentence": "It can't continue forever."
-  },
-  {
-    "entity": "Moores_law",
-    "source_file": "Moores_law",
-    "sentence": "The nature of exponentials is that you push them out and eventually disaster happens."
-  },
-  {
     "entity": "Transistor",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "As device dimensions shrink, controlling the current flow in the thin channel becomes more difficult."
   },
   {
     "entity": "Transistor",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "They claim these may be produced at 10 nm scale using existing fabrication techniques."
   },
   {
     "entity": "Transistor",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "Three wires converge on a central island that can house one or two electrons."
   },
   {
     "entity": "Transistor",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "Electrons tunnel from one wire to another through the island."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "Within his editorial, he speculated that by 1975 it would be possible to contain as many as 65000 components on a single quarter-square-inch (~ 1.6 cm2) semiconductor."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "The complexity for minimum component costs has increased at a rate of roughly a factor of two per year."
   },
   {
     "entity": "Photolithography",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "Prior to this, excimer lasers had been mainly used as research devices since their development in the 1970s."
   },
   {
     "entity": "Extreme_ultraviolet_lithography",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "Rising manufacturing costs are an important consideration for the sustaining of Moore's law."
   },
   {
     "entity": "Fin_field-effect_transistor",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "In comparison, the gate-all-around MOSFET (GAAFET) structure has even better gate control."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "Moores_law",
+    "source_file": "Moores_law.md",
     "sentence": "As a result, much of the semiconductor industry has shifted its focus to the needs of major computing applications rather than semiconductor scaling."
   },
   {
     "entity": "Wafer_(electronics)",
-    "source_file": "Photolithography",
+    "source_file": "Photolithography.md",
     "sentence": "The process begins with a photosensitive material, called a photoresist, being applied to the substrate."
   },
   {
     "entity": "Wafer_(electronics)",
-    "source_file": "Photolithography",
+    "source_file": "Photolithography.md",
     "sentence": "After development, the pattern is transferred onto the sample through etching, chemical vapor deposition, physical vapor deposition, plating, or ion implantation processes."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Photolithography",
+    "source_file": "Photolithography.md",
     "sentence": "It provides precise control of the shape and size of the objects it creates."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "Photolithography",
+    "source_file": "Photolithography.md",
     "sentence": "And, like all chip manufacturing processes, it requires extremely clean operating conditions."
   },
   {
     "entity": "Cleanroom",
-    "source_file": "Photolithography",
+    "source_file": "Photolithography.md",
     "sentence": "And, like all chip manufacturing processes, it requires extremely clean operating conditions."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "Photolithography",
+    "source_file": "Photolithography.md",
     "sentence": "It is also an important technique for microfabrication in general, such as the fabrication of microelectromechanical systems."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "The dies can then undergo further assembly and packaging."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "Testing is carried out to prevent faulty chips from being assembled into relatively expensive packages."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "The machine marks each bad chip with a drop of dye."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "Binning allows chips that would otherwise be rejected to be reused in lower-tier products, as is the case with GPUs and CPUs, increasing device yield, especially since very few chips are fully functional (have all cores functioning correctly, for example)."
   },
   {
     "entity": "Photolithography",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "Patterning is the shaping or altering of deposited materials, and is generally referred to as lithography."
   },
   {
     "entity": "Silicon",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "These ingots are then sliced into wafers about 0.75 mm thick and polished to obtain a very regular and flat surface."
   },
   {
     "entity": "TSMC",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "The yield went down to 32% with an increase in die size to 100 mm2."
   },
   {
     "entity": "Cleanroom",
-    "source_file": "Semiconductor_device_fabrication",
+    "source_file": "Semiconductor_device_fabrication.md",
     "sentence": "Today, fabrication plants are pressurized with filtered air to remove even the smallest particles, which could come to rest on the wafers and contribute to defects."
   },
   {
     "entity": "Transistor",
-    "source_file": "Silicon",
+    "source_file": "Silicon.md",
     "sentence": "In 1947, physicist William Shockley theorized a field-effect amplifier made from germanium and silicon, but he failed to build a working device, before eventually working with germanium instead."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "System_on_a_chip",
+    "source_file": "System_on_a_chip.md",
     "sentence": "Too much waste heat can damage circuits and erode reliability of the circuit over time."
   },
   {
     "entity": "Semiconductor_device_fabrication",
-    "source_file": "System_on_a_chip",
+    "source_file": "System_on_a_chip.md",
     "sentence": "Throughout this conversion process, the design is analyzed with static timing modeling, simulation and other tools to ensure that it meets the specified operational parameters such as frequency, power consumption and dissipation, functional integrity (as described in the register transfer level code) and electrical integrity."
   },
   {
     "entity": "Integrated_circuit",
-    "source_file": "Transistor",
+    "source_file": "Transistor.md",
     "sentence": "A logic gate consists of up to about 20 transistors, whereas an advanced microprocessor, As of 2023, may contain as many as 92 billion transistor on a die, and double that 184 billion when dual die (and for exceptional chips, 2.6 trillion transistors, as of 2020)."
   }
 ]

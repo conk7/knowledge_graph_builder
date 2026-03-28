@@ -26,87 +26,87 @@
   },
   {
     "entity": "Diploma_Project",
-    "source_file": "20 марта",
+    "source_file": "20 марта.md",
     "sentence": "Главный фокус на дипломной работе, нужно поработать над ней."
   },
   {
     "entity": "Meeting_Supervisor",
-    "source_file": "20 марта",
+    "source_file": "20 марта.md",
     "sentence": "В 15:00 синкануться с науч руком"
   },
   {
     "entity": "Goodfellas",
-    "source_file": "20 марта",
+    "source_file": "20 марта.md",
     "sentence": "Вечером зачилл, глянуть славных парней"
   },
   {
     "entity": "Haircut_Appointment",
-    "source_file": "21 марта",
+    "source_file": "21 марта.md",
     "sentence": "1. Утром подстричься."
   },
   {
     "entity": "Go_Shopping",
-    "source_file": "21 марта",
+    "source_file": "21 марта.md",
     "sentence": "2. Днем надо успеть сходить в магазин и починить велосипед."
   },
   {
     "entity": "Fix_Bike",
-    "source_file": "21 марта",
+    "source_file": "21 марта.md",
     "sentence": "2. Днем надо успеть сходить в магазин и починить велосипед."
   },
   {
     "entity": "Meeting_Ivan_Ivanov",
-    "source_file": "21 марта",
+    "source_file": "21 марта.md",
     "sentence": "3. Вечером погулять с Иваном Ивановым."
   },
   {
     "entity": "Research_Small_LLMs",
-    "source_file": "Diploma_Project",
+    "source_file": "Diploma_Project.md",
     "sentence": "3. изучить маленькае LLM (9-14B в Q4)"
   },
   {
     "entity": "Meeting_Supervisor",
-    "source_file": "Diploma_Project",
+    "source_file": "Diploma_Project.md",
     "sentence": "обсудили с науч руком, закрепили моменты:"
   },
   {
     "entity": "Meeting_Supervisor",
-    "source_file": "Diploma_Project",
+    "source_file": "Diploma_Project.md",
     "sentence": "обсудить вопросы на созвоне в науч руком"
   },
   {
     "entity": "Meeting_Ivan_Ivanov",
-    "source_file": "Go_Shopping",
+    "source_file": "Go_Shopping.md",
     "sentence": "Нужно сделать это до того, как поеду на встречу с Иваном Ивановым."
   },
   {
     "entity": "Diploma_Project",
-    "source_file": "Meeting_Supervisor",
+    "source_file": "Meeting_Supervisor.md",
     "sentence": "Синхронизироваться по статусу дипломной работе, обсудить нерешенные вопросы."
   },
   {
     "entity": "Research_Small_LLMs",
-    "source_file": "Meeting_Supervisor",
+    "source_file": "Meeting_Supervisor.md",
     "sentence": "Обсудить маленькие LLM."
   },
   {
     "entity": "Diploma_Project",
-    "source_file": "Research_Small_LLMs",
+    "source_file": "Research_Small_LLMs.md",
     "sentence": "Это важно для улучшения точности классификатора в дипломной работе, а также пригодится для пайплайна в проекте по NLP."
   },
   {
     "entity": "Side_Project_NLP",
-    "source_file": "Research_Small_LLMs",
+    "source_file": "Research_Small_LLMs.md",
     "sentence": "Это важно для улучшения точности классификатора в дипломной работе, а также пригодится для пайплайна в проекте по NLP."
   },
   {
     "entity": "Diploma_Project",
-    "source_file": "Side_Project_NLP",
+    "source_file": "Side_Project_NLP.md",
     "sentence": "Попробую переиспользовать часть пайплайна и алгоритм парсинга графа, который я написал для дипломной работы."
   },
   {
     "entity": "Research_Small_LLMs",
-    "source_file": "Side_Project_NLP",
+    "source_file": "Side_Project_NLP.md",
     "sentence": "Также для генерации ответом планирую изучить маленькие LLM."
   }
 ]

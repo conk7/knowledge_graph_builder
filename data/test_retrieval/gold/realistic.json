@@ -200,333 +200,328 @@
     "sentence": "It was there that he also conducted the early work on perceptrons, which culminated in the development and hardware construction in 1960 of the Mark I Perceptron, essentially the first computer that could learn new skills by trial and error, using a type of neural network that simulates human thought processes."
   },
   {
-    "entity": "AI_winter",
-    "source_file": "AI_winter",
-    "sentence": "They described a chain reaction, similar to a nuclear winter, that would begin with pessimism in the AI community, followed by pessimism in the press, followed by a severe cutback in funding, followed by the end of serious research."
-  },
-  {
     "entity": "Marvin_Minsky",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "They described a chain reaction, similar to a nuclear winter, that would begin with pessimism in the AI community, followed by pessimism in the press, followed by a severe cutback in funding, followed by the end of serious research."
   },
   {
     "entity": "Expert_system",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "An industry grew up to support them, including software companies like Teknowledge and Intellicorp (KEE), and hardware companies like Symbolics and LISP Machines Inc. who built specialized computers, called LISP machines, that were optimized to process the programming language LISP, the preferred language for AI research in the USA."
   },
   {
     "entity": "Expert_system",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "They were difficult to update, they could not learn, they were brittle (i.e., they could make grotesque mistakes when given unusual inputs), and they fell prey to problems (such as the qualification problem) that had been identified years earlier in research in nonmonotonic logic."
   },
   {
     "entity": "Expert_system",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "Other systems, such as Intellicorp's KEE, moved from LISP to a C++ (variant) on the PC and helped establish object-oriented technology (including providing major support for the development of UML (see UML Partners)."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "He optimistically predicted that the perceptron may eventually be able to learn, make decisions, and translate languages."
   },
   {
     "entity": "Commonsense_knowledge_(artificial_intelligence)",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "In order to translate a sentence, a machine needed to have some idea what the sentence was about, otherwise it made mistakes."
   },
   {
     "entity": "Symbolic_artificial_intelligence",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "Following the success of programs such as the Logic Theorist and the General Problem Solver, algorithms for manipulating symbols seemed more promising at the time as means to achieve logical reasoning viewed at the time as the essence of intelligence, either natural or artificial."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "Important theoretical work continued despite the lack of funding."
   },
   {
     "entity": "Machine_learning",
-    "source_file": "AI_winter",
+    "source_file": "AI_winter.md",
     "sentence": "Although this may have been partly because they considered their field to be fundamentally different from AI, it is also true that the new names helped to procure funding by avoiding the stigma of false promises attached to the name artificial intelligence."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Backpropagation",
+    "source_file": "Backpropagation.md",
     "sentence": "In any case, he only studied neurons whose outputs were discrete levels, which only had zero derivatives, making backpropagation impossible."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Backpropagation",
+    "source_file": "Backpropagation.md",
     "sentence": "Backpropagation computes the gradient of a loss function with respect to the weights of the network for a single input–output example, and does so efficiently, computing the gradient one layer at a time, iterating backward from the last layer to avoid redundant calculations of intermediate terms in the chain rule; this can be derived through dynamic programming."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Backpropagation",
+    "source_file": "Backpropagation.md",
     "sentence": "The overall network is a combination of function composition and matrix multiplication:"
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Backpropagation",
+    "source_file": "Backpropagation.md",
     "sentence": "Note the distinction: during model evaluation the weights are fixed while the inputs vary (and the target output may be unknown), and the network ends with the output layer (it does not include the loss function)."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Backpropagation",
+    "source_file": "Backpropagation.md",
     "sentence": "During model training the input–output pair is fixed while the weights vary, and the network ends with the loss function."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "He cited Hebb, Hayek, Uttley, and Ashby as main influences."
   },
   {
     "entity": "AI_winter",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "The publication of Perceptrons (1969) is typically regarded as a catalyst of this event."
   },
   {
     "entity": "Universal_approximation_theorem",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "Another important series of publications proved that neural networks are universal function approximators, which also provided some mathematical respectability."
   },
   {
     "entity": "Symbolic_artificial_intelligence",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "This principle has been seen as an alternative to GOFAI and the classical theories of mind based on symbolic computation, but the extent to which the two approaches are compatible has been the subject of much debate since their inception."
   },
   {
     "entity": "Symbolic_artificial_intelligence",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "Differences between the two approaches include the following:"
   },
   {
     "entity": "Symbolic_artificial_intelligence",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "Moreover, the existence of recursive isomorphisms suggests that different technical approaches can draw insights from one another."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "The success of deep-learning networks in the past decade has greatly increased the popularity of this approach, but the complexity and scale of such networks has brought with them increased interpretability problems."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "The form of the connections and the units can vary from model to model."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Connectionism",
+    "source_file": "Connectionism.md",
     "sentence": "Internal states of any network change over time due to neurons sending a signal to a succeeding layer of neurons in the case of a feedforward network, or to a previous layer in the case of a recurrent network."
   },
   {
     "entity": "Lisp_(programming_language)",
-    "source_file": "Expert_system",
+    "source_file": "Expert_system.md",
     "sentence": "This provided a powerful development environment, but with the drawback that it was virtually impossible to match the efficiency of the fastest compiled languages (such as C)."
   },
   {
     "entity": "Perceptron",
-    "source_file": "Frank_Rosenblatt",
+    "source_file": "Frank_Rosenblatt.md",
     "sentence": "The New York Times billed it as a revolution, with the headline New Navy Device Learns By Doing, and The New Yorker similarly admired the technological advance."
   },
   {
     "entity": "Perceptron",
-    "source_file": "Frank_Rosenblatt",
+    "source_file": "Frank_Rosenblatt.md",
     "sentence": "The Mark I was able to learn, recognize letters, and solve quite complex problems."
   },
   {
     "entity": "Perceptron",
-    "source_file": "Frank_Rosenblatt",
+    "source_file": "Frank_Rosenblatt.md",
     "sentence": "It occupied an entire room."
   },
   {
     "entity": "Marvin_Minsky",
-    "source_file": "Frank_Rosenblatt",
+    "source_file": "Frank_Rosenblatt.md",
     "sentence": "They proved that under these constraints, an elementary perceptron cannot solve some problems, such as the connectivity of input images or the parity of pixels in them."
   },
   {
     "entity": "Commonsense_knowledge_(artificial_intelligence)",
-    "source_file": "Logic_programming",
+    "source_file": "Logic_programming.md",
     "sentence": "Commonsense includes knowledge about cause and effect, as formalised, for example, in the situation calculus, event calculus and action languages."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Machine_learning",
+    "source_file": "Machine_learning.md",
     "sentence": "Such systems 'learn' to perform tasks by considering examples, generally without being programmed with any task-specific rules."
   },
   {
     "entity": "Symbolic_artificial_intelligence",
-    "source_file": "Machine_learning",
+    "source_file": "Machine_learning.md",
     "sentence": "It shifted focus away from the symbolic approaches it had inherited from AI, and toward methods and models borrowed from statistics, fuzzy logic, and probability theory."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Marvin_Minsky",
+    "source_file": "Marvin_Minsky.md",
     "sentence": "Artificial brains could be grown by a process strikingly analogous to the development of a human brain."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Marvin_Minsky",
+    "source_file": "Marvin_Minsky.md",
     "sentence": "In any given case, the precise details would never be known, and even if they were, they would be millions of times too complex for human understanding."
   },
   {
     "entity": "Backpropagation",
-    "source_file": "Multilayer_perceptron",
+    "source_file": "Multilayer_perceptron.md",
     "sentence": "The earliest published instance was Seppo Linnainmaa's master thesis (1970)."
   },
   {
     "entity": "Backpropagation",
-    "source_file": "Multilayer_perceptron",
+    "source_file": "Multilayer_perceptron.md",
     "sentence": "Paul Werbos developed it independently in 1971, but had difficulty publishing it until 1982."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Multilayer_perceptron",
+    "source_file": "Multilayer_perceptron.md",
     "sentence": "However, it was not the backpropagation algorithm, and he did not have a general method for training multiple layers."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Multilayer_perceptron",
+    "source_file": "Multilayer_perceptron.md",
     "sentence": "It was one of the first deep learning methods, used to train an eight-layer neural net in 1971."
   },
   {
     "entity": "Backpropagation",
-    "source_file": "Neural_network_(machine_learning)",
+    "source_file": "Neural_network_(machine_learning).md",
     "sentence": "G.M. Ostrovski et al. republished it in 1971."
   },
   {
     "entity": "Universal_approximation_theorem",
-    "source_file": "Neural_network_(machine_learning)",
+    "source_file": "Neural_network_(machine_learning).md",
     "sentence": "However, the proof is not constructive regarding the number of neurons required, the network topology, the weights and the learning parameters."
   },
   {
     "entity": "Connectionism",
-    "source_file": "Neural_network_(machine_learning)",
+    "source_file": "Neural_network_(machine_learning).md",
     "sentence": "Unlike the von Neumann model, connectionist computing does not separate memory and processing."
   },
   {
     "entity": "Multilayer_perceptron",
-    "source_file": "Neural_network_(machine_learning)",
+    "source_file": "Neural_network_(machine_learning).md",
     "sentence": "Rosenblatt (1962) cited and adopted these ideas, also crediting work by H. D. Block and B. W. Knight."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "He simulated the perceptron on an IBM 704."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "Later, he obtained funding by the Information Systems Branch of the United States Office of Naval Research and the Rome Air Development Center, to build a custom-made computer, the Mark I Perceptron."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "His organization of a perceptron is constructed of three kinds of cells (units): AI, AII, R, which stand for projection, association and response."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "He presented at the first international symposium on AI, Mechanisation of Thought Processes, which took place in 1958 November."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "In 1959, the Institute for Defense Analysis awarded his group a $10,000 contract."
   },
   {
     "entity": "Frank_Rosenblatt",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "He died in a boating accident in 1971."
   },
   {
     "entity": "Marvin_Minsky",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "It is often incorrectly believed that they also conjectured that a similar result would hold for a multi-layer perceptron network."
   },
   {
     "entity": "Logic_programming",
-    "source_file": "Perceptron",
+    "source_file": "Perceptron.md",
     "sentence": "If we were to write a logical program to perform the same task, each positive example shows that one of the coordinates is the right one, and each negative example shows that its complement is a positive example."
   },
   {
     "entity": "Expert_system",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "DuPont had 100 in use and 500 in development."
   },
   {
     "entity": "Expert_system",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "With about 450 rules, MYCIN was able to perform as well as some experts, and considerably better than junior doctors."
   },
   {
     "entity": "Expert_system",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Internist attempted to capture the expertise of the chairman of internal medicine at the University of Pittsburgh School of Medicine while CADUCEUS could eventually diagnose up to 1000 different diseases."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Systems just didn't work that well, compared to other methods."
   },
   {
     "entity": "Lisp_(programming_language)",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Compiled functions could be freely mixed with interpreted functions."
   },
   {
     "entity": "Lisp_(programming_language)",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Program tracing, stepping, and breakpoints were also provided, along with the ability to change values or functions and continue from breakpoints or errors."
   },
   {
     "entity": "Lisp_(programming_language)",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Programs were themselves data structures that other programs could operate on, allowing the easy definition of higher-level languages."
   },
   {
     "entity": "Logic_programming",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "The logic clauses that describe programs are directly interpreted to run the programs specified."
   },
   {
     "entity": "Logic_programming",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "No explicit series of actions is required, as is the case with imperative programming languages."
   },
   {
     "entity": "Commonsense_knowledge_(artificial_intelligence)",
-    "source_file": "Symbolic_artificial_intelligence",
+    "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "This kind of knowledge is taken for granted and not viewed as noteworthy."
   },
   {
     "entity": "Multilayer_perceptron",
-    "source_file": "Universal_approximation_theorem",
+    "source_file": "Universal_approximation_theorem.md",
     "sentence": "Kurt Hornik, Maxwell Stinchcombe, and Halbert White showed in 1989 that multilayer feed-forward networks with as few as one hidden layer are universal approximators."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Universal_approximation_theorem",
+    "source_file": "Universal_approximation_theorem.md",
     "sentence": "The dual versions of the theorem consider networks of bounded width and arbitrary depth."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Universal_approximation_theorem",
+    "source_file": "Universal_approximation_theorem.md",
     "sentence": "They showed that networks of width n + 4 with ReLU activation functions can approximate any Lebesgue-integrable function on n-dimensional input space with respect to L1 distance if network depth is allowed to grow."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Universal_approximation_theorem",
+    "source_file": "Universal_approximation_theorem.md",
     "sentence": "In the same paper it was shown that ReLU networks with width n + 1 were sufficient to approximate any continuous function of n-dimensional input variables."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Universal_approximation_theorem",
+    "source_file": "Universal_approximation_theorem.md",
     "sentence": "Their remarkable result revealed that such networks can be universal approximators and for achieving this property two hidden layers are enough."
   },
   {
     "entity": "Neural_network_(machine_learning)",
-    "source_file": "Universal_approximation_theorem",
+    "source_file": "Universal_approximation_theorem.md",
     "sentence": "It says that activation functions providing universal approximation property for bounded depth bounded width networks exist."
   }
 ]
