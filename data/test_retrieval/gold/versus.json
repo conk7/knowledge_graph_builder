@@ -323,10 +323,5 @@
     "entity": "Apple_Inc.",
     "source_file": "Steve_Wozniak.md",
     "sentence": "As other talented engineers joined the growing company, he no longer believed he was needed there."
-  },
-  {
-    "entity": "Mac_(computer)",
-    "source_file": "Steve_Wozniak.md",
-    "sentence": "It would become the first mass-market personal computer featuring an integral graphical user interface and mouse."
   }
 ]

@@ -507,11 +507,6 @@
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Universal_approximation_theorem.md",
-    "sentence": "They showed that networks of width n + 4 with ReLU activation functions can approximate any Lebesgue-integrable function on n-dimensional input space with respect to L1 distance if network depth is allowed to grow."
-  },
-  {
-    "entity": "Neural_network_(machine_learning)",
-    "source_file": "Universal_approximation_theorem.md",
     "sentence": "In the same paper it was shown that ReLU networks with width n + 1 were sufficient to approximate any continuous function of n-dimensional input variables."
   },
   {
