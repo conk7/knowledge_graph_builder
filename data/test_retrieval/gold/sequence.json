@@ -2,221 +2,265 @@
   {
     "entity": "Electron",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "It was first proposed by J. J. Thomson in 1904 following his discovery of the electron in 1897, and was rendered obsolete by Ernest Rutherford's discovery of the atomic nucleus in 1911."
+    "sentence": "It was first proposed by J. J. Thomson in 1904 following his discovery of the electron in 1897, and was rendered obsolete by Ernest Rutherford's discovery of the atomic nucleus in 1911.",
+    "is_direct_mention": true
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "Thomson discovered the electron by studying cathode rays, and in 1900 Henri Becquerel determined that the radiation from uranium, now called beta particles, had the same charge/mass ratio as cathode rays."
+    "sentence": "Thomson discovered the electron by studying cathode rays, and in 1900 Henri Becquerel determined that the radiation from uranium, now called beta particles, had the same charge/mass ratio as cathode rays.",
+    "is_direct_mention": true
   },
   {
     "entity": "Plum_pudding_model",
     "source_file": "Rutherford_model.md",
-    "sentence": "The concept arose after Ernest Rutherford directed the Geiger–Marsden experiment in 1909, which showed much more alpha particle recoil than J. J. Thomson's plum pudding model of the atom could explain."
+    "sentence": "The concept arose after Ernest Rutherford directed the Geiger–Marsden experiment in 1909, which showed much more alpha particle recoil than J. J. Thomson's plum pudding model of the atom could explain.",
+    "is_direct_mention": true
   },
   {
     "entity": "Electron",
     "source_file": "Rutherford_model.md",
-    "sentence": "Rutherford did not discuss the organization of electrons in the atom and did not himself propose a model for the atom."
+    "sentence": "Rutherford did not discuss the organization of electrons in the atom and did not himself propose a model for the atom.",
+    "is_direct_mention": true
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Rutherford_model.md",
-    "sentence": "In the same paper that Thomson announced his results on \"corpuscle\" nature of cathode rays, an event considered the discovery of the electron, he began speculating on atomic models composed of electrons."
+    "sentence": "In the same paper that Thomson announced his results on \"corpuscle\" nature of cathode rays, an event considered the discovery of the electron, he began speculating on atomic models composed of electrons.",
+    "is_direct_mention": true
   },
   {
     "entity": "Plum_pudding_model",
     "source_file": "Bohr_model.md",
-    "sentence": "Developed from 1911 to 1918 by Niels Bohr and building on Ernest Rutherford's discovery of the atom's nucleus, it supplanted the plum pudding model of J. J. Thomson only to be replaced by the quantum atomic model in the 1920s."
+    "sentence": "Developed from 1911 to 1918 by Niels Bohr and building on Ernest Rutherford's discovery of the atom's nucleus, it supplanted the plum pudding model of J. J. Thomson only to be replaced by the quantum atomic model in the 1920s.",
+    "is_direct_mention": true
   },
   {
     "entity": "Electron",
     "source_file": "Bohr_model.md",
-    "sentence": "It consists of a small, dense atomic nucleus surrounded by orbiting electrons."
+    "sentence": "It consists of a small, dense atomic nucleus surrounded by orbiting electrons.",
+    "is_direct_mention": true
   },
   {
     "entity": "Electron",
     "source_file": "Rutherford_scattering_experiments.md",
-    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series."
+    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series.",
+    "is_direct_mention": true
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Rutherford_scattering_experiments.md",
-    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series."
+    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series.",
+    "is_direct_mention": true
   },
   {
     "entity": "Plum_pudding_model",
     "source_file": "Rutherford_scattering_experiments.md",
-    "sentence": "Rutherford's paper does not discuss any electron arrangement beyond discussions on the scattering from Thomson's plum pudding model and Nagaoka's Saturnian model."
+    "sentence": "Rutherford's paper does not discuss any electron arrangement beyond discussions on the scattering from Thomson's plum pudding model and Nagaoka's Saturnian model.",
+    "is_direct_mention": true
   },
   {
     "entity": "Electron",
     "source_file": "Geissler_tube.md",
-    "sentence": "A Geissler tube is a precursor to modern gas discharge tubes, demonstrating the principles of electrical glow discharge, akin to contemporary neon lights, and central to the discovery of the electron."
+    "sentence": "A Geissler tube is a precursor to modern gas discharge tubes, demonstrating the principles of electrical glow discharge, akin to contemporary neon lights, and central to the discovery of the electron.",
+    "is_direct_mention": true
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Geissler_tube.md",
-    "sentence": "These were named cathode rays."
+    "sentence": "These were named cathode rays.",
+    "is_direct_mention": true
   },
   {
     "entity": "Electron",
     "source_file": "Cathode_ray.md",
-    "sentence": "Cathode rays are streams of electrons observed in discharge tubes."
+    "sentence": "Cathode rays are streams of electrons observed in discharge tubes.",
+    "is_direct_mention": true
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Electron.md",
-    "sentence": "As particle beams in a vacuum, free electrons can be accelerated, focused, and used for applications such as cathode ray tubes, electron microscopes, electron beam welding, lithography, and particle accelerators that generate synchrotron radiation."
+    "sentence": "As particle beams in a vacuum, free electrons can be accelerated, focused, and used for applications such as cathode ray tubes, electron microscopes, electron beam welding, lithography, and particle accelerators that generate synchrotron radiation.",
+    "is_direct_mention": true
   },
   {
     "entity": "Electron",
     "source_file": "Cathode_ray.md",
-    "sentence": "They travel in parallel lines through the empty tube."
+    "sentence": "They travel in parallel lines through the empty tube.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Cathode_ray.md",
-    "sentence": "The voltage applied between the electrodes accelerates these low mass particles to high velocities."
+    "sentence": "The voltage applied between the electrodes accelerates these low mass particles to high velocities.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Cathode_ray.md",
-    "sentence": "He also showed they were identical with particles given off by photoelectric and radioactive materials."
+    "sentence": "He also showed they were identical with particles given off by photoelectric and radioactive materials.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Cathode_ray.md",
-    "sentence": "It was quickly recognized that they are the particles that carry electric currents in metal wires, and carry the negative electric charge of the atom."
+    "sentence": "It was quickly recognized that they are the particles that carry electric currents in metal wires, and carry the negative electric charge of the atom.",
+    "is_direct_mention": false
   },
   {
     "entity": "Geissler_tube",
     "source_file": "Cathode_ray.md",
-    "sentence": "The voltage applied between the two electrodes of the tubes, generated by an induction coil, was anywhere between a few kilovolts and 100 kV."
+    "sentence": "The voltage applied between the two electrodes of the tubes, generated by an induction coil, was anywhere between a few kilovolts and 100 kV.",
+    "is_direct_mention": false
   },
   {
     "entity": "Geissler_tube",
     "source_file": "Cathode_ray.md",
-    "sentence": "Thus the ionized air was electrically conductive and an electric current flowed through the tube."
+    "sentence": "Thus the ionized air was electrically conductive and an electric current flowed through the tube.",
+    "is_direct_mention": false
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Electron.md",
-    "sentence": "Goldstein also experimented with double cathodes and hypothesized that one ray may repulse another, although he didn't believe that any particles might be involved."
+    "sentence": "Goldstein also experimented with double cathodes and hypothesized that one ray may repulse another, although he didn't believe that any particles might be involved.",
+    "is_direct_mention": false
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Electron.md",
-    "sentence": "Therefore, he concluded that the rays carried momentum."
+    "sentence": "Therefore, he concluded that the rays carried momentum.",
+    "is_direct_mention": false
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Electron.md",
-    "sentence": "Furthermore, by applying a magnetic field, he was able to deflect the rays, thereby demonstrating that the beam behaved as though it were negatively charged."
+    "sentence": "Furthermore, by applying a magnetic field, he was able to deflect the rays, thereby demonstrating that the beam behaved as though it were negatively charged.",
+    "is_direct_mention": false
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Electron.md",
-    "sentence": "The field deflected the rays toward the positively charged plate, providing further evidence that the rays carried negative charge."
+    "sentence": "The field deflected the rays toward the positively charged plate, providing further evidence that the rays carried negative charge.",
+    "is_direct_mention": false
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Electron.md",
-    "sentence": "By measuring the amount of deflection for a given electric and magnetic field, in 1890 Schuster was able to estimate the charge-to-mass ratio of the ray components."
+    "sentence": "By measuring the amount of deflection for a given electric and magnetic field, in 1890 Schuster was able to estimate the charge-to-mass ratio of the ray components.",
+    "is_direct_mention": false
   },
   {
     "entity": "Cathode_ray",
     "source_file": "Geissler_tube.md",
-    "sentence": "Observing that sharp-edged shadows were cast on the glowing tube wall by obstructions in the tube in front of the cathode, Johann Hittorf realized that the glow was caused by some type of ray travelling in straight lines through the tube from the cathode."
+    "sentence": "Observing that sharp-edged shadows were cast on the glowing tube wall by obstructions in the tube in front of the cathode, Johann Hittorf realized that the glow was caused by some type of ray travelling in straight lines through the tube from the cathode.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "However even late in 1899, few scientists believed in subatomic particles."
+    "sentence": "However even late in 1899, few scientists believed in subatomic particles.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "In a few paragraphs near the end of this long paper Thomson discusses the possibility that atoms were made of these corpuscles, calling them primordial atoms."
+    "sentence": "In a few paragraphs near the end of this long paper Thomson discusses the possibility that atoms were made of these corpuscles, calling them primordial atoms.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "I regard the atom as containing a large number of smaller bodies which I shall call corpuscles; these corpuscles are equal to each other; the mass of a corpuscle is the mass of the negative ion in a gas at low pressure, i.e. about 3 × 10−26 of a gramme."
+    "sentence": "I regard the atom as containing a large number of smaller bodies which I shall call corpuscles; these corpuscles are equal to each other; the mass of a corpuscle is the mass of the negative ion in a gas at low pressure, i.e. about 3 × 10−26 of a gramme.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "In the normal atom, this assemblage of corpuscles forms a system which is electrically neutral."
+    "sentence": "In the normal atom, this assemblage of corpuscles forms a system which is electrically neutral.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "The negative effect is balanced by something which causes the space through which the corpuscles are spread to act as if it had a charge of positive electricity equal in amount to the sum of the negative charges on the corpuscles."
+    "sentence": "The negative effect is balanced by something which causes the space through which the corpuscles are spread to act as if it had a charge of positive electricity equal in amount to the sum of the negative charges on the corpuscles.",
+    "is_direct_mention": false
   },
   {
     "entity": "Rutherford_model",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "Based on experimental studies of alpha particle scattering (in the gold foil experiment), Ernest Rutherford developed an alternative model for the atom featuring a compact nucleus where the positive charge is concentrated."
+    "sentence": "Based on experimental studies of alpha particle scattering (in the gold foil experiment), Ernest Rutherford developed an alternative model for the atom featuring a compact nucleus where the positive charge is concentrated.",
+    "is_direct_mention": false
   },
   {
     "entity": "Rutherford_model",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "This led Rutherford to discard the Thomson for a new model where the positive charge of the atom is concentrated in a tiny nucleus."
+    "sentence": "This led Rutherford to discard the Thomson for a new model where the positive charge of the atom is concentrated in a tiny nucleus.",
+    "is_direct_mention": false
   },
   {
     "entity": "Bohr_model",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "That would have to wait until Niels Bohr built the first quantum-based atom model."
+    "sentence": "That would have to wait until Niels Bohr built the first quantum-based atom model.",
+    "is_direct_mention": false
   },
   {
     "entity": "Bohr_model",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "Rutherford's nuclear model would only become widely accepted after the work of Niels Bohr."
+    "sentence": "Rutherford's nuclear model would only become widely accepted after the work of Niels Bohr.",
+    "is_direct_mention": false
   },
   {
     "entity": "Rutherford_scattering_experiments",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "This theory and Crowther's experimental results would be confronted by Rutherford's theory and Geiger and Mardsen new experiments with alpha particles."
+    "sentence": "This theory and Crowther's experimental results would be confronted by Rutherford's theory and Geiger and Mardsen new experiments with alpha particles.",
+    "is_direct_mention": false
   },
   {
     "entity": "Rutherford_scattering_experiments",
     "source_file": "Plum_pudding_model.md",
-    "sentence": "Rutherford's 1911 paper on alpha particle scattering showed that Thomson's scattering model could not explain the large angle scattering and it showed that multiple scattering was not necessary to explain the data."
+    "sentence": "Rutherford's 1911 paper on alpha particle scattering showed that Thomson's scattering model could not explain the large angle scattering and it showed that multiple scattering was not necessary to explain the data.",
+    "is_direct_mention": false
   },
   {
     "entity": "Plum_pudding_model",
     "source_file": "Rutherford_model.md",
-    "sentence": "Thomson's model had positive charge spread out in the atom."
+    "sentence": "Thomson's model had positive charge spread out in the atom.",
+    "is_direct_mention": false
   },
   {
     "entity": "Plum_pudding_model",
     "source_file": "Rutherford_model.md",
-    "sentence": "Thomson's model was the first of these models to be based on experimentally detected subatomic particles."
+    "sentence": "Thomson's model was the first of these models to be based on experimentally detected subatomic particles.",
+    "is_direct_mention": false
   },
   {
     "entity": "Electron",
     "source_file": "Rutherford_model.md",
-    "sentence": "This charge was calculated to be 10,000 times the charge of the ring particles for stability."
+    "sentence": "This charge was calculated to be 10,000 times the charge of the ring particles for stability.",
+    "is_direct_mention": false
   },
   {
     "entity": "Plum_pudding_model",
     "source_file": "Rutherford_model.md",
-    "sentence": "Similar work by Rutherford using alpha particles would eventually show Thomson's model could not be correct."
+    "sentence": "Similar work by Rutherford using alpha particles would eventually show Thomson's model could not be correct.",
+    "is_direct_mention": false
   },
   {
     "entity": "Rutherford_scattering_experiments",
     "source_file": "Rutherford_model.md",
-    "sentence": "These experiments demonstrated that alpha particles scattered or bounced off atoms in ways unlike Thomson's model predicted."
+    "sentence": "These experiments demonstrated that alpha particles scattered or bounced off atoms in ways unlike Thomson's model predicted.",
+    "is_direct_mention": false
   },
   {
     "entity": "Plum_pudding_model",
     "source_file": "Rutherford_model.md",
-    "sentence": "These experiments demonstrated that alpha particles scattered or bounced off atoms in ways unlike Thomson's model predicted."
+    "sentence": "These experiments demonstrated that alpha particles scattered or bounced off atoms in ways unlike Thomson's model predicted.",
+    "is_direct_mention": false
   },
   {
     "entity": "Bohr_model",
     "source_file": "Rutherford_model.md",
-    "sentence": "Eventually Bohr incorporated early ideas of quantum mechanics into the model of the atom, allowing prediction of electronic spectra and concepts of chemistry."
+    "sentence": "Eventually Bohr incorporated early ideas of quantum mechanics into the model of the atom, allowing prediction of electronic spectra and concepts of chemistry.",
+    "is_direct_mention": false
   }
 ]
