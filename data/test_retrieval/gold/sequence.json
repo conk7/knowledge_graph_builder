@@ -11,7 +11,7 @@
     "source_file": "Plum_pudding_model.md",
     "sentence": "Thomson discovered the electron by studying cathode rays, and in 1900 Henri Becquerel determined that the radiation from uranium, now called beta particles, had the same charge/mass ratio as cathode rays.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Plum_pudding_model",
@@ -26,13 +26,6 @@
     "sentence": "Rutherford did not discuss the organization of electrons in the atom and did not himself propose a model for the atom.",
     "is_direct_mention": true,
     "link_type": "Incorporates"
-  },
-  {
-    "entity": "Cathode_ray",
-    "source_file": "Rutherford_model.md",
-    "sentence": "In the same paper that Thomson announced his results on \"corpuscle\" nature of cathode rays, an event considered the discovery of the electron, he began speculating on atomic models composed of electrons.",
-    "is_direct_mention": true,
-    "link_type": null
   },
   {
     "entity": "Plum_pudding_model",
@@ -54,13 +47,6 @@
     "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series.",
     "is_direct_mention": true,
     "link_type": "Mentions"
-  },
-  {
-    "entity": "Cathode_ray",
-    "source_file": "Rutherford_scattering_experiments.md",
-    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series.",
-    "is_direct_mention": true,
-    "link_type": null
   },
   {
     "entity": "Plum_pudding_model",
@@ -249,14 +235,14 @@
     "source_file": "Plum_pudding_model.md",
     "sentence": "This theory and Crowther's experimental results would be confronted by Rutherford's theory and Geiger and Mardsen new experiments with alpha particles.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Contradicts"
   },
   {
     "entity": "Rutherford_scattering_experiments",
     "source_file": "Plum_pudding_model.md",
     "sentence": "Rutherford's 1911 paper on alpha particle scattering showed that Thomson's scattering model could not explain the large angle scattering and it showed that multiple scattering was not necessary to explain the data.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Contradicts"
   },
   {
     "entity": "Plum_pudding_model",
@@ -291,7 +277,7 @@
     "source_file": "Rutherford_model.md",
     "sentence": "These experiments demonstrated that alpha particles scattered or bounced off atoms in ways unlike Thomson's model predicted.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Plum_pudding_model",

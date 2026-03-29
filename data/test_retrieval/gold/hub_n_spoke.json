@@ -39,14 +39,14 @@
     "source_file": "ARM_architecture_family.md",
     "sentence": "ARM1\nAcorn chose VLSI Technology as the \"silicon partner\", as they were a source of ROMs and custom chips for Acorn.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Transistor",
     "source_file": "ARM_architecture_family.md",
     "sentence": "The ARM2 had a transistor count of just 30,000, compared to Motorola's six-year-older 68000 model with around 68,000.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Contains"
   },
   {
     "entity": "Transistor",
@@ -67,7 +67,7 @@
     "source_file": "Photolithography.md",
     "sentence": "Photolithography (also known as optical lithography) is a process that involves using light to transfer a pattern onto a photoresist layer deposited on a sample, typically a silicon wafer.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Extreme_ultraviolet_lithography",
@@ -88,14 +88,14 @@
     "source_file": "Photolithography.md",
     "sentence": "Inspired by the application of photoresist, a photosensitive liquid used to mark the boundaries of rivet holes in metal aircraft wings, Nall determined that a similar process can be used to protect the germanium in the transistors and even pattern the surface with light.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Manufactures"
   },
   {
     "entity": "Cleanroom",
     "source_file": "Photolithography.md",
     "sentence": "Modern cleanrooms use automated, robotic wafer track systems to coordinate the process.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Requires"
   },
   {
     "entity": "Silicon",
@@ -130,7 +130,7 @@
     "source_file": "System_on_a_chip.md",
     "sentence": "Because of high transistor counts on modern devices, oftentimes a layout of sufficient throughput and high transistor density is physically realizable from fabrication processes but would result in unacceptably high amounts of heat in the circuit's volume.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Transistor",
@@ -158,7 +158,7 @@
     "source_file": "Apple_M1.md",
     "sentence": "It is part of the Apple silicon series, as a central processing unit (CPU) and graphics processing unit (GPU), used for its Mac desktops and notebooks and the iPad Pro and iPad Air tablets.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Is a"
   },
   {
     "entity": "Transistor",
@@ -172,21 +172,21 @@
     "source_file": "TSMC.md",
     "sentence": "In July 2020, TSMC confirmed it would halt the shipment of silicon wafers to Chinese telecommunications equipment manufacturer Huawei and its subsidiary HiSilicon by 14 September.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Transistor",
     "source_file": "TSMC.md",
     "sentence": "N7+ offers a 15–20 percent higher transistor density and 10 percent reduction in power consumption than previous technology.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Develops"
   },
   {
     "entity": "Transistor",
     "source_file": "Moores_law.md",
     "sentence": "Moore's law is the observation that the number of transistors in an integrated circuit (IC) doubles about every two years, and thus projection of a historical trend.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Silicon",
@@ -256,7 +256,7 @@
     "source_file": "Wafer_(electronics).md",
     "sentence": "In electronics, a wafer (also called a slice or substrate) is a thin slice of semiconductor, such as a crystalline silicon (c-Si, silicium), used for the fabrication of integrated circuits and, in photovoltaics, to manufacture solar cells.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Photolithography",
@@ -277,7 +277,7 @@
     "source_file": "ASML_Holding.md",
     "sentence": "In these machines, patterns are optically imaged onto a silicon wafer that is covered with a film of light-sensitive material (photoresist).",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Integrated_circuit",
@@ -298,7 +298,7 @@
     "source_file": "Extreme_ultraviolet_lithography.md",
     "sentence": "Along with multiple patterning, EUV has paved the way for higher transistor densities, allowing the production of higher-performance processors.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Sustains"
   },
   {
     "entity": "Silicon",
@@ -312,42 +312,7 @@
     "source_file": "Apple_M1.md",
     "sentence": "The SoC and DRAM chips are mounted together in a system-in-a-package design.",
     "is_direct_mention": false,
-    "link_type": null
-  },
-  {
-    "entity": "Integrated_circuit",
-    "source_file": "Apple_M1.md",
-    "sentence": "The SoC and DRAM chips are mounted together in a system-in-a-package design.",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
-    "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family.md",
-    "sentence": "Acorn chose VLSI Technology as the 'silicon partner', as they were a source of ROMs and custom chips for Acorn.",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
-    "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family.md",
-    "sentence": "One was the publication of a series of reports from the University of California, Berkeley, which suggested that a simple chip design could nevertheless have extremely high performance, much higher than the latest 32-bit designs on the market.",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
-    "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family.md",
-    "sentence": "With over 230 billion ARM chips produced, since at least 2003, and with its dominance increasing every year, ARM is the most widely used family of instruction set architectures.",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
-    "entity": "Integrated_circuit",
-    "source_file": "ARM_architecture_family.md",
-    "sentence": "In 2013, 10 billion were produced and 'ARM-based chips are found in nearly 60 percent of the world's mobile devices'.",
-    "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Is a"
   },
   {
     "entity": "Semiconductor_device_fabrication",
@@ -396,7 +361,7 @@
     "source_file": "ASML_Holding.md",
     "sentence": "In the category for Popular Prize, Vadim Banine received the 2018 European Inventor Award for shaping the future of microchip manufacturing.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Photolithography",
@@ -417,35 +382,35 @@
     "source_file": "Cleanroom.md",
     "sentence": "Such rooms are commonly needed for scientific research and in industrial production for all nanoscale processes, such as semiconductor device manufacturing.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Semiconductor_device_fabrication",
     "source_file": "Cleanroom.md",
     "sentence": "A clean room manufactures is a necessity in the manufacturing of semiconductors, rechargeable batteries, pharmaceutical products, and any other field that is highly sensitive to environmental contamination.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Integrated_circuit",
     "source_file": "Cleanroom.md",
     "sentence": "Static discharge is of particular concern in the electronics industry, where it can instantly destroy components and circuitry.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Integrated_circuit",
     "source_file": "Cleanroom.md",
     "sentence": "This is a particular concern within the semiconductor business, because static discharge can easily damage modern circuit designs.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Semiconductor_device_fabrication",
     "source_file": "Cleanroom.md",
     "sentence": "Because of this, most workers in high electronics and semiconductor facilities have to wear conductive boots while working.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "ASML_Holding",
@@ -483,20 +448,6 @@
     "link_type": "Is a"
   },
   {
-    "entity": "Integrated_circuit",
-    "source_file": "Fin_field-effect_transistor.md",
-    "sentence": "Microchips utilizing FinFET gates first became commercialized in the first half of the 2010s, and became the dominant gate design at 14 nm, 10 nm and 7 nm process nodes.",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
-    "entity": "Integrated_circuit",
-    "source_file": "Fin_field-effect_transistor.md",
-    "sentence": "Commercially produced chips at 22 nm and below have generally utilised FinFET gate designs (but planar processes do exist down to 18 nm, with 12 nm in development).",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
     "entity": "Moores_law",
     "source_file": "Integrated_circuit.md",
     "sentence": "Moore originally stated it would double every year, but he went on to change the claim to every two years in 1975.",
@@ -529,28 +480,28 @@
     "source_file": "Moores_law.md",
     "sentence": "As device dimensions shrink, controlling the current flow in the thin channel becomes more difficult.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Transistor",
     "source_file": "Moores_law.md",
     "sentence": "They claim these may be produced at 10 nm scale using existing fabrication techniques.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Transistor",
     "source_file": "Moores_law.md",
     "sentence": "Three wires converge on a central island that can house one or two electrons.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Transistor",
     "source_file": "Moores_law.md",
     "sentence": "Electrons tunnel from one wire to another through the island.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Integrated_circuit",
@@ -585,7 +536,7 @@
     "source_file": "Moores_law.md",
     "sentence": "In comparison, the gate-all-around MOSFET (GAAFET) structure has even better gate control.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Semiconductor_device_fabrication",
@@ -599,14 +550,14 @@
     "source_file": "Photolithography.md",
     "sentence": "The process begins with a photosensitive material, called a photoresist, being applied to the substrate.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Wafer_(electronics)",
     "source_file": "Photolithography.md",
     "sentence": "After development, the pattern is transferred onto the sample through etching, chemical vapor deposition, physical vapor deposition, plating, or ion implantation processes.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Applies to"
   },
   {
     "entity": "Integrated_circuit",
@@ -620,21 +571,21 @@
     "source_file": "Photolithography.md",
     "sentence": "And, like all chip manufacturing processes, it requires extremely clean operating conditions.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Is a"
   },
   {
     "entity": "Cleanroom",
     "source_file": "Photolithography.md",
     "sentence": "And, like all chip manufacturing processes, it requires extremely clean operating conditions.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Requires"
   },
   {
     "entity": "Semiconductor_device_fabrication",
     "source_file": "Photolithography.md",
     "sentence": "It is also an important technique for microfabrication in general, such as the fabrication of microelectromechanical systems.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Is a"
   },
   {
     "entity": "Integrated_circuit",
@@ -711,7 +662,7 @@
     "source_file": "System_on_a_chip.md",
     "sentence": "Throughout this conversion process, the design is analyzed with static timing modeling, simulation and other tools to ensure that it meets the specified operational parameters such as frequency, power consumption and dissipation, functional integrity (as described in the register transfer level code) and electrical integrity.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Manufactured by"
   },
   {
     "entity": "Integrated_circuit",

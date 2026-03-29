@@ -7,20 +7,6 @@
     "link_type": "Belongs to genus"
   },
   {
-    "entity": "Apple",
-    "source_file": "Apple_Corps.md",
-    "sentence": "The company's name is a pun on \"apple core\".",
-    "is_direct_mention": true,
-    "link_type": null
-  },
-  {
-    "entity": "Apple",
-    "source_file": "Mac_(computer).md",
-    "sentence": "The name is short for Macintosh (its official name until 1999), a reference to the McIntosh apple.",
-    "is_direct_mention": true,
-    "link_type": null
-  },
-  {
     "entity": "IPhone",
     "source_file": "Mac_(computer).md",
     "sentence": "iPhone-like multi-touch technology was progressively added to all MacBook trackpads, and to desktop Macs through the Magic Mouse, and Magic Trackpad.",
@@ -28,32 +14,11 @@
     "link_type": "Mentions"
   },
   {
-    "entity": "Apple",
-    "source_file": "Steve_Jobs.md",
-    "sentence": "The two decided on the name \"Apple\" after Jobs returned from the All One Farm commune in Oregon and told Wozniak about his time in the farm's apple orchard.",
-    "is_direct_mention": true,
-    "link_type": null
-  },
-  {
     "entity": "IPhone",
     "source_file": "Apple_Inc..md",
     "sentence": "In April 2022, Apple opened an online store that allowed anyone in the US to view repair manuals and order replacement parts for specific recent iPhones, although the difference in cost between this method and official repair is anticipated to be minimal.",
     "is_direct_mention": true,
     "link_type": "Develops"
-  },
-  {
-    "entity": "Apple",
-    "source_file": "Apple_Inc..md",
-    "sentence": "Marketing\nBranding\nAccording to Steve Jobs, the company's name was inspired by his visit to an apple farm while on a fruitarian diet.",
-    "is_direct_mention": true,
-    "link_type": null
-  },
-  {
-    "entity": "Apple",
-    "source_file": "MacOS.md",
-    "sentence": "As most Mac hardware components, or components similar to those, since the Intel transition are available for purchase, some technology-capable groups have developed software to install macOS on non-Apple computers.",
-    "is_direct_mention": true,
-    "link_type": null
   },
   {
     "entity": "IPhone",
@@ -71,17 +36,10 @@
   },
   {
     "entity": "Apple",
-    "source_file": "Steve_Wozniak.md",
-    "sentence": "The two decided on the name \"Apple\" shortly after Jobs returned from Oregon and told Wozniak about his time spent on an apple orchard there.",
-    "is_direct_mention": true,
-    "link_type": null
-  },
-  {
-    "entity": "Apple",
     "source_file": "Isaac_Newton.md",
     "sentence": "Apple story\nNewton often told the story that he was inspired to formulate his theory of gravitation by watching the fall of an apple from a tree.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Apple",
@@ -103,20 +61,6 @@
     "sentence": "An apple pie is a pie in which the principal filling is apples.",
     "is_direct_mention": true,
     "link_type": "Contains"
-  },
-  {
-    "entity": "Apple",
-    "source_file": "Tim_Cook.md",
-    "sentence": "Career\nPre-Apple era\nAfter graduating from Auburn University, Cook spent twelve years in IBM's personal computer business, ultimately as director of North American fulfillment.",
-    "is_direct_mention": true,
-    "link_type": null
-  },
-  {
-    "entity": "Apple",
-    "source_file": "Big_Apple.md",
-    "sentence": "The earliest known usage of \"big apple\" appears in the book The Wayfarer in New York (1909), in which Edward Sandford Martin writes: Kansas is apt to see in New York a greedy city ...",
-    "is_direct_mention": true,
-    "link_type": null
   },
   {
     "entity": "Apple_Inc.",
@@ -154,25 +98,11 @@
     "link_type": "Conflicts with"
   },
   {
-    "entity": "Apple",
-    "source_file": "Apple_Corps.md",
-    "sentence": "McCartney later revealed that he had been inspired by René Magritte's painting Le Jeu de Mourre, featuring an apple with the words Au revoir painted on it.",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
     "entity": "Granny_Smith",
     "source_file": "Apple_Corps.md",
     "sentence": "That became the basis of the Apple logo.",
     "is_direct_mention": false,
     "link_type": "Uses as symbol"
-  },
-  {
-    "entity": "Mac_(computer)",
-    "source_file": "Apple_Corps.md",
-    "sentence": "A dispute subsequently arose in 1989 when Apple Corps sued, alleging that Apple Computer's machines' ability to play back MIDI music was a violation of the 1981 settlement agreement.",
-    "is_direct_mention": false,
-    "link_type": null
   },
   {
     "entity": "Steve_Jobs",
@@ -259,13 +189,6 @@
     "link_type": "Uses as symbol"
   },
   {
-    "entity": "Apple",
-    "source_file": "IPhone.md",
-    "sentence": "The company also claimed that locations being collected when location services were off, and being stored for more than a year, were both bugs.",
-    "is_direct_mention": false,
-    "link_type": null
-  },
-  {
     "entity": "Steve_Jobs",
     "source_file": "IPhone.md",
     "sentence": "The resulting complaints forced Jobs to issue an apology and offer a partial rebate to early purchasers of the Phone.",
@@ -347,7 +270,7 @@
     "source_file": "Steve_Jobs.md",
     "sentence": "However, its low performance and limited range of available software led to a rapid sales decline in the second half of 1984.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Develops"
   },
   {
     "entity": "Tim_Cook",

@@ -81,14 +81,14 @@
     "source_file": "Connectionism.md",
     "sentence": "The first wave ended with the 1969 book Perceptrons about limitations of the original perceptron idea, written by Marvin Minsky and Seymour Papert, which contributed to discouraging major funding agencies in the US from investing in connectionist research.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Encompasses"
   },
   {
     "entity": "Backpropagation",
     "source_file": "Connectionism.md",
     "sentence": "Some key publications included (John Hopfield, 1982) which popularized Hopfield networks, the 1986 paper that popularized backpropagation, and the 1987 two-volume book about the Parallel Distributed Processing (PDP) by James L. McClelland, David E. Rumelhart et al., which has introduced a couple of improvements to the simple perceptron idea, such as intermediate processors (known as \"hidden layers\" now) alongside input and output units and using sigmoid activation function instead of the old 'all-or-nothing' function.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Perceptron",
@@ -270,7 +270,7 @@
     "source_file": "Marvin_Minsky.md",
     "sentence": "Perceptrons is now viewed as of more historical than practical interest, but his theory of frames was in wide use as of 1975.",
     "is_direct_mention": true,
-    "link_type": null
+    "link_type": "Critiques"
   },
   {
     "entity": "Perceptron",
@@ -319,14 +319,7 @@
     "source_file": "AI_winter.md",
     "sentence": "In order to translate a sentence, a machine needed to have some idea what the sentence was about, otherwise it made mistakes.",
     "is_direct_mention": false,
-    "link_type": null
-  },
-  {
-    "entity": "Symbolic_artificial_intelligence",
-    "source_file": "AI_winter.md",
-    "sentence": "Following the success of programs such as the Logic Theorist and the General Problem Solver, algorithms for manipulating symbols seemed more promising at the time as means to achieve logical reasoning viewed at the time as the essence of intelligence, either natural or artificial.",
-    "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Neural_network_(machine_learning)",
@@ -389,56 +382,56 @@
     "source_file": "Connectionism.md",
     "sentence": "The publication of Perceptrons (1969) is typically regarded as a catalyst of this event.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Triggers"
   },
   {
     "entity": "Universal_approximation_theorem",
     "source_file": "Connectionism.md",
     "sentence": "Another important series of publications proved that neural networks are universal function approximators, which also provided some mathematical respectability.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Validates"
   },
   {
     "entity": "Symbolic_artificial_intelligence",
     "source_file": "Connectionism.md",
     "sentence": "This principle has been seen as an alternative to GOFAI and the classical theories of mind based on symbolic computation, but the extent to which the two approaches are compatible has been the subject of much debate since their inception.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Competes with"
   },
   {
     "entity": "Symbolic_artificial_intelligence",
     "source_file": "Connectionism.md",
     "sentence": "Differences between the two approaches include the following:",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Competes with"
   },
   {
     "entity": "Symbolic_artificial_intelligence",
     "source_file": "Connectionism.md",
     "sentence": "Moreover, the existence of recursive isomorphisms suggests that different technical approaches can draw insights from one another.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Competes with"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Connectionism.md",
     "sentence": "The success of deep-learning networks in the past decade has greatly increased the popularity of this approach, but the complexity and scale of such networks has brought with them increased interpretability problems.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Connectionism.md",
     "sentence": "The form of the connections and the units can vary from model to model.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Connectionism.md",
     "sentence": "Internal states of any network change over time due to neurons sending a signal to a succeeding layer of neurons in the case of a feedforward network, or to a previous layer in the case of a recurrent network.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Lisp_(programming_language)",
@@ -480,7 +473,7 @@
     "source_file": "Logic_programming.md",
     "sentence": "Commonsense includes knowledge about cause and effect, as formalised, for example, in the situation calculus, event calculus and action languages.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Neural_network_(machine_learning)",
@@ -494,21 +487,21 @@
     "source_file": "Machine_learning.md",
     "sentence": "It shifted focus away from the symbolic approaches it had inherited from AI, and toward methods and models borrowed from statistics, fuzzy logic, and probability theory.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Marvin_Minsky.md",
     "sentence": "Artificial brains could be grown by a process strikingly analogous to the development of a human brain.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Develops"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Marvin_Minsky.md",
     "sentence": "In any given case, the precise details would never be known, and even if they were, they would be millions of times too complex for human understanding.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Develops"
   },
   {
     "entity": "Backpropagation",
@@ -620,7 +613,7 @@
     "source_file": "Perceptron.md",
     "sentence": "If we were to write a logical program to perform the same task, each positive example shows that one of the coordinates is the right one, and each negative example shows that its complement is a positive example.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Mentions"
   },
   {
     "entity": "Expert_system",
@@ -648,28 +641,28 @@
     "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Systems just didn't work that well, compared to other methods.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Competes with"
   },
   {
     "entity": "Lisp_(programming_language)",
     "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Compiled functions could be freely mixed with interpreted functions.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Lisp_(programming_language)",
     "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Program tracing, stepping, and breakpoints were also provided, along with the ability to change values or functions and continue from breakpoints or errors.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Lisp_(programming_language)",
     "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "Programs were themselves data structures that other programs could operate on, allowing the easy definition of higher-level languages.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Uses"
   },
   {
     "entity": "Logic_programming",
@@ -690,41 +683,41 @@
     "source_file": "Symbolic_artificial_intelligence.md",
     "sentence": "This kind of knowledge is taken for granted and not viewed as noteworthy.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Develops"
   },
   {
     "entity": "Multilayer_perceptron",
     "source_file": "Universal_approximation_theorem.md",
     "sentence": "Kurt Hornik, Maxwell Stinchcombe, and Halbert White showed in 1989 that multilayer feed-forward networks with as few as one hidden layer are universal approximators.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Validates"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Universal_approximation_theorem.md",
     "sentence": "The dual versions of the theorem consider networks of bounded width and arbitrary depth.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Validates"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Universal_approximation_theorem.md",
     "sentence": "In the same paper it was shown that ReLU networks with width n + 1 were sufficient to approximate any continuous function of n-dimensional input variables.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Validates"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Universal_approximation_theorem.md",
     "sentence": "Their remarkable result revealed that such networks can be universal approximators and for achieving this property two hidden layers are enough.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Validates"
   },
   {
     "entity": "Neural_network_(machine_learning)",
     "source_file": "Universal_approximation_theorem.md",
     "sentence": "It says that activation functions providing universal approximation property for bounded depth bounded width networks exist.",
     "is_direct_mention": false,
-    "link_type": null
+    "link_type": "Validates"
   }
 ]
