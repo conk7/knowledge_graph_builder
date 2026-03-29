@@ -499,3 +499,4 @@ While silicon is the prevalent material for wafers used in the electronics indus
 
 - Contains:: [[Integrated_circuit]]
 - Manufactured by:: [[TSMC]]
+- Uses:: [[Silicon]]

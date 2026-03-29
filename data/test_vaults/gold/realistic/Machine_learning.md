@@ -285,3 +285,4 @@ Conference on Neural Information Processing Systems (NeurIPS)
 - Mentions:: [[Multilayer_perceptron]]
 - Encompasses:: [[Neural_network_(machine_learning)]]
 - Critiques:: [[Perceptron]]
+- Uses:: [[Symbolic_artificial_intelligence]]

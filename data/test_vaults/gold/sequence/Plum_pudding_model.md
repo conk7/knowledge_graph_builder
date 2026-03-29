@@ -1362,3 +1362,5 @@ The analogy was never used by Thomson nor his colleagues. It seems to have been 
 - Incorporates:: [[Electron]]
 - Precedes:: [[Rutherford_model]]
 - Precedes:: [[Bohr_model]]
+- Mentions:: [[Cathode_ray]]
+- Contradicts:: [[Rutherford_scattering_experiments]]

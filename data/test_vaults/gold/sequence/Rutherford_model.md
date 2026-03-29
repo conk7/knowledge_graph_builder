@@ -32,3 +32,4 @@ After Rutherford's discovery, subsequent research refined the understanding of t
 - Supersedes:: [[Plum_pudding_model]]
 - Incorporates:: [[Electron]]
 - Precedes:: [[Bohr_model]]
+- Mentions:: [[Rutherford_scattering_experiments]]

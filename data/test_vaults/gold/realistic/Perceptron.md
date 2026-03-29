@@ -1566,3 +1566,4 @@ Since 2002, perceptron training has become popular in the field of natural langu
 - Criticized by:: [[Marvin_Minsky]]
 - Mentions:: [[Multilayer_perceptron]]
 - Validates:: [[Universal_approximation_theorem]]
+- Mentions:: [[Logic_programming]]

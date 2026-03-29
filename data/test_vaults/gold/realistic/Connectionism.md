@@ -68,3 +68,9 @@ Recently, Heng Zhang and his colleagues have demonstrated that mainstream knowle
 
 - Developed by:: [[Frank_Rosenblatt]]
 - Criticized by:: [[Marvin_Minsky]]
+- Encompasses:: [[Perceptron]]
+- Mentions:: [[Backpropagation]]
+- Triggers:: [[AI_winter]]
+- Validates:: [[Universal_approximation_theorem]]
+- Competes with:: [[Symbolic_artificial_intelligence]]
+- Uses:: [[Neural_network_(machine_learning)]]

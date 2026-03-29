@@ -187,3 +187,5 @@ SoC research and development often compares many options. Benchmarks, such as CO
 ## Related Connections
 
 - Is a:: [[Integrated_circuit]]
+- Mentions:: [[Transistor]]
+- Manufactured by:: [[Semiconductor_device_fabrication]]

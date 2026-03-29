@@ -221,4 +221,4 @@ An Historical Account of Two Notable Corruptions of Scripture (1754)
 
 ## Related Connections
 
-_No links found._
+- Mentions:: [[Apple]]

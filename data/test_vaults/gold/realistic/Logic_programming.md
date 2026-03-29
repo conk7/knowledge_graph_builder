@@ -296,3 +296,4 @@ Transaction logic is an extension of logic programming with a logical theory of 
 - Competes with:: [[Lisp_(programming_language)]]
 - Uses:: [[Machine_learning]]
 - Mentions:: [[Marvin_Minsky]]
+- Mentions:: [[Commonsense_knowledge_(artificial_intelligence)]]

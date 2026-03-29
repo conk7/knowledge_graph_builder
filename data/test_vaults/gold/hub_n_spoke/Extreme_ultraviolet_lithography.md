@@ -308,3 +308,4 @@ A much shorter wavelength (~6.7 nm) would be beyond EUV, and is often referred t
 - Sustains:: [[Moores_law]]
 - Is a:: [[Photolithography]]
 - Uses:: [[Silicon]]
+- Sustains:: [[Transistor]]

@@ -249,3 +249,6 @@ Hybrid AIs incorporating one or more of these approaches are currently viewed as
 - Encompasses:: [[Machine_learning]]
 - Mentions:: [[Marvin_Minsky]]
 - Critiques:: [[Perceptron]]
+- Competes with:: [[Neural_network_(machine_learning)]]
+- Uses:: [[Lisp_(programming_language)]]
+- Develops:: [[Commonsense_knowledge_(artificial_intelligence)]]

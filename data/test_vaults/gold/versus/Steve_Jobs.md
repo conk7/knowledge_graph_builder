@@ -204,3 +204,4 @@ In popular culture
 - Develops:: [[MacOS]]
 - Collaborates with:: [[Steve_Wozniak]]
 - Manages:: [[Tim_Cook]]
+- Develops:: [[Mac_(computer)]]

@@ -119,3 +119,5 @@ In July 2020, TSMC signed a 20-year deal with Ørsted to buy the entire producti
 - Manufactures:: [[Apple_M1]]
 - Uses:: [[Extreme_ultraviolet_lithography]]
 - Manufactures:: [[Integrated_circuit]]
+- Uses:: [[Silicon]]
+- Develops:: [[Transistor]]

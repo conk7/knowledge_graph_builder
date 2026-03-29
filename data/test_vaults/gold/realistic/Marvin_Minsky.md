@@ -62,3 +62,5 @@ Minsky died in Boston, Massachusetts on January 24, 2016, aged 88. His family re
 
 - Triggers:: [[AI_winter]]
 - Critiques:: [[Frank_Rosenblatt]]
+- Critiques:: [[Perceptron]]
+- Develops:: [[Neural_network_(machine_learning)]]

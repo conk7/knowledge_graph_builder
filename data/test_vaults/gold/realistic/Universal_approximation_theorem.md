@@ -468,3 +468,5 @@ In the "depth-width" terminology, the above theorem says that for certain activa
 - Mentions:: [[Backpropagation]]
 - Belongs to:: [[Machine_learning]]
 - Validates:: [[Perceptron]]
+- Validates:: [[Multilayer_perceptron]]
+- Validates:: [[Neural_network_(machine_learning)]]

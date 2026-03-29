@@ -114,3 +114,5 @@ Swanson's law is the observation that the price of solar photovoltaic modules te
 - Applies to:: [[Semiconductor_device_fabrication]]
 - Relies on:: [[Silicon]]
 - Mentions:: [[TSMC]]
+- Applies to:: [[Transistor]]
+- Applies to:: [[Fin_field-effect_transistor]]

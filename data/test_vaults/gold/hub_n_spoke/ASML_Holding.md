@@ -59,3 +59,5 @@ ASML received the first CoSta Award for the most successful and impactful innova
 - Applies to:: [[Integrated_circuit]]
 - Develops:: [[Photolithography]]
 - Mentions:: [[TSMC]]
+- Uses:: [[Silicon]]
+- Applies to:: [[Semiconductor_device_fabrication]]

@@ -251,3 +251,8 @@ In 2021, the photolithography industry was valued over 8 billion USD.
 - Contains:: [[Extreme_ultraviolet_lithography]]
 - Applies to:: [[Integrated_circuit]]
 - Sustains:: [[Moores_law]]
+- Applies to:: [[Silicon]]
+- Manufactures:: [[Transistor]]
+- Requires:: [[Cleanroom]]
+- Applies to:: [[Wafer_(electronics)]]
+- Is a:: [[Semiconductor_device_fabrication]]

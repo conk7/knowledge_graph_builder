@@ -98,3 +98,4 @@ The late 2022 release of OpenAI's AI chatbot ChatGPT which as of January 2023 ha
 - Triggers:: [[Marvin_Minsky]]
 - Critiques:: [[Neural_network_(machine_learning)]]
 - Critiques:: [[Perceptron]]
+- Mentions:: [[Commonsense_knowledge_(artificial_intelligence)]]

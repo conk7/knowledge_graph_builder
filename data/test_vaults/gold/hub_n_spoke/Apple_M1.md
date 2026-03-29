@@ -79,3 +79,5 @@ Gallery
 ## Related Connections
 
 - Contains:: [[Transistor]]
+- Is a:: [[Silicon]]
+- Is a:: [[System_on_a_chip]]

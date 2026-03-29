@@ -461,3 +461,5 @@ Windows applications recompiled for ARM and linked with Winelib, from the Wine p
 - Requires:: [[Semiconductor_device_fabrication]]
 - Applies to:: [[System_on_a_chip]]
 - Relies on:: [[TSMC]]
+- Mentions:: [[Silicon]]
+- Contains:: [[Transistor]]
