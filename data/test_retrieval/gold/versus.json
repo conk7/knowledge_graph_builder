@@ -3,390 +3,455 @@
     "entity": "Malus",
     "source_file": "Apple.md",
     "sentence": "When first classified by Linnaeus in 1753, the pears, apples, and quinces were combined into one genus that he named Pyrus and he named the apple as Pyrus malus.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Belongs to genus"
   },
   {
     "entity": "Apple",
     "source_file": "Apple_Corps.md",
     "sentence": "The company's name is a pun on \"apple core\".",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "Apple",
     "source_file": "Mac_(computer).md",
     "sentence": "The name is short for Macintosh (its official name until 1999), a reference to the McIntosh apple.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "IPhone",
     "source_file": "Mac_(computer).md",
     "sentence": "iPhone-like multi-touch technology was progressively added to all MacBook trackpads, and to desktop Macs through the Magic Mouse, and Magic Trackpad.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Mentions"
   },
   {
     "entity": "Apple",
     "source_file": "Steve_Jobs.md",
     "sentence": "The two decided on the name \"Apple\" after Jobs returned from the All One Farm commune in Oregon and told Wozniak about his time in the farm's apple orchard.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "IPhone",
     "source_file": "Apple_Inc..md",
     "sentence": "In April 2022, Apple opened an online store that allowed anyone in the US to view repair manuals and order replacement parts for specific recent iPhones, although the difference in cost between this method and official repair is anticipated to be minimal.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Develops"
   },
   {
     "entity": "Apple",
     "source_file": "Apple_Inc..md",
     "sentence": "Marketing\nBranding\nAccording to Steve Jobs, the company's name was inspired by his visit to an apple farm while on a fruitarian diet.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "Apple",
     "source_file": "MacOS.md",
     "sentence": "As most Mac hardware components, or components similar to those, since the Intel transition are available for purchase, some technology-capable groups have developed software to install macOS on non-Apple computers.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "IPhone",
     "source_file": "MacOS.md",
     "sentence": "Apple's showcase new feature in Yosemite is Handoff, which enables users with iPhones running iOS 8.1 or later to answer phone calls, receive and send SMS messages, and complete unfinished iPhone emails on their Mac.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Mentions"
   },
   {
     "entity": "Apple",
     "source_file": "Malus.md",
     "sentence": "Malus ( or ) is a genus of about 32–57 species of small deciduous trees or shrubs in the family Rosaceae, including the domesticated orchard apple, crab apples (sometimes known in North America as crabapples) and wild apples.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Is a"
   },
   {
     "entity": "Apple",
     "source_file": "Steve_Wozniak.md",
     "sentence": "The two decided on the name \"Apple\" shortly after Jobs returned from Oregon and told Wozniak about his time spent on an apple orchard there.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "Apple",
     "source_file": "Isaac_Newton.md",
     "sentence": "Apple story\nNewton often told the story that he was inspired to formulate his theory of gravitation by watching the fall of an apple from a tree.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "Apple",
     "source_file": "Granny_Smith.md",
     "sentence": "The Granny Smith is an apple cultivar that originated in Australia in 1868.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Mentions"
   },
   {
     "entity": "Apple_pie",
     "source_file": "Granny_Smith.md",
     "sentence": "They are popularly used in many apple dishes, such as apple pie, apple cobbler, apple crumble, and apple cake.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Serves as ingredient for"
   },
   {
     "entity": "Apple",
     "source_file": "Apple_pie.md",
     "sentence": "An apple pie is a pie in which the principal filling is apples.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Contains"
   },
   {
     "entity": "Apple",
     "source_file": "Tim_Cook.md",
     "sentence": "Career\nPre-Apple era\nAfter graduating from Auburn University, Cook spent twelve years in IBM's personal computer business, ultimately as director of North American fulfillment.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "Apple",
     "source_file": "Big_Apple.md",
     "sentence": "The earliest known usage of \"big apple\" appears in the book The Wayfarer in New York (1909), in which Edward Sandford Martin writes: Kansas is apt to see in New York a greedy city ...",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": null
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Apple_Corps.md",
     "sentence": "As a condition of the settlement, Apple Computer agreed to stay out of the music business.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Conflicts with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Apple_Corps.md",
     "sentence": "A dispute subsequently arose in 1989 when Apple Corps sued, alleging that Apple Computer's machines' ability to play back MIDI music was a violation of the 1981 settlement agreement.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Conflicts with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Apple_Corps.md",
     "sentence": "In 1991 another settlement, of around $26.5 million, was reached.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Conflicts with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Apple_Corps.md",
     "sentence": "In September 2003, Apple Computer was again sued by Apple Corps, this time for introducing the iTunes Music Store and the iPod, which Apple Corps asserted was a violation of Apple's agreement not to distribute music.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Conflicts with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Apple_Corps.md",
     "sentence": "The trial opened on 29 March 2006 in the UK, and in a judgement issued on 8 May 2006, Apple Corps lost the case.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Conflicts with"
   },
   {
     "entity": "Apple",
     "source_file": "Apple_Corps.md",
     "sentence": "McCartney later revealed that he had been inspired by René Magritte's painting Le Jeu de Mourre, featuring an apple with the words Au revoir painted on it.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": null
   },
   {
     "entity": "Granny_Smith",
     "source_file": "Apple_Corps.md",
     "sentence": "That became the basis of the Apple logo.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Uses as symbol"
   },
   {
     "entity": "Mac_(computer)",
     "source_file": "Apple_Corps.md",
     "sentence": "A dispute subsequently arose in 1989 when Apple Corps sued, alleging that Apple Computer's machines' ability to play back MIDI music was a violation of the 1981 settlement agreement.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": null
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Apple_Inc..md",
     "sentence": "Neither received the full selling price, but together they earned $1,300 (equivalent to $7,400 in 2025).",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "Steve_Wozniak",
     "source_file": "Apple_Inc..md",
     "sentence": "Neither received the full selling price, but together they earned $1,300 (equivalent to $7,400 in 2025).",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Apple_Inc..md",
     "sentence": "Under his leadership, Apple returned to profitability by introducing the iMac, iPod, iPhone, and iPad devices; creating the iTunes Store; launching the Think different advertising campaign; and opening the Apple Store retail chain.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "IPhone",
     "source_file": "Apple_Inc..md",
     "sentence": "When it was introduced, its multi-touch screen was described as revolutionary and a game-changer for the mobile phone industry.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Develops"
   },
   {
     "entity": "IPhone",
     "source_file": "Apple_Inc..md",
     "sentence": "The device has been credited with creating the app economy.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Develops"
   },
   {
     "entity": "Mac_(computer)",
     "source_file": "Apple_Inc..md",
     "sentence": "Personal computers were Apple's original business line, but as of the end of 2024 they account for only about eight percent of the company's revenue.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Develops"
   },
   {
     "entity": "MacOS",
     "source_file": "Apple_Inc..md",
     "sentence": "This was after numerous failed attempts in the early 1990s, and several years of development.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Develops"
   },
   {
     "entity": "Apple",
     "source_file": "Apple_pie.md",
     "sentence": "It is generally double-crusted, with pastry both above and below the filling; the upper crust may be solid or latticed (woven of crosswise strips).",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Contains"
   },
   {
     "entity": "Apple",
     "source_file": "Apple_pie.md",
     "sentence": "Instead of it being right side up with crust on top and bottom, it is upside down, with the exposed fruit being caramelised.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Contains"
   },
   {
     "entity": "Apple",
     "source_file": "Granny_Smith.md",
     "sentence": "They purchased a small orchard in the area in 1855–1856 and began cultivating fruit, for which the area was a well known centre in colonial Australia.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Apple_pie",
     "source_file": "Granny_Smith.md",
     "sentence": "It remains firm and mostly sweet when baked, making it a popular cooking apple used in pies, where it can be sweetened even further.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Serves as ingredient for"
   },
   {
     "entity": "Apple_Corps",
     "source_file": "Granny_Smith.md",
     "sentence": "For their record label, Apple Records, one side of vinyl albums featured the exterior of the fruit, while the other side of the recording featured a cross-section of the apple.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Uses as symbol"
   },
   {
     "entity": "Apple",
     "source_file": "IPhone.md",
     "sentence": "The company also claimed that locations being collected when location services were off, and being stored for more than a year, were both bugs.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": null
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "IPhone.md",
     "sentence": "The resulting complaints forced Jobs to issue an apology and offer a partial rebate to early purchasers of the Phone.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Mac_(computer).md",
     "sentence": "He also controversially removed the floppy disk drive and replaced it with a CD drive.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Mac_(computer).md",
     "sentence": "He streamlined it into four quadrants, a laptop and a desktop each for consumers and professionals.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Mac_(computer).md",
     "sentence": "The company's emphasis on creating iconic and visually appealing designs for its computers has given them a human face and made them stand out in a crowded market.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Mac_(computer).md",
     "sentence": "As a vertically integrated company developing its own operating system and chips, it has control over all aspects of its products and integration between hardware and software.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Tim_Cook",
     "source_file": "Mac_(computer).md",
     "sentence": "Within months, he rolled out a new ERP system and implemented just-in-time manufacturing principles.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "MacOS",
     "source_file": "Mac_(computer).md",
     "sentence": "Subsequent releases introduced major changes and features to the operating system.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Runs on"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "MacOS.md",
     "sentence": "It later began selling third-party applications through the Mac App Store.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Mac_(computer)",
     "source_file": "MacOS.md",
     "sentence": "Except for features requiring specific hardware such as graphics acceleration or DVD writing, the operating system offers the same functionality on all supported hardware.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Runs on"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Steve_Jobs.md",
     "sentence": "After the company's board of directors fired him in 1985, he founded NeXT the same year and purchased Pixar in 1986, becoming its chairman and majority shareholder until 2007.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "Steve_Wozniak",
     "source_file": "Steve_Jobs.md",
     "sentence": "They received funding from semi-retired Intel product marketing manager and engineer Mike Markkula.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Mac_(computer)",
     "source_file": "Steve_Jobs.md",
     "sentence": "However, its low performance and limited range of available software led to a rapid sales decline in the second half of 1984.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": null
   },
   {
     "entity": "Tim_Cook",
     "source_file": "Steve_Jobs.md",
     "sentence": "Jobs yelled, 'I'll never let you do that. I'll never do that.'",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Manages"
   },
   {
     "entity": "IPhone",
     "source_file": "Steve_Jobs.md",
     "sentence": "Time declared it 'Invention of the Year' for 2007 and included it in the All-TIME 100 Gadgets list in 2010, in the category of Communication.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Develops"
   },
   {
     "entity": "Steve_Wozniak",
     "source_file": "Steve_Jobs.md",
     "sentence": "They later agreed on eight slots.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Steve_Jobs.md",
     "sentence": "He was formally named interim chief executive on September 16.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "Steve_Wozniak",
     "source_file": "Steve_Jobs.md",
     "sentence": "He states it showed them that they could take on large companies and beat them.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Steve_Jobs.md",
     "sentence": "With the introduction of the iPod portable music player, iTunes digital music software, and the iTunes Store, the company made forays into consumer electronics and music distribution.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "Steve_Wozniak",
     "source_file": "Steve_Jobs.md",
     "sentence": "Woz would show up once a week with his latest code.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Steve_Jobs.md",
     "sentence": "The operation originally started in Jobs's bedroom and later moved to the garage.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Steve_Wozniak.md",
     "sentence": "We first met in 1971 during my college years, while he was in high school.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Steve_Wozniak.md",
     "sentence": "Their first business partnership began later that year when Wozniak read an article titled Secrets of the Little Blue Box from the October 1971 issue of Esquire, and started to build his own blue boxes that enabled one to make long-distance phone calls at no cost.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Steve_Wozniak.md",
     "sentence": "He was assigned to create a circuit board for the arcade video game Breakout.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Steve_Wozniak.md",
     "sentence": "He fell for it, and even took pride that the Apple II stacked up well against the Zaltair in the comparison chart.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Steve_Jobs",
     "source_file": "Steve_Wozniak.md",
     "sentence": "He made it by cutting the RAM down, by forcing you to swap disks here and there, says Wozniak.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Collaborates with"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Steve_Wozniak.md",
     "sentence": "Wozniak believed that the company was hindering him from being who he wanted to be, and that it was the bane of his existence.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   },
   {
     "entity": "Apple_Inc.",
     "source_file": "Steve_Wozniak.md",
     "sentence": "As other talented engineers joined the growing company, he no longer believed he was needed there.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Founds"
   }
 ]

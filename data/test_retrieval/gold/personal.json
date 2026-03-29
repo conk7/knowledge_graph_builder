@@ -3,132 +3,154 @@
     "entity": "21 марта",
     "source_file": "Fix_Bike.md",
     "sentence": "надо сделать это 21 марта",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Scheduled on"
   },
   {
     "entity": "21 марта",
     "source_file": "Haircut_Appointment.md",
     "sentence": "Записался к мастеру на 11:00 21 марта.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Scheduled on"
   },
   {
     "entity": "20 марта",
     "source_file": "Goodfellas.md",
     "sentence": "Выделил время на вечер 20 марта",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Scheduled on"
   },
   {
     "entity": "21 марта",
     "source_file": "Meeting_Ivan_Ivanov.md",
     "sentence": "Встретимся в центре часов в 6 вечера 21 марта",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Scheduled on"
   },
   {
     "entity": "21 марта",
     "source_file": "Go_Shopping.md",
     "sentence": "Вроде есть на это время 21 марта.",
-    "is_direct_mention": true
+    "is_direct_mention": true,
+    "link_type": "Scheduled on"
   },
   {
     "entity": "Diploma_Project",
     "source_file": "20 марта.md",
     "sentence": "Главный фокус на дипломной работе, нужно поработать над ней.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Meeting_Supervisor",
     "source_file": "20 марта.md",
     "sentence": "В 15:00 синкануться с науч руком",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Goodfellas",
     "source_file": "20 марта.md",
     "sentence": "Вечером зачилл, глянуть славных парней",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Watch"
   },
   {
     "entity": "Haircut_Appointment",
     "source_file": "21 марта.md",
     "sentence": "1. Утром подстричься.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Go_Shopping",
     "source_file": "21 марта.md",
     "sentence": "2. Днем надо успеть сходить в магазин и починить велосипед.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Fix_Bike",
     "source_file": "21 марта.md",
     "sentence": "2. Днем надо успеть сходить в магазин и починить велосипед.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Meeting_Ivan_Ivanov",
     "source_file": "21 марта.md",
     "sentence": "3. Вечером погулять с Иваном Ивановым.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Research_Small_LLMs",
     "source_file": "Diploma_Project.md",
     "sentence": "3. изучить маленькае LLM (9-14B в Q4)",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Requires"
   },
   {
     "entity": "Meeting_Supervisor",
     "source_file": "Diploma_Project.md",
     "sentence": "обсудили с науч руком, закрепили моменты:",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Requires"
   },
   {
     "entity": "Meeting_Supervisor",
     "source_file": "Diploma_Project.md",
     "sentence": "обсудить вопросы на созвоне в науч руком",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Requires"
   },
   {
     "entity": "Meeting_Ivan_Ivanov",
     "source_file": "Go_Shopping.md",
     "sentence": "Нужно сделать это до того, как поеду на встречу с Иваном Ивановым.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Mentions"
   },
   {
     "entity": "Diploma_Project",
     "source_file": "Meeting_Supervisor.md",
     "sentence": "Синхронизироваться по статусу дипломной работе, обсудить нерешенные вопросы.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Discusses"
   },
   {
     "entity": "Research_Small_LLMs",
     "source_file": "Meeting_Supervisor.md",
     "sentence": "Обсудить маленькие LLM.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Discusses"
   },
   {
     "entity": "Diploma_Project",
     "source_file": "Research_Small_LLMs.md",
     "sentence": "Это важно для улучшения точности классификатора в дипломной работе, а также пригодится для пайплайна в проекте по NLP.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Part of"
   },
   {
     "entity": "Side_Project_NLP",
     "source_file": "Research_Small_LLMs.md",
     "sentence": "Это важно для улучшения точности классификатора в дипломной работе, а также пригодится для пайплайна в проекте по NLP.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Part of"
   },
   {
     "entity": "Diploma_Project",
     "source_file": "Side_Project_NLP.md",
     "sentence": "Попробую переиспользовать часть пайплайна и алгоритм парсинга графа, который я написал для дипломной работы.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Uses"
   },
   {
     "entity": "Research_Small_LLMs",
     "source_file": "Side_Project_NLP.md",
     "sentence": "Также для генерации ответом планирую изучить маленькие LLM.",
-    "is_direct_mention": false
+    "is_direct_mention": false,
+    "link_type": "Requires"
   }
 ]
