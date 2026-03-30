@@ -33,9 +33,7 @@ RERANKER_THRESHOLD = 0.7
 #
 # LLM
 #
-LLM_MODEL_PATH = Path(
-    os.environ.get("LLM_MODEL_PATH", "")
-)
+LLM_MODEL_PATH = Path(os.environ.get("LLM_MODEL_PATH", ""))
 LLM_TEMPERATURE = 0.0
 LLM_TOP_P = 0.1
 LLM_N_GPU_LAYERS = -1
@@ -74,9 +72,7 @@ DEFAULT_LINK_TYPES = [
     "Solves",
     "Originates from",
     "Precedes",
-    "Extends",
     "Influences",
-    "Supports",
     "Contradicts",
     "Compared with",
     "Mentions",
