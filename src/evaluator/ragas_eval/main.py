@@ -1,0 +1,275 @@
+import argparse
+import json
+import logging
+import os
+from pathlib import Path
+from typing import Any
+
+from dotenv import load_dotenv
+from ragas import EvaluationDataset, SingleTurnSample, evaluate
+from ragas.embeddings import LangchainEmbeddingsWrapper
+from ragas.llms.base import LangchainLLMWrapper
+from ragas.metrics import (
+    AnswerCorrectness,
+    ContextPrecision,
+    ContextRecall,
+    Faithfulness,
+)
+
+from src.kg_builder.vault_manager import VaultManager
+from src.shared.graphrag import GraphRAGConfig, GraphRAGPipeline, _load_vault_config
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
+logger = logging.getLogger(__name__)
+
+
+def _load_llm() -> Any:
+    """Load LangChain chat LLM from environment variables (no JSON mode binding)."""
+    load_dotenv()
+    provider = os.environ.get("LLM_PROVIDER", "").lower()
+    model = os.environ.get("MODEL", "")
+    temperature = float(os.environ.get("LLM_TEMPERATURE", "0.0"))
+    top_p = float(os.environ.get("LLM_TOP_P", "0.1"))
+
+    logger.info("Loading LLM: provider=%r model=%r", provider, model)
+
+    if provider == "openai":
+        from langchain_openai import ChatOpenAI
+
+        return ChatOpenAI(
+            model=model,
+            api_key=os.environ.get("OPENAI_API_KEY", ""),
+            base_url=os.environ.get("OPENAI_BASE_URL", "http://localhost:1234/v1"),
+            temperature=temperature,
+            model_kwargs={"top_p": top_p},
+        )
+    elif provider == "google":
+        from langchain_google_genai import ChatGoogleGenerativeAI
+
+        return ChatGoogleGenerativeAI(
+            model=model,
+            google_api_key=os.environ.get("GOOGLE_API_KEY"),
+            temperature=temperature,
+            top_p=top_p,
+        )
+    elif provider == "cerebras":
+        from langchain_cerebras import ChatCerebras
+
+        return ChatCerebras(
+            model=model or "llama3.1-8b",
+            api_key=os.environ.get("CEREBRAS_API_KEY"),
+            temperature=temperature,
+            top_p=top_p,
+        )
+    elif provider == "groq":
+        from langchain_groq import ChatGroq
+
+        return ChatGroq(
+            model=model,
+            api_key=os.environ.get("GROQ_API_KEY"),
+            temperature=temperature,
+        )
+    else:
+        raise ValueError(
+            f"Unsupported LLM_PROVIDER: {provider!r}. "
+            "Set LLM_PROVIDER to one of: openai, google, cerebras, groq."
+        )
+
+
+def _load_embeddings(model_name: str) -> LangchainEmbeddingsWrapper:
+    from langchain_huggingface import HuggingFaceEmbeddings
+
+    return LangchainEmbeddingsWrapper(HuggingFaceEmbeddings(model_name=model_name))
+
+
+def _load_reference_contexts(
+    relevant_docs: list[str],
+    vault_dir: Path,
+    vm: VaultManager,
+) -> list[str]:
+    contexts: list[str] = []
+    for stem in relevant_docs:
+        path = vault_dir / f"{stem}.md"
+        if not path.exists():
+            logger.warning("relevant_doc not found: %s", path)
+            continue
+        content = vm.get_file_content(path)
+        body, _ = vm._split_content_and_links(content)
+        if body.strip():
+            contexts.append(body.strip())
+    return contexts
+
+
+def run_evaluation(
+    vault_dir: Path,
+    qa_items: list[dict],
+    pipeline: GraphRAGPipeline,
+    vm: VaultManager,
+) -> tuple[EvaluationDataset, list[dict]]:
+    samples: list[SingleTurnSample] = []
+    raw_results: list[dict] = []
+
+    for i, item in enumerate(qa_items):
+        question = item["question"]
+        reference = item.get("answer", "")
+        relevant_docs = item.get("relevant_docs", [])
+
+        logger.info("[%d/%d] %s", i + 1, len(qa_items), question[:80])
+
+        contexts, response = pipeline.run(question)
+        ref_contexts = _load_reference_contexts(relevant_docs, vault_dir, vm)
+
+        sample = SingleTurnSample(
+            user_input=question,
+            retrieved_contexts=contexts,
+            response=response,
+            reference=reference,
+            reference_contexts=ref_contexts if ref_contexts else None,
+        )
+        samples.append(sample)
+
+        raw_results.append(
+            {
+                "question": question,
+                "answer": reference,
+                "relevant_docs": relevant_docs,
+                "retrieved_contexts": contexts,
+                "response": response,
+            }
+        )
+
+        logger.info(
+            "  → %d contexts retrieved, response length=%d",
+            len(contexts),
+            len(response),
+        )
+
+    return EvaluationDataset(samples=samples), raw_results
+
+
+def _build_metrics(
+    ragas_llm: LangchainLLMWrapper,
+    ragas_embeddings: LangchainEmbeddingsWrapper,
+) -> list:
+    return [
+        ContextRecall(llm=ragas_llm),
+        ContextPrecision(llm=ragas_llm),
+        Faithfulness(llm=ragas_llm),
+        AnswerCorrectness(llm=ragas_llm, embeddings=ragas_embeddings),
+    ]
+
+
+def _print_results(scores: dict) -> None:
+    print("\n" + "=" * 50)
+    print("RAGAS GraphRAG Evaluation Results")
+    print("=" * 50)
+    for metric, value in scores.items():
+        if isinstance(value, float):
+            print(f"  {metric:<25} {value:.4f}")
+    print("=" * 50)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="RAGAS E2E evaluation of the GraphRAG pipeline."
+    )
+    parser.add_argument(
+        "--vault",
+        required=True,
+        help="Path to vault directory (e.g. data/test_vaults/gold/sequence).",
+    )
+    parser.add_argument(
+        "--qa-file",
+        required=True,
+        help="Path to QA JSON dataset (list of {question, answer, relevant_docs}).",
+    )
+    parser.add_argument(
+        "--output",
+        default="results/ragas_graphrag.json",
+        help="Output path for detailed per-sample results JSON.",
+    )
+    parser.add_argument("--max-hops", type=int, default=2)
+    parser.add_argument("--beam-width", type=int, default=3)
+    parser.add_argument("--threshold", type=float, default=0.2)
+    parser.add_argument("--top-k-seed", type=int, default=3)
+    parser.add_argument("--top-k-context", type=int, default=5)
+    args = parser.parse_args()
+
+    vault_dir = Path(args.vault)
+    qa_path = Path(args.qa_file)
+    output_path = Path(args.output)
+
+    if not vault_dir.is_dir():
+        raise FileNotFoundError(f"Vault not found: {vault_dir}")
+    if not qa_path.exists():
+        raise FileNotFoundError(f"QA file not found: {qa_path}")
+
+    with qa_path.open("r", encoding="utf-8") as f:
+        qa_items: list[dict] = json.load(f)
+    logger.info("Loaded %d QA items from %s", len(qa_items), qa_path)
+
+    llm = _load_llm()
+    ragas_llm = LangchainLLMWrapper(llm)
+
+    cfg = _load_vault_config(vault_dir)
+    embedding_model = (
+        cfg.get("models", {})
+        .get("embedding", {})
+        .get(
+            "model_name", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+        )
+    )
+    ragas_embeddings = _load_embeddings(embedding_model)
+
+    logger.info("Indexing vault and building GraphRAG pipeline...")
+    pipeline_config = GraphRAGConfig(
+        max_hops=args.max_hops,
+        beam_width=args.beam_width,
+        score_threshold=args.threshold,
+        top_k_seed=args.top_k_seed,
+        top_k_context=args.top_k_context,
+    )
+    with GraphRAGPipeline.from_vault(
+        vault_dir=vault_dir,
+        llm=llm,
+        config=pipeline_config,
+    ) as pipeline:
+        from src.kg_builder.config import META_DIR_NAME
+        from src.kg_builder.vault_manager import VaultManager as VM
+
+        vm = VM(vault_path=vault_dir, ignored_dirs=[vault_dir / META_DIR_NAME])
+
+        dataset, raw_results = run_evaluation(
+            vault_dir=vault_dir,
+            qa_items=qa_items,
+            pipeline=pipeline,
+            vm=vm,
+        )
+
+    logger.info("Running RAGAS evaluation...")
+    metrics = _build_metrics(ragas_llm, ragas_embeddings)
+    result = evaluate(dataset=dataset, metrics=metrics)
+    scores = result.to_pandas().mean(numeric_only=True).to_dict()
+    _print_results(scores)
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output = {
+        "vault": str(vault_dir),
+        "qa_file": str(qa_path),
+        "config": {
+            "max_hops": args.max_hops,
+            "beam_width": args.beam_width,
+            "threshold": args.threshold,
+            "top_k_seed": args.top_k_seed,
+            "top_k_context": args.top_k_context,
+        },
+        "scores": scores,
+        "samples": raw_results,
+    }
+    with output_path.open("w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+    logger.info("Results saved to %s", output_path)
+
+
+if __name__ == "__main__":
+    main()

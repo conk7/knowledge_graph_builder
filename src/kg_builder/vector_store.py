@@ -260,17 +260,19 @@ class VectorStore:
             logger.debug(
                 f"Performing hybrid search (Vector weight: {self.vector_weight})"
             )
+            lemmatized_query = self._get_lemmatized_text(query_text)
             reranker = LinearCombinationReranker(weight=self.vector_weight)
             results = (
-                self.table.search(query_text, query_type="hybrid")
+                self.table.search(lemmatized_query, query_type="hybrid")
                 .limit(num_to_search)
                 .rerank(reranker=reranker)
                 .to_list()
             )
         elif self.vector_weight <= 0.0:
             logger.debug("Performing FTS search")
+            lemmatized_query = self._get_lemmatized_text(query_text)
             results = (
-                self.table.search(query_text, query_type="fts")
+                self.table.search(lemmatized_query, query_type="fts")
                 .limit(num_to_search)
                 .to_list()
             )
@@ -317,6 +319,20 @@ class VectorStore:
     @property
     def total_vectors(self) -> int:
         return int(self.table.count_rows()) if self.table is not None else 0
+
+    def get_document_summary_with_lemmas(self, file_path: str) -> tuple[str, str]:
+        if self.table is None:
+            return "", ""
+        results = (
+            self.table.search()
+            .where(f"file_path = '{self._escape_filter_value(file_path)}'")
+            .select(["text", "text_lemmatized"])
+            .limit(1)
+            .to_list()
+        )
+        if results:
+            return results[0]["text"], results[0]["text_lemmatized"]
+        return "", ""
 
     def get_document_summary(self, file_path: str) -> str:
         if self.table is None:
