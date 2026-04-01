@@ -1,0 +1,111 @@
+[
+    {
+        "question": "How did Marvin Minsky's 1969 collaborative publication influence the trajectory of neural network research, and how did the later market shifts in 1987 validate his and Roger Schank's earlier warnings about the AI industry?",
+        "answer": "Marvin Minsky and Seymour Papert's 1969 book 'Perceptrons' criticized Frank Rosenblatt's work and became a foundational analysis of artificial neural networks; however, it is also credited with discouraging research in the field during the 1970s, contributing to an 'AI winter.' In 1984, Minsky and Roger Schank warned the business community that AI enthusiasm had spiraled out of control and disappointment would follow. This prediction was validated in 1987 when the specialized LISP-based AI hardware market collapsed as general-purpose workstations from companies like Sun Microsystems became more cost-effective, leading to the collapse of an entire industry worth half a billion dollars within a single year.",
+        "relevant_docs": [
+            "Marvin_Minsky",
+            "AI_winter",
+            "Symbolic_artificial_intelligence"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "Contrast the 'scruffy' AI approach associated with the MIT lab during the 1960s with the 'Knowledge Principle' driving the 1980s expert system boom, and explain why the latter ultimately faced maintenance challenges that led to a decline in corporate interest.",
+        "answer": "The 'scruffy' approach, championed by researchers like Marvin Minsky and Seymour Papert at MIT, argued that intelligent behavior required ad hoc solutions for vision and natural language rather than simple logical principles. In contrast, the 'Knowledge Principle' (advocated by Edward Feigenbaum and Doug Lenat) posited that the power of an intelligent program derives from its specific domain knowledge. While this principle led to the proliferation of expert systems in the 1980s, these systems eventually struggled because they were 'brittle'—making grotesque mistakes with unusual inputs—and proved too expensive to maintain and update. This led to many expert systems being abandoned in the early 1990s as they fell prey to the 'qualification problem.'",
+        "relevant_docs": [
+            "Symbolic_artificial_intelligence",
+            "Expert_system",
+            "AI_winter"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "Describe how the 1969 Mansfield Amendment and the 1973 Lighthill Report collectively altered the funding landscape for AI in the US and UK, and identify a specific technology that initially failed to meet DARPA's goals but later achieved significant commercial value.",
+        "answer": "In the United States, the 1969 Mansfield Amendment required DARPA to fund only mission-oriented direct research rather than basic undirected research, ending the era of 'funding people, not projects.' Simultaneously, the 1973 Lighthill Report in the UK criticized AI's failure to meet its 'grandiose objectives,' leading to the complete dismantling of AI research in the country except at a few universities. A specific technology affected by these shifts was the Speech Understanding Research (SUR) program at Carnegie Mellon; DARPA cancelled its contract in 1974 after the system failed to respond to voice commands in any order. However, the technology developed (such as hidden Markov models) eventually underpinned commercial speech recognition systems that reached a $4 billion market value by 2001.",
+        "relevant_docs": [
+            "AI_winter",
+            "Symbolic_artificial_intelligence"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "How did the Universal Approximation Theorem (UAT) provide a mathematical resolution to the fundamental limitation of the original perceptron as identified by Minsky and Papert?",
+        "answer": "In 1969, Marvin Minsky and Seymour Papert's book 'Perceptrons' proved that single-layer perceptrons were incapable of learning non-linearly separable patterns, such as the XOR function. While they knew multilayer perceptrons (MLPs) could solve XOR, the field stagnated until the 1980s. The Universal Approximation Theorem, established in 1989 by George Cybenko and Kurt Hornik, mathematically resolved this by proving that feedforward networks with a single hidden layer and non-polynomial activation functions (like the sigmoid) are 'universal approximators.' This provided the formal assurance that a sufficiently wide hidden layer—the very structure the single-layer perceptron lacked—could approximate any continuous function to any desired degree of accuracy, thereby overcoming the representational boundaries of early linear classifiers.",
+        "relevant_docs": [
+            "Perceptron",
+            "Multilayer_perceptron",
+            "Universal_approximation_theorem"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "Compare the technical and financial obstacles faced by Frank Rosenblatt's perceptron research in the 1960s with the factors that led to the resurgence of neural network research in the 1980s.",
+        "answer": "In the 1960s, Rosenblatt faced skepticism from J.C.R. Licklider at ARPA, who favored the 'logical AI' approach and believed biologically-inspired methods like the perceptron were unlikely to produce near-term results; consequently, funding for the Perceptron project was limited to roughly $10,000 orders from the ONR, while ARPA funding reached millions. Technically, the 1960 Mark I Perceptron relied on physical hardware like electric motors and potentiometers for weight updates, and early speech recognition machines like Tobermory (1967) were eventually outpaced by digital simulations. The resurgence in the 1980s was driven by the shift from physical machines to efficient algorithms, specifically the popularization of backpropagation by David Rumelhart in 1986. This algorithm provided the general method for training multiple layers that Rosenblatt lacked in 1962, allowing networks to solve the non-linear problems that had previously caused research to stagnate.",
+        "relevant_docs": [
+            "Perceptron",
+            "Multilayer_perceptron",
+            "Backpropagation"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "How did the emergence of general-purpose workstations and the inherent maintenance limitations of the XCON system collectively trigger the collapse of the Lisp machine market and the subsequent second AI winter?",
+        "answer": "The second AI winter (1987–2000) was largely precipitated by the 1987 collapse of the Lisp machine market. Expert systems like XCON were initially highly successful but proved 'brittle' and expensive to maintain as they grew. Historically, these systems were built on specialized Lisp hardware from companies like Symbolics and LISP Machines Inc. However, by 1987, general-purpose workstations from Sun Microsystems and PCs became as powerful as Lisp machines. These new platforms could run portable versions of Lisp (such as Lucid and Franz Lisp), which made expensive, specialized hardware unnecessary. The combination of high maintenance costs for systems like XCON and the shift to cheaper, portable hardware platforms led to the failure of most commercial Lisp companies and a severe decline in AI funding.",
+        "relevant_docs": [
+            "Lisp_(programming_language)",
+            "AI_winter",
+            "Expert_system"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "Explain how the Japanese Fifth Generation Computer Project's adoption of logic programming influenced the government funding strategies of the United Kingdom and the United States during the 1980s.",
+        "answer": "In 1981, the Japanese Ministry of International Trade and Industry launched the Fifth Generation Computer Project with $850 million, selecting concurrent logic programming (Prolog) as its core paradigm to develop reasoning machines. This massive investment caused an international chain reaction. In response, the United Kingdom—which had previously dismantled its AI research following the 1973 Lighthill Report—launched the Alvey project in 1983 with a £350 million 'war chest'. Simultaneously, the United States launched the Strategic Computing Initiative (SCI) via DARPA in 1983, which funded 92 projects across industry and academia by 1985 to compete with the Japanese project.",
+        "relevant_docs": [
+            "AI_winter",
+            "Expert_system",
+            "Logic_programming"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "What shared theoretical foundation links Lisp and Logic Programming, and how did early researchers like Cordell Green attempt to bridge these two paradigms?",
+        "answer": "Both Lisp and Logic Programming trace their theoretical roots back to Alonzo Church's lambda calculus from the 1930s. John McCarthy's Lisp was influenced by lambda calculus notation for symbolic processing. In the early development of logic programming, Cordell Green attempted to bridge the two paradigms by proposing the use of the clausal form of logic to represent computer programs; he specifically used an axiomatization of a subset of Lisp to simulate the execution of programs. This work eventually fed into the broader debates between declarative (logic-based) and procedural (Lisp-based) representations of knowledge that defined AI research at institutions like Stanford, MIT, and Edinburgh in the 1960s and 70s.",
+        "relevant_docs": [
+            "Lisp_(programming_language)",
+            "Logic_programming",
+            "AI_winter"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "How did the transition to the client-server computing model in the early 1980s contribute to the commercial decline of specialized LISP hardware, and what specific role did 'expert system shells' play in this transition?",
+        "answer": "The 1981 introduction of the IBM PC and the subsequent shift toward the client-server model allowed reasoning and calculations to be performed at a fraction of the cost of mainframes. According to the 'Expert_system' text, this transition was facilitated by PC-based 'expert system shells' which allowed business units to build their own applications without relying on corporate IT departments. As general-purpose workstations (such as those from Sun Microsystems) and desktop computers (from Apple and IBM) became powerful enough to run these rule-based engines, the specialized LISP machine industry—represented by companies like Symbolics and LISP Machines Inc.—collapsed in 1987. This decline was further exacerbated as symbolic AI methods were increasingly viewed as 'brittle' and expensive to maintain compared to emerging statistical machine learning approaches.",
+        "relevant_docs": [
+            "Expert_system",
+            "AI_winter",
+            "Machine_learning"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "In the context of AI research, how does the 'truth maintenance' mechanism address the 'commonsense knowledge problem' and the 'brittleness' that led to the abandonment of systems in the 1990s?",
+        "answer": "The 'commonsense knowledge problem'—the inability of machines to understand everyday context—contributed to early failures like the 1966 machine translation debacle. To solve this, systems employ 'truth maintenance,' which the 'Expert_system' text defines as a process that records dependencies so that when facts are altered, dependent knowledge is revoked. As illustrated in 'Commonsense_knowledge_(artificial_intelligence)', this allows systems to make 'default assumptions' (e.g., assuming Tweety can fly because it is a bird) while maintaining the flexibility to 'change their minds' if they later learn contradictory information (e.g., Tweety is a penguin). This ability to dynamically revise internal logic was intended to mitigate the 'brittleness' and the 'qualification problem' that the 'AI_winter' text identifies as the primary reasons many symbolic expert systems were abandoned during the 1990s.",
+        "relevant_docs": [
+            "Expert_system",
+            "AI_winter",
+            "Commonsense_knowledge_(artificial_intelligence)"
+        ],
+        "vault": "realistic"
+    },
+    {
+        "question": "Explain how the 1969 criticism of 'perceptrons' created a technical and financial 'winter' for connectionist research, and identify the specific advancements in the 1980s that allowed the field to overcome these obstacles.",
+        "answer": "The 'first wave' of connectionism was largely halted by the 1969 publication of the book 'Perceptrons' by Minsky and Papert, which highlighted the limitations of single-layer networks. As noted in the 'AI_winter' and 'Connectionism' texts, this critique led to a loss of DARPA funding and a period of inactivity in the 1970s because researchers lacked a way to train multilayered networks. This 'neural network winter' was eventually overcome during the mid-1980s 'second wave' by the reinvention of the backpropagation algorithm. According to 'Machine_learning' and 'Connectionism', this mathematical advancement enabled the training of networks with 'hidden layers' and the use of non-linear sigmoid activation functions, providing the performance necessary to revive connectionism as a viable alternative to symbolic AI.",
+        "relevant_docs": [
+            "Connectionism",
+            "AI_winter",
+            "Machine_learning"
+        ],
+        "vault": "realistic"
+    }
+]

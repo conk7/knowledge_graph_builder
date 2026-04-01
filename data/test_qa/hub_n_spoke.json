@@ -1,0 +1,76 @@
+[
+    {
+        "question": "How did the historical development of the MOSFET at Bell Labs eventually lead to the architectural shift seen in the 1984 XMOS transistor, and what specific technical issue did this new design aim to solve?",
+        "answer": "The MOSFET was successfully demonstrated at Bell Labs in 1960 by Mohamed Atalla and Dawon Kahng, providing high scalability and density for integrated circuits. However, to advance beyond planar designs, Toshihiro Sekigawa and Yutaka Hayashi developed the XMOS transistor in 1984. This shift to a double-gate MOSFET structure was specifically designed to significantly reduce 'short-channel effects' by sandwiching a fully depleted silicon-on-insulator (SOI) device between two connected gate electrodes.",
+        "relevant_docs": [
+            "Transistor",
+            "Fin_field-effect_transistor"
+        ],
+        "vault": "hub_n_spoke"
+    },
+    {
+        "question": "Explain the tension between the theoretical resolution limits defined by the Rayleigh criterion and the practical implementation of Extreme Ultraviolet Lithography (EUVL) regarding stochastic effects.",
+        "answer": "According to general photolithography principles, the minimum feature size (CD) is governed by the Rayleigh criterion (CD=k1​⋅λ/NA), where reducing the wavelength (λ) decreases the feature size. While EUVL uses a much shorter 13.5 nm wavelength to achieve this, it introduces significant 'stochastic effects.' These effects, such as photon shot noise and secondary electron blur, impose a 'soft limit' on resolution; even if the optics allow for sub-20 nm patterns, the random arrival of photons and electron scattering can cause designated areas to fail to print or cause bridging, effectively neutralizing the resolution benefit of the shorter wavelength.",
+        "relevant_docs": [
+            "Photolithography",
+            "Extreme_ultraviolet_lithography"
+        ],
+        "vault": "hub_n_spoke"
+    },
+    {
+        "question": "Who were the researchers responsible for coining the names of the primary patterning process used in semiconductor fabrication and the dominant 3D gate design of the 2010s, and when were these terms first published?",
+        "answer": "The term 'photolithography' was adopted and first published by Jay W. Lathrop and James R. Nall in 1958 to describe the use of photographic techniques for transistor fabrication. The term 'FinFET' (fin field-effect transistor) was coined much later, in a December 2000 paper by a research group at the University of California, Berkeley led by Chenming Hu, which included researchers such as Digh Hisamoto and Tsu-Jae King Liu.",
+        "relevant_docs": [
+            "Photolithography",
+            "Fin_field-effect_transistor"
+        ],
+        "vault": "hub_n_spoke"
+    },
+    {
+        "question": "How did the shift from Transistor-transistor logic (TTL) to metal-oxide-semiconductor (MOS) technology enable the level of integration seen in the Apple M1 series?",
+        "answer": "The transition from Transistor-transistor logic (TTL) to metal-oxide-semiconductor (MOS) technology was pivotal because MOSFETs allowed for high-density integrated circuits without the need for additional p-n junction isolation steps required by bipolar transistors. This advantage facilitated Very-large-scale integration (VLSI), enabling more than 10,000 transistors on a single chip by the 1970s. This technological evolution reached a peak with the Apple M1 series, where the base M1 chip contains 16 billion transistors and the M1 Ultra utilizes 114 billion transistors to integrate CPU, GPU, and Neural Engine components onto a single die.",
+        "relevant_docs": [
+            "Apple_M1",
+            "Integrated_circuit"
+        ],
+        "vault": "hub_n_spoke"
+    },
+    {
+        "question": "Compare the design strategies used to improve performance in the original ARM2 with those used in the Apple M1 Ultra, specifically regarding intermodule communication and hardware complexity.",
+        "answer": "The original ARM2 improved performance through simplicity, featuring a transistor count of just 30,000 and a lack of microcode to achieve high-speed I/O and low power consumption without dedicated support chips like DMA controllers. In contrast, the Apple M1 Ultra achieves extreme performance through high-level complexity and integration; it uses the 'UltraFusion Interconnect' to link two M1 Max units into a single package. While the ARM2 relied on a 32-bit data bus, the M1 Ultra utilizes a 1024-bit memory bus with 800 GB/s bandwidth to manage 20 CPU cores and a massive media engine, reflecting the modern System on a Chip (SoC) trend of moving away from simple bus architectures toward advanced interconnection networks to overcome bottlenecks.",
+        "relevant_docs": [
+            "Apple_M1",
+            "ARM_architecture_family",
+            "System_on_a_chip"
+        ],
+        "vault": "hub_n_spoke"
+    },
+    {
+        "question": "How did the technological shift from Willis Whitfield's 1960 cleanroom design to the modern use of FOUP-based 'mini-environments' address the specific yield challenges posed by human personnel in advanced foundries like TSMC?",
+        "answer": "Willis Whitfield's 1960 cleanroom invention introduced constant, highly filtered airflow to flush out impurities, replacing earlier designs that suffered from unpredictable airflows. However, as noted in 'Cleanroom', human users remain the greatest threat to contamination, shedding skin and particles even when wearing protective suits. To protect advanced process nodes like TSMC’s 3nm technology—which offers a 70% increase in logic density—modern foundries utilize Front Opening Unified Pods (FOUPs). According to 'Semiconductor_device_fabrication', these FOUPs create a 'mini-environment' with an internal nitrogen atmosphere and an ISO Class 1 level of cleanliness, isolating wafers more effectively than the surrounding cleanroom air and significantly improving device yield.",
+        "relevant_docs": [
+            "Cleanroom",
+            "Semiconductor_device_fabrication",
+            "TSMC"
+        ],
+        "vault": "hub_n_spoke"
+    },
+    {
+        "question": "Explain the relationship between the historical increase in wafer sizes and the necessity for Automated Material Handling Systems (AMHS) in modern semiconductor fabrication plants.",
+        "answer": "Wafer sizes have grown significantly from 25mm in 1960 to the current 300mm standard. This transition was driven by the fact that larger wafers provide more surface area and can reduce the price per die by 30–40%. However, as diameter increased, the weight of the wafer carriers became a limiting factor; a 300mm FOUP loaded with 25 wafers weighs approximately 7.5 kg, nearly double the weight of a 200mm SMIF. 'Wafer_(electronics)' and 'Semiconductor_device_fabrication' explain that this weight makes manual handling risky and physically exhausting, necessitating the adoption of fully automated factories using Overhead Hoist Transport (OHT) and Automated Material Handling Systems (AMHS) to move wafers between processing machines.",
+        "relevant_docs": [
+            "Wafer_(electronics)",
+            "Semiconductor_device_fabrication"
+        ],
+        "vault": "hub_n_spoke"
+    },
+    {
+        "question": "Compare the impact of the transition from aluminum to copper interconnects on the complexity of back-end-of-line (BEOL) processing and the environmental safety requirements for workers.",
+        "answer": "The transition from aluminum to copper interconnects was driven by the need to reduce timing delays as the number of interconnect levels in microprocessors increased. Unlike the 'subtractive aluminum' approach where films are etched away, copper requires 'damascene processing' and an electrically conductive barrier (such as tantalum nitride or cobalt) to prevent copper from diffusing into and 'poisoning' its surroundings. This shift increased BEOL complexity by requiring Chemical-Mechanical Planarization (CMP) to maintain flat surfaces for subsequent lithography. Furthermore, the use of these advanced processes involves hazardous materials like tungsten hexafluoride (for CVD) and various toxic dopants, requiring foundries to employ stringent exhaust management systems, such as wet scrubbers and combustors, to protect workers from exposure.",
+        "relevant_docs": [
+            "Semiconductor_device_fabrication",
+            "Integrated_circuit"
+        ],
+        "vault": "hub_n_spoke"
+    }
+]

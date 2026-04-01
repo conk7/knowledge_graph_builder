@@ -1,0 +1,82 @@
+[
+    {
+        "question": "Каким образом исследование малых языковых моделей (LLM) связывает задачи дипломной работы, побочный NLP-проект и планы на 15:00 20 марта?",
+        "answer": "Исследование малых LLM (параметры 9-14B в квантовании Q4) является одной из основных задач «Diploma_Project». Эти модели планируется использовать для генерации ответов в «Side_Project_NLP», где также переиспользуется алгоритм парсинга графа из диплома. Кроме того, обсуждение малых LLM включено в повестку встречи с научным руководителем («Meeting_Supervisor»), которая запланирована на 15:00 согласно заметке «20 марта».",
+        "relevant_docs": [
+            "Diploma_Project",
+            "Side_Project_NLP",
+            "Meeting_Supervisor",
+            "20 марта"
+        ],
+        "vault": "personal"
+    },
+    {
+        "question": "Опишите предложенную методологию создания семантических связей в дипломном проекте: какие инструменты используются для первичного сопоставления и как планируется проводить последующую классификацию связей?",
+        "answer": "Для создания первичных неклассифицированных связей в «Diploma_Project» предлагается использовать модели BERT для создания эмбеддингов и вычислять их сходство через cosine similarity. Для последующего построения семантических (классифицированных) связей планируется использовать LLM, механизмы NLI или cross encoder (reranker). Текущие результаты работы этого алгоритма классификации на датасетах пользователь должен продемонстрировать на встрече («Meeting_Supervisor»).",
+        "relevant_docs": [
+            "Diploma_Project",
+            "Meeting_Supervisor"
+        ],
+        "vault": "personal"
+    },
+    {
+        "question": "Как структура планируемого датасета в дипломном проекте соотносится с задачей сравнения эффективности графовой системы с другими решениями типа RAG?",
+        "answer": "В рамках «Diploma_Project» планируется создать датасет из ~10 сэмплов, включающий элементы со сложными логическими связями, которые невозможно найти простым поиском по ключевым словам или векторам. Успешное связывание таких элементов и проверка качества связей через специально созданный пайплайн оценки позволят провести сравнение работы алгоритма с другими RAG-решениями, демонстрируя преимущества графового подхода.",
+        "relevant_docs": [
+            "Diploma_Project"
+        ],
+        "vault": "personal"
+    },
+    {
+        "question": "Какая логистическая зависимость существует между планами на поход в магазин и ремонтом велосипеда 21 марта, и как это ограничивает время выполнения этих задач согласно общему расписанию?",
+        "answer": "Согласно заметке 'Go_Shopping', пользователю необходимо купить в магазине тормозные колодки и смазку для цепи, которые являются критически важными компонентами для выполнения задачи 'Fix_Bike'. Следовательно, ремонт велосипеда не может быть завершен до посещения магазина. По времени эти действия ограничены двумя событиями: они должны начаться после утренней стрижки, назначенной на 11:00 ('Haircut_Appointment'), и завершиться до 18:00, так как в это время запланирована встреча с Иваном Ивановым в центре, при этом покупки обязательно должны быть сделаны до этой встречи ('Go_Shopping', 'Meeting_Ivan_Ivanov').",
+        "relevant_docs": [
+            "21 марта",
+            "Haircut_Appointment",
+            "Fix_Bike",
+            "Go_Shopping",
+            "Meeting_Ivan_Ivanov"
+        ],
+        "vault": "personal"
+    },
+    {
+        "question": "Опишите полный цикл подготовки и проведения прогулки с Иваном Ивановым 21 марта, учитывая все необходимые предварительные условия и временные рамки, указанные в разных документах.",
+        "answer": "Подготовка к вечерней встрече включает несколько этапов. Во-первых, в 11:00 запланирована стрижка ('Haircut_Appointment'). Во-вторых, в дневное время необходимо посетить магазин для базовых закупок на неделю и приобретения деталей для велосипеда ('Go_Shopping'). В-третьих, используя купленные материалы (колодки и смазку), нужно провести техническое обслуживание велосипеда ('Fix_Bike'). Финальным этапом является сама прогулка в центре города, которая начинается в 18:00 ('Meeting_Ivan_Ivanov'). Основным условием является выполнение покупок до встречи с Иваном Ивановым, что фактически ставит ремонт велосипеда и магазин в промежуток между полуднем и шестью часами вечера.",
+        "relevant_docs": [
+            "21 марта",
+            "Haircut_Appointment",
+            "Fix_Bike",
+            "Go_Shopping",
+            "Meeting_Ivan_Ivanov"
+        ],
+        "vault": "personal"
+    },
+    {
+        "question": "How do the specific LLM models mentioned in the research tasks contribute to the proposed methodology for creating classified semantic links in the diploma project?",
+        "answer": "The researcher plans to test small LLMs like Gemma and Qwen (specifically 9B or 13-14B parameter versions) to improve classifier accuracy. In the diploma project methodology, while initial non-classified links are built using BERT embeddings and cosine similarity, these small LLMs—along with NLI and cross-encoders—are identified as the tools to subsequently categorize those connections into semantic, classified links.",
+        "relevant_docs": [
+            "Research_Small_LLMs",
+            "Diploma_Project"
+        ],
+        "vault": "personal"
+    },
+    {
+        "question": "Explain the relationship between the 'Side_Project_NLP' and the 'Diploma_Project' in terms of shared technical components and research objectives.",
+        "answer": "The 'Side_Project_NLP' is designed to reuse the graph parsing algorithm and parts of the pipeline developed for the 'Diploma_Project'. Both projects share a common research objective of utilizing small LLMs (9-14B range) for their respective tasks—NER and response generation for the side project, and link classification/GraphRAG evaluation for the diploma.",
+        "relevant_docs": [
+            "Side_Project_NLP",
+            "Diploma_Project",
+            "Research_Small_LLMs"
+        ],
+        "vault": "personal"
+    },
+    {
+        "question": "What specific challenges in the construction of the golden dataset for GraphRAG evaluation are the small LLM models expected to address, particularly regarding different types of note relationships?",
+        "answer": "The small LLMs (Gemma and Qwen 9-14B) are intended to improve the accuracy of link classification. This is critical for the golden dataset which requires 'logical (complex) links'—connections that cannot be easily identified through standard keywords or vector-based cosine similarity. These models help distinguish between simple 'hub-and-spoke' elements and the complex semantic relationships necessary to evaluate the GraphRAG system's performance.",
+        "relevant_docs": [
+            "Diploma_Project",
+            "Research_Small_LLMs"
+        ],
+        "vault": "personal"
+    }
+]

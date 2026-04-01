@@ -1,0 +1,99 @@
+[
+    {
+        "question": "How did the distinct creative inspirations for the naming of Apple Inc. and Apple Corps differ, and how was their long-standing trademark dispute regarding the 'Apple' name and 'Granny Smith' logo finally resolved?",
+        "answer": "Steve Jobs was inspired to name Apple Inc. after visiting an apple farm while on a fruitarian diet, a period he associated with the 'All One Farm' apple orchard. In contrast, Paul McCartney of the Beatles chose the name Apple Corps because 'A is for Apple' is a basic childhood lesson, and he was further inspired by a René Magritte painting of a green apple. The trademark dispute between the companies was resolved in 2007 when Apple Inc. acquired ownership of all 'Apple' related trademarks, including the 'Granny Smith' logos, and licensed them back to Apple Corps for their continued use.",
+        "relevant_docs": [
+            "Apple_Inc.",
+            "Steve_Jobs",
+            "Apple_Corps"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "How did the failure of the Apple Lisa and the subsequent founding of NeXT provide the technological and strategic foundation for Apple's return to profitability and the development of its modern mobile operating systems?",
+        "answer": "The commercial failure of the Apple Lisa and the resulting power struggle with John Sculley led Steve Jobs to resign and found NeXT in 1985. NeXT developed the NeXTSTEP operating system and the WebObjects framework. When Apple purchased NeXT in 1997 to overhaul its struggling business, NeXTSTEP became the basis for Mac OS X and eventually the iPhone's iOS. Furthermore, WebObjects was utilized to build the Apple Store and iTunes Store, contributing to the services revenue that helped return the company to profitability.",
+        "relevant_docs": [
+            "Apple_Inc.",
+            "Steve_Jobs"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "Explain the connection between Steve Jobs's personal life in the late 1970s and the naming of Apple's first GUI computer, and describe how the market reception of that device led to his eventual departure from the company.",
+        "answer": "The 'Lisa' computer, Apple's first personal computer with a graphical user interface, was named after Jobs's daughter, Lisa Brennan, who was born in 1978. Although Jobs initially denied paternity and the company claimed the name was an acronym for 'Local Integrated Software Architecture,' he later admitted the personal connection. The Lisa's commercial failure due to high costs and limited software triggered a power struggle between Jobs and CEO John Sculley. The board of directors ultimately supported Sculley, stripping Jobs of his operational duties and leading to his resignation in September 1985.",
+        "relevant_docs": [
+            "Apple_Inc.",
+            "Steve_Jobs"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "How does the botanical parentage of the apple variety used for The Beatles' company logo connect to the broader classification of the genus Malus, and what did the scientist who provided the first quantitative estimate of the solar mass conclude about the 'drawing power' of such a fruit?",
+        "answer": "The Granny Smith apple, which served as the logo for The Beatles' Apple Corps Limited, is a hybrid of the European wild apple (Malus sylvestris) and the domesticated apple (Malus domestica). These species are members of the genus Malus, which contains between 32 and 57 species of trees and shrubs native to the Northern Hemisphere. Sir Isaac Newton—the scientist who provided the first quantitative estimate of the solar mass—famously observed an apple falling in 1666 and concluded that there is a 'drawing power in matter.' He reasoned that the earth draws the apple just as the apple draws the earth, and that this power extends far enough to influence the Moon and retain it in its orbit.",
+        "relevant_docs": [
+            "Granny_Smith",
+            "Malus",
+            "Isaac_Newton"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "Identify the specific bacterial disease that affects both the 'Granny Smith' cultivar and the wider apple species, and explain how the historical figure who linked the fall of an apple to the Moon's orbit also impacted the fields of geography and the security of British currency.",
+        "answer": "The bacterial disease fireblight (or fire blight) is identified as a serious problem for apple trees in general and is a condition to which the 'Granny Smith' cultivar is specifically moderately susceptible. Sir Isaac Newton, who linked the fall of an apple to the gravitational power affecting the Moon's orbit, also impacted the field of geography by revising and publishing editions of the 'Geographia Generalis' to link scientific principles to the subject. Additionally, while serving as Master of the Royal Mint, Newton improved the security of British currency by reforming coinage technology and successfully prosecuting counterfeiters, thereby increasing the accuracy and security of the nation's money.",
+        "relevant_docs": [
+            "Apple",
+            "Granny_Smith",
+            "Isaac_Newton"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "How did the hardware philosophy debate between Steve Jobs and Steve Wozniak during the development of the Apple II relate to the professional reception of the 2013 and 2023 Mac Pro models?",
+        "answer": "During the design of the Apple II, Steve Wozniak and Steve Jobs had a heated argument regarding internal expandability; Jobs preferred only two expansion slots, while Wozniak insisted on eight to allow for future hardware flexibility. While they eventually agreed on eight slots, the preference for a more closed architecture reappeared in later professional hardware under Tim Cook's leadership. The 2013 Mac Pro was criticized by professional users for its lack of upgradability and the removal of expansion slots, and the 2023 Apple silicon-based Mac Pro was similarly condemned for regressions that included a complete lack of CPU or GPU expansion options.",
+        "relevant_docs": [
+            "Steve_Jobs",
+            "Steve_Wozniak",
+            "Mac_(computer)"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "Trace the evolution of Apple's component and manufacturing strategies from the inception of 'Project Purple' to the release of the iPhone 16e, specifically highlighting the shift in cellular technology.",
+        "answer": "The development of the first iPhone (Project Purple) relied on a secretive collaboration with Cingular Wireless and external vendors for hardware. Upon joining Apple as COO and later becoming CEO, Tim Cook moved toward a more diversified and internally controlled strategy, outsourcing production to Taiwanese manufacturers like Foxconn and Pegatron while securing key components through long-term advance investments. This evolution toward internalized technology reached a major milestone with the iPhone 16e, which features the Apple C1—the company's first self-designed cellular modem. This contrasts with other contemporary models like the iPhone 17 Pro, which continued to utilize external hardware like the Qualcomm Snapdragon X80 modem.",
+        "relevant_docs": [
+            "Tim_Cook",
+            "IPhone",
+            "Mac_(computer)"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "Trace the journey of the 'apple' from its botanical origins in Central Asia and its linguistic roots in Old English to its symbolic role in 20th-century New York tourism and the naming of a Silicon Valley technology company, while identifying how its culinary adaptation in the 14th century eventually led to its status as a patriotic American symbol.",
+        "answer": "The apple (Malus domestica) originated in the Tian Shan mountains of Central Asia and traveled along the Silk Road to Europe. Linguistically, the word is derived from the Old English 'æppel', which originally served as a generic term for all fruit—a flexibility seen in the 14th-century 'apple of paradis' (banana). This historical naming tradition evolved into specific cultural metaphors: in the 1920s, John J. Fitz Gerald popularized 'The Big Apple' as a nickname for New York City racetracks (later a 1970s tourism staple) after hearing the term used by African American stable hands in New Orleans. Similarly, Steve Jobs named Apple Inc. in 1976 following a visit to an apple farm. Culinarially, the first apple pie recipes appeared in 14th-century England using pastry 'cofyns'. Though brought to the New World by the English, Dutch, and Swedes, the apple pie eventually transformed from a simple meal into a symbol of American national pride and prosperity, famously commemorated by World War II soldiers in the phrase 'for Mom and apple pie'.",
+        "relevant_docs": [
+            "Apple",
+            "Big_Apple",
+            "Apple_Inc.",
+            "Apple_pie"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "Explain the biological reason why commercial apple cultivars like the 'McIntosh' must be propagated through clonal grafting, and describe how the resulting proliferation of native varieties in the New World influenced American culinary traditions and the modern market dominance of specific hybrids.",
+        "answer": "Apple trees are 'extreme heterozygotes', meaning that seedlings grown from seeds do not 'breed true' and will produce fruit that lacks the desired characteristics of the parent tree. To maintain specific traits for commercial purposes, cultivars like the 'McIntosh' must be propagated asexually through clonal grafting onto rootstocks. In the New World, the historical preference for planting from seeds rather than grafting led to the rapid development of hundreds of new native varieties. This variety fueled American culinary traditions, such as the regional custom in Vermont of serving apple pie with sharp cheddar cheese. In the modern market, traditional dominant cultivars like the 'McIntosh' have been overtaken by newer hybrids, many of which are progeny of the 'Honeycrisp' variety—such as the 'SweeTango' and 'Cosmic Crisp'—which are bred for qualities like crunchiness, sweetness, and high yield.",
+        "relevant_docs": [
+            "Apple",
+            "Apple_pie"
+        ],
+        "vault": "versus"
+    },
+    {
+        "question": "Analyze the modern legal and ethical challenges faced by Apple Inc. regarding its global operations, and contrast these with the historical and religious symbolism of the apple as a tool of discord or forbidden knowledge.",
+        "answer": "In the 21st century, Apple Inc. has faced significant legal scrutiny, including a 2025 fine of €500 million for violating the European Union's Digital Markets Act and lawsuits concerning child slavery in cobalt mines in the Democratic Republic of the Congo. These modern conflicts regarding competition and ethics contrast with the apple's ancient symbolic role as a source of 'discord' or 'forbidden knowledge'. In Greek mythology, Eris used a golden apple to provoke the Trojan War, while in Christian tradition, the apple became a symbol of 'the fall of man' and sin, derived from a Latin pun on 'mālum' (apple) and 'mălum' (evil). Despite these associations with conflict and temptation, the fruit remains a symbol of health, reflected in the 19th-century Welsh proverb 'An apple a day keeps the doctor away', which Apple Inc. itself has pivoted away from in its corporate history to focus on consumer electronics.",
+        "relevant_docs": [
+            "Apple_Inc.",
+            "Apple"
+        ],
+        "vault": "versus"
+    }
+]

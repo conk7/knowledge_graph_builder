@@ -1,0 +1,98 @@
+[
+    {
+        "question": "How did the discovery of cathode rays lead to changes in atomic theory?",
+        "answer": "Cathode ray experiments revealed electrons, which prompted Thomson to propose the plum pudding model. This was later superseded by Rutherford's nuclear model after gold foil scattering experiments.",
+        "relevant_docs": [
+            "Cathode_ray",
+            "Electron",
+            "Plum_pudding_model",
+            "Rutherford_model"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "Explain how the technological transition from Heinrich Geissler’s 1857 tubes to William Crookes's 1870s modifications enabled the discovery of the electron, and how J.J. Thomson subsequently utilized the 'corpuscle' concept to explain atomic neutrality in his 1904 model.",
+        "answer": "The transition began with the Geissler tube (1857), which used an improved vacuum pump to reach a pressure of 10−3 atm, creating a colorful glow discharge. By the 1870s, William Crookes utilized even better pumps to reach vacuums below 10−6 atm; at this lower pressure, electrons could travel in straight lines without colliding with gas atoms, forming 'cathode rays' that caused the glass to fluoresce. This higher vacuum allowed J.J. Thomson to measure the mass-to-charge ratio of these rays in 1897, identifying them as 'corpuscles' (later electrons). To account for the fact that atoms have no net electric charge despite containing these negative particles, Thomson proposed his 1904 'plum pudding' model, which suggested that electrons were distributed within a sphere of uniform positive electrification.",
+        "relevant_docs": [
+            "Geissler_tube",
+            "Cathode_ray",
+            "Plum_pudding_model"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "Contrast the 'radiant matter' and 'aether wave' theories of cathode rays, and explain how J.J. Thomson’s 1897 measurements resolved this debate while correcting the 1890 mass-to-charge estimates provided by Arthur Schuster.",
+        "answer": "The 'radiant matter' theory, supported by British scientists like Crookes and Schuster, argued that cathode rays were electrically charged particles. In contrast, German scientists like Hertz and Goldstein believed they were 'aether waves' or electromagnetic radiation. The debate was resolved in 1897 when J.J. Thomson measured the mass-to-charge ratio (e/m) of the rays, proving they were particles approximately 1800 times lighter than a hydrogen atom. This discovery corrected Arthur Schuster’s 1890 estimate; Schuster had calculated a value over a thousand times greater than expected because he erroneously assumed the charge carriers were heavy atoms (like hydrogen or nitrogen) rather than the previously unknown subatomic 'corpuscles' identified by Thomson.",
+        "relevant_docs": [
+            "Cathode_ray",
+            "Electron"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "How did J.J. Thomson’s 1910 mathematical treatment of beta particle scattering refine his atomic theory, and what specific role did the 'straight-line approximation' play in his calculations regarding the positive sphere?",
+        "answer": "In his 1910 paper 'On the Scattering of rapidly moving Electrified Particles,' Thomson refined his atomic theory by modeling how beta particles (high-speed electrons) were deflected by an atom's positive charge. He used a 'straight-line approximation' to simplify the math, treating the beta particle's path through the positive sphere as a straight line due to the very small deflection angle. By integrating the lateral force exerted by a uniformly distributed positive charge along this path and dividing by the cross-section area, he derived a formula for the average scattering angle. This allowed him to compare his theory against experimental data from J. Arnold Crowther and eventually propose an alternative model where positive charge existed in discrete units rather than a uniform sphere.",
+        "relevant_docs": [
+            "Plum_pudding_model",
+            "Cathode_ray"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "How did J.J. Thomson's 1905 mechanical experiments with floating magnets inform his theories on electron arrangement, and how did Rutherford’s 1911 derivation of the turning point distance (rmin​) provide a conflicting scale for the atom's positive charge?",
+        "answer": "Thomson conducted a practical experiment using magnetized pins pushed into cork discs floating in water, which were repelled by each other and attracted to a central electromagnet. He observed that the pins arranged themselves in stable concentric rings (e.g., 59 pins forming a 20-16-13-8-2 pattern), leading him to infer that electrons in an atom also arranged themselves in concentric shells. This mechanical model assumed the positive charge was a diffuse sphere filling the atom. In contrast, Ernest Rutherford's 1911 analysis used the conservation of energy and the inverse-square law to calculate the turning point distance (rmin​) for a head-on alpha particle collision. He determined rmin​=kmv22qa​qg​​, which for gold was approximately 3.4×10−14 meters. Since the atom's radius was known to be roughly 10−10 meters, this proved the positive charge was concentrated in a nucleus 10,000 times smaller than the atom, contradicting Thomson’s diffuse sphere model.",
+        "relevant_docs": [
+            "Plum_pudding_model",
+            "Rutherford_scattering_experiments",
+            "Rutherford_model"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "Compare the statistical predictions of the 'multiple scattering' theory for alpha particles in a Thomson atom to the 1909 experimental results of Geiger and Marsden, and explain how this discrepancy led to the proposal of the nuclear model.",
+        "answer": "Thomson's 'multiple scattering' theory, primarily applied to beta particles, modeled total deflection as a random walk where θˉn​=θˉn​. Using this model for alpha particles, the probability of a particle being deflected by more than 90° after 10,000 atomic collisions in a gold foil was calculated as e−(90/0.8)2≈10−5946, an astronomically small value. However, the 1909 Geiger-Marsden experiment observed that approximately 1 in 8,000 alpha particles were reflected at large angles. Rutherford realized that these diffuse charges were too weak to cause such deflections and that the results could only be explained by 'single scattering' from a concentrated, massive center. This necessitated the transition to the Rutherford model, which localized the positive charge and mass in a tiny nucleus to produce the intense electrical forces required for backscattering.",
+        "relevant_docs": [
+            "Plum_pudding_model",
+            "Rutherford_scattering_experiments"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "Trace the role of celestial and macro-scale analogies in the development and rejection of atomic models between 1904 and 1911, specifically contrasting the 'plum pudding' concept with the 'Saturnian' and 'Planetary' models.",
+        "answer": "The 'plum pudding' model (1904) used a popular science analogy of raisins in a pudding to describe electrons moving in a diffuse, liquid-like positive sphere; it was eventually rejected because it could not explain alpha particle backscattering or emission spectra. In 1904, Hantaro Nagaoka proposed a 'Saturnian' model featuring a large central charge with a ring of electrons, though it was initially dismissed by George A. Schott as mechanically unstable and inconsistent with spectroscopy. Jean Baptiste Perrin also suggested a 'Planetary' or Solar System-like model in 1901 with 'positive suns' and 'negative planets.' While Rutherford's 1911 paper focused on the nucleus, he mentioned Nagaoka’s Saturnian model as being compatible with his scattering data. Ultimately, the Rutherford model concentrated the mass and charge in a 'nucleus' (a term he introduced in 1912), while the fully realized planetary structure was developed later by Niels Bohr.",
+        "relevant_docs": [
+            "Plum_pudding_model",
+            "Rutherford_scattering_experiments",
+            "Rutherford_model"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "How did the theoretical contributions of John William Nicholson and Antonius van den Broek specifically resolve the 'incomplete' aspects of the 1911 Rutherford model regarding atomic structure and charge?",
+        "answer": "The Rutherford model was considered incomplete because it focused on the dense nuclear core but did not attribute structure to electrons or address atomic spectroscopy. John William Nicholson addressed the structural deficiency by connecting spectral line frequencies to quantized electron orbital angular momentum, a concept Bohr later used to transition from Rutherford’s purely scattering-based model to one that explained atomic spectra. Simultaneously, Rutherford had initially modeled gold's nuclear charge as approximately +100 units (half its atomic mass) rather than its periodic table position of 79. Antonius van den Broek resolved this discrepancy in 1913 by suggesting that nuclear charge and atomic number were identical, a hypothesis later confirmed experimentally by Henry Moseley using Bohr's formula to analyze K-alpha X-ray lines.",
+        "relevant_docs": [
+            "Rutherford_model",
+            "Bohr_model"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "Analyze how the 'mechanical instability' of orbiting electrons described by Joseph Larmor was theoretically circumvented by Niels Bohr and later physically reinterpreted by Louis de Broglie's matter-wave hypothesis.",
+        "answer": "According to the Larmor formula (1897), an accelerating charge—such as an orbiting electron—should continuously radiate power and remain mechanically unstable. Niels Bohr circumvented this in his 1913 model by postulating that atoms cannot radiate continuous energy and that electrons exist in 'stationary orbits' where they obey ordinary mechanics without energy loss. This theoretical assumption was given a physical basis in 1924 by Louis de Broglie, who proposed that electrons behave as waves. De Broglie reinterpreted Bohr's quantization of angular momentum as a 'standing wave condition,' where a stable orbit is only achieved when a whole number of electron wavelengths (nλ) fits exactly along the orbital circumference (2πr).",
+        "relevant_docs": [
+            "Bohr_model",
+            "Electron"
+        ],
+        "vault": "sequence"
+    },
+    {
+        "question": "Trace the evolution of experimental evidence for the atomic nucleus from the 1909 Geiger–Marsden experiments to the 1913 confirmation of Moseley's Law, noting the specific roles of alpha particles and X-ray spectroscopy.",
+        "answer": "The evolution began with the 1909 Geiger–Marsden experiments, where alpha particles (a form of radiation discovered by Rutherford) were observed to recoil at large angles from gold foil, contradicting J.J. Thomson’s plum pudding model and proving the existence of a high central charge. By 1911, Rutherford used these results to estimate the nucleus of a gold atom to be less than 1/3000th the diameter of the atom. The final confirmation of this nuclear structure came from Henry Moseley in 1913. Using X-ray spectroscopy to measure K-alpha emission lines, Moseley demonstrated a linear relationship between the square root of X-ray frequency and atomic number (Z). This established that the atomic number—representing a place in the periodic table—was identical to the number of whole units of nuclear charge, a finding Bohr noted was more effective than his own Rydberg derivation in validating the nuclear model.",
+        "relevant_docs": [
+            "Rutherford_model",
+            "Bohr_model",
+            "Electron"
+        ],
+        "vault": "sequence"
+    }
+]
