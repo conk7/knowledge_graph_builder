@@ -15,23 +15,32 @@ from ragas.metrics import (
     ContextRecall,
     Faithfulness,
 )
+from ragas.run_config import RunConfig
 
+from src.graphrag.config import (
+    DEFAULT_BEAM_WIDTH,
+    DEFAULT_MAX_HOPS,
+    DEFAULT_NER_BOOST_FACTOR,
+    DEFAULT_SCORE_THRESHOLD,
+    DEFAULT_TOP_K_CONTEXT,
+    DEFAULT_TOP_K_SEED,
+    GraphRAGConfig,
+)
+from src.graphrag.pipeline import GraphRAGPipeline, _load_vault_config
 from src.kg_builder.vault_manager import VaultManager
-from src.shared.graphrag import GraphRAGConfig, GraphRAGPipeline, _load_vault_config
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
 def _load_llm() -> Any:
-    """Load LangChain chat LLM from environment variables (no JSON mode binding)."""
     load_dotenv()
     provider = os.environ.get("LLM_PROVIDER", "").lower()
     model = os.environ.get("MODEL", "")
     temperature = float(os.environ.get("LLM_TEMPERATURE", "0.0"))
     top_p = float(os.environ.get("LLM_TOP_P", "0.1"))
 
-    logger.info("Loading LLM: provider=%r model=%r", provider, model)
+    logger.info(f"Loading LLM: provider={provider!r} model={model!r}")
 
     if provider == "openai":
         from langchain_openai import ChatOpenAI
@@ -91,7 +100,7 @@ def _load_reference_contexts(
     for stem in relevant_docs:
         path = vault_dir / f"{stem}.md"
         if not path.exists():
-            logger.warning("relevant_doc not found: %s", path)
+            logger.warning(f"relevant_doc not found: {path}")
             continue
         content = vm.get_file_content(path)
         body, _ = vm._split_content_and_links(content)
@@ -114,7 +123,7 @@ def run_evaluation(
         reference = item.get("answer", "")
         relevant_docs = item.get("relevant_docs", [])
 
-        logger.info("[%d/%d] %s", i + 1, len(qa_items), question[:80])
+        logger.info(f"[{i + 1}/{len(qa_items)}] {question[:80]}")
 
         contexts, response = pipeline.run(question)
         ref_contexts = _load_reference_contexts(relevant_docs, vault_dir, vm)
@@ -139,9 +148,7 @@ def run_evaluation(
         )
 
         logger.info(
-            "  → %d contexts retrieved, response length=%d",
-            len(contexts),
-            len(response),
+            f"  contexts retrieved: {len(contexts)}, response length: {len(response)}"
         )
 
     return EvaluationDataset(samples=samples), raw_results
@@ -188,11 +195,32 @@ def main() -> None:
         default="results/ragas_graphrag.json",
         help="Output path for detailed per-sample results JSON.",
     )
-    parser.add_argument("--max-hops", type=int, default=2)
-    parser.add_argument("--beam-width", type=int, default=3)
-    parser.add_argument("--threshold", type=float, default=0.2)
-    parser.add_argument("--top-k-seed", type=int, default=3)
-    parser.add_argument("--top-k-context", type=int, default=5)
+    parser.add_argument("--max-hops", type=int, default=DEFAULT_MAX_HOPS)
+    parser.add_argument("--beam-width", type=int, default=DEFAULT_BEAM_WIDTH)
+    parser.add_argument("--threshold", type=float, default=DEFAULT_SCORE_THRESHOLD)
+    parser.add_argument("--top-k-seed", type=int, default=DEFAULT_TOP_K_SEED)
+    parser.add_argument("--top-k-context", type=int, default=DEFAULT_TOP_K_CONTEXT)
+    parser.add_argument(
+        "--ner-boost-factor", type=float, default=DEFAULT_NER_BOOST_FACTOR
+    )
+    parser.add_argument(
+        "--max-concurrent",
+        type=int,
+        default=3,
+        help="Max concurrent LLM calls during RAGAS evaluation (lower = fewer 429s).",
+    )
+    parser.add_argument(
+        "--eval-timeout",
+        type=int,
+        default=6000,
+        help="Timeout in seconds for a single RAGAS LLM call (default 6000).",
+    )
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=100,
+        help="Max retries per RAGAS LLM call (default 100).",
+    )
     args = parser.parse_args()
 
     vault_dir = Path(args.vault)
@@ -206,7 +234,7 @@ def main() -> None:
 
     with qa_path.open("r", encoding="utf-8") as f:
         qa_items: list[dict] = json.load(f)
-    logger.info("Loaded %d QA items from %s", len(qa_items), qa_path)
+    logger.info(f"Loaded {len(qa_items)} QA items from {qa_path}")
 
     llm = _load_llm()
     ragas_llm = LangchainLLMWrapper(llm)
@@ -228,6 +256,7 @@ def main() -> None:
         score_threshold=args.threshold,
         top_k_seed=args.top_k_seed,
         top_k_context=args.top_k_context,
+        ner_boost_factor=args.ner_boost_factor,
     )
     with GraphRAGPipeline.from_vault(
         vault_dir=vault_dir,
@@ -248,8 +277,24 @@ def main() -> None:
 
     logger.info("Running RAGAS evaluation...")
     metrics = _build_metrics(ragas_llm, ragas_embeddings)
-    result = evaluate(dataset=dataset, metrics=metrics)
-    scores = result.to_pandas().mean(numeric_only=True).to_dict()
+    run_config = RunConfig(timeout=args.eval_timeout, max_retries=args.max_retries)
+    result = evaluate(
+        dataset=dataset,
+        metrics=metrics,
+        batch_size=args.max_concurrent,
+        run_config=run_config,
+    )
+    df = result.to_pandas()
+    nan_counts = df.isna().sum()
+    nan_cols = nan_counts[nan_counts > 0]
+    if not nan_cols.empty:
+        logger.warning(
+            f"NaN values detected (failed samples per metric):\n{nan_cols.to_string()}"
+        )
+    scores = df.mean(numeric_only=True).to_dict()
+    scores["_evaluated_samples"] = int(
+        df.shape[0] - nan_cols.max() if not nan_cols.empty else df.shape[0]
+    )
     _print_results(scores)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -268,7 +313,7 @@ def main() -> None:
     }
     with output_path.open("w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
-    logger.info("Results saved to %s", output_path)
+    logger.info(f"Results saved to {output_path}")
 
 
 if __name__ == "__main__":

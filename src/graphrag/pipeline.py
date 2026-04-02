@@ -3,22 +3,13 @@ import logging
 import re
 import shutil
 import tempfile
-from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 from langchain_core.prompts import ChatPromptTemplate
 
-from src.kg_builder.config import (
-    CHUNK_OVERLAP,
-    CHUNK_SEPARATORS,
-    CHUNK_SIZE,
-    EMBEDDING_MODEL_NAME,
-    LINKS_CONFIG_FILE_NAME,
-    META_DIR_NAME,
-    RERANKER_MODEL_NAME,
-    VECTOR_SEARCH_WEIGHT,
-)
+from src.graphrag.config import GraphRAGConfig, VaultConfig
+from src.kg_builder.config import LINKS_CONFIG_FILE_NAME, META_DIR_NAME
 from src.kg_builder.models import RerankResult
 from src.kg_builder.vault_manager import VaultManager
 from src.kg_builder.vector_store import VectorStore
@@ -37,46 +28,6 @@ _ANSWER_PROMPT = ChatPromptTemplate.from_messages(
         ),
     ]
 )
-
-
-@dataclass
-class GraphRAGConfig:
-    max_hops: int = 2
-    beam_width: int = 3
-    score_threshold: float = 0.2
-    top_k_seed: int = 3
-    top_k_context: int = 5
-    ner_boost_factor: float = 1.5
-
-
-@dataclass
-class VaultConfig:
-    lang: str = "en"
-    embedding_model: str = EMBEDDING_MODEL_NAME
-    reranker_model: str = RERANKER_MODEL_NAME
-    chunk_size: int = CHUNK_SIZE
-    chunk_overlap: int = CHUNK_OVERLAP
-    separators: list[str] = field(default_factory=lambda: list(CHUNK_SEPARATORS))
-    vector_weight: float = VECTOR_SEARCH_WEIGHT
-
-    @classmethod
-    def from_dict(cls, cfg: dict) -> "VaultConfig":
-        models = cfg.get("models", {})
-        chunking = cfg.get("chunking", {})
-        retrieval = cfg.get("retrieval", {})
-        return cls(
-            lang=cfg.get("lang", "en"),
-            embedding_model=models.get("embedding", {}).get(
-                "model_name", EMBEDDING_MODEL_NAME
-            ),
-            reranker_model=models.get("reranker", {}).get(
-                "model_name", RERANKER_MODEL_NAME
-            ),
-            chunk_size=chunking.get("chunk_size", CHUNK_SIZE),
-            chunk_overlap=chunking.get("chunk_overlap", CHUNK_OVERLAP),
-            separators=chunking.get("separators", list(CHUNK_SEPARATORS)),
-            vector_weight=retrieval.get("vector_search_weight", VECTOR_SEARCH_WEIGHT),
-        )
 
 
 class GraphRAGPipeline:
@@ -101,10 +52,7 @@ class GraphRAGPipeline:
             stem = md_file.stem
             if stem in self._name_to_path:
                 logger.warning(
-                    "Duplicate note name %r: %s vs %s (keeping first)",
-                    stem,
-                    self._name_to_path[stem],
-                    md_file,
+                    f"Duplicate note name {stem!r}: {self._name_to_path[stem]} vs {md_file} (keeping first)"
                 )
             else:
                 self._name_to_path[stem] = md_file
@@ -148,9 +96,7 @@ class GraphRAGPipeline:
         vs.load_reranker()
 
         logger.info(
-            "GraphRAGPipeline ready: %d vectors indexed from %s",
-            vs.total_vectors,
-            vault_dir.name,
+            f"GraphRAGPipeline ready: {vs.total_vectors} vectors indexed from {vault_dir.name}"
         )
 
         return cls(
@@ -203,10 +149,7 @@ class GraphRAGPipeline:
                 visited[fp] = self.vs.get_document_summary(r.file_path) or ""
 
         logger.debug(
-            "Stage 1: %d seed nodes, lemmas=%s, entities=%s",
-            len(visited),
-            query_lemmas,
-            query_entities,
+            f"Stage 1: {len(visited)} seed nodes, lemmas={query_lemmas}, entities={query_entities}"
         )
         return visited, query_lemmas, query_entities
 
@@ -290,10 +233,7 @@ class GraphRAGPipeline:
                     active_beams.append(tp)
 
             logger.debug(
-                "Stage 2 hop %d: %d candidates → %d beams",
-                hop + 1,
-                len(candidates),
-                len(active_beams),
+                f"Stage 2 hop {hop + 1}: {len(candidates)} candidates, {len(active_beams)} beams"
             )
 
     # ------------------------------------------------------------------
@@ -313,7 +253,7 @@ class GraphRAGPipeline:
         top: list[RerankResult] = self.vs.rerank(
             query, all_chunks, top_k=self.cfg.top_k_context, threshold=0.0
         )
-        logger.debug("Stage 3: %d total chunks → %d kept", len(all_chunks), len(top))
+        logger.debug(f"Stage 3: {len(all_chunks)} total chunks, {len(top)} kept")
         return [r.text for r in top]
 
     # ------------------------------------------------------------------
@@ -337,5 +277,5 @@ def _load_vault_config(vault_dir: Path) -> dict:
             with config_path.open("r", encoding="utf-8") as f:
                 return json.load(f)
         except (json.JSONDecodeError, OSError) as e:
-            logger.warning("Could not read vault config: %s", e)
+            logger.warning(f"Could not read vault config: {e}")
     return {}

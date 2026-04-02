@@ -11,6 +11,7 @@ from lancedb.rerankers import LinearCombinationReranker
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import CrossEncoder
 
+from .config import RERANKER_BATCH_SIZE
 from .models import RerankResult, SearchResult
 
 logger = logging.getLogger(__name__)
@@ -304,7 +305,12 @@ class VectorStore:
             self.load_reranker()
 
         pairs = [[query, doc] for doc in candidates]
-        scores = self.reranker.predict(pairs, show_progress_bar=False)
+        scores = []
+        for i in range(0, len(pairs), RERANKER_BATCH_SIZE):
+            batch_scores = self.reranker.predict(
+                pairs[i : i + RERANKER_BATCH_SIZE], show_progress_bar=False
+            )
+            scores.extend(batch_scores)
 
         results = list(zip(candidates, scores))
         results.sort(key=lambda x: x[1], reverse=True)

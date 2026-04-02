@@ -14,57 +14,7 @@ from tqdm import tqdm
 
 from src.kg_builder.config import DEFAULT_LINK_TYPES
 
-_BLOCKED_MESSAGES = ("AFC is enabled",)
-
-
-class _TqdmHandler(logging.StreamHandler):
-    def emit(self, record: logging.LogRecord) -> None:
-        try:
-            msg = record.getMessage()
-            if any(blocked in msg for blocked in _BLOCKED_MESSAGES):
-                return
-            tqdm.write(self.format(record))
-        except Exception:
-            self.handleError(record)
-
-
-def _suppress_noisy_loggers() -> None:
-    for name in (
-        "google",
-        "google.ai",
-        "google.generativeai",
-        "google.api_core",
-        "google.auth",
-        "grpc",
-        "urllib3",
-        "httpx",
-        "httpcore",
-    ):
-        logging.getLogger(name).setLevel(logging.ERROR)
-
-    try:
-        import absl.logging as absl_log
-
-        absl_log.set_verbosity(absl_log.ERROR)
-        logging.getLogger("absl").setLevel(logging.ERROR)
-    except ImportError:
-        pass
-
-
-def _setup_logging() -> logging.Logger:
-    handler = _TqdmHandler()
-    handler.setFormatter(logging.Formatter("%(levelname)s: %(message)s"))
-
-    root = logging.getLogger()
-    root.setLevel(logging.INFO)
-    root.handlers.clear()
-    root.addHandler(handler)
-
-    _suppress_noisy_loggers()
-    return logging.getLogger(__name__)
-
-
-logger = _setup_logging()
+logger = logging.getLogger(__name__)
 
 
 CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
@@ -477,7 +427,6 @@ def main() -> None:
     else:
         logger.info(f"Pairs remaining: {len(to_process)}")
         llm = _load_llm()
-        _suppress_noisy_loggers()
 
         by_sample: dict[str, list[dict]] = defaultdict(list)
         for it in to_process:
