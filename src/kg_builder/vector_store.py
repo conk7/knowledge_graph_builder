@@ -1,5 +1,6 @@
 import gc
 import logging
+import threading
 from pathlib import Path
 from typing import List, Optional
 
@@ -65,6 +66,7 @@ class VectorStore:
         self.reranker_model_name = reranker_model_name
         self.reranker = reranker
         self._is_using_external_reranker = reranker is not None
+        self._reranker_lock = threading.Lock()
         self._nlp = nlp
         self._splitter_type = splitter_type
         self._sentence_window_before = sentence_window_before
@@ -320,11 +322,12 @@ class VectorStore:
 
         pairs = [[query, doc] for doc in candidates]
         scores = []
-        for i in range(0, len(pairs), RERANKER_BATCH_SIZE):
-            batch_scores = self.reranker.predict(
-                pairs[i : i + RERANKER_BATCH_SIZE], show_progress_bar=False
-            )
-            scores.extend(batch_scores)
+        with self._reranker_lock:
+            for i in range(0, len(pairs), RERANKER_BATCH_SIZE):
+                batch_scores = self.reranker.predict(
+                    pairs[i : i + RERANKER_BATCH_SIZE], show_progress_bar=False
+                )
+                scores.extend(batch_scores)
 
         results = list(zip(candidates, scores))
         results.sort(key=lambda x: x[1], reverse=True)

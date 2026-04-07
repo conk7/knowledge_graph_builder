@@ -9,7 +9,7 @@ from typing import Any
 from langchain_core.prompts import ChatPromptTemplate
 
 from src.graphrag.config import GraphRAGConfig, VaultConfig
-from src.kg_builder.config import LINKS_CONFIG_FILE_NAME, META_DIR_NAME
+from src.kg_builder.config import LINKS_CONFIG_FILE_NAME, META_DIR_NAME, SPLITTER_TYPE
 from src.kg_builder.models import RerankResult
 from src.kg_builder.vault_manager import VaultManager
 from src.kg_builder.vector_store import VectorStore
@@ -63,9 +63,13 @@ class GraphRAGPipeline:
         vault_dir: Path,
         llm: Any,
         config: GraphRAGConfig | None = None,
+        ignore_local_config: bool = False,
     ) -> "GraphRAGPipeline":
         cfg = config or GraphRAGConfig()
-        vault_cfg = VaultConfig.from_dict(_load_vault_config(vault_dir))
+        raw_vault_cfg = _load_vault_config(vault_dir)
+        if ignore_local_config:
+            raw_vault_cfg = {"lang": raw_vault_cfg.get("lang", "en")}
+        vault_cfg = VaultConfig.from_dict(raw_vault_cfg)
 
         tmp_dir = tempfile.mkdtemp()
         vs = VectorStore(
@@ -78,7 +82,7 @@ class GraphRAGPipeline:
             vector_weight=vault_cfg.vector_weight,
             fresh_start=True,
             lang=vault_cfg.lang,
-            splitter_type="sentence_window",
+            splitter_type=SPLITTER_TYPE,
         )
 
         vm = VaultManager(
@@ -213,10 +217,11 @@ class GraphRAGPipeline:
 
             # 2.3-2.4 Cross-Encoder scoring — raw scores needed before NER boost
             pair_texts = [f"{rel}: {tgt}. {sm}" for rel, tgt, tp, sm, sl in filtered]
-            raw_scores: list[float] = self.vs.reranker.predict(
-                [(query, t) for t in pair_texts],
-                show_progress_bar=False,
-            ).tolist()
+            with self.vs._reranker_lock:
+                raw_scores: list[float] = self.vs.reranker.predict(
+                    [(query, t) for t in pair_texts],
+                    show_progress_bar=False,
+                ).tolist()
 
             # 2.5 NER boost: multiply score by ner_boost_factor if target name
             # matches a named entity extracted from the query.
