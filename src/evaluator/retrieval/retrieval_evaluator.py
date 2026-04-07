@@ -2,10 +2,10 @@ import argparse
 import json
 import logging
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Set
 
 from .compute_metrics import Metrics, _get_nlp, compute_metrics
-from .predict import get_sample_lang, predict_sample
+from .predict import ALL_STRATEGIES, get_sample_lang, predict_sample
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -30,6 +30,13 @@ def main():
         help="If given, prediction JSONs are saved as Strategy/sample.json.",
     )
     parser.add_argument(
+        "--strategies",
+        nargs="+",
+        choices=sorted(ALL_STRATEGIES),
+        default=sorted(ALL_STRATEGIES),
+        help="Retrieval strategies to run (default: all).",
+    )
+    parser.add_argument(
         "--show-inner-progress",
         action="store_true",
         help="Show nested tqdm progress bars during retrieval.",
@@ -46,9 +53,10 @@ def main():
         logger.error(f"Gold directory not found: {gold_dir}")
         return
 
+    strategies: Set[str] = set(args.strategies)
     output_dir = Path(args.output_dir) if args.output_dir else None
     if output_dir:
-        for name in ("Strict", "Broad", "Combined"):
+        for name in strategies:
             (output_dir / name).mkdir(parents=True, exist_ok=True)
 
     subdirs = [
@@ -57,11 +65,7 @@ def main():
     if not subdirs:
         subdirs = [vault_path]
 
-    total_metrics: Dict[str, Metrics] = {
-        "Strict": Metrics(),
-        "Broad": Metrics(),
-        "Combined": Metrics(),
-    }
+    total_metrics: Dict[str, Metrics] = {name: Metrics() for name in strategies}
 
     for subdir in sorted(subdirs):
         gold_file = gold_dir / f"{subdir.name}.json"
@@ -75,7 +79,12 @@ def main():
         lang = get_sample_lang(subdir)
         logger.info(f"Processing: {subdir.name} (lang={lang})")
 
-        preds = predict_sample(subdir, lang, show_progress=args.show_inner_progress)
+        preds = predict_sample(
+            subdir,
+            lang,
+            strategies=strategies,
+            show_progress=args.show_inner_progress,
+        )
         if not preds:
             continue
 

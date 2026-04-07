@@ -1,4 +1,5 @@
 import argparse
+import asyncio
 import json
 import logging
 import os
@@ -7,19 +8,23 @@ from pathlib import Path
 from typing import Any, Optional
 
 import json_repair
+import torch
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from sentence_transformers import CrossEncoder
 from tqdm import tqdm
 
-from src.kg_builder.config import DEFAULT_LINK_TYPES
+from src.kg_builder.config import DEFAULT_LINK_TYPES, RERANKER_MODEL_NAME
 
 logger = logging.getLogger(__name__)
 
 
-CROSS_ENCODER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 DEFAULT_TOP_N = 5
-DEFAULT_BATCH_SIZE = 10
+DEFAULT_BATCH_SIZE = 1
+DEFAULT_CONCURRENT_REQUESTS = 5
+
+_LLM_MAX_RETRIES: int = 10
+_LLM_TIMEOUT_SEC: int = 240
 
 
 class RelationPrediction(BaseModel):
@@ -35,30 +40,61 @@ class BatchResponse(BaseModel):
 
 
 SYSTEM_PROMPT_TEMPLATE = """\
-You are an expert Ontology Engineer tasked with classifying semantic relationships \
-between pairs of knowledge-graph notes.
+You are an expert Ontology Engineer tasked with classifying semantic relationships between a source document (Subject) and a target entity (Object).
 
-For each item you will receive:
-  - A source document name and a target entity name.
-  - A ranked list of context sentences extracted from the source document that \
-mention the target entity.
+For each item, you will receive:
+  - Source: The name of the subject document.
+  - Entity: The name of the target object.
+  - Context sentences extracted from the Source that mention the Entity.
 
-Your job: decide which single relationship best describes how the source document \
-relates to the target entity.
+Your job: decide which single relationship best describes how the Source relates to the Entity.
 
-Allowed relation types (use EXACTLY one, case-insensitive): {relation_types}
-If no clear relationship exists, output "no link".
+### ALLOWED RELATION TYPES
+You must use EXACTLY ONE of the following types (case-insensitive). If no clear relationship exists, output "no link".
+{relation_types}
 
-Respond with ONLY a valid JSON object — no markdown fences, no extra text — \
-matching this structure:
-  "results": list of objects, one per input item, each containing:
-    "id" - integer, the item number from the input (0-based)
-    "reasoning" - one sentence explaining the choice
-    "predicted_type" - the chosen relation type or "no link"
+### RELATION DEFINITIONS & HEURISTICS
+- scheduled on: The Source (a task, event, or note) is planned for the date/time of the Entity.
+- manufactures / develops: The Source creates, produces, builds, or designs the Entity.
+- uses / requires: The Source depends on, utilizes, or needs the Entity to function.
+- belongs to / is a / belongs to genus: Taxonomic, hierarchical, or categorical relationships.
+- supersedes: The Source replaces or renders the Entity obsolete.
+- contradicts: The Source opposes or disproves the Entity.
+- incorporates: The Source includes the Entity as a component, part, or underlying principle.
+- mentions: The Source refers to the Entity in passing or as an anecdote, without a strong structural, causal, or functional link. (Use this sparingly, only when no specific relationship applies).
+
+### EXAMPLES
+
+[0] Source: "Haircut Appointment"  →  Entity: "21 марта"
+  Context sentences:
+    1. Записался к мастеру на 11:00 21 марта.
+Output:
+{{"results": [{{"id": 0, "reasoning": "The source is an appointment that is planned to happen on the specified date.", "predicted_type": "scheduled on"}}]}}
+
+[1] Source: "Rutherford model"  →  Entity: "Plum pudding model"
+  Context sentences:
+    1. The concept arose after Ernest Rutherford directed the Geiger–Marsden experiment in 1909, which showed much more alpha particle recoil than J. J. Thomson's plum pudding model of the atom could explain.
+Output:
+{{"results": [{{"id": 1, "reasoning": "The Rutherford model was created to replace the older plum pudding model because it explained phenomena the old model couldn't.", "predicted_type": "supersedes"}}]}}
+
+[2] Source: "Isaac Newton"  →  Entity: "Apple"
+  Context sentences:
+    1. Newton often told the story that he was inspired to formulate his theory of gravitation by watching the fall of an apple from a tree.
+Output:
+{{"results": [{{"id": 2, "reasoning": "The apple is featured in a historical anecdote about Newton, with no deep systemic or taxonomic relationship.", "predicted_type": "mentions"}}]}}
+
+[3] Source: "Semiconductor device fabrication"  →  Entity: "Integrated circuit"
+  Context sentences:
+    1. Semiconductor device fabrication is the process used to manufacture semiconductor devices, typically integrated circuits (ICs) such as microprocessors...
+Output:
+{{"results": [{{"id": 3, "reasoning": "The source describes a fabrication process that directly produces integrated circuits.", "predicted_type": "manufactures"}}]}}
+
+Respond with ONLY a valid JSON object — no markdown fences, no extra text — matching this exact structure:
+{{"results": [{{"id": int, "reasoning": "str", "predicted_type": "str"}}]}}
 """
 
 HUMAN_PROMPT_TEMPLATE = """\
-Classify the following {count} pair(s):
+Classify the following {count} pair(s). Read the context carefully, formulate your reasoning, and then select the best matching relation type.
 
 {items}
 """
@@ -84,6 +120,8 @@ def _load_llm() -> Any:
             base_url=base_url,
             temperature=temperature,
             model_kwargs={"top_p": top_p},
+            max_retries=_LLM_MAX_RETRIES,
+            timeout=_LLM_TIMEOUT_SEC,
         )
         try:
             llm = llm.bind(response_format={"type": "json_object"})
@@ -100,6 +138,7 @@ def _load_llm() -> Any:
             google_api_key=api_key,
             temperature=temperature,
             top_p=top_p,
+            max_retries=_LLM_MAX_RETRIES,
         )
 
     elif provider == "cerebras":
@@ -111,6 +150,8 @@ def _load_llm() -> Any:
             api_key=api_key,
             temperature=temperature,
             top_p=top_p,
+            max_retries=_LLM_MAX_RETRIES,
+            timeout=_LLM_TIMEOUT_SEC,
         )
         try:
             llm = llm.bind(response_format={"type": "json_object"})
@@ -122,7 +163,13 @@ def _load_llm() -> Any:
         from langchain_groq import ChatGroq
 
         api_key = os.environ.get("GROQ_API_KEY")
-        return ChatGroq(model=model, api_key=api_key, temperature=temperature)
+        return ChatGroq(
+            model=model,
+            api_key=api_key,
+            temperature=temperature,
+            max_retries=_LLM_MAX_RETRIES,
+            request_timeout=_LLM_TIMEOUT_SEC,
+        )
 
     else:
         raise ValueError(
@@ -211,9 +258,12 @@ def _load_gold(gold_dir: Path, vault_dir: Path) -> list[dict]:
 
 
 def _compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
-    classes = sorted(set(y_true) | set(y_pred))
+    # Per-class metrics over union of true and predicted classes (for full picture),
+    # but macro/weighted averages are computed only over classes present in y_true.
+    all_classes = sorted(set(y_true) | set(y_pred))
+    true_classes = sorted(set(y_true))
     per_class: dict[str, dict] = {}
-    for cls in classes:
+    for cls in all_classes:
         tp = sum(1 for t, p in zip(y_true, y_pred) if t == cls and p == cls)
         fp = sum(1 for t, p in zip(y_true, y_pred) if t != cls and p == cls)
         fn = sum(1 for t, p in zip(y_true, y_pred) if t == cls and p != cls)
@@ -231,16 +281,36 @@ def _compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
             "support": sum(1 for t in y_true if t == cls),
         }
 
-    if per_class:
-        macro_p = sum(v["precision"] for v in per_class.values()) / len(per_class)
-        macro_r = sum(v["recall"] for v in per_class.values()) / len(per_class)
-        macro_f1 = sum(v["f1"] for v in per_class.values()) / len(per_class)
+    total_support = len(y_true)
+    if true_classes:
+        macro_p = sum(per_class[c]["precision"] for c in true_classes) / len(
+            true_classes
+        )
+        macro_r = sum(per_class[c]["recall"] for c in true_classes) / len(true_classes)
+        macro_f1 = sum(per_class[c]["f1"] for c in true_classes) / len(true_classes)
+        weighted_p = (
+            sum(
+                per_class[c]["precision"] * per_class[c]["support"]
+                for c in true_classes
+            )
+            / total_support
+        )
+        weighted_r = (
+            sum(per_class[c]["recall"] * per_class[c]["support"] for c in true_classes)
+            / total_support
+        )
+        weighted_f1 = (
+            sum(per_class[c]["f1"] * per_class[c]["support"] for c in true_classes)
+            / total_support
+        )
     else:
         macro_p = macro_r = macro_f1 = 0.0
+        weighted_p = weighted_r = weighted_f1 = 0.0
 
     return {
         "per_class": per_class,
         "macro": {"precision": macro_p, "recall": macro_r, "f1": macro_f1},
+        "weighted": {"precision": weighted_p, "recall": weighted_r, "f1": weighted_f1},
     }
 
 
@@ -277,6 +347,16 @@ def _print_metrics(metrics: dict, title: str = "OVERALL", n: int = 0) -> None:
             "",
         )
     )
+    weighted = metrics["weighted"]
+    print(
+        _ROW.format(
+            "weighted avg",
+            f"{weighted['precision']:.4f}",
+            f"{weighted['recall']:.4f}",
+            f"{weighted['f1']:.4f}",
+            "",
+        )
+    )
 
 
 def _format_batch_item(
@@ -291,11 +371,7 @@ def _format_batch_item(
     )
 
 
-def _invoke_llm_batch(
-    llm: Any,
-    items: list[dict],
-    allowed_types: list[str],
-) -> list[Optional[dict]]:
+def _build_messages(items: list[dict], allowed_types: list[str]) -> list:
     from langchain_core.messages import HumanMessage, SystemMessage
 
     relation_types_str = ", ".join(allowed_types)
@@ -306,34 +382,105 @@ def _invoke_llm_batch(
     )
     human_content = HUMAN_PROMPT_TEMPLATE.format(count=len(items), items=items_str)
 
-    load_dotenv()
     provider = os.environ.get("LLM_PROVIDER", "").lower()
-
     if provider == "google":
-        messages = [
+        return [
             HumanMessage(content=system_content),
             HumanMessage(content=human_content),
         ]
-    else:
-        messages = [
-            SystemMessage(content=system_content),
-            HumanMessage(content=human_content),
-        ]
+    return [SystemMessage(content=system_content), HumanMessage(content=human_content)]
 
-    response = llm.invoke(messages)
-    raw_text: str = response.content if hasattr(response, "content") else str(response)
 
+def _parse_llm_response(raw_text: str, n_items: int) -> list[Optional[dict]]:
     parsed = json_repair.loads(raw_text)
     batch_response = BatchResponse(**parsed)
-
-    out: list[Optional[dict]] = [None] * len(items)
+    out: list[Optional[dict]] = [None] * n_items
     for pred in batch_response.results:
-        if 0 <= pred.id < len(items):
+        if 0 <= pred.id < n_items:
             out[pred.id] = {
                 "predicted_type": pred.predicted_type.lower(),
                 "reasoning": pred.reasoning,
             }
     return out
+
+
+def _invoke_llm_batch(
+    llm: Any,
+    items: list[dict],
+    allowed_types: list[str],
+) -> list[Optional[dict]]:
+    messages = _build_messages(items, allowed_types)
+    response = llm.invoke(messages)
+    raw_text: str = response.content if hasattr(response, "content") else str(response)
+    return _parse_llm_response(raw_text, len(items))
+
+
+async def _ainvoke_llm_batch(
+    llm: Any,
+    items: list[dict],
+    allowed_types: list[str],
+    semaphore: asyncio.Semaphore,
+) -> tuple[list[dict], list[Optional[dict]]]:
+    async with semaphore:
+        messages = _build_messages(items, allowed_types)
+        response = await llm.ainvoke(messages)
+        raw_text: str = (
+            response.content if hasattr(response, "content") else str(response)
+        )
+        return items, _parse_llm_response(raw_text, len(items))
+
+
+async def _run_async_classification(
+    llm: Any,
+    to_process: list[dict],
+    batch_size: int,
+    concurrent_requests: int,
+    output_path: Path,
+    all_results: list[dict],
+) -> None:
+    batches = [
+        to_process[s : s + batch_size] for s in range(0, len(to_process), batch_size)
+    ]
+    semaphore = asyncio.Semaphore(concurrent_requests)
+    write_lock = asyncio.Lock()
+
+    async def process_batch(batch: list[dict], out_f) -> None:
+        allowed_types = batch[0]["allowed_types"]
+        try:
+            items, preds = await _ainvoke_llm_batch(
+                llm, batch, allowed_types, semaphore
+            )
+        except Exception as e:
+            logger.error(f"Batch failed (entity={batch[0]['entity']}...): {e}")
+            items, preds = batch, [None] * len(batch)
+
+        async with write_lock:
+            for item, pred in zip(items, preds):
+                if pred is None:
+                    logger.warning(
+                        f"No prediction for pair (sample={item['sample_name']}, "
+                        f"file={item['source_file']}, entity={item['entity']})"
+                        " — will retry on restart"
+                    )
+                    continue
+                result = {
+                    "sample_name": item["sample_name"],
+                    "source_file": item["source_file"],
+                    "entity": item["entity"],
+                    "true_type": item["true_type"],
+                    "predicted_type": pred["predicted_type"],
+                    "reasoning": pred["reasoning"],
+                }
+                all_results.append(result)
+                out_f.write(json.dumps(result, ensure_ascii=False) + "\n")
+            out_f.flush()
+
+    with output_path.open("a", encoding="utf-8") as out_f:
+        tasks = [asyncio.create_task(process_batch(b, out_f)) for b in batches]
+        with tqdm(total=len(batches), desc="Batches", unit="batch") as pbar:
+            for coro in asyncio.as_completed(tasks):
+                await coro
+                pbar.update(1)
 
 
 def main() -> None:
@@ -367,6 +514,12 @@ def main() -> None:
         default=DEFAULT_BATCH_SIZE,
         help=f"Number of pairs per LLM prompt (default: {DEFAULT_BATCH_SIZE}).",
     )
+    parser.add_argument(
+        "--concurrent-requests",
+        type=int,
+        default=DEFAULT_CONCURRENT_REQUESTS,
+        help=f"Number of LLM requests to run simultaneously (default: {DEFAULT_CONCURRENT_REQUESTS}).",
+    )
     args = parser.parse_args()
 
     gold_dir = Path(args.gold_dir)
@@ -377,8 +530,12 @@ def main() -> None:
     all_items = _load_gold(gold_dir, vault_dir)
     logger.info(f"Extracted {len(all_items)} ground truth relations")
 
-    logger.info(f"Loading cross-encoder: {CROSS_ENCODER_MODEL}")
-    cross_encoder = CrossEncoder(CROSS_ENCODER_MODEL)
+    logger.info(f"Loading cross-encoder: {RERANKER_MODEL_NAME}")
+    cross_encoder = CrossEncoder(
+        RERANKER_MODEL_NAME,
+        trust_remote_code=True,
+        model_kwargs={"torch_dtype": torch.bfloat16},
+    )
 
     logger.info(f"Ranking contexts for {len(all_items)} pairs")
     ranked_items: list[dict] = []
@@ -428,50 +585,17 @@ def main() -> None:
         logger.info(f"Pairs remaining: {len(to_process)}")
         llm = _load_llm()
 
-        by_sample: dict[str, list[dict]] = defaultdict(list)
-        for it in to_process:
-            by_sample[it["sample_name"]].append(it)
-
         try:
-            with output_path.open("a", encoding="utf-8") as out_f:
-                for sample_name, sample_items in tqdm(
-                    by_sample.items(), desc="Samples", unit="sample"
-                ):
-                    for batch_start in tqdm(
-                        range(0, len(sample_items), args.batch_size),
-                        desc=f"  Batches [{sample_name}]",
-                        unit="batch",
-                        leave=False,
-                    ):
-                        batch = sample_items[
-                            batch_start : batch_start + args.batch_size
-                        ]
-                        allowed_types = batch[0]["allowed_types"]
-
-                        try:
-                            preds = _invoke_llm_batch(llm, batch, allowed_types)
-                        except Exception as e:
-                            logger.error(
-                                f"Batch failed (sample={sample_name}, "
-                                f"start={batch_start}): {e}"
-                            )
-                            preds = [None] * len(batch)
-
-                        for item, pred in zip(batch, preds):
-                            if pred is None:
-                                continue
-                            result = {
-                                "sample_name": item["sample_name"],
-                                "source_file": item["source_file"],
-                                "entity": item["entity"],
-                                "true_type": item["true_type"],
-                                "predicted_type": pred["predicted_type"],
-                                "reasoning": pred["reasoning"],
-                            }
-                            all_results.append(result)
-                            out_f.write(json.dumps(result, ensure_ascii=False) + "\n")
-                            out_f.flush()
-
+            asyncio.run(
+                _run_async_classification(
+                    llm=llm,
+                    to_process=to_process,
+                    batch_size=args.batch_size,
+                    concurrent_requests=args.concurrent_requests,
+                    output_path=output_path,
+                    all_results=all_results,
+                )
+            )
         except KeyboardInterrupt:
             tqdm.write("\nInterrupted — computing metrics on results saved so far.")
 

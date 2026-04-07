@@ -1,7 +1,7 @@
 import logging
 import os
 
-_BLOCKED_LOG_MESSAGES = ("AFC is enabled",)
+_BLOCKED_LOG_MESSAGES = ("AFC is enabled", "Retrying ")
 
 try:
     from tqdm import tqdm as _tqdm

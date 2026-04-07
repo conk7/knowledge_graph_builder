@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Tuple
 from spacy.matcher import PhraseMatcher
 from tqdm import tqdm
 
+from .config import BROAD_QUERY_MODE_DEFAULT, BroadQueryMode
 from .models import CandidatePair, DocumentEntity, NewlyAddedChunk
 from .vector_store import VectorStore
 
@@ -16,11 +17,6 @@ class RetrievalStrategyMode(str, Enum):
     BROAD = "broad"
     STRICT = "strict"
     COMBINED = "combined"
-
-
-class BroadQueryMode(str, Enum):
-    CHUNK = "chunk"
-    TITLE_SUMMARY = "title_summary"
 
 
 class CandidateRetrievalStrategy(ABC):
@@ -38,7 +34,7 @@ class VectorSearchRerankStrategy(CandidateRetrievalStrategy):
         retrieval_k: int,
         reranker_top_k: int,
         reranker_threshold: float,
-        broad_query_mode: BroadQueryMode = BroadQueryMode.TITLE_SUMMARY,
+        broad_query_mode: BroadQueryMode = BROAD_QUERY_MODE_DEFAULT,
     ):
         self.vector_store = vector_store
         self.retrieval_k = retrieval_k

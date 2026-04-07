@@ -1,6 +1,13 @@
 import logging
 import os
+from enum import Enum
 from pathlib import Path
+
+
+class BroadQueryMode(str, Enum):
+    CHUNK = "chunk"
+    TITLE_SUMMARY = "title_summary"
+
 
 #
 # DIRS
@@ -15,20 +22,32 @@ RERANKED_CANDIDATES_FILE_NAME = "reranked_candidates.json"
 LOG_FILE_NAME = "obsidian_ai_linker.log"
 RUN_STATE_FILE_NAME = "run_state.json"
 
+
 #
-# EMBEDDING MODEL
+# RETRIEVAL
 #
-EMBEDDING_MODEL_NAME = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-EMBEDDING_DIMENSION = 384
+EMBEDDING_MODEL_NAME = "BAAI/bge-m3"
+
+CHUNK_SIZE = 3000
+CHUNK_OVERLAP = 300
+CHUNK_SEPARATORS = ["\n# ", "\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
+
+SPLITTER_TYPE = "recursive"  # "recursive" | "sentence_window"
+SENTENCE_WINDOW_BEFORE = 1
+SENTENCE_WINDOW_AFTER = 1
+
+INITIAL_RETRIEVAL_K = 15
+VECTOR_SEARCH_WEIGHT = 1
+BROAD_QUERY_MODE_DEFAULT = BroadQueryMode.CHUNK
 
 
 #
 # RERANKER MODEL
 #
-RERANKER_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
+RERANKER_MODEL_NAME = "jinaai/jina-reranker-v2-base-multilingual"
 RERANKER_TOP_K = 5
-RERANKER_THRESHOLD = 0.7
-RERANKER_BATCH_SIZE = 8
+RERANKER_THRESHOLD = 0.5
+RERANKER_BATCH_SIZE = 16
 
 
 #
@@ -43,23 +62,6 @@ LLM_N_BATCH = 512
 LLM_CONCURRENCY = 1
 LLM_BACKEND = "vulkan"
 MAX_RETRIES = 10
-
-
-#
-# KNOWLEDGE GRAPH
-#
-CHUNK_SIZE = 300
-CHUNK_OVERLAP = 100
-CHUNK_SEPARATORS = ["\n# ", "\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
-
-SPLITTER_TYPE = "recursive"  # "recursive" | "sentence_window"
-SENTENCE_WINDOW_BEFORE = 1
-SENTENCE_WINDOW_AFTER = 1
-
-INITIAL_RETRIEVAL_K = 15
-VECTOR_SEARCH_WEIGHT = 0.5
-BROAD_QUERY_MODE_DEFAULT = "title_summary"
-
 
 #
 # LINKS
@@ -82,7 +84,7 @@ DEFAULT_VAULT_LANG = "en"
 
 
 #
-# LOGGING DEFAULTS
+# LOGGING
 #
 DEFAULT_LOG_LEVEL = "INFO"
 LOG_FORMAT = "%(asctime)s [%(levelname)s] %(message)s"

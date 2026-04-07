@@ -292,5 +292,19 @@
     "sentence": "Eventually Bohr incorporated early ideas of quantum mechanics into the model of the atom, allowing prediction of electronic spectra and concepts of chemistry.",
     "is_direct_mention": false,
     "link_type": "Precedes"
+  },
+  {
+    "entity": "Cathode_ray",
+    "source_file": "Rutherford_model.md",
+    "sentence": "In the same paper that Thomson announced his results on \"corpuscle\" nature of cathode rays, an event considered the discovery of the electron, he began speculating on atomic models composed of electrons.",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Cathode_ray",
+    "source_file": "Rutherford_scattering_experiments.md",
+    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series.",
+    "is_direct_mention": true,
+    "link_type": null
   }
 ]

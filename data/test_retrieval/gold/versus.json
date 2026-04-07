@@ -376,5 +376,61 @@
     "sentence": "As other talented engineers joined the growing company, he no longer believed he was needed there.",
     "is_direct_mention": false,
     "link_type": "Founds"
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Apple_Corps.md",
+    "sentence": "The company's name is a pun on \"apple core\".",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Mac_(computer).md",
+    "sentence": "The name is short for Macintosh (its official name until 1999), a reference to the McIntosh apple.",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Steve_Jobs.md",
+    "sentence": "The two decided on the name \"Apple\" after Jobs returned from the All One Farm commune in Oregon and told Wozniak about his time in the farm's apple orchard.",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Apple_Inc..md",
+    "sentence": "Marketing\nBranding\nAccording to Steve Jobs, the company's name was inspired by his visit to an apple farm while on a fruitarian diet.",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Apple",
+    "source_file": "MacOS.md",
+    "sentence": "As most Mac hardware components, or components similar to those, since the Intel transition are available for purchase, some technology-capable groups have developed software to install macOS on non-Apple computers.",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Steve_Wozniak.md",
+    "sentence": "The two decided on the name \"Apple\" shortly after Jobs returned from Oregon and told Wozniak about his time spent on an apple orchard there.",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Tim_Cook.md",
+    "sentence": "Career\nPre-Apple era\nAfter graduating from Auburn University, Cook spent twelve years in IBM's personal computer business, ultimately as director of North American fulfillment.",
+    "is_direct_mention": true,
+    "link_type": null
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Big_Apple.md",
+    "sentence": "The earliest known usage of \"big apple\" appears in the book The Wayfarer in New York (1909), in which Edward Sandford Martin writes: Kansas is apt to see in New York a greedy city ...",
+    "is_direct_mention": true,
+    "link_type": null
   }
 ]

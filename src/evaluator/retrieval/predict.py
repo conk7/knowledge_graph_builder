@@ -4,7 +4,9 @@ import logging
 import shutil
 import tempfile
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Set
+
+from sentence_transformers import CrossEncoder
 
 from src.kg_builder.config import (
     CHUNK_OVERLAP,
@@ -18,6 +20,7 @@ from src.kg_builder.config import (
     RERANKER_MODEL_NAME,
     RERANKER_THRESHOLD,
     RERANKER_TOP_K,
+    SPLITTER_TYPE,
     VECTOR_SEARCH_WEIGHT,
 )
 from src.kg_builder.models import DocumentEntity, NewlyAddedChunk
@@ -64,11 +67,19 @@ def _cands_to_dicts(candidates) -> List[Dict[str, Any]]:
     ]
 
 
+ALL_STRATEGIES: Set[str] = {"Strict", "Broad", "Combined"}
+
+
 def predict_sample(
     sample_dir: Path,
     lang: str,
+    reranker: Optional[CrossEncoder] = None,
+    nlp=None,
+    strategies: Optional[Set[str]] = None,
     show_progress: bool = False,
 ) -> Dict[str, List[Dict[str, Any]]]:
+    if strategies is None:
+        strategies = ALL_STRATEGIES
     entities = get_entities_from_dir(sample_dir)
     if not entities:
         logger.warning(f"No .md files in {sample_dir}")
@@ -93,11 +104,13 @@ def predict_sample(
             reranker_model_name=RERANKER_MODEL_NAME,
             chunk_size=CHUNK_SIZE,
             chunk_overlap=CHUNK_OVERLAP,
-            splitter_type="sentence_window",
+            splitter_type=SPLITTER_TYPE,
             separators=CHUNK_SEPARATORS,
             vector_weight=VECTOR_SEARCH_WEIGHT,
             fresh_start=True,
             lang=lang,
+            reranker=reranker,
+            nlp=nlp,
         )
 
         all_chunks: List[NewlyAddedChunk] = []
@@ -107,42 +120,61 @@ def predict_sample(
 
         vs.rebuild_fts_index()
 
-        strict_strat = StrictRetrievalStrategy(
-            vector_store=vs,
-            global_entity_dict=entities,
-            context_sents_before=0,
-            context_sents_after=0,
+        use_strict = "Strict" in strategies
+        use_broad = "Broad" in strategies
+        use_combined = "Combined" in strategies
+
+        strict_strat = (
+            StrictRetrievalStrategy(
+                vector_store=vs,
+                global_entity_dict=entities,
+                context_sents_before=0,
+                context_sents_after=0,
+            )
+            if use_strict or use_combined
+            else None
         )
-        broad_strat = VectorSearchRerankStrategy(
-            vector_store=vs,
-            retrieval_k=INITIAL_RETRIEVAL_K,
-            reranker_top_k=RERANKER_TOP_K,
-            reranker_threshold=RERANKER_THRESHOLD,
+        broad_strat = (
+            VectorSearchRerankStrategy(
+                vector_store=vs,
+                retrieval_k=INITIAL_RETRIEVAL_K,
+                reranker_top_k=RERANKER_TOP_K,
+                reranker_threshold=RERANKER_THRESHOLD,
+            )
+            if use_broad or use_combined
+            else None
         )
-        combined_strat = CombinedRetrievalStrategy(
-            strict_strat=strict_strat,
-            broad_strat=broad_strat,
+        combined_strat = (
+            CombinedRetrievalStrategy(
+                strict_strat=strict_strat,
+                broad_strat=broad_strat,
+            )
+            if use_combined
+            else None
         )
 
         vs.load_reranker()
         try:
-            strict_cands, _ = strict_strat.retrieve(
-                all_chunks, full_docs, show_progress=show_progress
-            )
-            broad_cands, _ = broad_strat.retrieve(
-                all_chunks, full_docs, show_progress=show_progress
-            )
-            combined_cands, _ = combined_strat.retrieve(
-                all_chunks, full_docs, show_progress=show_progress
-            )
+            results: Dict[str, List[Dict[str, Any]]] = {}
+            if use_strict and strict_strat is not None:
+                strict_cands, _ = strict_strat.retrieve(
+                    all_chunks, full_docs, show_progress=show_progress
+                )
+                results["Strict"] = _cands_to_dicts(strict_cands)
+            if use_broad and broad_strat is not None:
+                broad_cands, _ = broad_strat.retrieve(
+                    all_chunks, full_docs, show_progress=show_progress
+                )
+                results["Broad"] = _cands_to_dicts(broad_cands)
+            if use_combined and combined_strat is not None:
+                combined_cands, _ = combined_strat.retrieve(
+                    all_chunks, full_docs, show_progress=show_progress
+                )
+                results["Combined"] = _cands_to_dicts(combined_cands)
         finally:
             vs.unload_reranker()
 
-        return {
-            "Strict": _cands_to_dicts(strict_cands),
-            "Broad": _cands_to_dicts(broad_cands),
-            "Combined": _cands_to_dicts(combined_cands),
-        }
+        return results
     finally:
         shutil.rmtree(temp_dir, ignore_errors=True)
 
@@ -162,6 +194,13 @@ def main():
         help="Output directory; predictions saved as Strategy/sample.json.",
     )
     parser.add_argument(
+        "--strategies",
+        nargs="+",
+        choices=sorted(ALL_STRATEGIES),
+        default=sorted(ALL_STRATEGIES),
+        help="Retrieval strategies to run (default: all).",
+    )
+    parser.add_argument(
         "--show-progress",
         action="store_true",
         help="Show inner tqdm progress bars during retrieval.",
@@ -173,8 +212,9 @@ def main():
         logger.error(f"Vault directory not found: {vault_path}")
         return
 
+    strategies: Set[str] = set(args.strategies)
     output_dir = Path(args.output_dir)
-    for name in ("Strict", "Broad", "Combined"):
+    for name in strategies:
         (output_dir / name).mkdir(parents=True, exist_ok=True)
 
     subdirs = [
@@ -183,10 +223,30 @@ def main():
     if not subdirs:
         subdirs = [vault_path]
 
+    logger.info(f"Loading reranker model: {RERANKER_MODEL_NAME}...")
+    reranker = CrossEncoder(RERANKER_MODEL_NAME)
+    if hasattr(reranker, "show_progress_bar"):
+        reranker.show_progress_bar = False
+
+    spacy_models = {}
+
     for subdir in sorted(subdirs):
         logger.info(f"Predicting: {subdir.name}")
         lang = get_sample_lang(subdir)
-        preds = predict_sample(subdir, lang, show_progress=args.show_progress)
+        if lang not in spacy_models:
+            import spacy
+
+            model_name = "ru_core_news_sm" if lang == "ru" else "en_core_web_sm"
+            logger.info(f"Loading spaCy model: {model_name}...")
+            spacy_models[lang] = spacy.load(model_name)
+        preds = predict_sample(
+            subdir,
+            lang,
+            reranker=reranker,
+            nlp=spacy_models[lang],
+            strategies=strategies,
+            show_progress=args.show_progress,
+        )
         for strategy, items in preds.items():
             out_file = output_dir / strategy / f"{subdir.name}.json"
             with open(out_file, "w", encoding="utf-8") as f:

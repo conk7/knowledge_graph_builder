@@ -11,15 +11,13 @@ from lancedb.rerankers import LinearCombinationReranker
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import CrossEncoder
 
-from .config import RERANKER_BATCH_SIZE
+from .config import RERANKER_BATCH_SIZE, SPLITTER_TYPE
 from .models import RerankResult, SearchResult
 
 logger = logging.getLogger(__name__)
 
 
 class SentenceWindowSplitter:
-    """Splits text into overlapping sentence-window chunks using spaCy."""
-
     def __init__(self, nlp, window_before: int = 1, window_after: int = 1):
         self.nlp = nlp
         self.window_before = window_before
@@ -54,17 +52,20 @@ class VectorStore:
         vector_weight: float = 0.5,
         fresh_start: bool = False,
         lang: str = "ru",
-        splitter_type: str = "recursive",
+        splitter_type: str = SPLITTER_TYPE,
         sentence_window_before: int = 1,
         sentence_window_after: int = 1,
+        reranker: Optional[CrossEncoder] = None,
+        nlp=None,
     ):
         self.lang = lang
         self.index_path = index_path
         self.table_name = "chunks"
         self.vector_weight = vector_weight
         self.reranker_model_name = reranker_model_name
-        self.reranker = None
-        self._nlp = None
+        self.reranker = reranker
+        self._is_using_external_reranker = reranker is not None
+        self._nlp = nlp
         self._splitter_type = splitter_type
         self._sentence_window_before = sentence_window_before
         self._sentence_window_after = sentence_window_after
@@ -79,7 +80,12 @@ class VectorStore:
         self.embed_func = (
             get_registry()
             .get("sentence-transformers")
-            .create(name=embedding_model_name, normalize=False)
+            .create(
+                name=embedding_model_name,
+                device="cuda",
+                torch_dtype="bfloat16",
+                normalize=False,
+            )
         )
 
         class ChunkModel(LanceModel):
@@ -137,14 +143,22 @@ class VectorStore:
             logger.warning(f"Failed to cleanup/compact LanceDB: {e}")
 
     def load_reranker(self):
+        if self._is_using_external_reranker:
+            return
         if self.reranker is None:
             logger.info(f"Loading reranker model: {self.reranker_model_name}...")
-            self.reranker = CrossEncoder(self.reranker_model_name)
+            self.reranker = CrossEncoder(
+                self.reranker_model_name,
+                trust_remote_code=True,
+                model_kwargs={"torch_dtype": torch.bfloat16},
+            )
             if hasattr(self.reranker, "show_progress_bar"):
                 self.reranker.show_progress_bar = False
             logger.info("Reranker model loaded successfully.")
 
     def unload_reranker(self):
+        if self._is_using_external_reranker:
+            return
         if self.reranker is not None:
             logger.info(f"Unloading reranker model: {self.reranker_model_name}...")
             del self.reranker

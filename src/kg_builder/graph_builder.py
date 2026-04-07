@@ -10,10 +10,6 @@ from .config import (
     CHUNK_OVERLAP,
     CHUNK_SEPARATORS,
     CHUNK_SIZE,
-    SENTENCE_WINDOW_AFTER,
-    SENTENCE_WINDOW_BEFORE,
-    SPLITTER_TYPE,
-    EMBEDDING_DIMENSION,
     EMBEDDING_MODEL_NAME,
     INITIAL_RETRIEVAL_K,
     LINK_HEADER,
@@ -32,6 +28,9 @@ from .config import (
     RERANKER_MODEL_NAME,
     RERANKER_THRESHOLD,
     RERANKER_TOP_K,
+    SENTENCE_WINDOW_AFTER,
+    SENTENCE_WINDOW_BEFORE,
+    SPLITTER_TYPE,
     VECTOR_SEARCH_WEIGHT,
 )
 from .export_service import ExportService, SaveMode
@@ -176,7 +175,6 @@ class KnowledgeGraphBuilder:
             models=ModelsSnapshot(
                 embedding=EmbeddingSnapshot(
                     model_name=EMBEDDING_MODEL_NAME,
-                    dimension=EMBEDDING_DIMENSION,
                 ),
                 reranker=RerankerSnapshot(
                     model_name=RERANKER_MODEL_NAME,
@@ -245,7 +243,9 @@ class KnowledgeGraphBuilder:
                         strategy=self.retrieval_strategy_name,
                     )
                     if links_to_write:
-                        self.export_service.save_new_links(links_to_write, self.save_mode)
+                        self.export_service.save_new_links(
+                            links_to_write, self.save_mode
+                        )
                 finally:
                     self.llm_service.unload()
                 resumed_ok = True
@@ -382,7 +382,10 @@ class KnowledgeGraphBuilder:
                 f"Unknown retrieval strategy: {self.retrieval_strategy_name}"
             )
 
-        needs_full_docs = self.retrieval_strategy_name != RetrievalStrategyMode.BROAD or self.broad_query_mode == BroadQueryMode.TITLE_SUMMARY
+        needs_full_docs = (
+            self.retrieval_strategy_name != RetrievalStrategyMode.BROAD
+            or self.broad_query_mode == BroadQueryMode.TITLE_SUMMARY
+        )
         full_docs = {}
         if needs_full_docs:
             for chunk in new_chunks_data:

@@ -14,13 +14,9 @@ from .config import (
     CHUNK_OVERLAP,
     CHUNK_SEPARATORS,
     CHUNK_SIZE,
-    SENTENCE_WINDOW_AFTER,
-    SENTENCE_WINDOW_BEFORE,
-    SPLITTER_TYPE,
     DEFAULT_LINK_TEMPLATE,
     DEFAULT_LINK_TYPES,
     DEFAULT_VAULT_LANG,
-    EMBEDDING_DIMENSION,
     EMBEDDING_MODEL_NAME,
     INITIAL_RETRIEVAL_K,
     LINK_HEADER,
@@ -38,6 +34,9 @@ from .config import (
     RERANKER_THRESHOLD,
     RERANKER_TOP_K,
     RUN_STATE_FILE_NAME,
+    SENTENCE_WINDOW_AFTER,
+    SENTENCE_WINDOW_BEFORE,
+    SPLITTER_TYPE,
     VECTOR_SEARCH_WEIGHT,
 )
 from .models import CandidatePair
@@ -134,7 +133,6 @@ class RetrievalSnapshot(BaseModel):
 
 class EmbeddingSnapshot(BaseModel):
     model_name: str = Field(default=EMBEDDING_MODEL_NAME)
-    dimension: int = Field(default=EMBEDDING_DIMENSION)
 
 
 class RerankerSnapshot(BaseModel):
