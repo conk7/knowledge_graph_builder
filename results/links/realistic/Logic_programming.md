@@ -1,0 +1,299 @@
+Logic programming is a programming, database and knowledge representation paradigm based on formal logic. A logic program is a set of sentences in logical form, representing knowledge about some problem domain. Computation is performed by applying logical reasoning to that knowledge, to solve problems in the domain.  Major logic programming language families include Prolog, Answer Set Programming (ASP) and Datalog. In all of these languages, rules are written in the form of clauses:
+
+A :- B1, ..., Bn.
+and are read as declarative sentences in logical form:
+
+A if B1 and ... and Bn.
+A is called the head of the rule, B1, ..., Bn is called the body, and the Bi are called literals or conditions. When n = 0, the rule is called a fact and is written in the simplified form:
+
+A.
+Queries (or goals) have the same syntax as the bodies of rules and are commonly written in the form:
+
+?- B1, ..., Bn.
+In the simplest case of Horn clauses (or "definite" clauses), all of the A, B1, ..., Bn are atomic formulae of the form p(t1 ,..., tm), where p is a predicate symbol naming a relation, like "motherhood", and the ti are terms naming objects (or individuals). Terms include both constant symbols, like "charles", and variables, such as X, which start with an upper case letter.
+Consider, for example, the following Horn clause program:
+
+Given a query, the program produces answers.
+For instance for a query  ?- parent_child(X, william), the single answer is
+
+Various queries can be asked.  For instance
+the program can be queried both to generate grandparents and to generate grandchildren. It can even be used to generate all pairs of grandchildren and grandparents, or simply to check if a given pair is such a pair:
+
+Although Horn clause logic programs are Turing complete, for most practical applications, Horn clause programs need to be extended to "normal" logic programs with negative conditions. For example, the definition of sibling uses a negative condition, where the predicate = is defined by the clause  X = X :
+
+Logic programming languages that include negative conditions have the knowledge representation capabilities of a non-monotonic logic.
+In ASP and Datalog, logic programs have only a declarative reading, and their execution is performed by means of a proof procedure or model generator whose behaviour is not meant to be controlled by the programmer. However, in the Prolog family of languages, logic programs also have a procedural interpretation as goal-reduction procedures. From this point of view, clause A :- B1,...,Bn is understood as:
+
+to solve A, solve B1, and ... and solve Bn.
+Negative conditions in the bodies of clauses also have a procedural interpretation, known as negation as failure: A negative literal  not B is deemed to hold if and only if the positive literal  B fails to hold.
+Much of the research in the field of logic programming has been concerned with trying to develop a logical semantics for negation as failure and with developing other semantics and other implementations for negation. These developments have been important, in turn, for supporting the development of formal methods for logic-based program verification and program transformation.
+
+History
+The use of mathematical logic to represent and execute computer programs is also a feature of the lambda calculus, developed by Alonzo Church in the 1930s. However, the first proposal to use the clausal form of logic for representing computer programs was made by Cordell Green. This used an axiomatization of a subset of LISP, together with a representation of an input-output relation, to compute the relation by simulating the execution of the program in LISP. Foster and Elcock's Absys, on the other hand, employed a combination of equations and lambda calculus in an assertional programming language that places no constraints on the order in which operations are performed.
+Logic programming, with its current syntax of facts and rules, can be traced back to debates in the late 1960s and early 1970s about declarative versus procedural representations of knowledge in artificial intelligence. Advocates of declarative representations were notably working at Stanford, associated with John McCarthy, Bertram Raphael and Cordell Green, and in Edinburgh, with John Alan Robinson (an academic visitor from Syracuse University), Pat Hayes, and Robert Kowalski. Advocates of procedural representations were mainly centered at MIT, under the leadership of Marvin Minsky and Seymour Papert.
+Although it was based on the proof methods of logic, Planner, developed by Carl Hewitt at MIT, was the first language to emerge within this proceduralist paradigm. Planner featured pattern-directed invocation of procedural plans from goals (i.e. goal-reduction or backward chaining) and from assertions (i.e. forward chaining). The most influential implementation of Planner was the subset of Planner, called Micro-Planner, implemented by Gerry Sussman, Eugene Charniak and Terry Winograd. Winograd used Micro-Planner to implement the landmark, natural-language understanding program SHRDLU. For the sake of efficiency, Planner used a backtracking control structure so that only one possible computation path had to be stored at a time. Planner gave rise to the programming languages QA4, Popler, Conniver, QLISP, and the concurrent language Ether.
+Hayes and Kowalski in Edinburgh tried to reconcile the logic-based declarative approach to knowledge representation with Planner's procedural approach. Hayes (1973) developed an equational language, Golux, in which different procedures could be obtained by altering the behavior of the theorem prover.
+In the meanwhile, Alain Colmerauer in Marseille was working on natural-language understanding, using logic to represent semantics and using resolution for question-answering. During the summer of 1971, Colmerauer invited Kowalski to Marseille, and together they discovered that the clausal form of logic could be used to represent formal grammars and that resolution theorem provers could be used for parsing. They observed that some theorem provers, like hyper-resolution, behave as bottom-up parsers and others, like SL resolution (1971) behave as top-down parsers.
+It was in the following summer of 1972, that Kowalski, again working with Colmerauer, developed the procedural interpretation of implications in clausal form. It also became clear that such clauses could be restricted to definite clauses or Horn clauses, and that SL-resolution could be restricted (and generalised) to SLD resolution. Kowalski's procedural interpretation and SLD were described in a 1973 memo, published in 1974.
+Colmerauer, with Philippe Roussel, used the procedural interpretation as the basis of Prolog, which was implemented in the summer and autumn of 1972. The first Prolog program, also written in 1972 and implemented in Marseille, was a French question-answering system. The use of Prolog as a practical programming language was given great momentum by the development of a compiler by David H. D. Warren in Edinburgh in 1977. Experiments demonstrated that Edinburgh Prolog could compete with the processing speed of other symbolic programming languages such as Lisp. Edinburgh Prolog became the de facto standard and strongly influenced the definition of ISO standard Prolog.
+Logic programming gained international attention during the 1980s, when it was chosen by the Japanese  Ministry of International Trade and Industry to develop the software for the Fifth Generation Computer Systems (FGCS) project. The FGCS project aimed to use logic programming to develop advanced Artificial Intelligence applications on massively parallel computers. Although the project initially explored the use of Prolog, it later adopted the use of concurrent logic programming, because it was closer to the FGCS computer architecture.
+However, the committed choice feature of concurrent logic programming interfered with the language's logical semantics and with its suitability for knowledge representation and problem solving applications. Moreover, the parallel computer systems developed in the project failed to compete with advances taking place in the development of more conventional, general-purpose computers. Together these two issues resulted in the FGCS project failing to meet its objectives. Interest in both logic programming and AI fell into world-wide decline.
+In the meanwhile, more declarative logic programming approaches, including those based on the use of Prolog, continued to make progress independently of the FGCS project. In particular, although Prolog was developed to combine declarative and procedural representations of knowledge, the purely declarative interpretation of logic programs became the focus for applications in the field of deductive databases. Work in this field became prominent around 1977, when Hervé Gallaire and Jack Minker organized a workshop on logic and databases in Toulouse. The field was eventually renamed as Datalog.
+This focus on the logical, declarative reading of logic programs was given further impetus by the development of constraint logic programming in the 1980s and Answer Set Programming in the 1990s. It is also receiving renewed emphasis in recent applications of Prolog
+The Association for Logic Programming (ALP) was founded in 1986 to promote Logic Programming. Its official journal until 2000, was The Journal of Logic Programming. Its  founding editor-in-chief was J. Alan Robinson.  In 2001, the journal was renamed The Journal of Logic and Algebraic Programming, and the official journal of ALP became Theory and Practice of Logic Programming, published by Cambridge University Press.
+
+Concepts
+Logic programs enjoy a rich variety of semantics and problem solving methods, as well as a wide range of applications in programming, databases, knowledge representation and problem solving.
+
+Algorithm = Logic + Control
+The procedural interpretation of logic programs, which uses backward reasoning to reduce goals to subgoals, is a special case of the use of a problem-solving strategy to control the use of a declarative, logical representation of knowledge to obtain the behaviour of an algorithm. More generally, different problem-solving strategies can be applied to the same logical representation to obtain different algorithms. Alternatively, different algorithms can be obtained with a given problem-solving strategy by using different logical representations.
+The two main problem-solving strategies are backward reasoning (goal reduction) and forward reasoning, also known as top-down and bottom-up reasoning, respectively.
+In the simple case of a propositional Horn clause program and a top-level atomic goal, backward reasoning determines an and-or tree, which constitutes the search space for solving the goal. The top-level goal is the root of the tree. Given any node in the tree and any clause whose head matches the node, there exists a set of child nodes corresponding to the sub-goals in the body of the clause. These child nodes are grouped together by an "and". The alternative sets of children corresponding to alternative ways of solving the node are grouped together by an "or".
+Any search strategy can be used to search this space. Prolog uses a sequential, last-in-first-out, backtracking strategy, in which only one alternative and one sub-goal are considered at a time. For example, subgoals can be solved in parallel, and clauses can also be tried in parallel. The first strategy is called and-parallel and the second strategy is called or-parallel. Other search strategies, such as intelligent backtracking, or best-first search to find an optimal solution, are also possible.
+In the more general, non-propositional case, where sub-goals can share variables, other strategies can be used, such as choosing the subgoal that is most highly instantiated or that is sufficiently instantiated so that only one procedure applies. Such strategies are used, for example, in concurrent logic programming.
+In most cases, backward reasoning from a query or goal is more efficient than forward reasoning. But sometimes with Datalog and Answer Set Programming, there may be no query that is separate from the set of clauses as a whole, and then generating all the facts that can be derived from the clauses is a sensible problem-solving strategy. Here is another example, where forward reasoning beats backward reasoning in a more conventional computation task, where the goal ?- fibonacci(n, Result) is to find the nth fibonacci number:
+
+Here the relation fibonacci(N, M) stands for the function fibonacci(N) = M, and the predicate N is Expression is Prolog notation for the predicate that instantiates the variable N to the value of Expression.
+Given the goal of computing the fibonacci number of n, backward reasoning reduces the goal to the two subgoals of computing the fibonacci numbers of n-1 and n-2. It reduces the subgoal of computing the fibonacci number of n-1 to the two subgoals of computing the fibonacci numbers of n-2 and n-3, redundantly computing the fibonacci number of n-2. This process of reducing one fibonacci subgoal to two fibonacci subgoals continues until it reaches the numbers 0 and 1. Its complexity is of the order 2n. In contrast, forward reasoning generates the sequence of fibonacci numbers, starting from 0 and 1 without any recomputation, and its complexity is linear with respect to n.
+Prolog cannot perform forward reasoning directly. But it can achieve the effect of forward reasoning within the context of backward reasoning by means of tabling: Subgoals are maintained in a table, along with their solutions. If a subgoal is re-encountered, it is solved directly by using the solutions already in the table, instead of re-solving the subgoals redundantly.
+
+Relationship with functional programming
+Logic programming can be viewed as a generalisation of functional programming, in which functions are a special case of relations.
+For example, the function, mother(X) = Y, (every X has only one mother Y) can be represented by the relation mother(X, Y). In this respect, logic programs are similar to relational databases, which also represent functions as relations.
+Compared with relational syntax, functional syntax is more compact for nested functions. For example, in functional syntax the definition of maternal grandmother can be written in the nested form:
+
+The same definition in relational notation needs to be written in the unnested, flattened form:
+
+However, nested syntax can be regarded as syntactic sugar for unnested syntax. Ciao Prolog, for example, transforms functional syntax into relational form and executes the resulting logic program using the standard Prolog execution strategy. Moreover, the same transformation can be used to execute nested relations that are not functional. For example:
+
+Relationship with relational programming
+The term relational programming has been used to cover a variety of programming languages that treat functions as a special case of relations. Some of these languages, such as miniKanren
+and relational linear programming
+are logic programming languages in the sense of this article.
+However, the relational language RML is an imperative programming language
+ whose core construct is a
+relational expression, which is similar to an expression in first-order predicate logic.
+Other relational programming languages are based on the relational calculus or relational algebra.
+
+Semantics of Horn clause programs
+Viewed in purely logical terms, there are two approaches to the declarative semantics of Horn clause logic programs: One approach is the original logical consequence semantics, which understands solving a goal as showing that the goal is a theorem that is true in all models of the program.
+In this approach, computation is theorem-proving in first-order logic; and both backward reasoning, as in SLD resolution, and forward reasoning, as in hyper-resolution,  are correct and complete theorem-proving methods.  Sometimes such theorem-proving methods are also regarded as providing a separate proof-theoretic (or operational) semantics for logic programs. But from a logical point of view, they are proof methods, rather than semantics.
+The other approach to the declarative semantics of Horn clause programs is the satisfiability semantics, which understands solving a goal as showing that the goal is true (or satisfied) in some intended (or standard) model of the program. For Horn clause programs, there always exists such a standard model: It is the unique minimal model of the program.
+Informally speaking, a minimal model is a model that, when it is viewed as the set of all (variable-free) facts that are true in the model, contains no smaller set of facts that is also a model of the program.
+For example, the following facts represent the minimal model of the family relationships example in the introduction of this article. All other variable-free facts are false in the model:
+
+The satisfiability semantics also has an alternative, more mathematical characterisation as the least fixed point of the function that uses the rules in the program to derive new facts from existing facts in one step of inference.
+Remarkably, the same problem-solving methods of forward and backward reasoning, which were originally developed for the logical consequence semantics, are equally applicable to the satisfiability semantics: Forward reasoning generates the minimal model of a Horn clause program, by deriving new facts from existing facts, until no new additional facts can be generated. Backward reasoning, which succeeds by reducing a goal to subgoals, until all subgoals are solved by facts, ensures that the goal is true in the minimal model, without generating the model explicitly.
+The difference between the two declarative semantics can be seen with the definitions of addition and multiplication in successor arithmetic, which represents the natural numbers 0, 1, 2, ... as a sequence of terms of the form 0, s(0), s(s(0)), .... In general, the term s(X) represents the successor of X, namely X + 1. Here are the standard definitions of addition and multiplication in functional notation:
+
+     X + 0 = X.
+     X + s(Y)    = s(X + Y). 
+i.e. X + (Y + 1) = (X + Y) + 1
+
+     X × 0 = 0.
+     X × s(Y)    = X + (X × Y). 
+i.e. X × (Y + 1) = X + (X × Y).
+
+Here are the same definitions as a logic program, using add(X, Y, Z) to represent X + Y = Z, and multiply(X, Y, Z) to represent X × Y = Z:
+
+The two declarative semantics both give the same answers for the same existentially quantified conjunctions of addition and multiplication goals. For example 2 × 2 = X has the solution X = 4; and X × X = X + X has two solutions X = 0 and X = 2:
+
+However, with the logical-consequence semantics, there are non-standard models of the program, in which, for example, add(s(s(0)), s(s(0)), s(s(s(s(s(0)))))), i.e. 2 + 2 = 5 is true. But with the satisfiability semantics, there is only one model, namely the standard model of arithmetic, in which 2 + 2 = 5 is false.
+In both semantics, the goal ?- add(s(s(0)), s(s(0)), s(s(s(s(s(0)))))) fails. In the satisfiability semantics, the failure of the goal means that the truth value of the goal is false. But in the logical consequence semantics, the failure means that the truth value of the goal is unknown.
+
+Negation as failure
+Negation as failure (NAF), as a way of concluding that a negative condition not p holds by showing that the positive condition p fails to hold, was already a feature of early Prolog systems. The resulting extension of SLD resolution is called SLDNF. A similar construct, called "thnot", also existed in Micro-Planner.
+The logical semantics of NAF was unresolved until Keith Clark showed that, under certain natural conditions, NAF is an efficient, correct (and sometimes complete) way of reasoning with the logical consequence semantics using the completion of a logic program in first-order logic.
+Completion amounts roughly to regarding the set of all the program clauses with the same predicate in the head, say:
+
+A :-  Body1.
+      ...
+A :-  Bodyk.
+as a definition of the predicate:
+
+A iff (Body1 or ... or Bodyk)
+where iff means "if and only if". The completion also includes axioms of equality, which correspond to unification. Clark showed that proofs generated by SLDNF are structurally similar to proofs generated by a natural deduction style of reasoning with the completion of the program.
+Consider, for example, the following program:
+
+Given the goal of determining whether tom should receive a sanction, the first rule succeeds in showing that tom should be punished:
+
+This is because tom is a thief, and it cannot be shown that tom should be rehabilitated. It cannot be shown that tom should be rehabilitated, because it cannot be shown that tom is a minor.
+If, however, we receive new information that tom is indeed a minor, the previous conclusion that tom should be punished is replaced by the new conclusion that tom should be rehabilitated:
+
+This property of withdrawing a conclusion when new information is added, is called non-monotonicity, and it makes logic programming a non-monotonic logic.
+But, if we are now told that tom is violent, the conclusion that tom should be punished will be reinstated:
+
+The completion of this program is:
+
+The notion of completion is closely related to John McCarthy's circumscription semantics for default reasoning, and to Ray Reiter's closed world assumption.
+The completion semantics for negation is a logical consequence semantics, for which SLDNF provides a proof-theoretic implementation. However, in the 1980s, the satisfiability semantics became more popular for logic programs with negation. In the satisfiability semantics, negation is interpreted according to the classical definition of truth in an intended or standard model of the logic program.
+In the case of logic programs with negative conditions, there are two main variants of the satisfiability semantics: In the well-founded semantics, the intended model of a logic program is a unique, three-valued, minimal model, which always exists. The well-founded semantics generalises the notion of inductive definition in mathematical logic. XSB Prolog implements the well-founded semantics using SLG resolution.
+In the alternative stable model semantics, there may be no intended models or several intended models, all of which are minimal and two-valued. The stable model semantics underpins answer set programming (ASP).
+Both the well-founded and stable model semantics apply to arbitrary logic programs with negation. However, both semantics coincide for stratified logic programs. For example, the program for sanctioning thieves is (locally) stratified, and all three semantics for the program determine the same intended model:
+
+Attempts to understand negation in logic programming have also contributed to the development of abstract argumentation frameworks. In an argumentation interpretation of negation, the initial argument that tom should be punished because he is a thief, is attacked by the argument that he should be rehabilitated because he is a minor. But the fact that tom is violent undermines the argument that tom should be rehabilitated and reinstates the argument that tom should be punished.
+
+Metalogic programming
+Metaprogramming, in which programs are treated as data, was already a feature of early Prolog implementations. For example, the Edinburgh DEC10 implementation of Prolog included "an interpreter and a compiler, both written in Prolog itself". The simplest metaprogram is the so-called "vanilla" meta-interpreter:
+
+where true represents an empty conjunction, and (B,C) is a composite term representing the conjunction of B and C. The predicate clause(A,B) means that there is a clause of the form	A :- B.
+Metaprogramming is an application of the more general use of a metalogic or metalanguage  to describe and reason about another language, called the object language.
+Metalogic programming allows object-level and metalevel representations to be combined, as in natural language. For example, in the following program, the atomic formula attends(Person, Meeting) occurs both as an object-level formula, and as an argument of the metapredicates prohibited and approved.
+
+Relationship with the Computational-representational understanding of mind
+In his popular Introduction to Cognitive Science, Paul Thagard includes logic and rules as alternative approaches to modelling human thinking. He argues that rules, which have the form IF condition THEN action, are "very similar" to logical conditionals, but they are simpler and have greater psychological plausibility (page 51). Among other differences between logic and rules, he argues that logic uses deduction, but rules use search (page 45) and can be used to reason either forward or backward (page 47). Sentences in logic "have to be interpreted as universally true", but rules can be defaults, which admit exceptions (page 44).
+He states that "unlike logic, rule-based systems can also easily represent strategic information
+about what to do" (page 45). For example, "IF you want to go home for the weekend, and you have bus fare, THEN
+you can catch a bus". He does not observe that the same strategy of reducing a goal to subgoals can be interpreted, in the manner of logic programming, as applying backward reasoning to a logical conditional:
+
+All of these characteristics of rule-based systems - search, forward and backward reasoning, default reasoning, and goal-reduction - are also defining characteristics of logic programming. This suggests that Thagard's conclusion (page 56) that:
+
+Much of human knowledge is naturally described in terms of rules, and many kinds of thinking such as planning can be modeled by rule-based systems.
+
+also applies to logic programming.
+Other arguments showing how logic programming can be used to model aspects of human thinking are presented by Keith Stenning and Michiel van Lambalgen in their book,
+Human Reasoning and Cognitive Science. They show how the non-monotonic character of logic programs can be used to explain human performance on a variety of psychological tasks. They also show (page 237) that  "closed–world reasoning in its guise as logic programming has an appealing neural implementation, unlike classical logic."
+In The Proper Treatment of Events,
+Michiel van Lambalgen and Fritz Hamm investigate the use of constraint logic programming to code "temporal notions in natural language by looking at the way human beings construct time".
+
+Knowledge representation
+The use of logic to represent procedural knowledge and strategic information was one of the main goals contributing to the early development of logic programming. Moreover, it continues to be an important feature of the Prolog family of logic programming languages today. However, many applications of logic programming, including Prolog applications, increasingly focus on the use of logic to represent purely declarative knowledge. These applications include both the representation of general commonsense knowledge and the representation of domain specific expertise.
+Commonsense includes knowledge about cause and effect, as formalised, for example, in the situation calculus, event calculus and action languages. Here is a simplified example, which illustrates the main features of such formalisms. The first clause states that a fact holds immediately after an event initiates (or causes) the fact. The second clause is a frame axiom, which states that a fact that holds at a time continues to hold at the next time unless it is terminated by an event that happens at the time. This formulation allows more than one event to occur at the same time:
+
+Here holds is a meta-predicate, similar to solve above. However, whereas solve has only one argument, which applies to general clauses, the first argument of holds is a fact and the second argument is a time (or state). The atomic formula holds(Fact, Time) expresses that the Fact holds at the Time. Such time-varying facts are also called fluents. The atomic formula happens(Event, Time) expresses that the Event happens at the Time.
+The following example illustrates how these clauses can be used to reason about causality in a  toy blocks world. Here, in the initial state at time 0, a green block is on a table and a red block is stacked on the green block (like a traffic light). At time 0, the red block is moved to the table. At time 1, the green block is moved onto the red block. Moving an object onto a place terminates the fact that the object is on any place, and initiates the fact that the object is on the place to which it is moved:
+
+Forward reasoning and backward reasoning generate the same answers to the goal holds(Fact, Time). But forward reasoning generates fluents progressively in temporal order, and backward reasoning generates fluents regressively, as in the domain-specific use of regression in the situation calculus.
+Logic programming has also proved to be useful for representing domain-specific expertise in expert systems. But human expertise, like general-purpose commonsense, is mostly implicit and tacit, and it is often difficult to represent such implicit knowledge in explicit rules. This difficulty does not arise, however, when logic programs are used to represent the existing, explicit rules of a business organisation or legal authority.
+For example, here is a representation of a simplified version of the first sentence of the British Nationality Act, which states that a person who is born in the UK becomes a British citizen at the time of birth if a parent of the person is a British citizen at the time of birth:
+
+Historically, the representation of a large portion of the British Nationality Act as a logic program in the 1980s was "hugely influential for the development of computational representations of legislation, showing how logic programming enables intuitively appealing representations that can be directly deployed to generate automatic inferences".
+More recently, the PROLEG system, initiated in 2009 and consisting of approximately 2500 rules and exceptions of civil code and supreme court case rules in Japan, has become possibly the largest legal rule base in the world.
+
+Variants and extensions
+Prolog
+The SLD resolution rule of inference is neutral about the order in which subgoals in the bodies of clauses can be selected for solution. For the sake of efficiency, Prolog restricts this order to the order in which the subgoals are written. SLD is also neutral about the strategy for searching the space of SLD proofs.
+Prolog searches this space, top-down,  depth-first, trying different clauses for solving the same (sub)goal in the order in which the clauses are written.
+This search strategy has the advantage that the current branch of the tree can be represented efficiently by a stack. When a goal clause at the top of the stack is reduced to a new goal clause, the new goal clause is pushed onto the top of the stack. When the selected subgoal in the goal clause at the top of the stack cannot be solved, the search strategy backtracks, removing the goal clause from the top of the stack, and retrying the attempted solution of the selected subgoal in the previous goal clause using the next clause that matches the selected subgoal.
+Backtracking can be restricted by using a subgoal, called cut, written as !, which always succeeds but cannot be backtracked. Cut can be used to improve efficiency, but can also interfere with the logical meaning of clauses. In many cases, the use of cut can be replaced by negation as failure. In fact, negation as failure can be defined in Prolog, by using cut, together with any literal, say fail, that unifies with the head of no clause:
+
+Prolog provides other features, in addition to cut, that do not have a logical interpretation. These include the built-in predicates assert and retract for destructively updating the state of the program during program execution.
+For example, the toy blocks world example above can be implemented without frame axioms using destructive change of state:
+
+The sequence of move events and the resulting locations of the blocks can be computed by executing the query:
+
+Various extensions of logic programming have been developed to provide a logical framework for such destructive change of state.
+The broad range of Prolog applications, both in isolation and in combination with other languages is highlighted in the Year of Prolog Book, celebrating the 50 year anniversary of Prolog in 2022.
+Prolog has also contributed to the development of other programming languages, including ALF, Fril, Gödel, Mercury, Oz, Ciao, Visual Prolog, XSB, and λProlog.
+
+Constraint logic programming
+Constraint logic programming (CLP) combines Horn clause logic programming with constraint solving. It extends Horn clauses by allowing some predicates, declared as constraint predicates, to occur as literals in the body of a clause. Constraint predicates are not defined by the facts and rules in the program, but are predefined by some domain-specific model-theoretic structure or theory.
+Procedurally, subgoals whose predicates are defined by the program are solved by goal-reduction, as in ordinary logic programming, but constraints are simplified and checked for satisfiability by a domain-specific constraint-solver, which implements the semantics of the constraint predicates. An initial problem is solved by reducing it to a satisfiable conjunction of constraints.
+Interestingly, the first version of Prolog already included a constraint predicate dif(term1, term2), from Philippe Roussel's 1972 PhD thesis, which succeeds if both of its arguments are different terms, but which is delayed if either of the terms contains a variable.
+The following constraint logic program represents a toy temporal database of john's history as a teacher:
+
+Here ≤ and < are constraint predicates, with their usual intended semantics. The following goal clause queries the database to find out when john both taught logic and was a professor:
+
+The solution 
+
+2010 ≤ T, T ≤ 2012
+
+results from simplifying the constraints
+
+2005 ≤ T, T ≤ 2012, 2010 ≤ T, T < 2014.
+
+Constraint logic programming has been used to solve problems in such fields as civil engineering, mechanical engineering, digital circuit verification, automated timetabling, air traffic control, and finance. It is closely related to abductive logic programming.
+
+Datalog
+Datalog is a database definition language, which combines a relational view of data, as in relational databases, with a logical view, as in logic programming.
+Relational databases use a relational calculus or relational algebra, with relational operations, such as union, intersection, set difference and cartesian product to specify queries, which access  a database. Datalog uses logical connectives, such as or, and and not in the bodies of rules to define relations as part of the database itself.
+It was recognized early in the development of relational databases that recursive queries cannot be expressed in either relational algebra or relational calculus, and that this deficiency can be remedied by introducing a least-fixed-point operator. In contrast, recursive relations can be defined naturally by rules in logic programs, without the need for any new logical connectives or operators.
+Datalog differs from more general logic programming by having only constants and variables as terms. Moreover, all facts are variable-free, and rules are restricted, so that if they are executed bottom-up, then the derived facts are also variable-free.
+For example, consider the family database:
+
+Bottom-up execution derives the following set of additional facts and terminates:
+
+Top-down execution derives the same answers to the query:
+
+But then it goes into an infinite loop. However, top-down execution with tabling gives the same answers and terminates without looping.
+
+Answer set programming
+Like Datalog, Answer Set programming (ASP) is not Turing-complete. Moreover, instead of separating goals (or queries) from the program to be used in solving the goals, ASP  treats the whole program as a goal, and solves the goal by generating a stable model that makes the goal true. For this purpose, it uses the stable model semantics, according to which a logic program can have zero, one or more intended models. For example, the following program represents a degenerate variant of the map colouring problem of colouring two countries red or green:
+
+The problem has four solutions represented by four stable models:
+
+To represent the standard version of the map colouring problem, we need to add a constraint that two adjacent countries cannot be coloured the same colour. In ASP, this constraint can be written as a clause of the form:
+
+With the addition of this constraint, the problem now has only two solutions:
+
+The addition of constraints of the form :- Body. eliminates models in which Body is true.
+Confusingly, constraints in ASP are different from constraints in CLP. Constraints in CLP are predicates that qualify answers to queries (and solutions of goals). Constraints in ASP are clauses that eliminate models that would otherwise satisfy goals. Constraints in ASP are like integrity constraints in databases.
+This combination of ordinary logic programming clauses and constraint clauses illustrates the generate-and-test methodology of problem solving in ASP: The ordinary clauses define a search space of possible solutions, and the constraints filter out unwanted solutions.
+Most implementations of ASP proceed in two steps: First they instantiate the program in all possible ways, reducing it to a propositional logic program (known as grounding). Then they apply a propositional logic problem solver, such as the DPLL algorithm or a Boolean SAT solver. However, some implementations, such as s(CASP) use a goal-directed, top-down, SLD resolution-like procedure without
+grounding.
+
+Abductive logic programming
+Abductive logic programming (ALP), like CLP, extends normal logic programming by allowing the bodies of clauses to contain literals whose predicates are not defined by clauses. In ALP, these predicates are declared as abducible (or assumable), and are used as in abductive reasoning to explain observations, or more generally to add new facts to the program (as assumptions) to solve goals.
+For example, suppose we are given an initial state in which a red block is on a green block on a table at time 0:
+
+Suppose we are also given the goal:
+
+The goal can represent an observation, in which case a solution is an explanation of the observation. Or the goal can represent a desired future state of affairs, in which case a solution is a plan for achieving the goal.
+We can use the rules for cause and effect presented earlier to solve the goal, by treating the happens predicate as abducible:
+
+ALP solves the goal by reasoning backwards and adding assumptions to the program, to solve abducible subgoals. In this case there are many alternative solutions, including:
+
+Here tick is an event that marks the passage of time without initiating or terminating any fluents.
+There are also solutions in which the two move events happen at the same time. For example:
+
+Such solutions, if not desired, can be removed by adding an integrity constraint, which is like a constraint clause in ASP:
+
+Abductive logic programming has been used for fault diagnosis, planning, natural language processing and machine learning. It has also been used to interpret negation as failure as a form of abductive reasoning.
+
+Inductive logic programming
+Inductive logic programming (ILP) is an approach to machine learning that induces logic programs as hypothetical generalisations of positive and negative examples. Given a logic program representing background knowledge and positive examples together with constraints representing negative examples, an ILP system induces a logic program that generalises the positive examples while excluding the negative examples.
+ILP is similar to ALP, in that both can be viewed as generating hypotheses to explain observations, and as employing constraints to exclude undesirable hypotheses. But in ALP the hypotheses are variable-free facts, and in ILP the hypotheses are general rules.
+For example, given only background knowledge of the mother_child and father_child relations, and suitable examples of the grandparent_child relation, current ILP systems can generate the definition of grandparent_child, inventing an auxiliary predicate, which can be interpreted as the parent_child relation:
+
+Stuart Russell has referred to such invention of new concepts as the most important step needed for reaching human-level AI.
+Recent work in ILP, combining logic programming, learning and probability, has given rise to the fields of statistical relational learning and probabilistic inductive logic programming.
+
+Concurrent logic programming
+Concurrent logic programming integrates concepts of logic programming with concurrent programming. Its development was given a big impetus in the 1980s by its choice for the systems programming language of the Japanese Fifth Generation Project (FGCS).
+A concurrent logic program is a set of guarded Horn clauses of the form:
+
+H :- G1, ..., Gn | B1, ..., Bn.
+The conjunction G1, ... , Gn is called the guard of the clause, and | is the commitment operator. Declaratively, guarded Horn clauses are read as ordinary logical implications:
+
+H if G1 and ... and Gn and B1 and ... and Bn.
+However, procedurally, when there are several clauses whose heads H match a given goal, then all of the clauses are executed in parallel, checking whether their guards G1, ... , Gn hold. If the guards of more than one clause hold, then a committed choice is made to one of the clauses, and execution proceeds with the subgoals B1, ..., Bn of the chosen clause. These subgoals can also be executed in parallel. Thus concurrent logic programming implements a form of "don't care nondeterminism", rather than "don't know nondeterminism".
+For example, the following concurrent logic program defines a predicate shuffle(Left, Right, Merge), which can be used to shuffle two lists Left and Right, combining them into a single list Merge that preserves the ordering of the two lists Left and Right:
+
+Here, [] represents the empty list, and [Head | Tail] represents a list with first element Head followed by list Tail, as in Prolog. (Notice that the first occurrence of | in the second and third clauses is the list constructor, whereas the second occurrence of | is the commitment operator.)  The program can be used, for example, to shuffle the lists [ace, queen, king] and [1, 4, 2] by invoking the goal clause:
+
+The program will non-deterministically generate a single solution, for example Merge = [ace, queen, 1, king, 4, 2].
+Carl Hewitt has argued that, because of the indeterminacy of concurrent computation, concurrent logic programming cannot implement general concurrency. However, according to the logical semantics, any result of a computation of a concurrent logic program is a logical consequence of the program, even though not all logical consequences can be derived.
+
+Concurrent constraint logic programming
+Concurrent constraint logic programming combines concurrent logic programming and constraint logic programming, using constraints to control concurrency. A clause can contain a guard, which is a set of constraints that may block the applicability of the clause. When the guards of several clauses are satisfied, concurrent constraint logic programming makes a committed choice to use only one.
+
+Higher-order logic programming
+Several researchers have extended logic programming with higher-order programming features derived from higher-order logic, such as predicate variables. Such languages include the Prolog extensions HiLog and λProlog.
+
+Linear logic programming
+Basing logic programming within linear logic has resulted in the design of logic programming languages that are considerably more expressive than those based on classical logic. Horn clause programs can only represent state change by the change in arguments to predicates. In linear logic programming, one can use the ambient linear logic to support state change. Some early designs of logic programming languages based on linear logic include LO, Lolli, ACL, and Forum. Forum provides a goal-directed interpretation of all linear logic.
+
+Object-oriented logic programming
+F-logic extends logic programming with objects and the frame syntax.
+Logtalk extends the Prolog programming language with support for objects, protocols, and other OOP concepts. It supports most standard-compliant Prolog systems as backend compilers.
+
+Transaction logic programming
+Transaction logic is an extension of logic programming with a logical theory of state-modifying updates. It has both a model-theoretic semantics and a procedural one. An implementation of a subset of Transaction logic is available in the Flora-2 system. Other prototypes are also available.
+
+
+## Related Connections
+
+- belongs to:: [[Symbolic_artificial_intelligence]]
+- uses:: [[Expert_system]]
+- uses:: [[Lisp_(programming_language)]]
+- uses:: [[Machine_learning]]

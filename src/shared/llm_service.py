@@ -62,7 +62,7 @@ class LLMService:
         top_p: float = 0.1,
         use_api: bool = False,
         backend: str = "vulkan",
-        concurrency: int = 1,
+        concurrency: int = _DEFAULT_CONCURRENT_REQUESTS,
         default_link_types: Optional[List[str]] = None,
         vault_path: Optional[Path] = None,
         metadata_manager: Optional[Any] = None,
@@ -93,7 +93,9 @@ class LLMService:
             load_dotenv()
             self.provider = os.environ.get("LLM_PROVIDER", None).lower()
             model = os.environ.get("MODEL", "")
-            logger.info(f"Initialising LLM: provider={self.provider!r}, model={model!r}")
+            logger.info(
+                f"Initialising LLM: provider={self.provider!r}, model={model!r}"
+            )
             if self.provider == "openai":
                 self.llm = self._init_openai()
             elif self.provider == "google":
@@ -267,7 +269,10 @@ class LLMService:
         )
 
         if self.provider == "google":
-            return [HumanMessage(content=system_content), HumanMessage(content=human_content)]
+            return [
+                HumanMessage(content=system_content),
+                HumanMessage(content=human_content),
+            ]
         return [
             SystemMessage(content=system_content),
             HumanMessage(content=human_content),
@@ -331,7 +336,9 @@ class LLMService:
     ) -> Tuple[List[GroupedCandidatePair], List[Optional[dict]]]:
         async with semaphore:
             messages = self._build_grouped_messages(batch, relation_types)
-            response = await self.llm.ainvoke(messages)
+            response = await asyncio.wait_for(
+                self.llm.ainvoke(messages), timeout=_LLM_TIMEOUT_SEC
+            )
             return batch, self._parse_grouped_response(
                 self._extract_raw_text(response), len(batch)
             )
