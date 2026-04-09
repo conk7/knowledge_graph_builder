@@ -258,8 +258,6 @@ def _load_gold(gold_dir: Path, vault_dir: Path) -> list[dict]:
 
 
 def _compute_metrics(y_true: list[str], y_pred: list[str]) -> dict:
-    # Per-class metrics over union of true and predicted classes (for full picture),
-    # but macro/weighted averages are computed only over classes present in y_true.
     all_classes = sorted(set(y_true) | set(y_pred))
     true_classes = sorted(set(y_true))
     per_class: dict[str, dict] = {}
@@ -392,7 +390,13 @@ def _build_messages(items: list[dict], allowed_types: list[str]) -> list:
 
 
 def _parse_llm_response(raw_text: str, n_items: int) -> list[Optional[dict]]:
+    if not raw_text or not raw_text.strip():
+        logger.warning("LLM returned an empty response")
+        return [None] * n_items
     parsed = json_repair.loads(raw_text)
+    if not isinstance(parsed, (dict, list)):
+        logger.warning(f"LLM returned unparseable response: {raw_text[:100]!r}")
+        return [None] * n_items
     if isinstance(parsed, list):
         result_dict = None
         for item in parsed:

@@ -49,24 +49,22 @@ class CandidatePair(BaseModel):
         return (self.source_path, self.target_path)
 
 
-class LinkPrediction(BaseModel):
-    """Represents a single LLM prediction for a relationship between two chunks."""
+class ContextSnippet(BaseModel):
+    """A single (source_chunk, target_chunk) evidence pair for a file-to-file link candidate."""
 
-    relation_type: str
-    reasoning: str
-    text_a: str
-    text_b: str
+    source_content: str
+    target_content: str
     reranker_score: float = 0.0
-    vector_distance: float = 0.0
 
 
-class LinkConflict(BaseModel):
-    """Represents a conflict between multiple chunk-level link predictions for the same two files."""
+class GroupedCandidatePair(BaseModel):
+    """All context snippets for a unique (source_path, target_path) file pair, ranked by score."""
 
-    filename_a: str
-    filename_b: str
-    candidate_counts: dict[str, int]
-    evidence: list[LinkPrediction]
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    source_path: Path
+    target_path: Path
+    contexts: List[ContextSnippet]
 
 
 class NewlyAddedChunk(BaseModel):

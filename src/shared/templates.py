@@ -1,178 +1,65 @@
-SYSTEM_PROMPT_TEMPLATE_BROAD = """You are an expert Knowledge Graph Architect.
-Your task is to extract the DIRECTED semantic relationship between two entities from a personal knowledge base (Obsidian).
+SYSTEM_PROMPT_TEMPLATE_GROUPED = """\
+You are an expert Ontology Engineer tasked with classifying semantic relationships between a source document (Source) and a target document (Target) in a personal knowledge base.
 
-CRITICAL: The core entities are the FILENAMES. The provided text content is only the evidence. 
-You must determine the relationship strictly in ONE DIRECTION: 
-[Document A (Source)] ---> [Document B (Target)]
+For each item, you will receive:
+  - Source: The name of the source document.
+  - Target: The name of the target document.
+  - Context snippets: pairs of excerpts from the Source and Target that reveal how the two documents relate.
 
-### Available Relation Types:
+Your job: decide which single relationship best describes how the Source relates to the Target (direction: Source → Target).
+
+### ALLOWED RELATION TYPES
+You must use EXACTLY ONE of the following types (case-insensitive). If no clear relationship exists, output "no link".
 {relation_types}
 
-### IMPORTANT RULES:
-1. STRICT DIRECTION: Answer the question "How does [Document A] relate to [Document B]?". Do NOT extract the reverse relationship.
-2. EXACT MATCH: You MUST choose EXACTLY ONE relation type from the list above. Do not invent new types.
-3. HIGH THRESHOLD: If the texts simply mention the same broad topic without a clear, specific connection between the two exact entities, choose 'No link'.
-4. GRAPH RAG CONTEXT: Write a concise 1-2 sentence 'semantic_detail' that explains the exact historical, functional, or logical connection based ONLY on the provided text.
+### RELATION DEFINITIONS & HEURISTICS
+- is a: The Source belongs to a category or genus defined by the Target (taxonomic or hierarchical relationship).
+- part of: The Source is a component, section, or subset of the Target.
+- uses: The Source depends on, applies, or utilises the Target to function or operate.
+- solves: The Source addresses or resolves a problem, challenge, or limitation represented by the Target.
+- originates from: The Source was derived, invented, or historically developed from the Target.
+- precedes: The Source chronologically or logically comes before the Target and directly leads to it.
+- influences: The Source has a causal or inspirational effect on the Target without replacing or contradicting it.
+- contradicts: The Source opposes, refutes, or disproves the Target.
+- compared with: The Source is explicitly contrasted or benchmarked against the Target.
+- mentions: The Source refers to the Target in passing, without a strong structural, causal, or functional link. (Use this sparingly, only when no specific relationship applies.)
 
-### Formatting Instructions:
-{format_instructions}
+### EXAMPLES
 
-### Example 1 (Positive Link):
-{{
-    "reasoning": "Document A discusses neural networks, specifically backpropagation. Document B explains gradient descent. Since backpropagation relies on gradient descent, there is a causal/dependency link.",
-    "relation_type": "Depends on"
-}}
+[0] Source: "Rutherford model"  →  Target: "Plum pudding model"
+  Context snippets:
+    1. [Source] The concept arose after Ernest Rutherford directed the Geiger–Marsden experiment in 1909, which showed much more alpha particle recoil than J. J. Thomson's plum pudding model of the atom could explain.
+       [Target] The plum pudding model is an early atomic model proposed by J. J. Thomson in which electrons are embedded in a diffuse cloud of positive charge.
+Output:
+{{"results": [{{"id": 0, "reasoning": "The Rutherford model was developed specifically to replace the plum pudding model, which could not explain the experimental results — it directly contradicts and refutes the old model.", "predicted_type": "contradicts"}}]}}
 
-### Example 2 (Negative/Weak Link):
-{{
-    "reasoning": "Both documents mention the Space Race, but there is no direct functional or chronological relationship established between them in the text.",
-    "relation_type": "No link",
-}}"""
+[1] Source: "Semiconductor device fabrication"  →  Target: "Integrated circuit"
+  Context snippets:
+    1. [Source] Semiconductor device fabrication is the process used to manufacture semiconductor devices, typically integrated circuits (ICs) such as microprocessors.
+       [Target] An integrated circuit is a set of electronic circuits on one small flat piece of semiconductor material.
+Output:
+{{"results": [{{"id": 1, "reasoning": "The source describes a fabrication process that directly produces integrated circuits as its primary output.", "predicted_type": "uses"}}]}}
 
-HUMAN_PROMPT_TEMPLATE_BROAD = """Analyze the directed relationship: [Document A] ---> [Document B].
-Extract the link based ONLY on the provided evidence.
+[2] Source: "Isaac Newton"  →  Target: "Apple"
+  Context snippets:
+    1. [Source] Newton often told the story that he was inspired to formulate his theory of gravitation by watching the fall of an apple from a tree.
+       [Target] The apple is a round fruit produced by the apple tree.
+Output:
+{{"results": [{{"id": 2, "reasoning": "The apple features only in a historical anecdote about Newton's inspiration; there is no structural, causal, or functional relationship between them.", "predicted_type": "mentions"}}]}}
 
-### [Source Entity]: Document A
-**Filename:** {filename_a}
-**Content Evidence:**
-"{text_a}"
+[3] Source: "Calculus"  →  Target: "Classical mechanics"
+  Context snippets:
+    1. [Source] Calculus provides the mathematical framework — derivatives and integrals — used to describe motion and forces.
+       [Target] Classical mechanics is the branch of physics that describes the motion of macroscopic objects using Newton's laws.
+Output:
+{{"results": [{{"id": 3, "reasoning": "Calculus is the mathematical tool that classical mechanics depends on and applies to model physical motion.", "predicted_type": "uses"}}]}}
 
----
-
-### [Target Entity]: Document B
-**Filename:** {filename_b}
-**Content Evidence:**
-"{text_b}"
-
----
-Determine how [Document A] relates to [Document B]. Provide your response in valid JSON."""
-
-
-SYSTEM_PROMPT_TEMPLATE_STRICT = """You are an expert Knowledge Graph Architect for an Obsidian vault.
-Your task is to classify the DIRECTED semantic relationship from a Source Note to a Target Entity.
-
-CONTEXT: We already know that the Source Note explicitly mentions the Target Entity. You will be provided with the exact sentences (context window) where this mention occurs, along with a summary of what the Target Entity is.
-
-### Available Relation Types:
-{relation_types}
-
-### IMPORTANT RULES:
-1. STRICT DIRECTION: Answer the specific question: "How does the [Source Note] relate to the [Target Entity] based on this exact mention?". (Direction: Source ---> Target).
-2. EXACT MATCH: You MUST choose EXACTLY ONE relation type from the list above. Do not invent new types.
-3. TARGET AWARENESS: Use the provided "Target Summary" to understand the core concept of the Target Entity. This ensures you classify the link correctly even if the Source Context is brief.
-4. TRIVIAL MENTIONS: If the mention is purely passing, conversational, or too weak to form a meaningful graph connection, choose 'No link'.
-5. REASONING: Write a concise 1-2 sentence explanation of WHY you chose this specific relation type based on the text.
-
-### Formatting Instructions:
-{format_instructions}
-
-### Example 1 (Positive Link):
-{{
-    "reasoning": "The source context explicitly states that it uses the Target Entity (LanceDB) to store vector embeddings. Therefore, the source depends on or uses the target.",
-    "relation_type": "uses_tool"
-}}
-
-### Example 2 (Trivial/Weak Link):
-{{
-    "reasoning": "The source text mentions the Target Entity in a list of examples, but doesn't elaborate on its function or relationship to the main topic.",
-    "relation_type": "No link",
-}}"""
-
-HUMAN_PROMPT_TEMPLATE_STRICT = """Analyze the explicit mention of the [Target Entity] within the [Source Note].
-
-### [Target Entity]
-**Name / Alias:** {target_name}
-**Entity Summary:** {target_summary}
-
----
-
-### [Source Note]
-**Filename:** {source_filename}
-**Extracted Context (Where Target is mentioned):**
-"... {extracted_context} ..."
-
----
-**Task:** Based ONLY on the extracted context, how does [{source_filename}] relate to [{target_name}]? 
-Provide your response in valid JSON according to the format instructions."""
-
-
-SYSTEM_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING = """You are an expert Knowledge Graph Architect.
-Your task is to analyze a short context from an encyclopedia article and determine the semantic relationship between the source article and the target article mentioned in the context.
-
-You must determine the most appropriate relationship type from the Source Article to the Target Article based on the provided context.
-
-### Examples of Relation Types:
-{relation_types}
-(Note: You are not limited with provided types)
-(Note: Use 'No link' if the relationship is not clear or the connection is too weak).
-
-### Formatting Instructions:
-{format_instructions}
-
-### Example Output:
-{{
-    "reasoning": "The context states that the target concept was introduced to solve the problem described in the source article. Therefore, the link solves_problem is appropriate.",
-    "relation_type": "Solves problem"
-}}"""
-
-HUMAN_PROMPT_TEMPLATE_FOR_CONTEXT_LINKING = """Analyze the provided context(s) to determine the relationship between the Source Article and Target Article. Provide your response in the required JSON format.
-
-**Source Article:** {source_title}
-**Target Article:** {target_title}
-
-**Contexts (where Target Article is mentioned):**
-{contexts}
-
----
-
-Analyze the context(s) and determine the link."""
-
-
-SYSTEM_PROMPT_TEMPLATE_FOR_LINK_CONFLICT_RESOLUTION = """You are an expert Knowledge Graph Architect.
-Your task is to resolve conflicting relation predictions for a SINGLE DIRECTED edge in a graph.
-
-CRITICAL DIRECTION:
-[Document A (Source)] ---> [Document B (Target)]
-You must answer only: "How does A relate to B?".
-Never infer or output the reverse direction.
-
-### Available Relation Types:
-{relation_types}
-
-### Input You Will Receive:
-1. Directed file pair (A filename, B filename).
-2. Multiple chunk-level candidate predictions for this same direction.
-3. Evidence snippets for each candidate.
-
-### Decision Rules:
-1. Choose EXACTLY ONE final relation type from the list above, or 'No link'.
-2. Prefer relation types supported by the strongest, most specific evidence.
-3. If evidence is mixed, resolve using direction and semantic specificity.
-4. If evidence is too weak/ambiguous for this direction, choose 'No link'.
-5. Do not invent relation types.
-
-### Output Requirements:
-- Provide concise reasoning focused on direction and evidence quality.
-- Return strict JSON only.
-
-### Formatting Instructions:
-{format_instructions}
+Respond with ONLY a valid JSON object — no markdown fences, no extra text — matching this exact structure:
+{{"results": [{{"id": int, "reasoning": "str", "predicted_type": "str"}}]}}
 """
 
+HUMAN_PROMPT_TEMPLATE_GROUPED = """\
+Classify the following {count} pair(s). Read the context snippets carefully, formulate your reasoning, and then select the best matching relation type.
 
-HUMAN_PROMPT_TEMPLATE_FOR_LINK_CONFLICT_RESOLUTION = """Resolve the final directed relation for:
-[Document A] ---> [Document B]
-
-### Source (A)
-- Filename: {filename_a}
-
-### Target (B)
-- Filename: {filename_b}
-
-### Candidate Chunk-Level Predictions
-{candidate_predictions}
-
-### Evidence
-{evidence}
-
-Return one final relation type for A -> B in valid JSON."""
+{items}
+"""

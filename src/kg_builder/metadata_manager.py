@@ -363,7 +363,7 @@ class MetadataManager:
                 json.dump(
                     _pydantic_dump(self.run_state), f, indent=2, ensure_ascii=False
                 )
-            logger.info(f"Run state saved successfully to {self.run_state_path}")
+            logger.debug(f"Run state saved to {self.run_state_path}")
         except IOError as e:
             logger.error(f"Failed to save run state: {e}")
 

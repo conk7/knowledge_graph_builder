@@ -92,21 +92,25 @@ LOG_DATEFMT = "%Y-%m-%d %H:%M:%S"
 
 
 def setup_logging(vault_path: Path, log_level: str = DEFAULT_LOG_LEVEL):
+    from src import _BLOCKED_LOG_MESSAGES
+    from src import _handler as _console_handler
+
     dir = vault_path / META_DIR_NAME / OUTPUT_DIR
     dir.mkdir(parents=True, exist_ok=True)
     log_file = dir / LOG_FILE_NAME
 
-    _resolved_level = getattr(logging, log_level.upper(), logging.INFO)
+    class _BlockFilter(logging.Filter):
+        def filter(self, record: logging.LogRecord) -> bool:
+            return not any(p in record.getMessage() for p in _BLOCKED_LOG_MESSAGES)
 
-    logging.basicConfig(
-        level=_resolved_level,
-        format=LOG_FORMAT,
-        datefmt=LOG_DATEFMT,
-        force=True,
-        handlers=[
-            logging.StreamHandler(),
-            logging.FileHandler(log_file, encoding="utf-8", mode="w"),
-        ],
-    )
+    _file_handler = logging.FileHandler(log_file, encoding="utf-8", mode="w")
+    _file_handler.setFormatter(logging.Formatter(LOG_FORMAT, datefmt=LOG_DATEFMT))
+    _file_handler.addFilter(_BlockFilter())
+
+    root = logging.getLogger()
+    root.setLevel(getattr(logging, log_level.upper(), logging.INFO))
+    root.handlers.clear()
+    root.addHandler(_console_handler)
+    root.addHandler(_file_handler)
 
     logging.getLogger(__name__).info(f"Logging initialized. File: {log_file}")

@@ -108,17 +108,12 @@ class VaultManager:
             logger.info(f"File already contains all the links {file_path.name}")
             return
 
-        append_text = ""
-        if not links_section:
-            append_text += f"\n{self.link_header}\n"
-        elif not content.endswith("\n"):
-            append_text += "\n"
-
-        append_text += "\n".join(sorted(list(links_to_add))) + "\n"
+        all_links = sorted(existing_links | links_to_add)
+        links_text = "\n".join(all_links) + "\n"
 
         try:
-            with file_path.open("a", encoding="utf-8") as f:
-                f.write(append_text)
+            with file_path.open("w", encoding="utf-8") as f:
+                f.write(main_content + self.link_header + links_text)
             logger.info(f"Added {len(links_to_add)} new links to {file_path.name}")
         except Exception as e:
             logger.error(f"Could not add new links to {file_path}: {e}")

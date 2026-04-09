@@ -37,7 +37,6 @@ class ExportService:
             for rel_path_str, links in links_to_write.items():
                 file_abs_path = self.vault_path / rel_path_str
                 self.vault_manager.append_links_to_file(file_abs_path, links)
-                logger.info(f"Appended {len(links)} links to {rel_path_str}")
         elif save_mode == SaveMode.JSON:
             self._save_links_to_json(links_to_write)
         elif save_mode == SaveMode.EXPORT:
@@ -72,4 +71,3 @@ class ExportService:
             exported_file_path = self.export_path / rel_path_str
             if exported_file_path.exists():
                 self.vault_manager.append_links_to_file(exported_file_path, links)
-                logger.info(f"Appended {len(links)} links to EXPORTED {rel_path_str}")
