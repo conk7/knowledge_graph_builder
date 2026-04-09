@@ -22,6 +22,7 @@ from .config import (
     LLM_TEMPERATURE,
     LLM_TOP_P,
     META_DIR_NAME,
+    METADATA_FILE_NAME,
     OUTPUT_DIR,
     OUTPUT_LINKS_FILE_NAME,
     RERANKED_CANDIDATES_FILE_NAME,
@@ -81,7 +82,7 @@ class KnowledgeGraphBuilder:
         self.meta_dir = self.vault_path / META_DIR_NAME
         self.output_dir = self.meta_dir / OUTPUT_DIR
         self.index_path = self.output_dir
-        self.metadata_path = self.meta_dir
+        self.metadata_path = self.meta_dir / METADATA_FILE_NAME
         self.candidates_path = self.output_dir / CANDIDATES_FILE_NAME
         self.reranked_candidates_path = self.output_dir / RERANKED_CANDIDATES_FILE_NAME
 
@@ -105,6 +106,10 @@ class KnowledgeGraphBuilder:
 
         current_config = self._resolve_runtime_config(fresh_start, ignore_local_config)
         self.runtime_config: RuntimeSnapshot = current_config
+
+        if self.lang is None:
+            self.lang = self.metadata_manager.config.lang
+            logger.info(f"Lang not specified via CLI, using config value: {self.lang}")
 
         ignored = ignored_dirs or []
         if self.meta_dir not in ignored:
@@ -133,8 +138,9 @@ class KnowledgeGraphBuilder:
             logger.info("Fresh start.")
             self.metadata_manager.clear_metadata()
             self.metadata_manager.purge_meta_dir_files()
-            all_files = self.vault_manager.scan_markdown_files()
-            self.vault_manager.clear_all_ai_links(all_files)
+            if save_mode == SaveMode.INPLACE:
+                all_files = self.vault_manager.scan_markdown_files()
+                self.vault_manager.clear_all_ai_links(all_files)
 
         self.vector_store = VectorStore(
             index_path=self.index_path,

@@ -66,14 +66,12 @@ def main():
         "--retrieval-strategy",
         type=str,
         choices=[mode.value for mode in RetrievalStrategyMode],
-        default=RetrievalStrategyMode.STRICT.value,
         help="Strategy to use for retrieving semantic candidates",
     )
     run_parser.add_argument(
         "--broad-query-mode",
         type=str,
         choices=[mode.value for mode in BroadQueryMode],
-        default=BroadQueryMode.TITLE_SUMMARY.value,
         help="Broad mode query source: chunk (default) or title_summary",
     )
     run_parser.add_argument(
@@ -89,13 +87,13 @@ def main():
     run_parser.add_argument(
         "--lang",
         type=str,
-        help="Retrieval lang",
+        default=None,
+        help="Retrieval lang (overrides value from saved vault config)",
     )
     run_parser.add_argument(
         "--splitter-type",
         type=str,
         choices=["recursive", "sentence_window"],
-        default="recursive",
         help="Text splitter type: 'recursive' (default) or 'sentence_window'",
     )
     run_parser.add_argument(

@@ -25,6 +25,7 @@ from src.graphrag.config import (
     DEFAULT_SCORE_THRESHOLD,
     DEFAULT_TOP_K_CONTEXT,
     DEFAULT_TOP_K_SEED,
+    EMBEDDING_MODEL_NAME,
     GraphRAGConfig,
 )
 from src.graphrag.pipeline import GraphRAGPipeline, _load_vault_config
@@ -38,22 +39,27 @@ _LLM_MAX_RETRIES: int = 10
 _LLM_TIMEOUT_SEC: int = 240
 
 
-def _load_llm() -> Any:
+def _load_llm(prefix: str = "") -> Any:
     load_dotenv()
-    provider = os.environ.get("LLM_PROVIDER", "").lower()
-    model = os.environ.get("MODEL", "")
-    temperature = float(os.environ.get("LLM_TEMPERATURE", "0.0"))
-    top_p = float(os.environ.get("LLM_TOP_P", "0.1"))
 
-    logger.info(f"Loading LLM: provider={provider!r} model={model!r}")
+    def _get(key: str, default: str = "") -> str:
+        return os.environ.get(f"{prefix}{key}") or os.environ.get(key, default)
+
+    provider = _get("LLM_PROVIDER").lower()
+    model = _get("MODEL")
+    temperature = float(_get("LLM_TEMPERATURE", "0.0"))
+    top_p = float(_get("LLM_TOP_P", "0.1"))
+
+    role = "eval LLM" if prefix else "pipeline LLM"
+    logger.info(f"Loading {role}: provider={provider!r} model={model!r}")
 
     if provider == "openai":
         from langchain_openai import ChatOpenAI
 
         return ChatOpenAI(
             model=model,
-            api_key=os.environ.get("OPENAI_API_KEY", ""),
-            base_url=os.environ.get("OPENAI_BASE_URL", "http://localhost:1234/v1"),
+            api_key=_get("OPENAI_API_KEY"),
+            base_url=_get("OPENAI_BASE_URL", "http://localhost:1234/v1"),
             temperature=temperature,
             model_kwargs={"top_p": top_p},
             max_retries=_LLM_MAX_RETRIES,
@@ -64,7 +70,7 @@ def _load_llm() -> Any:
 
         return ChatGoogleGenerativeAI(
             model=model,
-            google_api_key=os.environ.get("GOOGLE_API_KEY"),
+            google_api_key=_get("GOOGLE_API_KEY"),
             temperature=temperature,
             top_p=top_p,
             max_retries=_LLM_MAX_RETRIES,
@@ -74,7 +80,7 @@ def _load_llm() -> Any:
 
         return ChatCerebras(
             model=model or "llama3.1-8b",
-            api_key=os.environ.get("CEREBRAS_API_KEY"),
+            api_key=_get("CEREBRAS_API_KEY"),
             temperature=temperature,
             top_p=top_p,
             max_retries=_LLM_MAX_RETRIES,
@@ -85,14 +91,14 @@ def _load_llm() -> Any:
 
         return ChatGroq(
             model=model,
-            api_key=os.environ.get("GROQ_API_KEY"),
+            api_key=_get("GROQ_API_KEY"),
             temperature=temperature,
             max_retries=_LLM_MAX_RETRIES,
             request_timeout=_LLM_TIMEOUT_SEC,
         )
     else:
         raise ValueError(
-            f"Unsupported LLM_PROVIDER: {provider!r}. "
+            f"Unsupported LLM_PROVIDER ({role}): {provider!r}. "
             "Set LLM_PROVIDER to one of: openai, google, cerebras, groq."
         )
 
@@ -281,7 +287,22 @@ def main() -> None:
         default=100,
         help="Max retries per RAGAS LLM call (default 100).",
     )
+    parser.add_argument(
+        "--eval-provider",
+        default=None,
+        help="LLM provider for RAGAS evaluation (overrides EVAL_LLM_PROVIDER / LLM_PROVIDER).",
+    )
+    parser.add_argument(
+        "--eval-model",
+        default=None,
+        help="Model name for RAGAS evaluation (overrides EVAL_MODEL / MODEL).",
+    )
     args = parser.parse_args()
+
+    if args.eval_provider:
+        os.environ["EVAL_LLM_PROVIDER"] = args.eval_provider
+    if args.eval_model:
+        os.environ["EVAL_MODEL"] = args.eval_model
 
     vault_dir = Path(args.vault)
     qa_path = Path(args.qa_file)
@@ -296,16 +317,15 @@ def main() -> None:
         qa_items: list[dict] = json.load(f)
     logger.info(f"Loaded {len(qa_items)} QA items from {qa_path}")
 
-    llm = _load_llm()
-    ragas_llm = LangchainLLMWrapper(llm)
+    pipeline_llm = _load_llm()
+    eval_llm = _load_llm(prefix="EVAL_")
+    ragas_llm = LangchainLLMWrapper(eval_llm)
 
     raw_vault_cfg = {} if args.ignore_local_config else _load_vault_config(vault_dir)
     embedding_model = (
         raw_vault_cfg.get("models", {})
         .get("embedding", {})
-        .get(
-            "model_name", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-        )
+        .get("model_name", EMBEDDING_MODEL_NAME)
     )
     ragas_embeddings = _load_embeddings(embedding_model)
 
@@ -320,7 +340,7 @@ def main() -> None:
     )
     with GraphRAGPipeline.from_vault(
         vault_dir=vault_dir,
-        llm=llm,
+        llm=pipeline_llm,
         config=pipeline_config,
         ignore_local_config=args.ignore_local_config,
     ) as pipeline:

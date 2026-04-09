@@ -393,6 +393,25 @@ def _build_messages(items: list[dict], allowed_types: list[str]) -> list:
 
 def _parse_llm_response(raw_text: str, n_items: int) -> list[Optional[dict]]:
     parsed = json_repair.loads(raw_text)
+    if isinstance(parsed, list):
+        result_dict = None
+        for item in parsed:
+            if not isinstance(item, dict):
+                continue
+            if item.get("type") == "thinking":
+                continue
+            if "results" in item:
+                result_dict = item
+                break
+        if result_dict is None:
+            result_dict = {
+                "results": [
+                    i
+                    for i in parsed
+                    if isinstance(i, dict) and i.get("type") != "thinking"
+                ]
+            }
+        parsed = result_dict
     batch_response = BatchResponse(**parsed)
     out: list[Optional[dict]] = [None] * n_items
     for pred in batch_response.results:
@@ -404,6 +423,18 @@ def _parse_llm_response(raw_text: str, n_items: int) -> list[Optional[dict]]:
     return out
 
 
+def _extract_raw_text(response: Any) -> str:
+    content = response.content if hasattr(response, "content") else response
+    if isinstance(content, list):
+        return "".join(
+            c.get("text") or c.get("content") or str(c)
+            if isinstance(c, dict)
+            else (c.text if hasattr(c, "text") else str(c))
+            for c in content
+        )
+    return str(content)
+
+
 def _invoke_llm_batch(
     llm: Any,
     items: list[dict],
@@ -411,8 +442,7 @@ def _invoke_llm_batch(
 ) -> list[Optional[dict]]:
     messages = _build_messages(items, allowed_types)
     response = llm.invoke(messages)
-    raw_text: str = response.content if hasattr(response, "content") else str(response)
-    return _parse_llm_response(raw_text, len(items))
+    return _parse_llm_response(_extract_raw_text(response), len(items))
 
 
 async def _ainvoke_llm_batch(
@@ -424,10 +454,7 @@ async def _ainvoke_llm_batch(
     async with semaphore:
         messages = _build_messages(items, allowed_types)
         response = await llm.ainvoke(messages)
-        raw_text: str = (
-            response.content if hasattr(response, "content") else str(response)
-        )
-        return items, _parse_llm_response(raw_text, len(items))
+        return items, _parse_llm_response(_extract_raw_text(response), len(items))
 
 
 async def _run_async_classification(

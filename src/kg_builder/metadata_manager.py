@@ -202,12 +202,13 @@ class RunState(BaseModel):
 class MetadataManager:
     def __init__(self, metadata_path: Path):
         self.metadata_path = metadata_path
-        self.config_path = self.metadata_path / LINKS_CONFIG_FILE_NAME
-        self.run_state_path = self.metadata_path / OUTPUT_DIR / RUN_STATE_FILE_NAME
-        self.candidates_path = self.metadata_path / OUTPUT_DIR / "candidates.json"
-        self.partial_links_path = self.metadata_path / OUTPUT_DIR / "links_partial.json"
+        self.meta_dir = metadata_path.parent
+        self.config_path = self.meta_dir / LINKS_CONFIG_FILE_NAME
+        self.run_state_path = self.meta_dir / OUTPUT_DIR / RUN_STATE_FILE_NAME
+        self.candidates_path = self.meta_dir / OUTPUT_DIR / "candidates.json"
+        self.partial_links_path = self.meta_dir / OUTPUT_DIR / "links_partial.json"
         self.partial_predictions_path = (
-            self.metadata_path / OUTPUT_DIR / "predictions_partial.json"
+            self.meta_dir / OUTPUT_DIR / "predictions_partial.json"
         )
         self.vault = VaultMetadata()
         self._is_fresh_start = False
@@ -539,7 +540,7 @@ class MetadataManager:
         try:
             for p in sorted(meta_dir.rglob("*"), reverse=True):
                 if p.is_file() or p.is_symlink():
-                    if p.name == LOG_FILE_NAME:
+                    if p.name in (LOG_FILE_NAME, LINKS_CONFIG_FILE_NAME):
                         continue
                     try:
                         p.unlink()

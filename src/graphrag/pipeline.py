@@ -30,6 +30,44 @@ _ANSWER_PROMPT = ChatPromptTemplate.from_messages(
 )
 
 
+_ANSWER_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "human",
+            """You are an expert analytical assistant. Answer the user's question based strictly on the provided knowledge graph context.
+
+CRITICAL INSTRUCTIONS:
+1. Language Mirroring (ABSOLUTE): Write your <answer> in the EXACT SAME LANGUAGE as the user's Question.
+2. Logic First: Inside your <reasoning> tag, state the language of the Question, then plan your answer.
+3. Style and Tone (CRUCIAL FOR METRICS): Write your <answer> as a cohesive, flowing paragraph. Do NOT use markdown bullet points or numbered lists unless absolutely unavoidable. Synthesize the facts naturally.
+4. Concise Accuracy: Directly answer the core question. Include necessary specific names and numbers from the context, but do NOT add extra historical background or broad summaries that weren't directly requested.
+5. Output Format: Use <reasoning> for your internal logic and <answer> for the final response.
+
+=== EXAMPLES OF YOUR EXPECTED BEHAVIOR ===
+
+Example 1:
+Context: 
+- Заметка 'План': Заменить масло в машине. Сделать это до поездки к бабушке.
+- Заметка 'Покупки': Купить моторное масло в Автомаге.
+- Заметка 'Расписание': Поездка к бабушке в 14:00. В 10:00 заехать за кофе.
+
+Question: Каков хронологический порядок задач, связанных с машиной?
+
+Response:
+<reasoning>
+1. Language: Russian.
+2. Logic: Buy oil -> Change oil -> Do it before 14:00.
+</reasoning>
+<answer>
+Для подготовки машины необходимо сначала купить моторное масло в Автомаге, а затем произвести его замену. Обе эти задачи должны быть выполнены строго до 14:00, так как на это время запланирована поездка к бабушке.
+</answer>
+===========================================
+Context:\n{context}\n\nQuestion: {question}""",
+        ),
+    ]
+)
+
+
 class GraphRAGPipeline:
     def __init__(
         self,
@@ -272,7 +310,35 @@ class GraphRAGPipeline:
             context_str = "\n\n---\n\n".join(context_texts)
 
         result = self._chain.invoke({"context": context_str, "question": query})
-        return result.content if hasattr(result, "content") else str(result)
+        content = result.content if hasattr(result, "content") else result
+        if isinstance(content, list):
+            raw_output = "".join(
+                c.get("text") or c.get("content") or str(c)
+                if isinstance(c, dict)
+                else (c.text if hasattr(c, "text") else str(c))
+                for c in content
+            )
+        else:
+            raw_output = str(content)
+
+        reasoning_match = re.search(
+            r"<reasoning>(.*?)</reasoning>", raw_output, re.DOTALL | re.IGNORECASE
+        )
+        if reasoning_match:
+            logger.debug(f"LLM Reasoning: {reasoning_match.group(1).strip()}")
+
+        if "<answer>" in raw_output.lower():
+            final_answer = (
+                raw_output.split("<answer>")[-1].replace("</answer>", "").strip()
+            )
+            if not final_answer:
+                logger.warning("Empty <answer> block from LLM.")
+            return final_answer
+
+        logger.warning("LLM did not use <answer> tags. Returning raw output.")
+        return re.sub(
+            r"<reasoning>.*?</reasoning>", "", raw_output, flags=re.DOTALL
+        ).strip()
 
 
 def _load_vault_config(vault_dir: Path) -> dict:

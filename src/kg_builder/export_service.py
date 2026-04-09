@@ -65,6 +65,9 @@ class ExportService:
             ignore=shutil.ignore_patterns(META_DIR_NAME, ".obsidian", "*.log"),
         )
 
+        exported_md_files = list(self.export_path.rglob("*.md"))
+        self.vault_manager.clear_all_ai_links(exported_md_files)
+
         for rel_path_str, links in links_to_write.items():
             exported_file_path = self.export_path / rel_path_str
             if exported_file_path.exists():
