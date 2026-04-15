@@ -4,18 +4,9 @@ import json
 import logging
 import os
 from pathlib import Path
-from typing import Any
 
-from dotenv import load_dotenv
 from ragas import EvaluationDataset, SingleTurnSample, evaluate
-from ragas.embeddings import LangchainEmbeddingsWrapper
 from ragas.llms.base import LangchainLLMWrapper
-from ragas.metrics import (
-    AnswerCorrectness,
-    ContextPrecision,
-    ContextRecall,
-    Faithfulness,
-)
 from ragas.run_config import RunConfig
 
 from src.graphrag.config import (
@@ -31,82 +22,19 @@ from src.graphrag.config import (
 from src.graphrag.pipeline import GraphRAGPipeline, _load_vault_config
 from src.kg_builder.vault_manager import VaultManager
 
+from ._shared import (
+    _DEFAULT_TEMPERATURE,
+    _DEFAULT_TOP_P,
+    _LLM_MAX_RETRIES,
+    _LLM_TIMEOUT_SEC,
+    _build_metrics,
+    _load_embeddings,
+    _load_llm,
+    _print_results,
+)
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
-
-
-_LLM_MAX_RETRIES: int = 10
-_LLM_TIMEOUT_SEC: int = 240
-
-
-def _load_llm(prefix: str = "") -> Any:
-    load_dotenv()
-
-    def _get(key: str, default: str = "") -> str:
-        return os.environ.get(f"{prefix}{key}") or os.environ.get(key, default)
-
-    provider = _get("LLM_PROVIDER").lower()
-    model = _get("MODEL")
-    temperature = float(_get("LLM_TEMPERATURE", "0.0"))
-    top_p = float(_get("LLM_TOP_P", "0.1"))
-
-    role = "eval LLM" if prefix else "pipeline LLM"
-    logger.info(f"Loading {role}: provider={provider!r} model={model!r}")
-
-    if provider == "openai":
-        from langchain_openai import ChatOpenAI
-
-        return ChatOpenAI(
-            model=model,
-            api_key=_get("OPENAI_API_KEY"),
-            base_url=_get("OPENAI_BASE_URL", "http://localhost:1234/v1"),
-            temperature=temperature,
-            model_kwargs={"top_p": top_p},
-            max_retries=_LLM_MAX_RETRIES,
-            timeout=_LLM_TIMEOUT_SEC,
-        )
-    elif provider == "google":
-        from langchain_google_genai import ChatGoogleGenerativeAI
-
-        return ChatGoogleGenerativeAI(
-            model=model,
-            google_api_key=_get("GOOGLE_API_KEY"),
-            temperature=temperature,
-            top_p=top_p,
-            max_retries=_LLM_MAX_RETRIES,
-        )
-    elif provider == "cerebras":
-        from langchain_cerebras import ChatCerebras
-
-        return ChatCerebras(
-            model=model or "llama3.1-8b",
-            api_key=_get("CEREBRAS_API_KEY"),
-            temperature=temperature,
-            top_p=top_p,
-            max_retries=_LLM_MAX_RETRIES,
-            timeout=_LLM_TIMEOUT_SEC,
-        )
-    elif provider == "groq":
-        from langchain_groq import ChatGroq
-
-        return ChatGroq(
-            model=model,
-            api_key=_get("GROQ_API_KEY"),
-            temperature=temperature,
-            max_retries=_LLM_MAX_RETRIES,
-            request_timeout=_LLM_TIMEOUT_SEC,
-        )
-    else:
-        raise ValueError(
-            f"Unsupported LLM_PROVIDER ({role}): {provider!r}. "
-            "Set LLM_PROVIDER to one of: openai, google, cerebras, groq."
-        )
-
-
-def _load_embeddings(model_name: str) -> LangchainEmbeddingsWrapper:
-    from langchain_huggingface import HuggingFaceEmbeddings
-
-    return LangchainEmbeddingsWrapper(HuggingFaceEmbeddings(model_name=model_name))
 
 
 def _load_reference_contexts(
@@ -209,28 +137,6 @@ def run_evaluation(
     return asyncio.run(_run())
 
 
-def _build_metrics(
-    ragas_llm: LangchainLLMWrapper,
-    ragas_embeddings: LangchainEmbeddingsWrapper,
-) -> list:
-    return [
-        ContextRecall(llm=ragas_llm),
-        ContextPrecision(llm=ragas_llm),
-        Faithfulness(llm=ragas_llm),
-        AnswerCorrectness(llm=ragas_llm, embeddings=ragas_embeddings),
-    ]
-
-
-def _print_results(scores: dict) -> None:
-    print("\n" + "=" * 50)
-    print("RAGAS GraphRAG Evaluation Results")
-    print("=" * 50)
-    for metric, value in scores.items():
-        if isinstance(value, float):
-            print(f"  {metric:<25} {value:.4f}")
-    print("=" * 50)
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="RAGAS E2E evaluation of the GraphRAG pipeline."
@@ -288,6 +194,32 @@ def main() -> None:
         help="Max retries per RAGAS LLM call (default 100).",
     )
     parser.add_argument(
+        "--temperature",
+        type=float,
+        default=None,
+        help=f"Sampling temperature for both pipeline and eval LLMs "
+        f"(default: {_DEFAULT_TEMPERATURE}; falls back to LLM_TEMPERATURE env).",
+    )
+    parser.add_argument(
+        "--top-p",
+        type=float,
+        default=None,
+        help=f"Nucleus sampling probability "
+        f"(default: {_DEFAULT_TOP_P}; falls back to LLM_TOP_P env).",
+    )
+    parser.add_argument(
+        "--llm-max-retries",
+        type=int,
+        default=_LLM_MAX_RETRIES,
+        help=f"Max retries per LLM API call (default: {_LLM_MAX_RETRIES}).",
+    )
+    parser.add_argument(
+        "--llm-timeout",
+        type=int,
+        default=_LLM_TIMEOUT_SEC,
+        help=f"Timeout in seconds per LLM API call (default: {_LLM_TIMEOUT_SEC}).",
+    )
+    parser.add_argument(
         "--eval-provider",
         default=None,
         help="LLM provider for RAGAS evaluation (overrides EVAL_LLM_PROVIDER / LLM_PROVIDER).",
@@ -317,8 +249,19 @@ def main() -> None:
         qa_items: list[dict] = json.load(f)
     logger.info(f"Loaded {len(qa_items)} QA items from {qa_path}")
 
-    pipeline_llm = _load_llm()
-    eval_llm = _load_llm(prefix="EVAL_")
+    pipeline_llm = _load_llm(
+        temperature=args.temperature,
+        top_p=args.top_p,
+        max_retries=args.llm_max_retries,
+        timeout=args.llm_timeout,
+    )
+    eval_llm = _load_llm(
+        prefix="EVAL_",
+        temperature=args.temperature,
+        top_p=args.top_p,
+        max_retries=args.llm_max_retries,
+        timeout=args.llm_timeout,
+    )
     ragas_llm = LangchainLLMWrapper(eval_llm)
 
     raw_vault_cfg = {} if args.ignore_local_config else _load_vault_config(vault_dir)
@@ -380,7 +323,7 @@ def main() -> None:
     scores["_evaluated_samples"] = int(
         df.shape[0] - nan_cols.max() if not nan_cols.empty else df.shape[0]
     )
-    _print_results(scores)
+    _print_results(scores, title="RAGAS GraphRAG Evaluation Results")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output = {

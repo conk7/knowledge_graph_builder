@@ -1,0 +1,79 @@
+{
+    "files": {
+        "Logic_programming.md": {
+            "file_path": "Logic_programming.md",
+            "hash": "ada03a9bc675a2136d5b6351ae307bacf8ac222d80e225656b9980e783b96c63",
+            "tags": []
+        },
+        "Lisp_(programming_language).md": {
+            "file_path": "Lisp_(programming_language).md",
+            "hash": "1ef7ad46a78480afe57cb1908ca8071c9f06633fbf3679e44c36b9602745918d",
+            "tags": []
+        },
+        "Expert_system.md": {
+            "file_path": "Expert_system.md",
+            "hash": "de6c4b501dc1b4c92e710009c525561974ba0474df64404b72427608473d67b3",
+            "tags": []
+        },
+        "Symbolic_artificial_intelligence.md": {
+            "file_path": "Symbolic_artificial_intelligence.md",
+            "hash": "cdc6170b5a9a4f6953908c032f778dcf85616a54ac6ae18445c083ebce8d9d56",
+            "tags": []
+        },
+        "Frank_Rosenblatt.md": {
+            "file_path": "Frank_Rosenblatt.md",
+            "hash": "843f16ff21010227de2246c7b2882645b9390509c9a217bb12deb3b835bd6c0b",
+            "tags": []
+        },
+        "Multilayer_perceptron.md": {
+            "file_path": "Multilayer_perceptron.md",
+            "hash": "bac2241ab19e392e6ca4644d01131dfdb15842e3f8a384e4717c9c77a24bfdab",
+            "tags": []
+        },
+        "Neural_network_(machine_learning).md": {
+            "file_path": "Neural_network_(machine_learning).md",
+            "hash": "b472607fa2d717ddded117f5791b5516dce949ba5ad9a2107f575aa64fc77fd1",
+            "tags": []
+        },
+        "Backpropagation.md": {
+            "file_path": "Backpropagation.md",
+            "hash": "30711b6fd330a9f8bad3ae42d5dec71cbd2268e48feb00982d17c69a1c6d956c",
+            "tags": []
+        },
+        "Universal_approximation_theorem.md": {
+            "file_path": "Universal_approximation_theorem.md",
+            "hash": "a72d471d8253ce8f9beff26f5da1bddb83116b35dc326a8858f8742275a198ee",
+            "tags": []
+        },
+        "Perceptron.md": {
+            "file_path": "Perceptron.md",
+            "hash": "6723b663272002c275a2ad7b35cf2f28c88326c7469d5965aa51b4246aac7cce",
+            "tags": []
+        },
+        "AI_winter.md": {
+            "file_path": "AI_winter.md",
+            "hash": "ca8c01c869c2d1be80bfceab2d019da49ff25ce1b22cb2f1544963e42dd5c274",
+            "tags": []
+        },
+        "Connectionism.md": {
+            "file_path": "Connectionism.md",
+            "hash": "99f45d7f685dca357df54d6acd0df4d231d9d27789e69cfaa62e65812449f559",
+            "tags": []
+        },
+        "Machine_learning.md": {
+            "file_path": "Machine_learning.md",
+            "hash": "0755205bb279ee3a4d14953ab97d9b0e0fa91e2b99e9fe614ad7bc569c0946c8",
+            "tags": []
+        },
+        "Marvin_Minsky.md": {
+            "file_path": "Marvin_Minsky.md",
+            "hash": "6dd335284322f81fbb95ad14e843b1e10278d8318316d7ed2859e5fbf5d43d2b",
+            "tags": []
+        },
+        "Commonsense_knowledge_(artificial_intelligence).md": {
+            "file_path": "Commonsense_knowledge_(artificial_intelligence).md",
+            "hash": "8e851d774066da31c8c3de57857315d5cbb5c258fedc6b23e0708bd80e535fdc",
+            "tags": []
+        }
+    }
+}

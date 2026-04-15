@@ -1,1 +1,3 @@
-\contentsline {section}{Введение}{3}{}%
+\contentsline {subsection}{\numberline {0.1}Архитектура предлагаемого решения}{6}{}%
+\contentsline {subsection}{\numberline {0.2}Архитектура предлагаемого решения}{10}{}%
+\contentsline {subsection}{\numberline {0.3}Архитектура предлагаемого решения}{10}{}%

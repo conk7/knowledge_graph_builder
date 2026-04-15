@@ -1,0 +1,79 @@
+{
+    "files": {
+        "Moores_law.md": {
+            "file_path": "Moores_law.md",
+            "hash": "a73aac6362db763b994171968fb4cb06d4d1a44ca71be105a5b59860da65c968",
+            "tags": []
+        },
+        "TSMC.md": {
+            "file_path": "TSMC.md",
+            "hash": "2fd8cb37b45f6cb562e6234b564a8d238cd4d940546bccb8ed498f34355589da",
+            "tags": []
+        },
+        "Photolithography.md": {
+            "file_path": "Photolithography.md",
+            "hash": "b076c9391ec512bc9d2a1e88a31de1fa9f12a14acd071a9c26058ab7e6fa398a",
+            "tags": []
+        },
+        "Semiconductor_device_fabrication.md": {
+            "file_path": "Semiconductor_device_fabrication.md",
+            "hash": "f3803f25e0179378348be52073ad3ae90aa539875b798a9aa9dd1ea3d87a418d",
+            "tags": []
+        },
+        "Transistor.md": {
+            "file_path": "Transistor.md",
+            "hash": "20115083866363e134ff3f8c3fd8d1b0a61c1b3f9d0fbf0c1a03d2f56399dd38",
+            "tags": []
+        },
+        "System_on_a_chip.md": {
+            "file_path": "System_on_a_chip.md",
+            "hash": "43867a530500badcd2d1b62d12496857fd6deaef2dd3e0c768b35313d8d5ccc2",
+            "tags": []
+        },
+        "Fin_field-effect_transistor.md": {
+            "file_path": "Fin_field-effect_transistor.md",
+            "hash": "044ace85b28d1042ce442e445a2bdc1b0acd8c66f53de3869225064c59e19c73",
+            "tags": []
+        },
+        "ASML_Holding.md": {
+            "file_path": "ASML_Holding.md",
+            "hash": "c1873d624036a2f7b297e9115f69294eef4accfbbae29fe8fc05990d6ef5c85d",
+            "tags": []
+        },
+        "Integrated_circuit.md": {
+            "file_path": "Integrated_circuit.md",
+            "hash": "7844fa97ad07ed682ade9044dc5fa3b5237d44daad662c93c119b10cc16e2d17",
+            "tags": []
+        },
+        "Apple_M1.md": {
+            "file_path": "Apple_M1.md",
+            "hash": "2ee6438b3dcfa44e96fc44dfa4b130c2a7a292a3732b31859dd64b2e2c47b4ed",
+            "tags": []
+        },
+        "Wafer_(electronics).md": {
+            "file_path": "Wafer_(electronics).md",
+            "hash": "cc714ec9593721efaf406b99447f4da760ba40d929957512969d21fa366a79b1",
+            "tags": []
+        },
+        "Extreme_ultraviolet_lithography.md": {
+            "file_path": "Extreme_ultraviolet_lithography.md",
+            "hash": "75d91920bd61685e93bfb5441dea4dabe37ca60df9e91e75d595b256bd5768f7",
+            "tags": []
+        },
+        "Silicon.md": {
+            "file_path": "Silicon.md",
+            "hash": "2ab523d0ed427a5ff64db13683f9587f5f01ac4b2793afab7b9370c6be0d62ab",
+            "tags": []
+        },
+        "ARM_architecture_family.md": {
+            "file_path": "ARM_architecture_family.md",
+            "hash": "0b6e21d7d41a3b05c5224c44af39829b4212eff4a068ab014ba552c27956bbb4",
+            "tags": []
+        },
+        "Cleanroom.md": {
+            "file_path": "Cleanroom.md",
+            "hash": "69667eff1a14837215c66fb592ed819a7ef364f5bfa22a17029256901010b772",
+            "tags": []
+        }
+    }
+}
