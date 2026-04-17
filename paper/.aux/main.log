@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  15 APR 2026 17:38
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  17 APR 2026 19:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,7 +781,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[2] (./text/1.1_PKM.tex
+[2] (./text/1.1_PKM.tex) (./text/2.1_Архитектура.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -808,7 +808,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[5]) (./text/2.1_Архитектура.tex
+[5]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -817,7 +817,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[6]
+[6]) (./text/2.2_Реализация.tex) (./text/2.3_Данные.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -844,12 +844,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[9]) (./text/2.2_Реализация.tex) (./text/2.3_Данные.tex
-Overfull \hbox (23.71655pt too wide) in paragraph at lines 3--10
-\TU/TimesNewRoman(0)/m/n/14 https://github.com/lukesmithxyz/based.cooking https://github.com/keyvanakbary/learning-
- []
-
-
+[9]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -867,7 +862,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[11])
+[11]
+
+LaTeX Warning: Command \. invalid in math mode on input line 170.
+
+Missing character: There is no ̇ ("307) in font cmmi12!
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -877,11 +877,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [12]
+Overfull \hbox (56.61319pt too wide) in paragraph at lines 210--221
+ [][] 
+ []
 
-Package caption Warning: Unused \captionsetup[table] on input line 53.
-See the caption package documentation for explanation.
-
-
+)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -890,19 +890,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[13] (.aux/main.aux)
+[13]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[14] (.aux/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 31643 strings out of 475848
- 805620 string characters out of 5776013
+ 31659 strings out of 475848
+ 805993 string characters out of 5776013
  1391789 words of memory out of 5000000
- 54041 multiletter control sequences out of 15000+600000
+ 54057 multiletter control sequences out of 15000+600000
  561892 words of font info for 77 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,12n,107p,754b,913s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .aux/main.xdv (13 pages, 201676 bytes).
+Output written on .aux/main.xdv (14 pages, 200796 bytes).

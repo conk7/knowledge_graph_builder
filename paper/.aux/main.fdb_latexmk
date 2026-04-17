@@ -1,13 +1,13 @@
 # Fdb version 4
-["xdvipdfmx"] 1776263892.8399 ".aux/main.xdv" "main.pdf" "main" 1776263892.96606 0
-  ".aux/main.xdv" 1776263892.79195 201676 1d73767627902125f61ed52658b4766d "xelatex"
+["xdvipdfmx"] 1776444705.6649 ".aux/main.xdv" "main.pdf" "main" 1776444705.80195 0
+  ".aux/main.xdv" 1776444705.61353 200796 7c1686ba76c513b3724bc78276f3734f "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1776263892.1696 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1776263892.96409 0
-  ".aux/main.aux" 1776263892.79195 904 e3cc76b11e0d95f053fa5e97aebc0605 "xelatex"
-  ".aux/main.toc" 1776263892.79195 350 d2630f8e47b7dee639e2b77c94dd3d0c "xelatex"
-  "/home/conk/Files/Diploma/paper/main.tex" 1776262241.58906 5186 e2646ce0667bed7febf4370aa1f6e677 ""
+["xelatex"] 1776444704.96537 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1776444705.79996 0
+  ".aux/main.aux" 1776444705.61253 1169 3258e095e5790dd876772b1a05abf6de "xelatex"
+  ".aux/main.toc" 1776444705.61253 342 a243859e933d7991ecd13b17ffd09e56 "xelatex"
+  "/home/conk/Files/Diploma/paper/main.tex" 1776444432.82993 5186 e2646ce0667bed7febf4370aa1f6e677 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1767555874 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1767555874 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1767555874 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -191,11 +191,11 @@
   "/usr/share/texmf-dist/tex/latex/xifthen/xifthen.sty" 1767555874 5689 1bfa68243e89a54479e7d0580773c57e ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1767555874 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1771518721 4491644 1880a645af8c8e07746e2ea7079ac758 ""
-  "main.tex" 1776262241.58906 5186 e2646ce0667bed7febf4370aa1f6e677 ""
-  "text/1.1_PKM.tex" 1776010778.49721 10813 51433ba2685c2c281a6f56542c4861d7 ""
+  "main.tex" 1776444432.82993 5186 e2646ce0667bed7febf4370aa1f6e677 ""
+  "text/1.1_PKM.tex" 1776444699.03244 10904 fead1ccffe2aa2e24b6e0c96e4e9c8d2 ""
   "text/2.1_Архитектура.tex" 1776261846.80865 14431 73129e6153a6bd73388508698fe8c9b4 ""
-  "text/2.2_Реализация.tex" 1776262246.02419 79 2466d3ca6046d274c7813632198b508b ""
-  "text/2.3_Данные.tex" 1776263891.34074 7973 e3d26c71341e39e5db46e06982c115c5 ""
+  "text/2.2_Реализация.tex" 1776265688.53505 79 2466d3ca6046d274c7813632198b508b ""
+  "text/2.3_Данные.tex" 1776444482.91659 47084 aeef6b950fced3a9f040013a38a5d3e8 ""
   (generated)
   ".aux/main.aux"
   ".aux/main.log"
