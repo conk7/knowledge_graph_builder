@@ -9,17 +9,15 @@ from ragas import EvaluationDataset, SingleTurnSample, evaluate
 from ragas.llms.base import LangchainLLMWrapper
 from ragas.run_config import RunConfig
 
+from src.graphrag.base import BaseGraphRAGPipeline, _load_vault_config
 from src.graphrag.config import (
-    DEFAULT_BEAM_WIDTH,
     DEFAULT_MAX_HOPS,
-    DEFAULT_NER_BOOST_FACTOR,
-    DEFAULT_SCORE_THRESHOLD,
     DEFAULT_TOP_K_CONTEXT,
     DEFAULT_TOP_K_SEED,
     EMBEDDING_MODEL_NAME,
     GraphRAGConfig,
 )
-from src.graphrag.pipeline import GraphRAGPipeline, _load_vault_config
+from src.kg_builder.config import META_DIR_NAME
 from src.kg_builder.vault_manager import VaultManager
 
 from ._shared import (
@@ -62,7 +60,7 @@ async def _run_single_item(
     i: int,
     total: int,
     item: dict,
-    pipeline: GraphRAGPipeline,
+    pipeline: BaseGraphRAGPipeline,
     vault_dir: Path,
     vm: VaultManager,
     semaphore: asyncio.Semaphore,
@@ -110,7 +108,7 @@ async def _run_single_item(
 def run_evaluation(
     vault_dir: Path,
     qa_items: list[dict],
-    pipeline: GraphRAGPipeline,
+    pipeline: BaseGraphRAGPipeline,
     vm: VaultManager,
     pipeline_workers: int = 4,
 ) -> tuple[EvaluationDataset, list[dict]]:
@@ -139,7 +137,7 @@ def run_evaluation(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="RAGAS E2E evaluation of the GraphRAG pipeline."
+        description="RAGAS E2E evaluation of the baseline GraphRAG pipeline (unscored BFS traversal)."
     )
     parser.add_argument(
         "--vault",
@@ -153,7 +151,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--output",
-        default="results/ragas_graphrag.json",
+        default="results/ragas_base_graphrag.json",
         help="Output path for detailed per-sample results JSON.",
     )
     parser.add_argument(
@@ -162,13 +160,8 @@ def main() -> None:
         help="Ignore saved vault config and use defaults from config.py instead.",
     )
     parser.add_argument("--max-hops", type=int, default=DEFAULT_MAX_HOPS)
-    parser.add_argument("--beam-width", type=int, default=DEFAULT_BEAM_WIDTH)
-    parser.add_argument("--threshold", type=float, default=DEFAULT_SCORE_THRESHOLD)
     parser.add_argument("--top-k-seed", type=int, default=DEFAULT_TOP_K_SEED)
     parser.add_argument("--top-k-context", type=int, default=DEFAULT_TOP_K_CONTEXT)
-    parser.add_argument(
-        "--ner-boost-factor", type=float, default=DEFAULT_NER_BOOST_FACTOR
-    )
     parser.add_argument(
         "--pipeline-workers",
         type=int,
@@ -179,7 +172,7 @@ def main() -> None:
         "--max-concurrent",
         type=int,
         default=3,
-        help="Max concurrent LLM calls during RAGAS evaluation via RunConfig.max_workers (lower = fewer 429s).",
+        help="Max concurrent LLM calls during RAGAS evaluation via RunConfig.max_workers.",
     )
     parser.add_argument(
         "--eval-timeout",
@@ -272,25 +265,19 @@ def main() -> None:
     )
     ragas_embeddings = _load_embeddings(embedding_model)
 
-    logger.info("Indexing vault and building GraphRAG pipeline...")
+    logger.info("Indexing vault and building baseline GraphRAG pipeline...")
     pipeline_config = GraphRAGConfig(
         max_hops=args.max_hops,
-        beam_width=args.beam_width,
-        score_threshold=args.threshold,
         top_k_seed=args.top_k_seed,
         top_k_context=args.top_k_context,
-        ner_boost_factor=args.ner_boost_factor,
     )
-    with GraphRAGPipeline.from_vault(
+    with BaseGraphRAGPipeline.from_vault(
         vault_dir=vault_dir,
         llm=pipeline_llm,
         config=pipeline_config,
         ignore_local_config=args.ignore_local_config,
     ) as pipeline:
-        from src.kg_builder.config import META_DIR_NAME
-        from src.kg_builder.vault_manager import VaultManager as VM
-
-        vm = VM(vault_path=vault_dir, ignored_dirs=[vault_dir / META_DIR_NAME])
+        vm = VaultManager(vault_path=vault_dir, ignored_dirs=[vault_dir / META_DIR_NAME])
 
         dataset, raw_results = run_evaluation(
             vault_dir=vault_dir,
@@ -323,7 +310,7 @@ def main() -> None:
     scores["_evaluated_samples"] = int(
         df.shape[0] - nan_cols.max() if not nan_cols.empty else df.shape[0]
     )
-    _print_results(scores, title="RAGAS GraphRAG Evaluation Results")
+    _print_results(scores, title="RAGAS Baseline GraphRAG Evaluation Results")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output = {
@@ -331,8 +318,6 @@ def main() -> None:
         "qa_file": str(qa_path),
         "config": {
             "max_hops": args.max_hops,
-            "beam_width": args.beam_width,
-            "threshold": args.threshold,
             "top_k_seed": args.top_k_seed,
             "top_k_context": args.top_k_context,
         },

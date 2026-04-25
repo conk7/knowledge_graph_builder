@@ -1,11 +1,59 @@
 \relax 
 \providecommand*\new@tpo@label[2]{}
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.1}Архитектура предлагаемого решения}{3}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Общая схема конвейера построения графа знаний}}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Введение}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Теоретическая часть}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}Системы управления персональными знаниями}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Технологии поиска и обработки естественного языка в системах RAG}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Анализ существующих решений}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Методология оценки качества}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.4.1}Фреймворки}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.4.2}Метрики}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Дизайн алгоритмов}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Архитектура алгоритма построения графа знаний}{4}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Общая схема конвейера построения графа знаний}}{5}{}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:pipeline}{{1}{4}{Архитектура предлагаемого решения}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.2}Архитектура предлагаемого решения}{7}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {0.3}Сбор и подготовка набора данных}{7}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Сводная статистика по датасетам}}{15}{}\protected@file@percent }
-\newlabel{tab:dataset_samples}{{1}{15}{Сбор и подготовка набора данных}{table.1}{}}
-\gdef \@abspage@last{15}
+\newlabel{fig:pipeline}{{1}{5}{Архитектура алгоритма построения графа знаний}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Алгоритм GraphRAG}{12}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Общая схема конвейера GraphRAG}}{13}{}\protected@file@percent }
+\newlabel{fig:graphrag_pipeline}{{2}{13}{Алгоритм GraphRAG}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Сравнение стратегий обхода графа}}{15}{}\protected@file@percent }
+\newlabel{tab:traversal_compare}{{1}{15}{Алгоритм GraphRAG}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Сбор и подготовка данных}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Требования к данным}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Поиск данных}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Создание валидационного датасета}{19}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Алгоритм генерации связей}{20}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Алгоритм извлечения контекста}{21}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Алгоритм LLM-классификации отношений}{23}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Сводная статистика по датасетам}}{23}{}\protected@file@percent }
+\newlabel{tab:dataset_samples}{{2}{23}{Алгоритм LLM-классификации отношений}{table.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Эксперименты}{24}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Оценка конвейера построения графа знаний}{24}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Извлечение кандидатных пар}{24}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Результат Strict на валидационном датасете}}{24}{}\protected@file@percent }
+\newlabel{tab:strict_retrieval}{{3}{24}{Извлечение кандидатных пар}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Изначальные гиперпараметры алгоритма извлечения}}{25}{}\protected@file@percent }
+\newlabel{tab:initial_hyperparameters}{{4}{25}{Извлечение кандидатных пар}{table.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Анализ конфигурации splitter в стратегии Broad}}{26}{}\protected@file@percent }
+\newlabel{tab:broad_splitter}{{5}{26}{Извлечение кандидатных пар}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Анализ конфигураций стратегии Broad. CS - Chunk Size, CE - Cross Encoder, E - Embedding}}{26}{}\protected@file@percent }
+\newlabel{tab:broad_rest}{{6}{26}{Извлечение кандидатных пар}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Динамика F\textsubscript  {1} стратегии Broad по конфигурациям. Красная пунктирная линия~--- уровень Strict-стратегии. Квадрат~--- результат Combined для лучшей конфигурации.}}{28}{}\protected@file@percent }
+\newlabel{fig:retrieval_f1}{{3}{28}{Извлечение кандидатных пар}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Классификация типов связей}{28}{}\protected@file@percent }
+\newlabel{sec:llm_eval}{{4.1.2}{28}{Классификация типов связей}{subsubsection.4.1.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Weighted F\textsubscript  {1} классификации типов связей}}{28}{}\protected@file@percent }
+\newlabel{tab:classification_results}{{7}{28}{Классификация типов связей}{table.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Оценка конвейера GraphRAG}{30}{}\protected@file@percent }
+\newlabel{sec:graphrag_eval}{{4.2}{30}{Оценка конвейера GraphRAG}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Референсное решение (ObsidianRAG)}{31}{}\protected@file@percent }
+\newlabel{sec:reference_results}{{4.2.1}{31}{Референсное решение (ObsidianRAG)}{subsubsection.4.2.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Результаты референсного решения ObsidianRAG}}{31}{}\protected@file@percent }
+\newlabel{tab:reference_results}{{8}{31}{Референсное решение (ObsidianRAG)}{table.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Влияние промпта и языковой модели}{31}{}\protected@file@percent }
+\newlabel{sec:llm_prompt_effect}{{4.2.2}{31}{Влияние промпта и языковой модели}{subsubsection.4.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}}{32}{}\protected@file@percent }
+\newlabel{tab:prompt_effect_full_versus}{{9}{32}{Влияние промпта и языковой модели}{table.9}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Заключение}{32}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Список литературы}{32}{}\protected@file@percent }
+\gdef \@abspage@last{32}

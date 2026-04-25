@@ -22,18 +22,6 @@ _ANSWER_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "human",
-            "You are a helpful assistant that answers questions "
-            "based strictly on the provided knowledge graph context.\n\n"
-            "Context:\n{context}\n\nQuestion: {question}\n\nAnswer:",
-        ),
-    ]
-)
-
-
-_ANSWER_PROMPT = ChatPromptTemplate.from_messages(
-    [
-        (
-            "human",
             """You are an expert analytical assistant. Answer the user's question based strictly on the provided knowledge graph context.
 
 CRITICAL INSTRUCTIONS:
@@ -68,7 +56,7 @@ Context:\n{context}\n\nQuestion: {question}""",
 )
 
 
-class GraphRAGPipeline:
+class TypedGraphRAGPipeline:
     def __init__(
         self,
         vault_dir: Path,
@@ -102,7 +90,7 @@ class GraphRAGPipeline:
         llm: Any,
         config: GraphRAGConfig | None = None,
         ignore_local_config: bool = False,
-    ) -> "GraphRAGPipeline":
+    ) -> "TypedGraphRAGPipeline":
         cfg = config or GraphRAGConfig()
         raw_vault_cfg = _load_vault_config(vault_dir)
         if ignore_local_config:
@@ -138,7 +126,7 @@ class GraphRAGPipeline:
         vs.load_reranker()
 
         logger.info(
-            f"GraphRAGPipeline ready: {vs.total_vectors} vectors indexed from {vault_dir.name}"
+            f"TypedGraphRAGPipeline ready: {vs.total_vectors} vectors indexed from {vault_dir.name}"
         )
 
         return cls(
@@ -150,7 +138,7 @@ class GraphRAGPipeline:
             _tmp_dir=tmp_dir,
         )
 
-    def __enter__(self) -> "GraphRAGPipeline":
+    def __enter__(self) -> "TypedGraphRAGPipeline":
         return self
 
     def __exit__(self, *_: Any) -> None:
@@ -163,26 +151,17 @@ class GraphRAGPipeline:
             self._tmp_dir = None
 
     def run(self, user_query: str) -> tuple[list[str], str]:
-        visited, query_lemmas, query_entities = self._stage1_seed(user_query)
-        self._stage2_traverse(user_query, visited, query_lemmas, query_entities)
-        context_texts = self._stage3_prune(user_query, visited)
-        response = self._stage4_generate(user_query, context_texts)
+        visited = self._seed(user_query)
+        self._traverse(user_query, visited)
+        context_texts = self._collect(user_query, visited)
+        response = self._generate(user_query, context_texts)
         return context_texts, response
 
     # ------------------------------------------------------------------
-    # Stage 1: seed nodes via hybrid search
+    # Stage 1: seed nodes via hybrid search (identical to BaseGraphRAGPipeline)
     # ------------------------------------------------------------------
 
-    def _stage1_seed(self, query: str) -> tuple[dict[Path, str], set[str], set[str]]:
-        nlp = self.vs._get_nlp()
-        q_doc = nlp(query)
-        query_lemmas = {
-            t.lemma_.lower()
-            for t in q_doc
-            if t.is_alpha and not t.is_stop and not t.is_punct
-        }
-        query_entities = {ent.text for ent in q_doc.ents}
-
+    def _seed(self, query: str) -> dict[Path, str]:
         seed_results = self.vs.search(query, k=self.cfg.top_k_seed)
         visited: dict[Path, str] = {}
         for r in seed_results:
@@ -190,34 +169,22 @@ class GraphRAGPipeline:
             if fp not in visited:
                 visited[fp] = self.vs.get_document_summary(r.file_path) or ""
 
-        logger.debug(
-            f"Stage 1: {len(visited)} seed nodes, lemmas={query_lemmas}, entities={query_entities}"
-        )
-        return visited, query_lemmas, query_entities
+        logger.debug(f"Stage 1 (seed): {len(visited)} seed nodes")
+        return visited
 
     # ------------------------------------------------------------------
-    # Stage 2: dynamic beam traversal
+    # Stage 2: typed scored BFS — cross-encoder uses relation type,
+    #           all above threshold kept
     # ------------------------------------------------------------------
 
-    def _stage2_traverse(
-        self,
-        query: str,
-        visited: dict[Path, str],
-        query_lemmas: set[str],
-        query_entities: set[str],
-    ) -> None:
-        """Follow outgoing KG links up to max_hops, pruning by relevance."""
+    def _traverse(self, query: str, visited: dict[Path, str]) -> None:
         active_beams = list(visited.keys())
 
         for hop in range(self.cfg.max_hops):
             if not active_beams:
                 break
 
-            # 2.1 Collect all unvisited outgoing link targets.
-            # _name_to_path supports nested vaults: [[Target]] resolves by stem,
-            # not by assumed flat vault_dir/Target.md path.
-            # candidates: (relation, target_stem, target_path, summary, lemmas)
-            candidates: list[tuple[str, str, Path, str, str]] = []
+            candidates: list[tuple[str, str, Path, str]] = []
             for beam_path in active_beams:
                 content = self.vm.get_file_content(beam_path)
                 _, links_section = self.vm._split_content_and_links(content)
@@ -228,62 +195,35 @@ class GraphRAGPipeline:
                     if target_path is None or target_path in visited:
                         continue
 
-                    summary, summary_lemmas = self.vs.get_document_summary_with_lemmas(
-                        str(target_path)
-                    )
-                    if not summary:
-                        summary = target
-                        summary_lemmas = target.lower()
-                    candidates.append(
-                        (relation, target, target_path, summary, summary_lemmas)
-                    )
+                    summary = self.vs.get_document_summary(str(target_path)) or target
+                    candidates.append((relation, target, target_path, summary))
 
             if not candidates:
                 break
 
-            # 2.2 CPU pre-filter: keep candidates sharing at least one lemma with query.
-            # Uses pre-fetched text_lemmatized from LanceDB — no spaCy call needed.
-            filtered = [
-                (rel, tgt, tp, sm, sl)
-                for rel, tgt, tp, sm, sl in candidates
-                if query_lemmas & set(sl.split())
-            ]
-            if not filtered:
-                # Fallback: don't drop all candidates when lemma overlap is zero
-                # (e.g. cross-language queries or very short summaries).
-                filtered = candidates
-
-            # 2.3-2.4 Cross-Encoder scoring — raw scores needed before NER boost
-            pair_texts = [f"{rel}: {tgt}. {sm}" for rel, tgt, tp, sm, sl in filtered]
+            pair_texts = [f"{rel}: {tgt}. {sm}" for rel, tgt, tp, sm in candidates]
             with self.vs._reranker_lock:
                 raw_scores: list[float] = self.vs.reranker.predict(
                     [(query, t) for t in pair_texts],
                     show_progress_bar=False,
                 ).tolist()
 
-            # 2.5 NER boost: multiply score by ner_boost_factor if target name
-            # matches a named entity extracted from the query.
-            for i, (_, tgt, _, _, _) in enumerate(filtered):
-                if any(ent.lower() in tgt.lower() for ent in query_entities):
-                    raw_scores[i] *= self.cfg.ner_boost_factor
-
-            # 2.6 Prune: keep top-beam_width above threshold, update active beams
-            ranked = sorted(zip(raw_scores, filtered), key=lambda x: x[0], reverse=True)
             active_beams = []
-            for score, (_, _, tp, sm, _) in ranked[: self.cfg.beam_width]:
+            for score, (_, _, tp, sm) in zip(raw_scores, candidates):
                 if score >= self.cfg.score_threshold:
                     visited[tp] = sm
                     active_beams.append(tp)
 
             logger.debug(
-                f"Stage 2 hop {hop + 1}: {len(candidates)} candidates, {len(active_beams)} beams"
+                f"Stage 2 (typed BFS) hop {hop + 1}: {len(candidates)} candidates, "
+                f"{len(active_beams)} above threshold"
             )
 
     # ------------------------------------------------------------------
-    # Stage 3: context pruning — chunk full content, rerank, keep top-N
+    # Stage 3: context pruning (identical to BaseGraphRAGPipeline)
     # ------------------------------------------------------------------
 
-    def _stage3_prune(self, query: str, visited: dict[Path, str]) -> list[str]:
+    def _collect(self, query: str, visited: dict[Path, str]) -> list[str]:
         all_chunks: list[str] = []
         for node_path in visited:
             content = self.vm.get_file_content(node_path)
@@ -296,14 +236,16 @@ class GraphRAGPipeline:
         top: list[RerankResult] = self.vs.rerank(
             query, all_chunks, top_k=self.cfg.top_k_context, threshold=0.0
         )
-        logger.debug(f"Stage 3: {len(all_chunks)} total chunks, {len(top)} kept")
+        logger.debug(
+            f"Stage 3 (collect): {len(all_chunks)} total chunks, {len(top)} kept"
+        )
         return [r.text for r in top]
 
     # ------------------------------------------------------------------
-    # Stage 4: LLM answer generation
+    # Stage 4: LLM answer generation (identical to BaseGraphRAGPipeline)
     # ------------------------------------------------------------------
 
-    def _stage4_generate(self, query: str, context_texts: list[str]) -> str:
+    def _generate(self, query: str, context_texts: list[str]) -> str:
         if not context_texts:
             context_str = "(no relevant context found in the knowledge graph)"
         else:

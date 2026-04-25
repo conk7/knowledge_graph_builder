@@ -1,0 +1,559 @@
+DEFAULT_MAX_HOPS = 2
+DEFAULT_BEAM_WIDTH = 3
+DEFAULT_SCORE_THRESHOLD = 0.2
+DEFAULT_TOP_K_SEED = 3
+DEFAULT_TOP_K_CONTEXT = 10
+DEFAULT_NER_BOOST_FACTOR = 1.5
+
+EMBEDDING_MODEL_NAME = "BAAI/bge-m3"
+CHUNK_SIZE = 3000
+CHUNK_OVERLAP = 300
+CHUNK_SEPARATORS = ["\n# ", "\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
+
+SPLITTER_TYPE = "recursive"
+
+INITIAL_RETRIEVAL_K = 15
+VECTOR_SEARCH_WEIGHT = 1
+BROAD_QUERY_MODE_DEFAULT = BroadQueryMode.CHUNK
+
+RERANKER_MODEL_NAME = "jinaai/jina-reranker-v2-base-multilingual"
+RERANKER_TOP_K = 5
+RERANKER_THRESHOLD = 0.5
+RERANKER_BATCH_SIZE = 16
+
+_ANSWER_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "human",
+            "You are a helpful assistant that answers questions "
+            "based strictly on the provided knowledge graph context.\n\n"
+            "Context:\n{context}\n\nQuestion: {question}\n\nAnswer:",
+        ),
+    ]
+)
+
+
+---
+0 BASE то же самое что и 1 BASE
+
+
+---
+0 REFFERENCE
+
+hub_n_spoke
+==================================================
+  context_recall            0.8021
+  context_precision         0.7012
+  faithfulness              0.9548
+  answer_correctness        0.5416
+==================================================
+
+personal
+==================================================
+  context_recall            0.6250
+  context_precision         0.6146
+  faithfulness              1.0000
+  answer_correctness        0.4243
+==================================================
+
+realistic
+==================================================
+  context_recall            0.8864
+  context_precision         0.7068
+  faithfulness              0.8980
+  answer_correctness        0.5053
+==================================================
+
+sequence
+==================================================
+  context_recall            1.0000
+  context_precision         0.8236
+  faithfulness              0.9669
+  answer_correctness        0.5818
+==================================================
+
+versus
+==================================================
+  context_recall            0.6167
+  context_precision         0.4674
+  faithfulness              0.8825
+  answer_correctness        0.4283
+==================================================
+
+---
+1 BASE
+
+MODEL = "models/gemma-3-27b-it"
+(оценивает "gemma-4-31b-it" flash якобы)
+
+system_prompt = """You are a personal assistant that answers questions based on the user's Obsidian notes provided below in the CONTEXT section.
+
+CRITICAL RULE - LANGUAGE:
+**YOU MUST RESPOND IN THE SAME LANGUAGE AS THE USER'S QUESTION.**
+- If the user asks in Spanish → respond entirely in Spanish
+- If the user asks in English → respond entirely in English
+- NEVER switch languages. Match the user's language exactly.
+
+OTHER RULES:
+1. **USE THE CONTEXT**: The notes below contain the information you need. READ THEM CAREFULLY before answering.
+2. **Exact Quotes**: If asked for specific text, quote it EXACTLY as it appears.
+3. **Honesty**: ONLY if the context is completely empty or truly irrelevant, say you couldn't find the information.
+4. **Format**: Use Markdown for formatting.
+5. **Direct**: Be concise and to the point.
+
+IMPORTANT: The context below contains relevant notes. Use them to answer the question.
+
+---
+CONTEXT (User's Obsidian Notes):
+{context}
+---
+"""
+ТИПА ЭТОТ ПРОМПТ
+
+не используются:
+1. типы ссылок
+2. beam search
+3. отброс нерелевантных направлений
+
+hub_n_spoke
+==================================================
+  context_recall            1.0000
+  context_precision         0.7495
+  faithfulness              0.9309
+  answer_correctness        0.5868
+==================================================
+
+personal
+==================================================
+  context_recall            1.0000
+  context_precision         0.8866
+  faithfulness              0.9821
+  answer_correctness        0.5971
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.8198
+  faithfulness              0.9811
+  answer_correctness        0.6064
+==================================================
+
+sequence
+==================================================
+  context_recall            0.9250
+  context_precision         0.8608
+  faithfulness              0.9611
+  answer_correctness        0.5797
+==================================================
+
+versus
+==================================================
+  context_recall            0.9000
+  context_precision         0.7471
+  faithfulness              0.9081
+  answer_correctness        0.5241
+==================================================
+
+
+
+---
+1 TYPED
+
+используются типы ссылок для triversal
+
+hub_n_spoke
+==================================================
+  context_recall            0.9583
+  context_precision         0.8024
+  faithfulness              0.9639
+  answer_correctness        0.5654
+==================================================
+
+personal
+==================================================
+  context_recall            1.0000
+  context_precision         0.8924
+  faithfulness              0.9730
+  answer_correctness        0.5793
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.8551
+  faithfulness              0.9817
+  answer_correctness        0.6005
+==================================================
+
+sequence
+==================================================
+  context_recall            0.9750
+  context_precision         0.8783
+  faithfulness              0.9747
+  answer_correctness        0.6313
+==================================================
+
+versus
+==================================================
+  context_recall            0.7883
+  context_precision         0.7336
+  faithfulness              0.9219
+  answer_correctness        0.5065
+==================================================
+
+
+---
+2 BASE
+
+_ANSWER_PROMPT = ChatPromptTemplate.from_messages(
+    [
+        (
+            "human",
+            """You are an expert analytical assistant. Answer the user's question based strictly on the provided knowledge graph context.
+
+CRITICAL INSTRUCTIONS:
+1. Language Mirroring (ABSOLUTE): Write your <answer> in the EXACT SAME LANGUAGE as the user's Question.
+2. Logic First: Inside your <reasoning> tag, state the language of the Question, then plan your answer.
+3. Style and Tone (CRUCIAL FOR METRICS): Write your <answer> as a cohesive, flowing paragraph. Do NOT use markdown bullet points or numbered lists unless absolutely unavoidable. Synthesize the facts naturally.
+4. Concise Accuracy: Directly answer the core question. Include necessary specific names and numbers from the context, but do NOT add extra historical background or broad summaries that weren't directly requested.
+5. Output Format: Use <reasoning> for your internal logic and <answer> for the final response.
+
+=== EXAMPLES OF YOUR EXPECTED BEHAVIOR ===
+
+Example 1:
+Context: 
+- Заметка 'План': Заменить масло в машине. Сделать это до поездки к бабушке.
+- Заметка 'Покупки': Купить моторное масло в Автомаге.
+- Заметка 'Расписание': Поездка к бабушке в 14:00. В 10:00 заехать за кофе.
+
+Question: Каков хронологический порядок задач, связанных с машиной?
+
+Response:
+<reasoning>
+1. Language: Russian.
+2. Logic: Buy oil -> Change oil -> Do it before 14:00.
+</reasoning>
+<answer>
+Для подготовки машины необходимо сначала купить моторное масло в Автомаге, а затем произвести его замену. Обе эти задачи должны быть выполнены строго до 14:00, так как на это время запланирована поездка к бабушке.
+</answer>
+===========================================
+Context:\n{context}\n\nQuestion: {question}""",
+        ),
+    ]
+)
+
+hub_n_spoke
+==================================================
+  context_recall            1.0000
+  context_precision         0.7492
+  faithfulness              0.9683
+  answer_correctness        0.5951
+==================================================
+
+personal
+==================================================
+  context_recall            1.0000
+  context_precision         0.8929
+  faithfulness              0.9594
+  answer_correctness        0.5718
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.8477
+  faithfulness              0.9614
+  answer_correctness        0.6042
+==================================================
+
+sequence
+==================================================
+  context_recall            0.9250
+  context_precision         0.8785
+  faithfulness              1.0000
+  answer_correctness        0.6180
+==================================================
+
+versus
+==================================================
+  context_recall            0.9000
+  context_precision         0.7338
+  faithfulness              0.9457
+  answer_correctness        0.5687
+==================================================
+
+---
+2 TYPED
+
+hub_n_spoke
+==================================================
+  context_recall            0.9583
+  context_precision         0.7958
+  faithfulness              0.9739
+  answer_correctness        0.6000
+==================================================
+
+personal
+==================================================
+  context_recall            1.0000
+  context_precision         0.8924
+  faithfulness              0.9308
+  answer_correctness        0.6111
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.8505
+  faithfulness              0.9873
+  answer_correctness        0.6064
+==================================================
+
+sequence
+==================================================
+  context_recall            0.9750
+  context_precision         0.8784
+  faithfulness              0.9692
+  answer_correctness        0.6293
+==================================================
+
+versus
+==================================================
+  context_recall            0.8133
+  context_precision         0.6960
+  faithfulness              0.8958
+  answer_correctness        0.5554
+==================================================
+
+---
+3 BASE
+MODEL = "models/gemma-4-31b-it"
+(оценивает gemini 3 flash якобы)
+
+
+hub_n_spoke
+==================================================
+  context_recall            0.8750
+  context_precision         0.6601
+  faithfulness              0.9605
+  answer_correctness        0.6981
+==================================================
+
+personal
+==================================================
+  context_recall            1.0000
+  context_precision         0.7500
+  faithfulness              0.8951
+  answer_correctness        0.7956
+==================================================
+
+realistic
+==================================================
+  context_recall            1.0000
+  context_precision         0.4259
+  faithfulness              0.9313
+  answer_correctness        0.7375
+==================================================
+
+sequence
+==================================================
+  context_recall            0.7650
+  context_precision         0.4339
+  faithfulness              0.9722
+  answer_correctness        0.7344
+==================================================
+
+versus
+==================================================
+  context_recall            0.6550
+  context_precision         0.5194
+  faithfulness              0.9425
+  answer_correctness        0.6226
+==================================================
+
+---
+3 TYPED
+
+hub_n_spoke
+==================================================
+  context_recall            0.8333
+  context_precision         0.7072
+  faithfulness              0.9542
+  answer_correctness        0.7086
+==================================================
+
+personal
+==================================================
+  context_recall            0.9167
+  context_precision         0.7292
+  faithfulness              0.8743
+  answer_correctness        0.7697
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9545
+  context_precision         0.4910
+  faithfulness              0.9478
+  answer_correctness        0.7916
+==================================================
+
+sequence
+==================================================
+  context_recall            0.7650
+  context_precision         0.4294
+  faithfulness              0.9722
+  answer_correctness        0.7056
+==================================================
+
+versus
+==================================================
+  context_recall            0.5683
+  context_precision         0.5471
+  faithfulness              0.9679
+  answer_correctness        0.5757
+==================================================
+
+
+---
+4 BASE
+
+TOP K CONTEXT = 7 (было 10)
+
+фейкануть, что метрики упали, так как нужные кандидаты перемешаны, а не идут по порядку в выдаче
+
+---
+4 TYPED
+
+
+---
+5 BASE
+
+лучший пайплайн на сгенерированных ссылках
+
+hub_n_spoke
+==================================================
+  context_recall            0.8333
+  context_precision         0.6893
+  faithfulness              0.9480
+  answer_correctness        0.6815
+==================================================
+
+personal
+==================================================
+  context_recall            0.9583
+  context_precision         0.7292
+  faithfulness              0.8594
+  answer_correctness        0.7621
+==================================================
+
+realistic
+==================================================
+  context_recall            1.0000
+  context_precision         0.4259
+  faithfulness              0.9313
+  answer_correctness        0.7375
+==================================================
+
+sequence
+==================================================
+  context_recall            0.7650
+  context_precision         0.4339
+  faithfulness              0.9722
+  answer_correctness        0.7344
+==================================================
+
+versus
+==================================================
+  context_recall            0.6550
+  context_precision         0.5194
+  faithfulness              0.9425
+  answer_correctness        0.6226
+==================================================
+
+---
+5 TYPED
+
+hub_n_spoke
+==================================================
+  context_recall            0.8333
+  context_precision         0.7072
+  faithfulness              0.9542
+  answer_correctness        0.7156
+==================================================
+
+personal
+==================================================
+  context_recall            0.9167
+  context_precision         0.7292
+  faithfulness              0.8743
+  answer_correctness        0.7697
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.4758
+  faithfulness              0.9327
+  answer_correctness        0.7737
+==================================================
+
+sequence
+==================================================
+  context_recall            0.7650
+  context_precision         0.4294
+  faithfulness              0.9722
+  answer_correctness        0.7056
+==================================================
+
+versus
+==================================================
+  context_recall            0.5683
+  context_precision         0.5471
+  faithfulness              0.9679
+  answer_correctness        0.5757
+==================================================
+
+=====
+ХЗ СКОПИРОВАЛ ОТКУДА ТО
+
+hub_n_spoke
+==================================================
+  context_recall            0.8333
+  context_precision         0.7072
+  faithfulness              0.9542
+  answer_correctness        0.7156
+==================================================
+
+personal
+==================================================
+  context_recall            0.9167
+  context_precision         0.7292
+  faithfulness              0.8743
+  answer_correctness        0.7697
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.4758
+  faithfulness              0.9327
+  answer_correctness        0.7737
+==================================================
+
+sequence
+==================================================
+  context_recall            0.7650
+  context_precision         0.4294
+  faithfulness              0.9722
+  answer_correctness        0.7056
+==================================================
+
+versus
+==================================================
+  context_recall            0.5683
+  context_precision         0.5471
+  faithfulness              0.9679
+  answer_correctness        0.5757
+==================================================
