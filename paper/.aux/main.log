@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  26 APR 2026 17:26
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  26 APR 2026 18:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1077,6 +1077,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [21]
+Overfull \hbox (13.5429pt too wide) in paragraph at lines 205--218
+ [][] 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1235,7 +1240,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[37]) (./text/5_Заключение.tex) (./text/6_Литература.tex) (./text/7_Приложение.tex
+[37]
+Overfull \hbox (4.49307pt too wide) in paragraph at lines 685--685
+ [][]\TU/TimesNewRoman(0)/m/n/12.77509 Многошаговый 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[38]) (./text/5_Заключение.tex) (./text/6_Литература.tex) (./text/7_Приложение.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[39]
 File: images/light/hub.png Graphic file (type bmp)
 <images/light/hub.png>
 File: images/light/realistic.png Graphic file (type bmp)
@@ -1255,7 +1283,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[38]
+[40]
 Overfull \vbox (28.46309pt too high) has occurred while \output is active []
 
 
@@ -1267,7 +1295,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[39] (.aux/main.aux)
+[41] (.aux/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1281,12 +1309,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 631B7EBE5FB9D8B9FEE079F9C94E79B5;7974.
  ) 
 Here is how much of TeX's memory you used:
- 38709 strings out of 475848
- 923114 string characters out of 5776013
+ 38731 strings out of 475848
+ 923539 string characters out of 5776013
  1506439 words of memory out of 5000000
- 60971 multiletter control sequences out of 15000+600000
+ 60993 multiletter control sequences out of 15000+600000
  566931 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,19n,107p,754b,2317s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .aux/main.xdv (39 pages, 645592 bytes).
+Output written on .aux/main.xdv (41 pages, 682980 bytes).

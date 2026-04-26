@@ -1,13 +1,13 @@
 # Fdb version 4
-["xdvipdfmx"] 1777213569.35931 ".aux/main.xdv" "main.pdf" "main" 1777213569.84193 0
-  ".aux/main.xdv" 1777213569.29425 645592 5ef141b2383204945cccf5870104dbaf "xelatex"
+["xdvipdfmx"] 1777216422.33012 ".aux/main.xdv" "main.pdf" "main" 1777216422.84201 0
+  ".aux/main.xdv" 1777216422.26465 682980 896158c53f9b8a42050c485bd4b40aae "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1777213568.20199 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1777213569.83983 0
-  ".aux/main.aux" 1777213569.29259 13052 184cec36c096df7a8f37ce6b38df9e38 "xelatex"
-  ".aux/main.out" 1777213569.29259 7974 631b7ebe5fb9d8b9fee079f9c94e79b5 "xelatex"
-  ".aux/main.toc" 1777213569.29425 3542 0e102e523d96e1b6240c59761810e2f4 "xelatex"
+["xelatex"] 1777216421.23428 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1777216422.83938 0
+  ".aux/main.aux" 1777216422.26247 14413 d3ed62abc8a18366252ac347daa13173 "xelatex"
+  ".aux/main.out" 1777216422.26347 7974 631b7ebe5fb9d8b9fee079f9c94e79b5 "xelatex"
+  ".aux/main.toc" 1777216422.26465 3542 c9e9fc6a97ce3a73904c32b118ebb5dc "xelatex"
   "/home/conk/Files/Diploma/paper/main.tex" 1777212357.85173 5206 495bff81588fbaa006f47031b7cb648a ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1767555874 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1767555874 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -238,8 +238,8 @@
   "text/1.4_Оценка_Качества.tex" 1777106581.75719 135 c98eef38ea9b9a651d8c75566699d842 ""
   "text/2.1_Построение_Графа.tex" 1777107786.53875 55123 573aac5948bebe7182e6fc323d411a1c ""
   "text/2.2_GraphRAG.tex" 1776953783.93413 43179 53b20d724630c82b4bada267a0b427d5 ""
-  "text/3_Данные.tex" 1777213565.71043 54414 9fdf5b8f17f35eb7bb9b70ec6d531044 ""
-  "text/4_Эксперименты.tex" 1777208943.11179 106129 5ff04570cba04424cb0437099dca00f0 ""
+  "text/3_Данные.tex" 1777214073.98544 54818 15def6317a174437485ae9c74f33e935 ""
+  "text/4_Эксперименты.tex" 1777216421.06569 113883 78f30f0fc0ae5b63ceec48dd1f5f95e3 ""
   "text/5_Заключение.tex" 1777106188.22716 30 5781d508baa6a2bf343a195051c8a95f ""
   "text/6_Литература.tex" 1777106462.07324 43 311d978fdf52019f7e644a76e373674a ""
   "text/7_Приложение.tex" 1777212312.59865 1921 1a1a663ed1ca338493725201154cd75f ""

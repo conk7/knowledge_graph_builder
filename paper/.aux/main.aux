@@ -26,8 +26,8 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Поиск данных}{17}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Создание валидационного датасета}{19}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Алгоритм генерации связей}{20}{subsubsection.3.3.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Сводная статистика по подкорпусам}}{22}{table.caption.4}\protected@file@percent }
-\newlabel{tab:dataset_samples}{{2}{22}{Сводная статистика по подкорпусам}{table.caption.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Сводная статистика ссылок в эталонных подкорпусах}}{22}{table.caption.4}\protected@file@percent }
+\newlabel{tab:dataset_samples}{{2}{22}{Сводная статистика ссылок в эталонных подкорпусах}{table.caption.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Алгоритм извлечения контекста}{23}{subsubsection.3.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Алгоритм LLM-классификации отношений}{24}{subsubsection.3.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Эксперименты}{25}{section.4}\protected@file@percent }
@@ -49,38 +49,44 @@
 \newlabel{tab:classification_results}{{7}{29}{Weighted F\textsubscript {1} классификации типов связей}{table.caption.10}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Оценка конвейера GraphRAG}{31}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:graphrag_eval}{{4.2}{31}{Оценка конвейера GraphRAG}{subsection.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Значения гиперпараметров алгоритма GraphRAG по умолчанию}}{32}{table.caption.11}\protected@file@percent }
+\newlabel{tab:graphrag_default_params}{{8}{32}{Значения гиперпараметров алгоритма GraphRAG по умолчанию}{table.caption.11}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Референсное решение (ObsidianRAG)}{32}{subsubsection.4.2.1}\protected@file@percent }
 \newlabel{sec:reference_results}{{4.2.1}{32}{Референсное решение (ObsidianRAG)}{subsubsection.4.2.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Результаты референсного решения ObsidianRAG}}{32}{table.caption.11}\protected@file@percent }
-\newlabel{tab:reference_results}{{8}{32}{Результаты референсного решения ObsidianRAG}{table.caption.11}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами.}}{33}{table.caption.12}\protected@file@percent }
-\newlabel{tab:reference_vs_initial_cr_ac}{{9}{33}{Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами}{table.caption.12}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Влияние промпта и языковой модели}{33}{subsubsection.4.2.2}\protected@file@percent }
-\newlabel{sec:llm_prompt_effect}{{4.2.2}{33}{Влияние промпта и языковой модели}{subsubsection.4.2.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}}{34}{table.caption.13}\protected@file@percent }
-\newlabel{tab:prompt_effect_full_versus}{{10}{34}{Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}{table.caption.13}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}}{35}{table.caption.14}\protected@file@percent }
-\newlabel{tab:model_comparison_2_3}{{11}{35}{Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}{table.caption.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Сравнение качества работы GraphRAG между размеченным графом и сгенерированным.}}{36}{table.caption.15}\protected@file@percent }
-\newlabel{tab:exp3_vs_exp5}{{12}{36}{Сравнение качества работы GraphRAG между размеченным графом и сгенерированным}{table.caption.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Итоговое сравнение и ограничения исследования}{37}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:conclusions}{{4.3}{37}{Итоговое сравнение и ограничения исследования}{subsection.4.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Заключение}{38}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Список литературы}{38}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Приложение}{38}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Репозиторий с кодом:}{38}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Визуализации подкорпусов датасета}{39}{subsection.7.2}\protected@file@percent }
-\newlabel{sec:appendix_plots}{{7.2}{39}{Визуализации подкорпусов датасета}{subsection.7.2}{}}
-\newlabel{fig:app_hub}{{4a}{39}{Подкорпус Hub-and-Spoke}{figure.caption.16}{}}
-\newlabel{sub@fig:app_hub}{{a}{39}{Подкорпус Hub-and-Spoke}{figure.caption.16}{}}
-\newlabel{fig:app_realistic}{{4b}{39}{Подкорпус Realistic}{figure.caption.16}{}}
-\newlabel{sub@fig:app_realistic}{{b}{39}{Подкорпус Realistic}{figure.caption.16}{}}
-\newlabel{fig:app_versus}{{4c}{39}{Подкорпус Versus}{figure.caption.16}{}}
-\newlabel{sub@fig:app_versus}{{c}{39}{Подкорпус Versus}{figure.caption.16}{}}
-\newlabel{fig:app_sequence}{{4d}{39}{Подкорпус Sequence}{figure.caption.16}{}}
-\newlabel{sub@fig:app_sequence}{{d}{39}{Подкорпус Sequence}{figure.caption.16}{}}
-\newlabel{fig:app_personal}{{4e}{39}{Подкорпус Personal}{figure.caption.16}{}}
-\newlabel{sub@fig:app_personal}{{e}{39}{Подкорпус Personal}{figure.caption.16}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Визуальные представления семантических графов подкорпусов датасета}}{39}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:all_dataset_graphs}{{4}{39}{Визуальные представления семантических графов подкорпусов датасета}{figure.caption.16}{}}
-\gdef \@abspage@last{39}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Результаты референсного решения ObsidianRAG}}{32}{table.caption.12}\protected@file@percent }
+\newlabel{tab:reference_results}{{9}{32}{Результаты референсного решения ObsidianRAG}{table.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами.}}{33}{table.caption.13}\protected@file@percent }
+\newlabel{tab:reference_vs_initial_cr_ac}{{10}{33}{Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Влияние промпта и языковой модели}{34}{subsubsection.4.2.2}\protected@file@percent }
+\newlabel{sec:llm_prompt_effect}{{4.2.2}{34}{Влияние промпта и языковой модели}{subsubsection.4.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}}{34}{table.caption.14}\protected@file@percent }
+\newlabel{tab:prompt_effect_full_versus}{{11}{34}{Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}{table.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}}{35}{table.caption.15}\protected@file@percent }
+\newlabel{tab:model_comparison_2_3}{{12}{35}{Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}{table.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}}{36}{table.caption.16}\protected@file@percent }
+\newlabel{tab:generated_links_eval}{{13}{36}{Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}{table.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Сравнение качества работы GraphRAG между размеченным графом и сгенерированным.}}{37}{table.caption.17}\protected@file@percent }
+\newlabel{tab:exp3_vs_exp5}{{14}{37}{Сравнение качества работы GraphRAG между размеченным графом и сгенерированным}{table.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Итоговое сравнение и ограничения исследования}{38}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:conclusions}{{4.3}{38}{Итоговое сравнение и ограничения исследования}{subsection.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Поэтапный рост качества генерации ответов алгоритмов GraphRAG}}{38}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:ac_improvements}{{4}{38}{Поэтапный рост качества генерации ответов алгоритмов GraphRAG}{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Заключение}{40}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Список литературы}{40}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Приложение}{40}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Репозиторий с кодом:}{40}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Визуализации подкорпусов датасета}{41}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:appendix_plots}{{7.2}{41}{Визуализации подкорпусов датасета}{subsection.7.2}{}}
+\newlabel{fig:app_hub}{{5a}{41}{Подкорпус Hub-and-Spoke}{figure.caption.19}{}}
+\newlabel{sub@fig:app_hub}{{a}{41}{Подкорпус Hub-and-Spoke}{figure.caption.19}{}}
+\newlabel{fig:app_realistic}{{5b}{41}{Подкорпус Realistic}{figure.caption.19}{}}
+\newlabel{sub@fig:app_realistic}{{b}{41}{Подкорпус Realistic}{figure.caption.19}{}}
+\newlabel{fig:app_versus}{{5c}{41}{Подкорпус Versus}{figure.caption.19}{}}
+\newlabel{sub@fig:app_versus}{{c}{41}{Подкорпус Versus}{figure.caption.19}{}}
+\newlabel{fig:app_sequence}{{5d}{41}{Подкорпус Sequence}{figure.caption.19}{}}
+\newlabel{sub@fig:app_sequence}{{d}{41}{Подкорпус Sequence}{figure.caption.19}{}}
+\newlabel{fig:app_personal}{{5e}{41}{Подкорпус Personal}{figure.caption.19}{}}
+\newlabel{sub@fig:app_personal}{{e}{41}{Подкорпус Personal}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Визуальные представления семантических графов подкорпусов датасета}}{41}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:all_dataset_graphs}{{5}{41}{Визуальные представления семантических графов подкорпусов датасета}{figure.caption.19}{}}
+\gdef \@abspage@last{41}
