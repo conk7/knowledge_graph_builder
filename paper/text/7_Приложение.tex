@@ -1,0 +1,59 @@
+\section{Приложение}
+
+\subsection{Репозиторий с кодом:}
+\url{https://github.com/conk7/knowledge_graph_builder}
+
+
+
+\subsection{Визуализации подкорпусов датасета}
+\label{sec:appendix_plots}
+
+% Не забудьте добавить в преамбулу документа (до \begin{document}):
+% \usepackage{subcaption}
+
+\begin{figure}[H]
+    \centering
+
+    % --- Первая строка ---
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/light/hub.png}
+        \caption{Подкорпус Hub-and-Spoke}
+        \label{fig:app_hub}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/light/realistic.png}
+        \caption{Подкорпус Realistic}
+        \label{fig:app_realistic}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    % --- Вторая строка ---
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/light/versus.png}
+        \caption{Подкорпус Versus}
+        \label{fig:app_versus}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/light/sequence.png}
+        \caption{Подкорпус Sequence}
+        \label{fig:app_sequence}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    % --- Третья строка (по центру) ---
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/light/personal.png}
+        \caption{Подкорпус Personal}
+        \label{fig:app_personal}
+    \end{subfigure}
+
+    \caption{Визуальные представления семантических графов подкорпусов датасета}
+    \label{fig:all_dataset_graphs}
+\end{figure}
