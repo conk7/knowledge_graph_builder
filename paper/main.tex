@@ -91,6 +91,21 @@
 % [1] нумерация в списке литературы
 \usepackage{enumitem}
 
+
+% Пакет для работы с библиографией по ГОСТу
+\usepackage[
+    backend=biber,
+    bibstyle=gost-numeric,
+    citestyle=numeric-comp,
+    language=auto,
+    autolang=other,
+    sorting=none,       % Сортировка по мере упоминания в тексте
+    defernumbers=true   % Важно для сквозной нумерации при разделении списков
+]{biblatex}
+
+% Подключаем файл с вашей базой литературы (создайте его рядом с .tex файлом)
+\addbibresource{references.bib}
+
 % =============================================
 
 

@@ -1,31 +1,31 @@
 \contentsline {section}{Введение}{4}{Doc-Start}%
-\contentsline {section}{\numberline {1}Теоретическая часть}{4}{section.1}%
+\contentsline {section}{\numberline {1}Теоретические основы и обзор предметной области}{4}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Системы управления персональными знаниями}{4}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Технологии поиска и обработки естественного языка в системах RAG}{4}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Анализ существующих решений}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Методология оценки качества}{4}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Фреймворки}{4}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Метрики}{4}{subsubsection.1.4.2}%
-\contentsline {section}{\numberline {2}Дизайн алгоритмов}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Архитектура алгоритма построения графа знаний}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Алгоритм GraphRAG}{12}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Сбор и подготовка данных}{16}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Требования к данным}{16}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Поиск данных}{17}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Создание валидационного датасета}{19}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Алгоритм генерации связей}{20}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Алгоритм извлечения контекста}{23}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}Алгоритм LLM-классификации отношений}{24}{subsubsection.3.3.3}%
-\contentsline {section}{\numberline {4}Эксперименты}{25}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Оценка конвейера построения графа знаний}{25}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Извлечение кандидатных пар}{25}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Классификация типов связей}{29}{subsubsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}Оценка конвейера GraphRAG}{31}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Референсное решение (ObsidianRAG)}{32}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Влияние промпта и языковой модели}{34}{subsubsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.3}Итоговое сравнение и ограничения исследования}{38}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Заключение}{40}{section.5}%
-\contentsline {section}{\numberline {6}Список литературы}{40}{section.6}%
-\contentsline {section}{\numberline {7}Приложение}{40}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Репозиторий с кодом:}{40}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Визуализации подкорпусов датасета}{41}{subsection.7.2}%
+\contentsline {subsection}{\numberline {1.2}Технологии поиска и обработки естественного языка в системах RAG}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Анализ существующих решений}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Методология оценки качества}{5}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Фреймворки}{5}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Метрики}{5}{subsubsection.1.4.2}%
+\contentsline {section}{\numberline {2}Дизайн алгоритмов}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Архитектура алгоритма построения графа знаний}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Алгоритм GraphRAG}{13}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Сбор и подготовка данных}{17}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Требования к данным}{17}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Поиск данных}{18}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Создание валидационного датасета}{20}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Алгоритм генерации связей}{21}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Алгоритм извлечения контекста}{24}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Алгоритм LLM-классификации отношений}{25}{subsubsection.3.3.3}%
+\contentsline {section}{\numberline {4}Эксперименты}{26}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Оценка конвейера построения графа знаний}{26}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Извлечение кандидатных пар}{26}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Классификация типов связей}{31}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Оценка конвейера GraphRAG}{32}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Референсное решение (ObsidianRAG)}{33}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Влияние промпта и языковой модели}{35}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Итоговое сравнение и ограничения исследования}{40}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Заключение}{42}{section.5}%
+\contentsline {section}{\numberline {6}Список литературы}{42}{section.6}%
+\contentsline {section}{\numberline {7}Приложение}{42}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Репозиторий с кодом:}{42}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Визуализации подкорпусов датасета}{43}{subsection.7.2}%

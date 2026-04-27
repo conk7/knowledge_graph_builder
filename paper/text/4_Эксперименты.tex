@@ -191,6 +191,20 @@ https://github.com/Vasallo94/ObsidianRAG/tree/main
 
 В данной стратегии использовалась оптимальная конфигурация Broad.
 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{clllccc}
+        \hline
+        \textbf{Precision} & \textbf{Recall} & \textbf{F\textsubscript{1}} \\
+        \hline
+        0.675              & 0.6850          & 0.680                       \\
+        \hline
+    \end{tabular}
+    \caption{Результат Combined на валидационном датасете}
+    \label{tab:combined_retrieval}
+\end{table}
+
+
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
@@ -255,17 +269,17 @@ https://github.com/Vasallo94/ObsidianRAG/tree/main
     \centering
     \begin{tabular}{ccccccccc}
         \hline
-        \textbf{Модель} & \textbf{Промпт} & \textbf{Batch}   &
-        \texttt{P}      & \texttt{H}      & \texttt{R}       &
-        \texttt{S}      & \texttt{V}      & \textbf{Overall}                                                          \\
+        \textbf{Модель} & \textbf{Промпт} & \textbf{Batch} &
+        \texttt{P}      & \texttt{H}      & \texttt{R}     &
+        \texttt{S}      & \texttt{V}      & \textbf{Общее}                                                          \\
         \hline
-        gemma-3         & base            & 1                & 0.346 & 0.340 & 0.351 & 0.459 & 0.522 & 0.393          \\
-        gemma-3         & base            & 5                & 0.446 & 0.325 & 0.321 & 0.451 & 0.573 & 0.387          \\
-        gemma-3         & base            & 10               & 0.378 & 0.428 & 0.363 & 0.392 & 0.572 & 0.423          \\
-        qwen-3          & base            & 1                & 0.313 & 0.454 & 0.272 & 0.454 & 0.526 & 0.392          \\
-        gemma-3         & few-shot        & 1                & 0.372 & 0.436 & 0.444 & 0.341 & 0.559 & 0.445          \\
-        qwen-3          & few-shot        & 1                & 0.498 & 0.390 & 0.434 & 0.558 & 0.482 & 0.445          \\
-        gemma-4         & few-shot        & 1                & 0.856 & 0.578 & 0.627 & 0.786 & 0.758 & \textbf{0.669} \\
+        gemma-3         & base            & 1              & 0.346 & 0.340 & 0.351 & 0.459 & 0.522 & 0.393          \\
+        gemma-3         & base            & 5              & 0.446 & 0.325 & 0.321 & 0.451 & 0.573 & 0.387          \\
+        gemma-3         & base            & 10             & 0.378 & 0.428 & 0.363 & 0.392 & 0.572 & 0.423          \\
+        qwen-3          & base            & 1              & 0.313 & 0.454 & 0.272 & 0.454 & 0.526 & 0.392          \\
+        gemma-3         & few-shot        & 1              & 0.372 & 0.436 & 0.444 & 0.341 & 0.559 & 0.445          \\
+        qwen-3          & few-shot        & 1              & 0.498 & 0.390 & 0.434 & 0.558 & 0.482 & 0.445          \\
+        gemma-4         & few-shot        & 1              & 0.856 & 0.578 & 0.627 & 0.786 & 0.758 & \textbf{0.669} \\
         \hline
     \end{tabular}
     \caption{Weighted F\textsubscript{1} классификации типов связей}
@@ -435,6 +449,8 @@ https://github.com/Vasallo94/ObsidianRAG/tree/main
         \texttt{sequence}                 & \textbf{1.000}                               & 0.925                                           & 0.975          & 0.582        & 0.580          & \textbf{0.631} \\
         \texttt{versus}                   & 0.617                                        & \textbf{0.900}                                  & 0.788          & 0.428        & \textbf{0.524} & 0.507          \\
         \hline
+        \textbf{Среднее}                  & 0.786                                        & 0.960                                           & 0.940          & 0.496        & 0.579          & 0.577          \\
+        \hline
     \end{tabular}
     \caption{Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами.}
     \label{tab:reference_vs_initial_cr_ac}
@@ -525,6 +541,9 @@ https://github.com/Vasallo94/ObsidianRAG/tree/main
         \multirow{2}{*}{\texttt{versus}}    & Base                               & 0.734                                               & 0.900                                              & 0.569       & 0.519 $\downarrow$ & 0.655 $\downarrow$ & 0.623 $\uparrow$ \\
                                             & Typed                              & 0.696                                               & 0.813                                              & 0.555       & 0.547 $\downarrow$ & 0.568 $\downarrow$ & 0.576 $\uparrow$ \\
         \hline
+        \multirow{2}{*}{\textbf{Среднее}}   & Base                               & 0.821                                               & 0.960                                              & 0.592       & 0.558 $\downarrow$ & 0.859 $\downarrow$ & 0.718 $\uparrow$ \\
+                                            & Typed                              & 0.823                                               & 0.945                                              & 0.600       & 0.581 $\downarrow$ & 0.808 $\downarrow$ & 0.711 $\uparrow$ \\
+        \hline
     \end{tabular}
     \caption{Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}
     \label{tab:model_comparison_2_3}
@@ -564,17 +583,17 @@ CR (0.808 против 0.859 у Base).
     \centering
     \begin{tabular}{lcccccc}
         \hline
-        \multirow{2}{*}{\textbf{Подкорпус}} & \multicolumn{3}{c}{\textbf{Без учета типа (Untyped)}} & \multicolumn{3}{c}{\textbf{С учетом типа (Typed)}}                                                                                               \\
+        \multirow{2}{*}{\textbf{Подкорпус}} & \multicolumn{3}{c}{\textbf{Без учета типа (Untyped)}} & \multicolumn{3}{c}{\textbf{С учетом типа (Typed)}}                                                                                       \\
         \cline{2-7}
-                                            & \textbf{P}                                            & \textbf{R}                                         & \textbf{F\textsubscript{1}} & \textbf{P}     & \textbf{R}     & \textbf{F\textsubscript{1}} \\
+                                            & \textbf{P}                                            & \textbf{R}                                         & \textbf{F\textsubscript{1}} & \textbf{P} & \textbf{R} & \textbf{F\textsubscript{1}} \\
         \hline
-        \texttt{hub\_n\_spoke}              & 0.810                                                 & 0.883                                              & 0.845                       & 0.643          & 0.701          & 0.671                       \\
-        \texttt{personal}                   & 0.909                                                 & 0.435                                              & 0.588                       & 0.909          & 0.435          & 0.588                       \\
-        \texttt{realistic}                  & 0.771                                                 & 0.810                                              & 0.790                       & 0.687          & 0.722          & 0.704                       \\
-        \texttt{sequence}                   & 0.733                                                 & 0.957                                              & 0.830                       & 0.533          & 0.696          & 0.604                       \\
-        \texttt{versus}                     & 0.727                                                 & 0.909                                              & 0.808                       & 0.545          & 0.682          & 0.606                       \\
+        \texttt{hub\_n\_spoke}              & 0.810                                                 & 0.883                                              & 0.845                       & 0.643      & 0.701      & 0.671                       \\
+        \texttt{personal}                   & 0.909                                                 & 0.435                                              & 0.588                       & 0.909      & 0.435      & 0.588                       \\
+        \texttt{realistic}                  & 0.771                                                 & 0.810                                              & 0.790                       & 0.687      & 0.722      & 0.704                       \\
+        \texttt{sequence}                   & 0.733                                                 & 0.957                                              & 0.830                       & 0.533      & 0.696      & 0.604                       \\
+        \texttt{versus}                     & 0.727                                                 & 0.909                                              & 0.808                       & 0.545      & 0.682      & 0.606                       \\
         \hline
-        \textbf{Overall}                    & \textbf{0.776}                                        & \textbf{0.829}                                     & \textbf{0.802}              & \textbf{0.635} & \textbf{0.679} & \textbf{0.656}              \\
+        \textbf{Общее}                      & 0.776                                                 & 0.829                                              & 0.802                       & 0.635      & 0.679      & 0.656                       \\
         \hline
     \end{tabular}
     \caption{Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}
@@ -599,24 +618,27 @@ $\text{R} = 0.829$, что говорит о способности алгори
     \centering
     \begin{tabular}{llccc|ccc}
         \hline
-        \multirow{2}{*}{\textbf{Датасет}}   & \multirow{2}{*}{\textbf{Алгоритм}} & \multicolumn{3}{c|}{\textbf{Эксп. 3}} & \multicolumn{3}{c}{\textbf{Эксп. 5}}                                                                              \\
+        \multirow{2}{*}{\textbf{Датасет}}   & \multirow{2}{*}{\textbf{Алгоритм}} & \multicolumn{3}{c|}{\textbf{Разметка}} & \multicolumn{3}{c}{\textbf{Сгенерированные}}                                                                               \\
         \cline{3-8}
-                                            &                                    & \textbf{CP}                           & \textbf{CR}                          & \textbf{AC} & \textbf{CP}        & \textbf{CR}        & \textbf{AC}        \\
+                                            &                                    & \textbf{CP}                            & \textbf{CR}                                  & \textbf{AC} & \textbf{CP}        & \textbf{CR}        & \textbf{AC}         \\
         \hline
-        \multirow{2}{*}{\texttt{hub}}       & Base                               & 0.660                                 & 0.875                                & 0.698       & 0.689 $\uparrow$   & 0.833 $\downarrow$ & 0.682 $\downarrow$ \\
-                                            & Typed                              & 0.707                                 & 0.833                                & 0.709       & 0.707 $=$          & 0.833 $=$          & 0.716 $\uparrow$   \\
+        \multirow{2}{*}{\texttt{hub}}       & Base                               & 0.660                                  & 0.875                                        & 0.698       & 0.689 $\uparrow$   & 0.833 $\downarrow$ & 0.682 $\downarrow$  \\
+                                            & Typed                              & 0.707                                  & 0.833                                        & 0.709       & 0.707 $=$          & 0.833 $=$          & 0.716 $\uparrow$    \\
         \hline
-        \multirow{2}{*}{\texttt{personal}}  & Base                               & 0.750                                 & 1.000                                & 0.796       & 0.729 $\downarrow$ & 0.958 $\downarrow$ & 0.762 $\downarrow$ \\
-                                            & Typed                              & 0.729                                 & 0.917                                & 0.770       & 0.729 $=$          & 0.917 $=$          & 0.770 $=$          \\
+        \multirow{2}{*}{\texttt{personal}}  & Base                               & 0.750                                  & 1.000                                        & 0.796       & 0.729 $\downarrow$ & 0.958 $\downarrow$ & 0.762 $\downarrow$  \\
+                                            & Typed                              & 0.729                                  & 0.917                                        & 0.770       & 0.729 $=$          & 0.917 $=$          & 0.770 $=$           \\
         \hline
-        \multirow{2}{*}{\texttt{realistic}} & Base                               & 0.426                                 & 1.000                                & 0.738       & 0.426 $=$          & 1.000 $=$          & 0.738 $=$          \\
-                                            & Typed                              & 0.491                                 & 0.954                                & 0.792       & 0.476 $\downarrow$ & 0.977 $\uparrow$   & 0.774 $\downarrow$ \\
+        \multirow{2}{*}{\texttt{realistic}} & Base                               & 0.426                                  & 1.000                                        & 0.738       & 0.426 $=$          & 1.000 $=$          & 0.738 $=$           \\
+                                            & Typed                              & 0.491                                  & 0.954                                        & 0.792       & 0.476 $\downarrow$ & 0.977 $\uparrow$   & 0.774 $\downarrow$  \\
         \hline
-        \multirow{2}{*}{\texttt{sequence}}  & Base                               & 0.434                                 & 0.765                                & 0.734       & 0.434 $=$          & 0.765 $=$          & 0.734 $=$          \\
-                                            & Typed                              & 0.429                                 & 0.765                                & 0.706       & 0.429 $=$          & 0.765 $=$          & 0.706 $=$          \\
+        \multirow{2}{*}{\texttt{sequence}}  & Base                               & 0.434                                  & 0.765                                        & 0.734       & 0.434 $=$          & 0.765 $=$          & 0.734 $=$           \\
+                                            & Typed                              & 0.429                                  & 0.765                                        & 0.706       & 0.429 $=$          & 0.765 $=$          & 0.706 $=$           \\
         \hline
-        \multirow{2}{*}{\texttt{versus}}    & Base                               & 0.519                                 & 0.655                                & 0.623       & 0.519 $=$          & 0.655 $=$          & 0.623 $=$          \\
-                                            & Typed                              & 0.547                                 & 0.568                                & 0.576       & 0.547 $=$          & 0.568 $=$          & 0.576 $=$          \\
+        \multirow{2}{*}{\texttt{versus}}    & Base                               & 0.519                                  & 0.655                                        & 0.623       & 0.519 $=$          & 0.655 $=$          & 0.623 $=$           \\
+                                            & Typed                              & 0.547                                  & 0.568                                        & 0.576       & 0.547 $=$          & 0.568 $=$          & 0.576 $=$           \\
+        \hline
+        \multirow{2}{*}{\textbf{Среднее}}   & Base                               & 0.558                                  & 0.859                                        & 0.718       & 0.559 $\uparrow$   & 0.842 $\downarrow$ & 0.708 $\downarrow$  \\
+                                            & Typed                              & 0.581                                  & 0.807                                        & 0.711       & 0.578 $\downarrow$ & 0.812 $\uparrow$   & 0.708  $\downarrow$ \\
         \hline
     \end{tabular}
     \caption{Сравнение качества работы GraphRAG между размеченным графом и сгенерированным.}
