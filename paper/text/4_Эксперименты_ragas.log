@@ -557,3 +557,102 @@ versus
   faithfulness              0.9679
   answer_correctness        0.5757
 ==================================================
+
+
+
+
+
+
+
+
+
+
+
+
+----
+ref gen
+
+hub_n_spoke
+==================================================
+  context_recall            0.7500
+  context_precision         0.6761
+  faithfulness              0.9264
+  answer_correctness        0.5160
+==================================================
+
+personal
+==================================================
+  context_recall            0.6250
+  context_precision         0.6250
+  faithfulness              1.0000
+  answer_correctness        0.4287
+==================================================
+
+realistic
+==================================================
+  context_recall            0.8636
+  context_precision         0.7187
+  faithfulness              0.9690
+  answer_correctness        0.5222
+==================================================
+
+sequence
+==================================================
+  context_recall            0.9750
+  context_precision         0.7533
+  faithfulness              0.9795
+  answer_correctness        0.5551
+==================================================
+
+versus
+==================================================
+  context_recall            0.6083
+  context_precision         0.4011
+  faithfulness              0.8907
+  answer_correctness        0.3881
+==================================================
+
+----
+base gen
+
+hub_n_spoke
+==================================================
+  context_recall            0.9583
+  context_precision         0.7601
+  faithfulness              0.9598
+  answer_correctness        0.5346
+==================================================
+
+personal
+==================================================
+  context_recall            1.0000
+  context_precision         0.8861
+  faithfulness              0.9875
+  answer_correctness        0.6020
+==================================================
+
+realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.8515
+  faithfulness              0.9809
+  answer_correctness        0.6368
+==================================================
+
+sequence
+
+versus
+
+
+----
+typed gen
+
+hub_n_spoke
+
+personal
+
+realistic
+
+sequence
+
+versus

@@ -443,9 +443,9 @@ INPUT text/0_Введение.tex
 INPUT ./text/1.1_PKM.tex
 INPUT ./text/1.1_PKM.tex
 INPUT text/1.1_PKM.tex
-INPUT ./text/1.2_Извлечение_Данных.tex
-INPUT ./text/1.2_Извлечение_Данных.tex
-INPUT text/1.2_Извлечение_Данных.tex
+INPUT ./text/1.2_RAG.tex
+INPUT ./text/1.2_RAG.tex
+INPUT text/1.2_RAG.tex
 INPUT ./text/1.3_Готовые_Решения.tex
 INPUT ./text/1.3_Готовые_Решения.tex
 INPUT text/1.3_Готовые_Решения.tex
