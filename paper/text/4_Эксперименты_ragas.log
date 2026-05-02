@@ -640,19 +640,60 @@ realistic
 ==================================================
 
 sequence
+==================================================
+  context_recall            0.9250
+  context_precision         0.8784
+  faithfulness              0.9465
+  answer_correctness        0.6140
+==================================================
 
 versus
-
+==================================================
+  context_recall            0.9000
+  context_precision         0.6847
+  faithfulness              0.9141
+  answer_correctness        0.5496
+==================================================
 
 ----
 typed gen
 
 hub_n_spoke
+==================================================
+  context_recall            0.9583
+  context_precision         0.8011
+  faithfulness              0.9825
+  answer_correctness        0.5607
+==================================================
 
 personal
+==================================================
+  context_recall            1.0000
+  context_precision         0.8924
+  faithfulness              1.0000
+  answer_correctness        0.6418
+==================================================
 
 realistic
+==================================================
+  context_recall            0.9773
+  context_precision         0.8561
+  faithfulness              0.9823
+  answer_correctness        0.6024
+==================================================
 
 sequence
+==================================================
+  context_recall            0.9250
+  context_precision         0.8783
+  faithfulness              0.9968
+  answer_correctness        0.5999
+==================================================
 
 versus
+==================================================
+  context_recall            0.7883
+  context_precision         0.7285
+  faithfulness              0.9238
+  answer_correctness        0.5198
+==================================================
