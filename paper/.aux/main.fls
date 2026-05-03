@@ -443,6 +443,9 @@ INPUT text/0_Введение.tex
 INPUT ./text/1.1_PKM.tex
 INPUT ./text/1.1_PKM.tex
 INPUT text/1.1_PKM.tex
+INPUT ./images/KG.jpg
+INPUT ./images/KG.jpg
+INPUT ./images/KG.jpg
 INPUT ./text/1.2_RAG.tex
 INPUT ./text/1.2_RAG.tex
 INPUT text/1.2_RAG.tex

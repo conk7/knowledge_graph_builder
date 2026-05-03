@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  2 MAY 2026 19:32
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  3 MAY 2026 14:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1208,15 +1208,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [4]
+File: images/KG.jpg Graphic file (type bmp)
+<images/KG.jpg>
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[5]) (./text/1.2_RAG.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1225,7 +1219,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[6]
+[5]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[6]) (./text/1.2_RAG.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1244,33 +1247,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [8]) (./text/1.3_Готовые_Решения.tex
-Missing character: There is no С (U+0421) in font [lmmono12-regular]:!
-Missing character: There is no у (U+0443) in font [lmmono12-regular]:!
-Missing character: There is no щ (U+0449) in font [lmmono12-regular]:!
-Missing character: There is no н (U+043D) in font [lmmono12-regular]:!
-Missing character: There is no о (U+043E) in font [lmmono12-regular]:!
-Missing character: There is no с (U+0441) in font [lmmono12-regular]:!
-Missing character: There is no т (U+0442) in font [lmmono12-regular]:!
-Missing character: There is no ь (U+044C) in font [lmmono12-regular]:!
-Missing character: There is no А (U+0410) in font [lmmono12-regular]:!
-Missing character: There is no Т (U+0422) in font [lmmono12-regular]:!
-Missing character: There is no и (U+0438) in font [lmmono12-regular]:!
-Missing character: There is no п (U+043F) in font [lmmono12-regular]:!
-Missing character: There is no с (U+0441) in font [lmmono12-regular]:!
-Missing character: There is no в (U+0432) in font [lmmono12-regular]:!
-Missing character: There is no я (U+044F) in font [lmmono12-regular]:!
-Missing character: There is no з (U+0437) in font [lmmono12-regular]:!
-Missing character: There is no и (U+0438) in font [lmmono12-regular]:!
-Missing character: There is no С (U+0421) in font [lmmono12-regular]:!
-Missing character: There is no у (U+0443) in font [lmmono12-regular]:!
-Missing character: There is no щ (U+0449) in font [lmmono12-regular]:!
-Missing character: There is no н (U+043D) in font [lmmono12-regular]:!
-Missing character: There is no о (U+043E) in font [lmmono12-regular]:!
-Missing character: There is no с (U+0441) in font [lmmono12-regular]:!
-Missing character: There is no т (U+0442) in font [lmmono12-regular]:!
-Missing character: There is no ь (U+044C) in font [lmmono12-regular]:!
-Missing character: There is no Б (U+0411) in font [lmmono12-regular]:!
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1315,7 +1291,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[13]) (./text/1.4_Оценка_Качества.tex
+[13]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1324,7 +1300,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[14]
+[14]) (./text/1.4_Оценка_Качества.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1360,7 +1336,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[18]) (./text/2.1_Построение_Графа.tex
+[18]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1378,7 +1354,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[20]
+[20]) (./text/2.1_Построение_Графа.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1432,7 +1408,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[26]) (./text/2.2_GraphRAG.tex
+[26]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1450,7 +1426,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[28]
+[28]) (./text/2.2_GraphRAG.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[29]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[30]
 Overfull \hbox (2.02821pt too wide) in paragraph at lines 161--161
 []|\TU/TimesNewRoman(0)/b/n/14 BaseGraphRAGPipeline| 
  []
@@ -1469,24 +1463,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[29]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[30]) (./text/3_Данные.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [31]
 
 
@@ -1496,7 +1472,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[32]
+[32]) (./text/3_Данные.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1524,6 +1500,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [35]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[36]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[37]
 Overfull \hbox (13.5429pt too wide) in paragraph at lines 202--215
  [][] 
  []
@@ -1537,25 +1531,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[36]) (./text/4_Эксперименты.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[37]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[38]
+[38]) (./text/4_Эксперименты.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1583,21 +1559,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [41]
-LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 253.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.77509> not available
-(Font)              size <12> substituted on input line 253.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.77509> not available
-(Font)              size <12> substituted on input line 253.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.77509> not available
-(Font)              size <12> substituted on input line 253.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1616,6 +1577,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [43]
+LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 253.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.77509> not available
+(Font)              size <12> substituted on input line 253.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.77509> not available
+(Font)              size <12> substituted on input line 253.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.77509> not available
+(Font)              size <12> substituted on input line 253.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1688,6 +1664,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [51]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[52]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[53]
 Overfull \hbox (4.49307pt too wide) in paragraph at lines 707--707
  [][]\TU/TimesNewRoman(0)/m/n/12.77509 Многошаговый 
  []
@@ -1701,7 +1695,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[52]) (./text/5_Заключение.tex) (./text/6_Литература.tex
+[54]) (./text/5_Заключение.tex) (./text/6_Литература.tex
 
 Package biblatex Warning: Keyword 'rus' not found on input line 5.
 
@@ -1717,7 +1711,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[53]) (./text/7_Приложение.tex
+[55]) (./text/7_Приложение.tex
 File: images/light/hub.png Graphic file (type bmp)
 <images/light/hub.png>
 File: images/light/realistic.png Graphic file (type bmp)
@@ -1737,7 +1731,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[54]
+[56]
 Overfull \vbox (28.46309pt too high) has occurred while \output is active []
 
 
@@ -1749,7 +1743,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[55] (.aux/main.aux)
+[57] (.aux/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1766,12 +1760,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46915 strings out of 475848
- 1092731 string characters out of 5776013
- 2225501 words of memory out of 5000000
- 69116 multiletter control sequences out of 15000+600000
+ 46927 strings out of 475848
+ 1092916 string characters out of 5776013
+ 2225551 words of memory out of 5000000
+ 69125 multiletter control sequences out of 15000+600000
  566931 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,19n,107p,1212b,5235s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .aux/main.xdv (55 pages, 919016 bytes).
+Output written on .aux/main.xdv (57 pages, 947036 bytes).
