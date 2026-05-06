@@ -276,6 +276,590 @@
       \field{year}{2024}
       \keyw{eng}
     \endentry
+    \entry{neo4j_graph_builder}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=133cb30e9deead9470f51478b2e64685}{%
+           family={{Neo4j Labs}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{133cb30e9deead9470f51478b2e64685}
+      \strng{fullhash}{133cb30e9deead9470f51478b2e64685}
+      \strng{fullhashraw}{133cb30e9deead9470f51478b2e64685}
+      \strng{bibnamehash}{133cb30e9deead9470f51478b2e64685}
+      \strng{authorbibnamehash}{133cb30e9deead9470f51478b2e64685}
+      \strng{authornamehash}{133cb30e9deead9470f51478b2e64685}
+      \strng{authorfullhash}{133cb30e9deead9470f51478b2e64685}
+      \strng{authorfullhashraw}{133cb30e9deead9470f51478b2e64685}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{LLM Graph Builder}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/neo4j-labs/llm-graph-builder
+      \endverb
+      \verb{url}
+      \verb https://github.com/neo4j-labs/llm-graph-builder
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{memgraph_u2g}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6ae46f0fca7307a4b89086193f241fb5}{%
+           family={{Memgraph}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6ae46f0fca7307a4b89086193f241fb5}
+      \strng{fullhash}{6ae46f0fca7307a4b89086193f241fb5}
+      \strng{fullhashraw}{6ae46f0fca7307a4b89086193f241fb5}
+      \strng{bibnamehash}{6ae46f0fca7307a4b89086193f241fb5}
+      \strng{authorbibnamehash}{6ae46f0fca7307a4b89086193f241fb5}
+      \strng{authornamehash}{6ae46f0fca7307a4b89086193f241fb5}
+      \strng{authorfullhash}{6ae46f0fca7307a4b89086193f241fb5}
+      \strng{authorfullhashraw}{6ae46f0fca7307a4b89086193f241fb5}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Unstructured2Graph}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/memgraph/ai-toolkit/tree/main/unstructured2graph
+      \endverb
+      \verb{url}
+      \verb https://github.com/memgraph/ai-toolkit/tree/main/unstructured2graph
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Ain_2025}{article}{useauthor=false}{}
+      \name{author}{6}{}{%
+        {{hash=25cb53c95998186600753c2ec7f095d1}{%
+           family={Ain},
+           familyi={A\bibinitperiod},
+           given={Q.\bibnamedelimi U.},
+           giveni={Q\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+        {{hash=16ec1c7b9af978754ce4d302caf53951}{%
+           family={Chatti},
+           familyi={C\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=8d64eda28863a70a25b0653d5adfbe10}{%
+           family={Qussa},
+           familyi={Q\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e89cc15d928b0e5b0af46d25875618ae}{%
+           family={Shakhshir},
+           familyi={S\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ec6bbec1686af25ed4f314148cddfe35}{%
+           family={Alatrash},
+           familyi={A\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c54b5136ccf1365ba1257735d3c0d489}{%
+           family={Joarder},
+           familyi={J\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{eecba499c24af15526102b3e384e957b}
+      \strng{authornamehash}{eecba499c24af15526102b3e384e957b}
+      \strng{authorfullhash}{f607a823362c414232211e0e626cfa88}
+      \strng{authorfullhashraw}{f607a823362c414232211e0e626cfa88}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2509.05392}
+      \field{langid}{english}
+      \field{title}{An optimized pipeline for automatic educational knowledge graph construction}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.48550/arXiv.2509.05392
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{smart_connections}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=dda35a9ba5d556b3e45803289441c40e}{%
+           family={{Smart Connections}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{dda35a9ba5d556b3e45803289441c40e}
+      \strng{fullhash}{dda35a9ba5d556b3e45803289441c40e}
+      \strng{fullhashraw}{dda35a9ba5d556b3e45803289441c40e}
+      \strng{bibnamehash}{dda35a9ba5d556b3e45803289441c40e}
+      \strng{authorbibnamehash}{dda35a9ba5d556b3e45803289441c40e}
+      \strng{authornamehash}{dda35a9ba5d556b3e45803289441c40e}
+      \strng{authorfullhash}{dda35a9ba5d556b3e45803289441c40e}
+      \strng{authorfullhashraw}{dda35a9ba5d556b3e45803289441c40e}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Smart Connections Plugin for Obsidian}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://smartconnections.app/
+      \endverb
+      \verb{url}
+      \verb https://smartconnections.app/
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{graph_analysis}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=21674bc8e78c469972fb457d65d37247}{%
+           family={{SkepticMystic}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{21674bc8e78c469972fb457d65d37247}
+      \strng{fullhash}{21674bc8e78c469972fb457d65d37247}
+      \strng{fullhashraw}{21674bc8e78c469972fb457d65d37247}
+      \strng{bibnamehash}{21674bc8e78c469972fb457d65d37247}
+      \strng{authorbibnamehash}{21674bc8e78c469972fb457d65d37247}
+      \strng{authornamehash}{21674bc8e78c469972fb457d65d37247}
+      \strng{authorfullhash}{21674bc8e78c469972fb457d65d37247}
+      \strng{authorfullhashraw}{21674bc8e78c469972fb457d65d37247}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Graph Analysis for Obsidian}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/SkepticMystic/graph-analysis
+      \endverb
+      \verb{url}
+      \verb https://github.com/SkepticMystic/graph-analysis
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{obsidianrag}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9fe160ea248eb19b4e893bb6ac6bac51}{%
+           family={{Vasallo94}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \strng{fullhash}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \strng{fullhashraw}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \strng{bibnamehash}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \strng{authorbibnamehash}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \strng{authornamehash}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \strng{authorfullhash}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \strng{authorfullhashraw}{9fe160ea248eb19b4e893bb6ac6bac51}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{ObsidianRAG: A Retrieval-Augmented Generation pipeline for Obsidian}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/Vasallo94/ObsidianRAG
+      \endverb
+      \verb{url}
+      \verb https://github.com/Vasallo94/ObsidianRAG
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{noodleslove_notes}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=cb50b06f6b4f37872ca02cbecd318e0a}{%
+           family={{noodleslove}},
+           familyi={n\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \strng{fullhash}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \strng{fullhashraw}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \strng{bibnamehash}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \strng{authorbibnamehash}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \strng{authornamehash}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \strng{authorfullhash}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \strng{authorfullhashraw}{cb50b06f6b4f37872ca02cbecd318e0a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Personal Notes Repository}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/noodleslove/notes
+      \endverb
+      \verb{url}
+      \verb https://github.com/noodleslove/notes
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{100r_co}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=80324d0a572afc4de706420149d88cef}{%
+           family={{Hundred Rabbits}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{80324d0a572afc4de706420149d88cef}
+      \strng{fullhash}{80324d0a572afc4de706420149d88cef}
+      \strng{fullhashraw}{80324d0a572afc4de706420149d88cef}
+      \strng{bibnamehash}{80324d0a572afc4de706420149d88cef}
+      \strng{authorbibnamehash}{80324d0a572afc4de706420149d88cef}
+      \strng{authornamehash}{80324d0a572afc4de706420149d88cef}
+      \strng{authorfullhash}{80324d0a572afc4de706420149d88cef}
+      \strng{authorfullhashraw}{80324d0a572afc4de706420149d88cef}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{100r.co Source Code and Documentation}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/hundredrabbits/100r.co
+      \endverb
+      \verb{url}
+      \verb https://github.com/hundredrabbits/100r.co
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{based_cooking}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6011941d1d932a9b4c2fb8ec66300d18}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Luke},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{6011941d1d932a9b4c2fb8ec66300d18}
+      \strng{fullhash}{6011941d1d932a9b4c2fb8ec66300d18}
+      \strng{fullhashraw}{6011941d1d932a9b4c2fb8ec66300d18}
+      \strng{bibnamehash}{6011941d1d932a9b4c2fb8ec66300d18}
+      \strng{authorbibnamehash}{6011941d1d932a9b4c2fb8ec66300d18}
+      \strng{authornamehash}{6011941d1d932a9b4c2fb8ec66300d18}
+      \strng{authorfullhash}{6011941d1d932a9b4c2fb8ec66300d18}
+      \strng{authorfullhashraw}{6011941d1d932a9b4c2fb8ec66300d18}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{based.cooking}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/lukesmithxyz/based.cooking
+      \endverb
+      \verb{url}
+      \verb https://github.com/lukesmithxyz/based.cooking
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{keyvanakbary_notes}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=ff95f91cbafe4072ef4542cf9a02aa9d}{%
+           family={Akbary},
+           familyi={A\bibinitperiod},
+           given={Keyvan},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \strng{fullhash}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \strng{fullhashraw}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \strng{bibnamehash}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \strng{authorbibnamehash}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \strng{authornamehash}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \strng{authorfullhash}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \strng{authorfullhashraw}{ff95f91cbafe4072ef4542cf9a02aa9d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Learning Notes}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/keyvanakbary/learning-notes
+      \endverb
+      \verb{url}
+      \verb https://github.com/keyvanakbary/learning-notes
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{minilm_v2}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=78769ea0c2d3192a7a749a86f01e56b2}{%
+           family={{Sentence Transformers}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{78769ea0c2d3192a7a749a86f01e56b2}
+      \strng{fullhash}{78769ea0c2d3192a7a749a86f01e56b2}
+      \strng{fullhashraw}{78769ea0c2d3192a7a749a86f01e56b2}
+      \strng{bibnamehash}{78769ea0c2d3192a7a749a86f01e56b2}
+      \strng{authorbibnamehash}{78769ea0c2d3192a7a749a86f01e56b2}
+      \strng{authornamehash}{78769ea0c2d3192a7a749a86f01e56b2}
+      \strng{authorfullhash}{78769ea0c2d3192a7a749a86f01e56b2}
+      \strng{authorfullhashraw}{78769ea0c2d3192a7a749a86f01e56b2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{paraphrase-multilingual-MiniLM-L12-v2}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{bge_reranker_v2}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=1fab717e08035b611c8b3956f71206c9}{%
+           family={{Beijing Academy of Artificial Intelligence (BAAI)}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \strng{bibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorbibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authornamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{bge-reranker-v2-m3}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{jina_reranker_v2}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=f6f3b34aae9ec3cb46ed58a5ab0244e8}{%
+           family={{Jina AI}},
+           familyi={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \strng{fullhash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \strng{fullhashraw}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \strng{bibnamehash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \strng{authorbibnamehash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \strng{authornamehash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \strng{authorfullhash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \strng{authorfullhashraw}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{jina-reranker-v2-base-multilingual}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{bge_m3}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=1fab717e08035b611c8b3956f71206c9}{%
+           family={{Beijing Academy of Artificial Intelligence (BAAI)}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \strng{bibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorbibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authornamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{BGE-M3}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/BAAI/bge-m3
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/BAAI/bge-m3
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{gemma_3_27b}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=0f98f9c132af315a916cf1272843fc7b}{%
+           family={{Google DeepMind}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{fullhash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{fullhashraw}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{bibnamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorbibnamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authornamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Gemma 3 27B: Open Models Based on Gemini Research and Technology}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/google/gemma-3-27b-it
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/google/gemma-3-27b-it
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{qwen_3_235b}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=da7e055abb5fc1aa8ed2d2a502b3a612}{%
+           family={{Alibaba Cloud}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{fullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{fullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{bibnamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authorbibnamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authornamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authorfullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authorfullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Qwen 3 235B Instruct}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{gemma_4_31b}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=0f98f9c132af315a916cf1272843fc7b}{%
+           family={{Google DeepMind}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{fullhash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{fullhashraw}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{bibnamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorbibnamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authornamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Gemma 4 31B: Advanced Open Models}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/google/gemma-4-31B
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/google/gemma-4-31B
+      \endverb
+      \keyw{eng}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

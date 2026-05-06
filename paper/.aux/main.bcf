@@ -3540,6 +3540,25 @@
     <bcf:citekey order="3" intorder="1">Lewis_2020</bcf:citekey>
     <bcf:citekey order="4" intorder="1">Gao_2023</bcf:citekey>
     <bcf:citekey order="5" intorder="1">Edge_2024</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">neo4j_graph_builder</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">memgraph_u2g</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">Ain_2025</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">smart_connections</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">graph_analysis</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">obsidianrag</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">noodleslove_notes</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">100r_co</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">based_cooking</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">keyvanakbary_notes</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">minilm_v2</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">bge_reranker_v2</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">minilm_v2</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">bge_reranker_v2</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">jina_reranker_v2</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">bge_m3</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">gemma_3_27b</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">qwen_3_235b</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">gemma_4_31b</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

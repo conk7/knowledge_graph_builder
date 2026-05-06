@@ -22,22 +22,42 @@
 \abx@aux@cite{0}{Edge_2024}
 \abx@aux@segm{0}{0}{Edge_2024}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Анализ существующих решений для построения графов знаний}{9}{subsection.1.3}\protected@file@percent }
+\abx@aux@cite{0}{neo4j_graph_builder}
+\abx@aux@segm{0}{0}{neo4j_graph_builder}
+\abx@aux@cite{0}{memgraph_u2g}
+\abx@aux@segm{0}{0}{memgraph_u2g}
+\abx@aux@cite{0}{Ain_2025}
+\abx@aux@segm{0}{0}{Ain_2025}
+\abx@aux@cite{0}{smart_connections}
+\abx@aux@segm{0}{0}{smart_connections}
+\abx@aux@cite{0}{graph_analysis}
+\abx@aux@segm{0}{0}{graph_analysis}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Методология оценки качества}{15}{subsection.1.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Разработка алгоритмов}{21}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Архитектура алгоритма построения графа знаний}{21}{subsection.2.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Общая схема конвейера построения графа знаний}}{22}{figure.caption.2}\protected@file@percent }
 \newlabel{fig:pipeline}{{2}{22}{Общая схема конвейера построения графа знаний}{figure.caption.2}{}}
+\abx@aux@cite{0}{obsidianrag}
+\abx@aux@segm{0}{0}{obsidianrag}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Алгоритм GraphRAG}{29}{subsection.2.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Общая схема конвейера GraphRAG}}{30}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:graphrag_pipeline}{{3}{30}{Общая схема конвейера GraphRAG}{figure.caption.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Сравнение стратегий обхода графа}}{32}{table.caption.4}\protected@file@percent }
 \newlabel{tab:traversal_compare}{{1}{32}{Сравнение стратегий обхода графа}{table.caption.4}{}}
+\abx@aux@cite{0}{noodleslove_notes}
+\abx@aux@segm{0}{0}{noodleslove_notes}
+\abx@aux@cite{0}{100r_co}
+\abx@aux@segm{0}{0}{100r_co}
+\abx@aux@cite{0}{based_cooking}
+\abx@aux@segm{0}{0}{based_cooking}
+\abx@aux@cite{0}{keyvanakbary_notes}
+\abx@aux@segm{0}{0}{keyvanakbary_notes}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Сбор и подготовка данных}{33}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Поиск данных}{33}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Создание валидационного датасета}{34}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.1}Алгоритм генерации связей}{36}{subsubsection.3.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Сводная статистика ссылок в эталонных подкорпусах}}{38}{table.caption.5}\protected@file@percent }
-\newlabel{tab:dataset_samples}{{2}{38}{Сводная статистика ссылок в эталонных подкорпусах}{table.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Сводная статистика по эталонных подкорпусах}}{38}{table.caption.5}\protected@file@percent }
+\newlabel{tab:dataset_samples}{{2}{38}{Сводная статистика по эталонных подкорпусах}{table.caption.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.2}Алгоритм извлечения контекста}{39}{subsubsection.3.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.2.3}Алгоритм LLM-классификации отношений}{39}{subsubsection.3.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Эксперименты}{40}{section.4}\protected@file@percent }
@@ -45,71 +65,125 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}Извлечение кандидатных пар}{40}{subsubsection.4.1.1}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Результат Strict на валидационном датасете}}{40}{table.caption.6}\protected@file@percent }
 \newlabel{tab:strict_retrieval}{{3}{40}{Результат Strict на валидационном датасете}{table.caption.6}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Изначальные гиперпараметры алгоритма извлечения}}{41}{table.caption.7}\protected@file@percent }
-\newlabel{tab:initial_hyperparameters}{{4}{41}{Изначальные гиперпараметры алгоритма извлечения}{table.caption.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Анализ конфигурации splitter в стратегии Broad}}{42}{table.caption.8}\protected@file@percent }
-\newlabel{tab:broad_splitter}{{5}{42}{Анализ конфигурации splitter в стратегии Broad}{table.caption.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Анализ конфигураций стратегии Broad. CS - Chunk Size, CE - Cross Encoder, E - Embedding}}{42}{table.caption.9}\protected@file@percent }
-\newlabel{tab:broad_rest}{{6}{42}{Анализ конфигураций стратегии Broad. CS - Chunk Size, CE - Cross Encoder, E - Embedding}{table.caption.9}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Результат Combined на валидационном датасете}}{44}{table.caption.10}\protected@file@percent }
-\newlabel{tab:combined_retrieval}{{7}{44}{Результат Combined на валидационном датасете}{table.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Динамика F\textsubscript  {1} стратегии Broad по конфигурациям. Красная пунктирная линия~--- уровень Strict-стратегии. Квадрат~--- результат Combined для лучшей конфигурации.}}{44}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:retrieval_f1}{{4}{44}{Динамика F\textsubscript {1} стратегии Broad по конфигурациям. Красная пунктирная линия~--- уровень Strict-стратегии. Квадрат~--- результат Combined для лучшей конфигурации}{figure.caption.11}{}}
+\abx@aux@cite{0}{minilm_v2}
+\abx@aux@segm{0}{0}{minilm_v2}
+\abx@aux@cite{0}{bge_reranker_v2}
+\abx@aux@segm{0}{0}{bge_reranker_v2}
+\abx@aux@cite{0}{minilm_v2}
+\abx@aux@segm{0}{0}{minilm_v2}
+\abx@aux@cite{0}{bge_reranker_v2}
+\abx@aux@segm{0}{0}{bge_reranker_v2}
+\abx@aux@cite{0}{jina_reranker_v2}
+\abx@aux@segm{0}{0}{jina_reranker_v2}
+\abx@aux@cite{0}{bge_m3}
+\abx@aux@segm{0}{0}{bge_m3}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Изначальные гиперпараметры алгоритма извлечения}}{42}{table.caption.7}\protected@file@percent }
+\newlabel{tab:initial_hyperparameters}{{4}{42}{Изначальные гиперпараметры алгоритма извлечения}{table.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Анализ конфигураций стратегии Broad.}}{43}{table.caption.8}\protected@file@percent }
+\newlabel{tab:broad_rest}{{5}{43}{Анализ конфигураций стратегии Broad}{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Результат Combined на валидационном датасете}}{45}{table.caption.9}\protected@file@percent }
+\newlabel{tab:combined_retrieval}{{6}{45}{Результат Combined на валидационном датасете}{table.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Динамика F\textsubscript  {1} стратегии Broad по экспериментам. Красная пунктирная линия~--- уровень Strict-стратегии. Квадрат~--- результат Combined для лучшей конфигурации.}}{45}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:retrieval_f1}{{4}{45}{Динамика F\textsubscript {1} стратегии Broad по экспериментам. Красная пунктирная линия~--- уровень Strict-стратегии. Квадрат~--- результат Combined для лучшей конфигурации}{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Классификация типов связей}{45}{subsubsection.4.1.2}\protected@file@percent }
 \newlabel{sec:llm_eval}{{4.1.2}{45}{Классификация типов связей}{subsubsection.4.1.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Weighted F\textsubscript  {1} классификации типов связей}}{45}{table.caption.12}\protected@file@percent }
-\newlabel{tab:classification_results}{{8}{45}{Weighted F\textsubscript {1} классификации типов связей}{table.caption.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Оценка конвейера GraphRAG}{46}{subsection.4.2}\protected@file@percent }
-\newlabel{sec:graphrag_eval}{{4.2}{46}{Оценка конвейера GraphRAG}{subsection.4.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Значения гиперпараметров алгоритма GraphRAG по умолчанию}}{47}{table.caption.13}\protected@file@percent }
-\newlabel{tab:graphrag_default_params}{{9}{47}{Значения гиперпараметров алгоритма GraphRAG по умолчанию}{table.caption.13}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Референсное решение (ObsidianRAG)}{47}{subsubsection.4.2.1}\protected@file@percent }
-\newlabel{sec:reference_results}{{4.2.1}{47}{Референсное решение (ObsidianRAG)}{subsubsection.4.2.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Результаты референсного решения ObsidianRAG}}{48}{table.caption.14}\protected@file@percent }
-\newlabel{tab:reference_results}{{10}{48}{Результаты референсного решения ObsidianRAG}{table.caption.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами.}}{49}{table.caption.15}\protected@file@percent }
-\newlabel{tab:reference_vs_initial_cr_ac}{{11}{49}{Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами}{table.caption.15}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Влияние промпта и языковой модели}{49}{subsubsection.4.2.2}\protected@file@percent }
-\newlabel{sec:llm_prompt_effect}{{4.2.2}{49}{Влияние промпта и языковой модели}{subsubsection.4.2.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}}{50}{table.caption.16}\protected@file@percent }
-\newlabel{tab:prompt_effect_full_versus}{{12}{50}{Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}{table.caption.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}}{51}{table.caption.17}\protected@file@percent }
-\newlabel{tab:model_comparison_2_3}{{13}{51}{Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}{table.caption.17}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}}{52}{table.caption.18}\protected@file@percent }
-\newlabel{tab:generated_links_eval}{{14}{52}{Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}{table.caption.18}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Сравнение качества работы GraphRAG между размеченным графом и сгенерированным.}}{53}{table.caption.19}\protected@file@percent }
-\newlabel{tab:exp3_vs_exp5}{{15}{53}{Сравнение качества работы GraphRAG между размеченным графом и сгенерированным}{table.caption.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Итоговое сравнение и ограничения исследования}{54}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:conclusions}{{4.3}{54}{Итоговое сравнение и ограничения исследования}{subsection.4.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Поэтапный рост качества генерации ответов алгоритмов GraphRAG}}{54}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:ac_improvements}{{5}{54}{Поэтапный рост качества генерации ответов алгоритмов GraphRAG}{figure.caption.20}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Заключение}{56}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Список литературы}{56}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Приложение}{56}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Репозиторий с кодом:}{56}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Визуализации подкорпусов датасета}{57}{subsection.7.2}\protected@file@percent }
-\newlabel{sec:appendix_plots}{{7.2}{57}{Визуализации подкорпусов датасета}{subsection.7.2}{}}
-\newlabel{fig:app_hub}{{6a}{57}{Подкорпус Hub-and-Spoke}{figure.caption.21}{}}
-\newlabel{sub@fig:app_hub}{{a}{57}{Подкорпус Hub-and-Spoke}{figure.caption.21}{}}
-\newlabel{fig:app_realistic}{{6b}{57}{Подкорпус Realistic}{figure.caption.21}{}}
-\newlabel{sub@fig:app_realistic}{{b}{57}{Подкорпус Realistic}{figure.caption.21}{}}
-\newlabel{fig:app_versus}{{6c}{57}{Подкорпус Versus}{figure.caption.21}{}}
-\newlabel{sub@fig:app_versus}{{c}{57}{Подкорпус Versus}{figure.caption.21}{}}
-\newlabel{fig:app_sequence}{{6d}{57}{Подкорпус Sequence}{figure.caption.21}{}}
-\newlabel{sub@fig:app_sequence}{{d}{57}{Подкорпус Sequence}{figure.caption.21}{}}
-\newlabel{fig:app_personal}{{6e}{57}{Подкорпус Personal}{figure.caption.21}{}}
-\newlabel{sub@fig:app_personal}{{e}{57}{Подкорпус Personal}{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Визуальные представления семантических графов подкорпусов датасета}}{57}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:all_dataset_graphs}{{6}{57}{Визуальные представления семантических графов подкорпусов датасета}{figure.caption.21}{}}
-\abx@aux@number{5}{Forte_2022}{0}{none/global//global/global/global}{1}
-\abx@aux@number{6}{Ahrens_2017}{0}{none/global//global/global/global}{2}
-\abx@aux@number{7}{Lewis_2020}{0}{none/global//global/global/global}{3}
-\abx@aux@number{8}{Gao_2023}{0}{none/global//global/global/global}{4}
-\abx@aux@number{9}{Edge_2024}{0}{none/global//global/global/global}{5}
-\abx@aux@read@bbl@mdfivesum{C85335F1B63242A1B4856C3A7C43F4CE}
+\abx@aux@cite{0}{gemma_3_27b}
+\abx@aux@segm{0}{0}{gemma_3_27b}
+\abx@aux@cite{0}{qwen_3_235b}
+\abx@aux@segm{0}{0}{qwen_3_235b}
+\abx@aux@cite{0}{gemma_4_31b}
+\abx@aux@segm{0}{0}{gemma_4_31b}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Weighted F\textsubscript  {1} классификации типов связей}}{46}{table.caption.11}\protected@file@percent }
+\newlabel{tab:classification_results}{{7}{46}{Weighted F\textsubscript {1} классификации типов связей}{table.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Оценка конвейера GraphRAG}{47}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:graphrag_eval}{{4.2}{47}{Оценка конвейера GraphRAG}{subsection.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Значения гиперпараметров алгоритма GraphRAG по умолчанию}}{48}{table.caption.12}\protected@file@percent }
+\newlabel{tab:graphrag_default_params}{{8}{48}{Значения гиперпараметров алгоритма GraphRAG по умолчанию}{table.caption.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Референсное решение (ObsidianRAG)}{49}{subsubsection.4.2.1}\protected@file@percent }
+\newlabel{sec:reference_results}{{4.2.1}{49}{Референсное решение (ObsidianRAG)}{subsubsection.4.2.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Результаты референсного решения ObsidianRAG}}{49}{table.caption.13}\protected@file@percent }
+\newlabel{tab:reference_results}{{9}{49}{Результаты референсного решения ObsidianRAG}{table.caption.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами.}}{50}{table.caption.14}\protected@file@percent }
+\newlabel{tab:reference_vs_initial_cr_ac}{{10}{50}{Сравнение полноты извлечения (CR) и точности ответа (AC) между реализацией ObsidianRAG и собственными алгоритмами}{table.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Результаты референсного решения ObsidianRAG на графе, построенном из сгенерированных связей}}{50}{table.caption.15}\protected@file@percent }
+\newlabel{tab:reference_results_gen}{{11}{50}{Результаты референсного решения ObsidianRAG на графе, построенном из сгенерированных связей}{table.caption.15}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Сравнение полноты извлечения (CR) и точности ответа (AC) между ObsidianRAG и алгоритмами Base/Typed на сгенерированном графе связей}}{51}{table.caption.16}\protected@file@percent }
+\newlabel{tab:reference_vs_initial_cr_ac_gen}{{12}{51}{Сравнение полноты извлечения (CR) и точности ответа (AC) между ObsidianRAG и алгоритмами Base/Typed на сгенерированном графе связей}{table.caption.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Влияние промпта и языковой модели}{52}{subsubsection.4.2.2}\protected@file@percent }
+\newlabel{sec:llm_prompt_effect}{{4.2.2}{52}{Влияние промпта и языковой модели}{subsubsection.4.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}}{52}{table.caption.17}\protected@file@percent }
+\newlabel{tab:prompt_effect_full_versus}{{13}{52}{Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27b)}{table.caption.17}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}}{53}{table.caption.18}\protected@file@percent }
+\newlabel{tab:model_comparison_2_3}{{14}{53}{Сравнение моделей Gemma-3 и Gemma-4 (few-shot промпт)}{table.caption.18}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}}{54}{table.caption.19}\protected@file@percent }
+\newlabel{tab:generated_links_eval}{{15}{54}{Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}{table.caption.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Сравнение качества работы GraphRAG между размеченным графом и сгенерированным.}}{55}{table.caption.20}\protected@file@percent }
+\newlabel{tab:exp3_vs_exp5}{{16}{55}{Сравнение качества работы GraphRAG между размеченным графом и сгенерированным}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Итоговое сравнение и ограничения исследования}{56}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:conclusions}{{4.3}{56}{Итоговое сравнение и ограничения исследования}{subsection.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Поэтапный рост качества генерации ответов алгоритмов GraphRAG}}{56}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:ac_improvements}{{5}{56}{Поэтапный рост качества генерации ответов алгоритмов GraphRAG}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Заключение}{58}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Список литературы}{58}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Приложение}{60}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Репозиторий с кодом:}{60}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Визуализации подкорпусов датасета}{61}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:appendix_plots}{{7.2}{61}{Визуализации подкорпусов датасета}{subsection.7.2}{}}
+\newlabel{fig:app_hub}{{6a}{61}{Подкорпус Hub-and-Spoke}{figure.caption.22}{}}
+\newlabel{sub@fig:app_hub}{{a}{61}{Подкорпус Hub-and-Spoke}{figure.caption.22}{}}
+\newlabel{fig:app_realistic}{{6b}{61}{Подкорпус Realistic}{figure.caption.22}{}}
+\newlabel{sub@fig:app_realistic}{{b}{61}{Подкорпус Realistic}{figure.caption.22}{}}
+\newlabel{fig:app_versus}{{6c}{61}{Подкорпус Versus}{figure.caption.22}{}}
+\newlabel{sub@fig:app_versus}{{c}{61}{Подкорпус Versus}{figure.caption.22}{}}
+\newlabel{fig:app_sequence}{{6d}{61}{Подкорпус Sequence}{figure.caption.22}{}}
+\newlabel{sub@fig:app_sequence}{{d}{61}{Подкорпус Sequence}{figure.caption.22}{}}
+\newlabel{fig:app_personal}{{6e}{61}{Подкорпус Personal}{figure.caption.22}{}}
+\newlabel{sub@fig:app_personal}{{e}{61}{Подкорпус Personal}{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Визуальные представления семантических графов подкорпусов датасета}}{61}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:all_dataset_graphs}{{6}{61}{Визуальные представления семантических графов подкорпусов датасета}{figure.caption.22}{}}
+\abx@aux@number{24}{Forte_2022}{0}{none/global//global/global/global}{1}
+\abx@aux@number{25}{Ahrens_2017}{0}{none/global//global/global/global}{2}
+\abx@aux@number{26}{Lewis_2020}{0}{none/global//global/global/global}{3}
+\abx@aux@number{27}{Gao_2023}{0}{none/global//global/global/global}{4}
+\abx@aux@number{28}{Edge_2024}{0}{none/global//global/global/global}{5}
+\abx@aux@number{29}{neo4j_graph_builder}{0}{none/global//global/global/global}{6}
+\abx@aux@number{30}{memgraph_u2g}{0}{none/global//global/global/global}{7}
+\abx@aux@number{31}{Ain_2025}{0}{none/global//global/global/global}{8}
+\abx@aux@number{32}{smart_connections}{0}{none/global//global/global/global}{9}
+\abx@aux@number{33}{graph_analysis}{0}{none/global//global/global/global}{10}
+\abx@aux@number{34}{obsidianrag}{0}{none/global//global/global/global}{11}
+\abx@aux@number{35}{noodleslove_notes}{0}{none/global//global/global/global}{12}
+\abx@aux@number{36}{100r_co}{0}{none/global//global/global/global}{13}
+\abx@aux@number{37}{based_cooking}{0}{none/global//global/global/global}{14}
+\abx@aux@number{38}{keyvanakbary_notes}{0}{none/global//global/global/global}{15}
+\abx@aux@number{39}{minilm_v2}{0}{none/global//global/global/global}{16}
+\abx@aux@number{40}{bge_reranker_v2}{0}{none/global//global/global/global}{17}
+\abx@aux@number{41}{jina_reranker_v2}{0}{none/global//global/global/global}{18}
+\abx@aux@number{42}{bge_m3}{0}{none/global//global/global/global}{19}
+\abx@aux@number{43}{gemma_3_27b}{0}{none/global//global/global/global}{20}
+\abx@aux@number{44}{qwen_3_235b}{0}{none/global//global/global/global}{21}
+\abx@aux@number{45}{gemma_4_31b}{0}{none/global//global/global/global}{22}
+\abx@aux@read@bbl@mdfivesum{7EE2C2510670ECFE64770CDC2B6CAF83}
 \abx@aux@defaultrefcontext{0}{Forte_2022}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Ahrens_2017}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Lewis_2020}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Gao_2023}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{Edge_2024}{none/global//global/global/global}
-\gdef \@abspage@last{57}
+\abx@aux@defaultrefcontext{0}{neo4j_graph_builder}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{memgraph_u2g}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{Ain_2025}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{smart_connections}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{graph_analysis}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{obsidianrag}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{noodleslove_notes}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{100r_co}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{based_cooking}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{keyvanakbary_notes}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{minilm_v2}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{bge_reranker_v2}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{jina_reranker_v2}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{bge_m3}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{gemma_3_27b}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{qwen_3_235b}{none/global//global/global/global}
+\abx@aux@defaultrefcontext{0}{gemma_4_31b}{none/global//global/global/global}
+\gdef \@abspage@last{61}

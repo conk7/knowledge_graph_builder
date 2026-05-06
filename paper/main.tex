@@ -6,7 +6,7 @@
 \linespread{1.5}
 
 % кликабельные референсы
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 
 % абзацный отступ
 \usepackage{indentfirst}
@@ -21,6 +21,13 @@
 % times new roman support
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
+
+% \usepackage{polyglossia}
+% \setdefaultlanguage{russian}
+% \setotherlanguage{english}
+% % Настройка моноширинного шрифта (для команд типа \texttt)
+% \setmonofont{Courier New}
+% \newfontfamily\cyrillicfonttt{Courier New}
 
 % more font sizes
 \usepackage{scrextend}
@@ -91,6 +98,7 @@
 % [1] нумерация в списке литературы
 \usepackage{enumitem}
 
+\usepackage{threeparttable}
 
 % Пакет для работы с библиографией по ГОСТу
 \usepackage[
