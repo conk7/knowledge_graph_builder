@@ -168,7 +168,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortlocale</bcf:key>
-      <bcf:value>english</bcf:value>
+      <bcf:value>russian</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
@@ -3537,28 +3537,44 @@
   <bcf:section number="0">
     <bcf:citekey order="1" intorder="1">Forte_2022</bcf:citekey>
     <bcf:citekey order="2" intorder="1">Ahrens_2017</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">Lewis_2020</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">Gao_2023</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">Edge_2024</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">neo4j_graph_builder</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">memgraph_u2g</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">Ain_2025</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">smart_connections</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">graph_analysis</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">obsidianrag</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">noodleslove_notes</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">100r_co</bcf:citekey>
-    <bcf:citekey order="14" intorder="1">based_cooking</bcf:citekey>
-    <bcf:citekey order="15" intorder="1">keyvanakbary_notes</bcf:citekey>
-    <bcf:citekey order="20" intorder="1">minilm_v2</bcf:citekey>
-    <bcf:citekey order="21" intorder="1">bge_reranker_v2</bcf:citekey>
-    <bcf:citekey order="22" intorder="1">minilm_v2</bcf:citekey>
-    <bcf:citekey order="23" intorder="1">bge_reranker_v2</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">jina_reranker_v2</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">bge_m3</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">gemma_3_27b</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">qwen_3_235b</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">gemma_4_31b</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">Ji_2023</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">Lewis_2020</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">Robertson_2009</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">Karpukhin_2020</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">Gao_2023</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">Gao_2023</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">Edge_2024</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">Nogueira_2019</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">neo4j_graph_builder</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">memgraph_u2g</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">Chase_langchain</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">Ain_2025</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">Iandola_2020</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">Reimers_2019</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">Mem_ai</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">smart_connections</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">graph_analysis</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">Manning_2008</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">Es_2023</bcf:citekey>
+    <bcf:citekey order="22" intorder="1">LanceDB_online</bcf:citekey>
+    <bcf:citekey order="23" intorder="1">Gerganov_llamacpp</bcf:citekey>
+    <bcf:citekey order="24" intorder="1">obsidianrag</bcf:citekey>
+    <bcf:citekey order="25" intorder="1">noodleslove_notes</bcf:citekey>
+    <bcf:citekey order="26" intorder="1">100r_co</bcf:citekey>
+    <bcf:citekey order="27" intorder="1">based_cooking</bcf:citekey>
+    <bcf:citekey order="28" intorder="1">keyvanakbary_notes</bcf:citekey>
+    <bcf:citekey order="29" intorder="1">obsidianrag</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">neo4j_graph_builder</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">minilm_v2</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">bge_reranker_v2</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">minilm_v2</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">bge_reranker_v2</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">jina_reranker_v2</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">bge_m3</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">gemma_3_27b</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">qwen_3_235b</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">gemma_4_31b</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">gemini_3_flash</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

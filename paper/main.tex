@@ -22,12 +22,12 @@
 \usepackage{fontspec}
 \setmainfont{Times New Roman}
 
-% \usepackage{polyglossia}
-% \setdefaultlanguage{russian}
-% \setotherlanguage{english}
-% % Настройка моноширинного шрифта (для команд типа \texttt)
-% \setmonofont{Courier New}
-% \newfontfamily\cyrillicfonttt{Courier New}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+% Настройка моноширинного шрифта (для команд типа \texttt)
+\setmonofont{Courier New}
+\newfontfamily\cyrillicfonttt{Courier New}
 
 % more font sizes
 \usepackage{scrextend}
@@ -107,12 +107,24 @@
     citestyle=numeric-comp,
     language=auto,
     autolang=other,
-    sorting=none,       % Сортировка по мере упоминания в тексте
-    defernumbers=true   % Важно для сквозной нумерации при разделении списков
+    sorting=none,
+    defernumbers=true
 ]{biblatex}
 
+% 1. Меняем нумерацию с "1." на "[1]"
+\DeclareFieldFormat{labelnumberwidth}{\mkbibbrackets{#1}}
+
+% 2. Меняем "URL" на "Режим доступа" для русского языка
+\DefineBibliographyStrings{russian}{
+  url = {Режим доступа\addcolon},
+  urlseen = {дата обращения}
+}
+\DeclareFieldFormat{url}{Режим доступа\addcolon\space\url{#1}}
+\DeclareFieldFormat{urldate}{\mkbibparens{дата обращения\addcolon\space#1}}
 % Подключаем файл с вашей базой литературы (создайте его рядом с .tex файлом)
 \addbibresource{references.bib}
+
+\usepackage{setspace}
 
 % =============================================
 
@@ -177,7 +189,7 @@
 \end{center}
 
 
-\newpage
+\clearpage
 
 \begin{center}
     \textbf{ОГЛАВЛЕНИЕ}
@@ -187,7 +199,7 @@
 \tableofcontents
 
 
-\newpage
+\clearpage
 
 \input{text/0_Введение.tex}
 

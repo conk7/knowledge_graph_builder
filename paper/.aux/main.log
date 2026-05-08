@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  6 MAY 2026 20:29
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  8 MAY 2026 20:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -227,6 +227,68 @@ Package fontspec Info:
 (fontspec)             <->"Times New
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
 
+ (/usr/share/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2025/01/31 v2.4 Modern multilingual typesetting with XeLaTeX and LuaLaTeX
+\l_xpg_alias_keyvals_int=\count297
+ (/usr/share/texmf-dist/tex/latex/polyglossia/gloss-latex.ldf
+File: gloss-latex.ldf polyglossia: module for default language
+)) (/usr/share/texmf-dist/tex/latex/polyglossia/gloss-russian.ldf
+File: gloss-russian.ldf polyglossia: module for Russian
+ (/usr/share/texmf-dist/tex/latex/polyglossia/xpg-cyrillicnumbers.sty
+Package: xpg-cyrillicnumbers 2019/11/15 v0.2 Formatting of Cyrillic alphabetic numbers
+)
+
+Package polyglossia Warning: No hyphenation patterns were loaded for `russian'
+(polyglossia)                I will use \language=\l@nohyphenation instead.
+
+\l@russian = a dialect from \language\l@nohyphenation 
+(/usr/share/texmf-dist/tex/latex/polyglossia/babelsh.def
+File: babelsh.def 2022/06/21 Babel common definitions for shorthands
+ Taken verbatim from babel files (2022/06/06 v3.76)
+)
+Package babel Info: Making " an active character on input line 115.
+)
+
+Package polyglossia Info: Default language is russian
+
+ (/usr/share/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
+File: gloss-english.ldf polyglossia: module for English
+)
+
+Package fontspec Info: 
+(fontspec)             Font family 'CourierNew(0)' created for font 'Courier
+(fontspec)             New' with options
+(fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordSpace].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Courier
+(fontspec)             New/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Courier
+(fontspec)             New/B/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"Courier
+(fontspec)             New/I/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Courier
+(fontspec)             New/BI/OT:script=latn;language=dflt;"
+
+
+Package fontspec Info: 
+(fontspec)             Font family 'CourierNew(1)' created for font 'Courier
+(fontspec)             New' with options [].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Courier
+(fontspec)             New/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Courier
+(fontspec)             New/B/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"Courier
+(fontspec)             New/I/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Courier
+(fontspec)             New/BI/OT:script=latn;language=dflt;"
+
  (/usr/share/texmf-dist/tex/latex/koma-script/scrextend.sty
 Package: scrextend 2024/10/24 v3.43 KOMA-Script package (extend other classes with features of KOMA-Script classes)
  (/usr/share/texmf-dist/tex/latex/koma-script/scrkbase.sty
@@ -276,8 +338,8 @@ Package tocloft Info: The document has section divisions on input line 51.
 \cftbeforefigskip=\skip89
 \cftfigindent=\skip90
 \cftfignumwidth=\skip91
-\c@lofdepth=\count297
-\c@lotdepth=\count298
+\c@lofdepth=\count298
+\c@lotdepth=\count299
 \cftbeforelottitleskip=\skip92
 \cftafterlottitleskip=\skip93
 \cftbeforetabskip=\skip94
@@ -307,7 +369,7 @@ Package footmisc Info: Declaring symbol style lamport* on input line 747.
 Package footmisc Info: Declaring symbol style lamport*-robust on input line 768.
 ) (/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count299
+\c@float@type=\count300
 \float@exts=\toks22
 \float@box=\box55
 \@float@everytoks=\toks23
@@ -315,7 +377,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 ) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip99
-\multirow@cntb=\count300
+\multirow@cntb=\count301
 \multirow@dima=\skip100
 \bigstrutjot=\dimen164
 ) (/usr/share/texmf-dist/tex/latex/tools/tabularx.sty
@@ -335,7 +397,7 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \TX@old@col=\dimen169
 \TX@target=\dimen170
 \TX@delta=\dimen171
-\TX@cols=\count301
+\TX@cols=\count302
 \TX@ftn=\toks25
 ) (/usr/share/texmf-dist/tex/latex/tablefootnote/tablefootnote.sty
 Package: tablefootnote 2014/01/26 v1.1c Table foot notes (HMM)
@@ -345,15 +407,15 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count302
-\calc@Bcount=\count303
+\calc@Acount=\count303
+\calc@Bcount=\count304
 \calc@Adimen=\dimen172
 \calc@Bdimen=\dimen173
 \calc@Askip=\skip103
 \calc@Bskip=\skip104
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count304
+\calc@Ccount=\count305
 \calc@Cskip=\skip105
 ) (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
@@ -373,8 +435,8 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen181
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count305
-\c@continuedfloat=\count306
+\c@caption@flags=\count306
+\c@continuedfloat=\count307
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: scrextend package is loaded.
@@ -435,14 +497,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen197
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count307
-\c@pgf@countb=\count308
-\c@pgf@countc=\count309
-\c@pgf@countd=\count310
+\c@pgf@counta=\count308
+\c@pgf@countb=\count309
+\c@pgf@countc=\count310
+\c@pgf@countd=\count311
 \t@pgf@toka=\toks31
 \t@pgf@tokb=\toks32
 \t@pgf@tokc=\toks33
-\pgf@sys@id@count=\count311
+\pgf@sys@id@count=\count312
  (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -454,11 +516,11 @@ File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )
-\pgfsys@objnum=\count312
+\pgfsys@objnum=\count313
 ))) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count313
-\pgfsyssoftpath@bigbuffer@items=\count314
+\pgfsyssoftpath@smallbuffer@items=\count314
+\pgfsyssoftpath@bigbuffer@items=\count315
 ) (/usr/share/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
@@ -480,13 +542,13 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen198
-\pgfmath@count=\count315
+\pgfmath@count=\count316
 \pgfmath@box=\box60
 \pgfmath@toks=\toks34
 \pgfmath@stack@operand=\toks35
 \pgfmath@stack@operation=\toks36
 ) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count316
+\c@pgfmathroundto@lastzeros=\count317
 )) (/usr/share/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen199
@@ -516,7 +578,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box61
 \pgf@hbox=\box62
 \pgf@layerbox@main=\box63
-\pgf@picture@serial@count=\count317
+\pgf@picture@serial@count=\count318
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen273
@@ -537,8 +599,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen278
-\pgf@sys@shading@range@num=\count318
-\pgf@shadingcount=\count319
+\pgf@sys@shading@range@num=\count319
+\pgf@shadingcount=\count320
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -573,7 +635,7 @@ Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count320
+\pgf@plot@mark@count=\count321
 \pgfplotmarksize=\dimen283
 )
 \tikz@lastx=\dimen284
@@ -588,17 +650,17 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box67
 \tikz@tempbox=\box68
 \tikz@tempbox@bg=\box69
-\tikztreelevel=\count321
-\tikznumberofchildren=\count322
-\tikznumberofcurrentchild=\count323
-\tikz@fig@count=\count324
+\tikztreelevel=\count322
+\tikznumberofchildren=\count323
+\tikznumberofcurrentchild=\count324
+\tikz@fig@count=\count325
  (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count325
-\pgfmatrixcurrentcolumn=\count326
-\pgf@matrix@numberofcolumns=\count327
+\pgfmatrixcurrentrow=\count326
+\pgfmatrixcurrentcolumn=\count327
+\pgf@matrix@numberofcolumns=\count328
 )
-\tikz@expandcount=\count328
+\tikz@expandcount=\count329
  (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
@@ -628,35 +690,35 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks40
 \t@pgfplots@tokc=\toks41
 \pgfplots@tmpa=\dimen296
-\c@pgfplots@coordindex=\count329
-\c@pgfplots@scanlineindex=\count330
+\c@pgfplots@coordindex=\count330
+\c@pgfplots@scanlineindex=\count331
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks42
 \t@pgf@tokb=\toks43
 \t@pgf@tokc=\toks44
 (/usr/share/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count331
+\c@pgfplotsarray@tmp=\count332
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count332
+\c@pgfplotstable@counta=\count333
 \t@pgfplotstable@a=\toks45
 ) (/usr/share/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count333
+\c@pgfplotslibrarysurf@no=\count334
  (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-xetex.def (/usr/share/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-dvipdfmx.def
-\c@pgfplotslibrarysurf@streamlen=\count334
+\c@pgfplotslibrarysurf@streamlen=\count335
 )))) (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/share/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen297
 \pgfdecoratedremainingdistance=\dimen298
 \pgfdecoratedinputsegmentcompleteddistance=\dimen299
 \pgfdecoratedinputsegmentremainingdistance=\dimen300
 \pgf@decorate@distancetomove=\dimen301
-\pgf@decorate@repeatstate=\count335
+\pgf@decorate@repeatstate=\count336
 \pgfdecorationsegmentamplitude=\dimen302
 \pgfdecorationsegmentlength=\dimen303
 )
 \tikz@lib@dec@box=\box72
 ) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/share/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count336
+\pgfplots@numplots=\count337
 \pgfplots@xmin@reg=\dimen304
 \pgfplots@xmax@reg=\dimen305
 \pgfplots@ymin@reg=\dimen306
@@ -670,9 +732,9 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count337
+\c@subfigure=\count338
 Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count338
+\c@subtable=\count339
 ) (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2024/11/05 v2.17t AMS math features
 \@mathmargin=\skip106
@@ -690,14 +752,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count339
+\inf@bad=\count340
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count340
-\leftroot@=\count341
+\uproot@=\count341
+\leftroot@=\count342
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count342
-\DOTSCASE@=\count343
+\classnum@=\count343
+\DOTSCASE@=\count344
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -710,20 +772,20 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen312
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count344
+\macc@depth=\count345
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count345
+\c@MaxMatrixCols=\count346
 \dotsspace@=\muskip18
-\c@parentequation=\count346
-\dspbrk@lvl=\count347
+\c@parentequation=\count347
+\dspbrk@lvl=\count348
 \tag@help=\toks47
-\row@=\count348
-\column@=\count349
-\maxfields@=\count350
+\row@=\count349
+\column@=\count350
+\maxfields@=\count351
 \andhelp@=\toks48
 \eqnshift@=\dimen313
 \alignsep@=\dimen314
@@ -743,8 +805,8 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@outerparindent=\dimen319
 \enit@toks=\toks51
 \enit@inbox=\box75
-\enit@count@id=\count351
-\enitdp@description=\count352
+\enit@count@id=\count352
+\enitdp@description=\count353
 ) (/usr/share/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box76
@@ -752,53 +814,53 @@ Package: threeparttable 2003/06/13  v 3.0
 Package: biblatex 2024/03/21 v3.20 programmable bibliographies (PK/MW)
  (/usr/share/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count353
+\lrq@indent=\count354
  (/usr/share/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count354
-\c@listtotal=\count355
-\c@listcount=\count356
-\c@liststart=\count357
-\c@liststop=\count358
-\c@citecount=\count359
-\c@citetotal=\count360
-\c@multicitecount=\count361
-\c@multicitetotal=\count362
-\c@instcount=\count363
-\c@maxnames=\count364
-\c@minnames=\count365
-\c@maxitems=\count366
-\c@minitems=\count367
-\c@citecounter=\count368
-\c@maxcitecounter=\count369
-\c@savedcitecounter=\count370
-\c@uniquelist=\count371
-\c@uniquename=\count372
-\c@refsection=\count373
-\c@refsegment=\count374
-\c@maxextratitle=\count375
-\c@maxextratitleyear=\count376
-\c@maxextraname=\count377
-\c@maxextradate=\count378
-\c@maxextraalpha=\count379
-\c@abbrvpenalty=\count380
-\c@highnamepenalty=\count381
-\c@lownamepenalty=\count382
-\c@maxparens=\count383
-\c@parenlevel=\count384
-\blx@tempcnta=\count385
-\blx@tempcntb=\count386
-\blx@tempcntc=\count387
-\c@blx@maxsection=\count388
-\blx@maxsegment@0=\count389
-\blx@notetype=\count390
-\blx@parenlevel@text=\count391
-\blx@parenlevel@foot=\count392
-\blx@sectionciteorder@0=\count393
-\blx@sectionciteorderinternal@0=\count394
-\blx@entrysetcounter=\count395
-\blx@biblioinstance=\count396
+\c@tabx@nest=\count355
+\c@listtotal=\count356
+\c@listcount=\count357
+\c@liststart=\count358
+\c@liststop=\count359
+\c@citecount=\count360
+\c@citetotal=\count361
+\c@multicitecount=\count362
+\c@multicitetotal=\count363
+\c@instcount=\count364
+\c@maxnames=\count365
+\c@minnames=\count366
+\c@maxitems=\count367
+\c@minitems=\count368
+\c@citecounter=\count369
+\c@maxcitecounter=\count370
+\c@savedcitecounter=\count371
+\c@uniquelist=\count372
+\c@uniquename=\count373
+\c@refsection=\count374
+\c@refsegment=\count375
+\c@maxextratitle=\count376
+\c@maxextratitleyear=\count377
+\c@maxextraname=\count378
+\c@maxextradate=\count379
+\c@maxextraalpha=\count380
+\c@abbrvpenalty=\count381
+\c@highnamepenalty=\count382
+\c@lownamepenalty=\count383
+\c@maxparens=\count384
+\c@parenlevel=\count385
+\blx@tempcnta=\count386
+\blx@tempcntb=\count387
+\blx@tempcntc=\count388
+\c@blx@maxsection=\count389
+\blx@maxsegment@0=\count390
+\blx@notetype=\count391
+\blx@parenlevel@text=\count392
+\blx@parenlevel@foot=\count393
+\blx@sectionciteorder@0=\count394
+\blx@sectionciteorderinternal@0=\count395
+\blx@entrysetcounter=\count396
+\blx@biblioinstance=\count397
 \labelnumberwidth=\skip110
 \labelalphawidth=\skip111
 \biblabelsep=\skip112
@@ -810,9 +872,9 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \blx@bcfin=\read3
 \blx@bcfout=\write4
 \blx@langwohyphens=\language3
-\c@mincomprange=\count397
-\c@maxcomprange=\count398
-\c@mincompwidth=\count399
+\c@mincomprange=\count398
+\c@maxcomprange=\count399
+\c@mincompwidth=\count400
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/blx-dm.def
@@ -831,96 +893,96 @@ File: biblatex-gost.dbx 2023/04/25 v1.24 biblatex-gost data model
 ))
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count400
-\c@savedafterword=\count401
-\c@annotator=\count402
-\c@savedannotator=\count403
-\c@author=\count404
-\c@savedauthor=\count405
-\c@bookauthor=\count406
-\c@savedbookauthor=\count407
-\c@commentator=\count408
-\c@savedcommentator=\count409
-\c@editor=\count410
-\c@savededitor=\count411
-\c@editora=\count412
-\c@savededitora=\count413
-\c@editorb=\count414
-\c@savededitorb=\count415
-\c@editorc=\count416
-\c@savededitorc=\count417
-\c@foreword=\count418
-\c@savedforeword=\count419
-\c@holder=\count420
-\c@savedholder=\count421
-\c@introduction=\count422
-\c@savedintroduction=\count423
-\c@namea=\count424
-\c@savednamea=\count425
-\c@nameb=\count426
-\c@savednameb=\count427
-\c@namec=\count428
-\c@savednamec=\count429
-\c@translator=\count430
-\c@savedtranslator=\count431
-\c@shortauthor=\count432
-\c@savedshortauthor=\count433
-\c@shorteditor=\count434
-\c@savedshorteditor=\count435
-\c@booktranslator=\count436
-\c@savedbooktranslator=\count437
-\c@bookcommentator=\count438
-\c@savedbookcommentator=\count439
-\c@bookannotator=\count440
-\c@savedbookannotator=\count441
-\c@bookintroduction=\count442
-\c@savedbookintroduction=\count443
-\c@bookforeword=\count444
-\c@savedbookforeword=\count445
-\c@bookafterword=\count446
-\c@savedbookafterword=\count447
-\c@labelname=\count448
-\c@savedlabelname=\count449
-\c@institution=\count450
-\c@savedinstitution=\count451
-\c@lista=\count452
-\c@savedlista=\count453
-\c@listb=\count454
-\c@savedlistb=\count455
-\c@listc=\count456
-\c@savedlistc=\count457
-\c@listd=\count458
-\c@savedlistd=\count459
-\c@liste=\count460
-\c@savedliste=\count461
-\c@listf=\count462
-\c@savedlistf=\count463
-\c@location=\count464
-\c@savedlocation=\count465
-\c@organization=\count466
-\c@savedorganization=\count467
-\c@origlocation=\count468
-\c@savedoriglocation=\count469
-\c@origpublisher=\count470
-\c@savedorigpublisher=\count471
-\c@publisher=\count472
-\c@savedpublisher=\count473
-\c@language=\count474
-\c@savedlanguage=\count475
-\c@origlanguage=\count476
-\c@savedoriglanguage=\count477
-\c@bookoriglanguage=\count478
-\c@savedbookoriglanguage=\count479
-\c@specdata=\count480
-\c@savedspecdata=\count481
-\c@credits=\count482
-\c@savedcredits=\count483
-\c@bookcredits=\count484
-\c@savedbookcredits=\count485
-\c@editioncredits=\count486
-\c@savededitioncredits=\count487
-\c@pageref=\count488
-\c@savedpageref=\count489
+\c@afterword=\count401
+\c@savedafterword=\count402
+\c@annotator=\count403
+\c@savedannotator=\count404
+\c@author=\count405
+\c@savedauthor=\count406
+\c@bookauthor=\count407
+\c@savedbookauthor=\count408
+\c@commentator=\count409
+\c@savedcommentator=\count410
+\c@editor=\count411
+\c@savededitor=\count412
+\c@editora=\count413
+\c@savededitora=\count414
+\c@editorb=\count415
+\c@savededitorb=\count416
+\c@editorc=\count417
+\c@savededitorc=\count418
+\c@foreword=\count419
+\c@savedforeword=\count420
+\c@holder=\count421
+\c@savedholder=\count422
+\c@introduction=\count423
+\c@savedintroduction=\count424
+\c@namea=\count425
+\c@savednamea=\count426
+\c@nameb=\count427
+\c@savednameb=\count428
+\c@namec=\count429
+\c@savednamec=\count430
+\c@translator=\count431
+\c@savedtranslator=\count432
+\c@shortauthor=\count433
+\c@savedshortauthor=\count434
+\c@shorteditor=\count435
+\c@savedshorteditor=\count436
+\c@booktranslator=\count437
+\c@savedbooktranslator=\count438
+\c@bookcommentator=\count439
+\c@savedbookcommentator=\count440
+\c@bookannotator=\count441
+\c@savedbookannotator=\count442
+\c@bookintroduction=\count443
+\c@savedbookintroduction=\count444
+\c@bookforeword=\count445
+\c@savedbookforeword=\count446
+\c@bookafterword=\count447
+\c@savedbookafterword=\count448
+\c@labelname=\count449
+\c@savedlabelname=\count450
+\c@institution=\count451
+\c@savedinstitution=\count452
+\c@lista=\count453
+\c@savedlista=\count454
+\c@listb=\count455
+\c@savedlistb=\count456
+\c@listc=\count457
+\c@savedlistc=\count458
+\c@listd=\count459
+\c@savedlistd=\count460
+\c@liste=\count461
+\c@savedliste=\count462
+\c@listf=\count463
+\c@savedlistf=\count464
+\c@location=\count465
+\c@savedlocation=\count466
+\c@organization=\count467
+\c@savedorganization=\count468
+\c@origlocation=\count469
+\c@savedoriglocation=\count470
+\c@origpublisher=\count471
+\c@savedorigpublisher=\count472
+\c@publisher=\count473
+\c@savedpublisher=\count474
+\c@language=\count475
+\c@savedlanguage=\count476
+\c@origlanguage=\count477
+\c@savedoriglanguage=\count478
+\c@bookoriglanguage=\count479
+\c@savedbookoriglanguage=\count480
+\c@specdata=\count481
+\c@savedspecdata=\count482
+\c@credits=\count483
+\c@savedcredits=\count484
+\c@bookcredits=\count485
+\c@savedbookcredits=\count486
+\c@editioncredits=\count487
+\c@savededitioncredits=\count488
+\c@pageref=\count489
+\c@savedpageref=\count490
 \shorthandwidth=\skip118
 \shortjournalwidth=\skip119
 \shortserieswidth=\skip120
@@ -947,19 +1009,19 @@ Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2024/03/21 v3.20 biblatex compatibility (PK/MW)
-\c@textcitecount=\count490
-\c@textcitetotal=\count491
-\c@textcitemaxnames=\count492
-\c@biburlbigbreakpenalty=\count493
-\c@biburlbreakpenalty=\count494
-\c@biburlnumpenalty=\count495
-\c@biburlucpenalty=\count496
-\c@biburllcpenalty=\count497
+\c@textcitecount=\count491
+\c@textcitetotal=\count492
+\c@textcitemaxnames=\count493
+\c@biburlbigbreakpenalty=\count494
+\c@biburlbreakpenalty=\count495
+\c@biburlnumpenalty=\count496
+\c@biburlucpenalty=\count497
+\c@biburllcpenalty=\count498
 \biburlbigskip=\muskip19
 \biburlnumskip=\muskip20
 \biburlucskip=\muskip21
 \biburllcskip=\muskip22
-\c@smartand=\count498
+\c@smartand=\count499
 )
 Package biblatex Info: Trying to load bibliography style 'gost-numeric'...
 Package biblatex Info: ... file 'gost-numeric.bbx' found.
@@ -974,9 +1036,9 @@ Package biblatex Info: ... file 'biblatex-gost.def' found.
  (/usr/share/texmf-dist/tex/latex/biblatex-gost/biblatex-gost.def
 File: biblatex-gost.def 2023/04/25 v1.24 biblatex-gost styles
 )
-\c@blx@gost@pointer=\count499
-\c@bbx:relatedcount=\count500
-\c@bbx:relatedtotal=\count501
+\c@blx@gost@pointer=\count500
+\c@bbx:relatedcount=\count501
+\c@bbx:relatedtotal=\count502
 Package biblatex Info: Redefining autocite command 'footnote'.
 Package biblatex Info: Redefining autocite command 'superscript'.
 ))
@@ -984,10 +1046,10 @@ Package biblatex Info: Trying to load citation style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.cbx' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
 File: numeric-comp.cbx 2024/03/21 v3.20 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count502
-\c@cbx@tempcntb=\count503
-\c@cbx@tempcntc=\count504
-\c@cbx@tempcntd=\count505
+\c@cbx@tempcnta=\count503
+\c@cbx@tempcntb=\count504
+\c@cbx@tempcntc=\count505
+\c@cbx@tempcntd=\count506
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -1014,32 +1076,63 @@ Package biblatex Info: ... and expl3
 (biblatex)             setting 'casechanger=expl3'.
  (/usr/share/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
-))
-\@quotelevel=\count506
-\@quotereset=\count507
+)) (/usr/share/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
+\@quotelevel=\count507
+\@quotereset=\count508
+
+Package fontspec Info: 
+(fontspec)             Font family 'TimesNewRoman(1)' created for font 'Times
+(fontspec)             New Roman' with options
+(fontspec)             [Ligatures=TeX,Script=Cyrillic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"Times New
+(fontspec)             Roman/OT:script=cyrl;language=dflt;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"Times New
+(fontspec)             Roman/OT:script=cyrl;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"Times New
+(fontspec)             Roman/B/OT:script=cyrl;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: <->"Times
+(fontspec)             New
+(fontspec)             Roman/B/OT:script=cyrl;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"Times New
+(fontspec)             Roman/I/OT:script=cyrl;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/I/OT:script=cyrl;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"Times New
+(fontspec)             Roman/BI/OT:script=cyrl;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"Times New
+(fontspec)             Roman/BI/OT:script=cyrl;language=dflt;+smcp;mapping=tex-text;"
+
  (.aux/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 124.
-LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 136.
+LaTeX Font Info:    ... okay on input line 136.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1075,7 +1168,7 @@ LaTeX Font Info:    ... okay on input line 124.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 124.
+Package hyperref Info: Link coloring OFF on input line 136.
 (.aux/main.out) (.aux/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1087,75 +1180,105 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 124.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 124.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 124.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 124.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 124.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 124.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 124.
-LaTeX Font Info:    Redeclaring math accent \check on input line 124.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 124.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 124.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 124.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 124.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 124.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 136.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 136.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 136.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 136.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 136.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 136.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 136.
+LaTeX Font Info:    Redeclaring math accent \check on input line 136.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 136.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 136.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 136.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 136.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 136.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 124.
+(Font)              `operators' in the math version `normal' on input line 136.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 124.
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 136.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 124.
+(Font)              `operators' in the math version `bold' on input line 136.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 124.
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 136.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on input line 124.
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on input line 136.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 124.
+(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 136.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 124.
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 136.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 124.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 136.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 124.
+(Font)                  OT1/cmtt/m/n --> TU/CourierNew(0)/m/n on input line 136.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on input line 124.
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on input line 136.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input line 124.
+(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input line 136.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 124.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 136.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 124.
+(Font)                  OT1/cmtt/m/n --> TU/CourierNew(0)/b/n on input line 136.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
 
+Package biblatex Info: Trying to load language 'american' -> 'american-gost'...
+Package biblatex Info: ... file 'american-gost.lbx' found.
+(/usr/share/texmf-dist/tex/latex/biblatex-gost/american-gost.lbx
+File: american-gost.lbx 2023/04/25 v1.24 biblatex-gost styles
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/lbx/american.lbx
+File: american.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 Package biblatex Info: Trying to load language 'english' -> 'english-gost'...
 Package biblatex Info: ... file 'english-gost.lbx' found.
-(/usr/share/texmf-dist/tex/latex/biblatex-gost/english-gost.lbx
+ (/usr/share/texmf-dist/tex/latex/biblatex-gost/english-gost.lbx
 File: english-gost.lbx 2023/04/25 v1.24 biblatex-gost styles
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
-)
+)))
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/lbx/american.lbx
+File: american.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'english' -> 'english-gost'...
+Package biblatex Info: ... file 'english-gost.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex-gost/english-gost.lbx
+File: english-gost.lbx 2023/04/25 v1.24 biblatex-gost styles
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+))))
+Package biblatex Info: Trying to load language 'russian' -> 'russian-gost'...
+Package biblatex Info: ... file 'russian-gost.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex-gost/russian-gost.lbx
+File: russian-gost.lbx 2023/04/25 v1.24 biblatex-gost styles
+Package biblatex Info: Trying to load language 'russian'...
+Package biblatex Info: ... file 'russian.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/lbx/russian.lbx
+File: russian.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'russian'...
+Package biblatex Info: ... file 'russian.lbx' found.
+ (/usr/share/texmf-dist/tex/latex/biblatex/lbx/russian.lbx
+File: russian.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
 ))
 Package biblatex Info: XeTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
@@ -1165,15 +1288,29 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (.aux/main.bbl)
-Package biblatex Info: Reference section=0 on input line 124.
-Package biblatex Info: Reference segment=0 on input line 124.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 170.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 170.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (.aux/main.bbl
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                Nogueira_2019
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+)
+
+Package biblatex Warning: citation 'Nogueira_2019'
+(biblatex)                was not found at all in the .bbl file,
+(biblatex)                bibliography labels cannot be generated,
+(biblatex)                please correct the citation.
+
+Package biblatex Info: Reference section=0 on input line 136.
+Package biblatex Info: Reference segment=0 on input line 136.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 182.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 182.
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 170.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 182.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1189,7 +1326,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[2])
+[2
+
+])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1211,9 +1350,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[4]
-File: images/KG.jpg Graphic file (type bmp)
-<images/KG.jpg>
+[4
+
+
+]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 28.
+
 
 
 
@@ -1223,7 +1369,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[5]
+[5
+
+]
+File: images/KG.jpg Graphic file (type bmp)
+<images/KG.jpg>
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1243,6 +1394,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7]
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 6.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 9.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 28.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 31.
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.79994pt, for example:
@@ -1250,7 +1414,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[8]) (./text/1.3_Готовые_Решения.tex
+[8]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 42.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 52.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 67.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1261,6 +1435,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [9]
 
+LaTeX Warning: Citation 'Nogueira_2019' on page 10 undefined on input line 80.
+
+) (./text/1.3_Готовые_Решения.tex
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.79994pt, for example:
@@ -1269,6 +1447,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [10]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1279,6 +1464,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [11]
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 49.
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.79994pt, for example:
@@ -1287,6 +1476,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [12]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 89.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 98.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 104.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1297,14 +1496,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13]
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 134.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[14]) (./text/1.4_Оценка_Качества.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1313,7 +1507,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[15]
+[14]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 165.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 171.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[15]) (./text/1.4_Оценка_Качества.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1342,6 +1552,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [18]
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 108.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 126.
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.79994pt, for example:
@@ -1358,7 +1575,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[20]) (./text/2.1_Построение_Графа.tex
+[20]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1367,7 +1584,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[21]
+[21]) (./text/2.1_Построение_Графа.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1385,7 +1602,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[23]
+[23
+
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1395,6 +1614,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [24]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 104.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1423,14 +1646,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [27]
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 218.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[28]) (./text/2.2_GraphRAG.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1439,7 +1657,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[29]
+[28]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[29]) (./text/2.2_GraphRAG.tex
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 3.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1457,7 +1688,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[31]) (./text/3_Данные.tex
+[31]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1475,7 +1706,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[33]
+[33]) (./text/3_Данные.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1486,6 +1717,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [34]
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 14.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 15.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17.
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.79994pt, for example:
@@ -1493,7 +1737,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[35]
+[35
+
+]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1512,11 +1758,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [37]
-Overfull \hbox (13.5429pt too wide) in paragraph at lines 196--209
- [][] 
- []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1534,7 +1775,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[39]) (./text/4_Эксперименты.tex
+[39]
+Overfull \hbox (26.64793pt too wide) in paragraph at lines 197--210
+ [][] 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1544,11 +1790,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [40]
-Overfull \hbox (15.02565pt too wide) in paragraph at lines 90--90
-[]|\TU/lmtt/m/n/14 paraphrase-multilingual-MiniLM-L12-v2 [[]16[]]|  
- []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1557,12 +1798,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[41]
-Overfull \hbox (23.6988pt too wide) in paragraph at lines 112--127
- [][] 
- []
-
-
+[41]) (./text/4_Эксперименты.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1580,7 +1816,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[43]
+[43
+
+]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 63.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 63.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 101.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 101.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1590,31 +1841,20 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [44]
-LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 264.
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 127.
 
 
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.77509> not available
-(Font)              size <12> substituted on input line 264.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 127.
 
 
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.77509> not available
-(Font)              size <12> substituted on input line 264.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 130.
 
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.77509> not available
-(Font)              size <12> substituted on input line 264.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 133.
 
 
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[45]
-Overfull \hbox (17.29448pt too wide) in paragraph at lines 294--309
+Overfull \hbox (23.6988pt too wide) in paragraph at lines 123--138
  [][] 
  []
 
@@ -1627,7 +1867,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
+[45]
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
 [46]
+LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 273.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.77509> not available
+(Font)              size <12> substituted on input line 273.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.77509> not available
+(Font)              size <12> substituted on input line 273.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.77509> not available
+(Font)              size <12> substituted on input line 273.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1637,6 +1901,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [47]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 307.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 312.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 313.
+
+
+Overfull \hbox (11.16223pt too wide) in paragraph at lines 301--316
+ [][] 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1692,6 +1971,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [53]
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 662.
+
+
+Overfull \hbox (3.32857pt too wide) in paragraph at lines 666--691
+ [][] 
+ []
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.79994pt, for example:
@@ -1709,11 +1997,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [55]
-Overfull \hbox (4.49307pt too wide) in paragraph at lines 792--792
- [][]\TU/TimesNewRoman(0)/m/n/12.77509 Многошаговый 
- []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1722,12 +2005,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[56]) (./text/5_Заключение.tex) (./text/6_Литература.tex
-
-Package biblatex Warning: Keyword 'rus' not found on input line 5.
-
-
-LaTeX Warning: Empty bibliography on input line 5.
+[56]
+Overfull \hbox (4.49307pt too wide) in paragraph at lines 823--823
+ [][]\TU/TimesNewRoman(1)/m/n/12.77509 Многошаговый 
+ []
 
 
 
@@ -1747,7 +2028,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[58]) (./text/7_Приложение.tex
+[58]) (./text/5_Заключение.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1756,7 +2037,162 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[59]
+[59]) (./text/6_Литература.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[60
+
+]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[61
+
+]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[62]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[63]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+) (./text/7_Приложение.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[64]
 File: images/light/hub.png Graphic file (type bmp)
 <images/light/hub.png>
 File: images/light/realistic.png Graphic file (type bmp)
@@ -1767,18 +2203,6 @@ File: images/light/sequence.png Graphic file (type bmp)
 <images/light/sequence.png>
 File: images/light/personal.png Graphic file (type bmp)
 <images/light/personal.png>
-)
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[60]
-Overfull \vbox (28.46309pt too high) has occurred while \output is active []
-
 
 
 
@@ -1788,7 +2212,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
-[61] (.aux/main.aux)
+[65
+
+])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.79994pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.79994pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+[66] (.aux/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1799,18 +2234,18 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.77509pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 4013E5FF8D26996A55B7FF35D17349BD;7980.
+(rerunfilecheck)             Checksum: 91BCE8742EDA86EFC39F60815C054E88;9247.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 47064 strings out of 475848
- 1097924 string characters out of 5776013
- 2228591 words of memory out of 5000000
- 69259 multiletter control sequences out of 15000+600000
- 566931 words of font info for 100 fonts, out of 8000000 for 9000
+ 48375 strings out of 475848
+ 1131231 string characters out of 5776013
+ 2310915 words of memory out of 5000000
+ 70494 multiletter control sequences out of 15000+600000
+ 567179 words of font info for 131 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,19n,107p,1212b,5612s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,19n,107p,1212b,5658s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .aux/main.xdv (61 pages, 1026948 bytes).
+Output written on .aux/main.xdv (66 pages, 1075544 bytes).

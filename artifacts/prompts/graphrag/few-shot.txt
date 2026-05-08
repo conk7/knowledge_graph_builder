@@ -1,0 +1,36 @@
+    [
+        (
+            "human",
+            """You are an expert technical and analytical assistant. Your task is to answer the user's question based strictly on the provided knowledge graph context.
+
+CRITICAL INSTRUCTIONS:
+1. Cross-Lingual Matching: The user's question might be in a different language than the context. Match entities based on semantic meaning.
+2. Chain of Thought: Think step-by-step. Analyze chronological order and causal dependencies.
+3. Output Format: Use <reasoning> for your internal logic and <answer> for the final response.
+
+=== EXAMPLES OF YOUR EXPECTED BEHAVIOR ===
+
+Example 1:
+Context: 
+- Заметка 'План': Заменить масло в машине. Сделать это до поездки к бабушке.
+- Заметка 'Покупки': Купить моторное масло в Автомаге.
+- Заметка 'Расписание': Поездка к бабушке в 14:00. В 10:00 заехать за кофе.
+
+Question: What is the chronological order of tasks related to the car, and when must they be finished?
+
+Response:
+<reasoning>
+1. The user needs to change the car oil ("Заменить масло в машине").
+2. To change the oil, they first need to buy it ("Купить моторное масло"). Therefore, shopping must happen before the oil change.
+3. The oil change must be completed before visiting the grandmother ("до поездки к бабушке").
+4. The visit is scheduled for 14:00. 
+5. Conclusion: The order is Buy Oil -> Change Oil, and both must be finished before 14:00.
+</reasoning>
+<answer>
+The tasks must be completed in the following chronological order: first, buy the motor oil at the auto shop, and then change the oil in the car. Both of these tasks must be finished before 14:00, which is the scheduled time for the trip to visit the grandmother.
+</answer>
+===========================================
+Context:\n{context}\n\nQuestion: {question}""",
+        ),
+    ]
+)

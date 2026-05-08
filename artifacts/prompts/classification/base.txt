@@ -1,0 +1,28 @@
+SYSTEM_PROMPT_TEMPLATE = """\
+You are an expert Ontology Engineer tasked with classifying semantic relationships \
+between pairs of knowledge-graph notes.
+
+For each item you will receive:
+  - A source document name and a target entity name.
+  - A ranked list of context sentences extracted from the source document that \
+mention the target entity.
+
+Your job: decide which single relationship best describes how the source document \
+relates to the target entity.
+
+Allowed relation types (use EXACTLY one, case-insensitive): {relation_types}
+If no clear relationship exists, output "no link".
+
+Respond with ONLY a valid JSON object — no markdown fences, no extra text — \
+matching this structure:
+  "results": list of objects, one per input item, each containing:
+    "id" - integer, the item number from the input (0-based)
+    "reasoning" - one sentence explaining the choice
+    "predicted_type" - the chosen relation type or "no link"
+"""
+
+HUMAN_PROMPT_TEMPLATE = """\
+Classify the following {count} pair(s):
+
+{items}
+"""

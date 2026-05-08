@@ -40,7 +40,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Atria Books}
-      \field{langid}{english}
+      \field{langid}{russian}
       \field{title}{Building a second brain: A proven method to organize your digital life and unlock your creative potential}
       \field{year}{2022}
       \keyw{eng}
@@ -68,9 +68,82 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
       \field{title}{How to Take Smart Notes: One Simple Technique to Boost Writing, Learning and Thinking}
       \field{year}{2017}
+      \keyw{eng}
+    \endentry
+    \entry{Ji_2023}{article}{useauthor=false}{}
+      \name{author}{10}{}{%
+        {{hash=28c4d3b46eb6f65e0971f148e97bf009}{%
+           family={Ji},
+           familyi={J\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f096823e9ec411e83f3747394df23fd1}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1b0cd3cfec2afc72d94eee88fd00b5ee}{%
+           family={Frieske},
+           familyi={F\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=18e76f77ed34fdca4f257e73464ae03a}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d487cbb64d20b98b41b5d556894c1b28}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=2efac453cb818e3e871c3147d9153d6d}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=fd51e475047e86a1077b5dd72d128363}{%
+           family={Ishii},
+           familyi={I\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=8724245c78e1fa158f3ecdb346264562}{%
+           family={Bang},
+           familyi={B\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=92af4a90f94f9f24bac01190dec6ffdc}{%
+           family={Madotto},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6db76faceb296fc23fe3c90591813c58}{%
+           family={Fung},
+           familyi={F\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{fb4bcf342af84906104f062186e24f7a}
+      \strng{authornamehash}{fb4bcf342af84906104f062186e24f7a}
+      \strng{authorfullhash}{4ec847eb27f05dd17602c835eafbfe75}
+      \strng{authorfullhashraw}{4ec847eb27f05dd17602c835eafbfe75}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{55}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{russian}
+      \field{title}{Survey of hallucination in natural language generation}
+      \field{year}{2023}
+      \field{number}{12}
+      \range{number}{1}
+      \field{pages}{1\bibrangedash 38}
+      \range{pages}{38}
+      \field{volume}{55}
+      \range{volume}{1}
       \keyw{eng}
     \endentry
     \entry{Lewis_2020}{inproceedings}{useauthor=false}{}
@@ -140,18 +213,114 @@
       \strng{authornamehash}{e41213d2f7762b77fb6bccc5e658702e}
       \strng{authorfullhash}{ad1f6a1bf3defeedfadcc010052d7182}
       \strng{authorfullhashraw}{ad1f6a1bf3defeedfadcc010052d7182}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labeltitlesource}{title}
       \field{booktitle}{Advances in Neural Information Processing Systems}
       \field{internalsortvolume}{33}
-      \field{langid}{english}
+      \field{langid}{russian}
       \field{title}{Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks}
       \field{year}{2020}
       \field{pages}{9459\bibrangedash 9474}
       \range{pages}{16}
       \field{volume}{33}
       \range{volume}{1}
+      \keyw{eng}
+    \endentry
+    \entry{Robertson_2009}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=8db48d7dfbeb64302ee2d7d4230b2389}{%
+           family={Robertson},
+           familyi={R\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=5703f2926be305988ad1313ad9e589ee}{%
+           family={Zaragoza},
+           familyi={Z\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{310bc0b63e41c7ab63464dc20bb1a429}
+      \strng{fullhash}{310bc0b63e41c7ab63464dc20bb1a429}
+      \strng{fullhashraw}{310bc0b63e41c7ab63464dc20bb1a429}
+      \strng{bibnamehash}{310bc0b63e41c7ab63464dc20bb1a429}
+      \strng{authorbibnamehash}{310bc0b63e41c7ab63464dc20bb1a429}
+      \strng{authornamehash}{310bc0b63e41c7ab63464dc20bb1a429}
+      \strng{authorfullhash}{310bc0b63e41c7ab63464dc20bb1a429}
+      \strng{authorfullhashraw}{310bc0b63e41c7ab63464dc20bb1a429}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{3}
+      \field{journaltitle}{Foundations and Trends in Information Retrieval}
+      \field{langid}{russian}
+      \field{title}{The Probabilistic Relevance Framework: BM25 and Beyond}
+      \field{year}{2009}
+      \field{number}{4}
+      \range{number}{1}
+      \field{pages}{333\bibrangedash 389}
+      \range{pages}{57}
+      \field{volume}{3}
+      \range{volume}{1}
+      \keyw{eng}
+    \endentry
+    \entry{Karpukhin_2020}{inproceedings}{useauthor=false}{}
+      \name{author}{8}{}{%
+        {{hash=6f895ccc4219e719c1b5b77eae5afeaa}{%
+           family={Karpukhin},
+           familyi={K\bibinitperiod},
+           given={V.},
+           giveni={V\bibinitperiod}}}%
+        {{hash=feea674f9fb24c8d0ccd0348dc46df7f}{%
+           family={Oguz},
+           familyi={O\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=16d9c07c636fbd24c13d7f8b2943ac7d}{%
+           family={Min},
+           familyi={M\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d2aa4ca344a7388fb2bbb725e0757875}{%
+           family={Lewis},
+           familyi={L\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a469a40717c59ac58df7d64de918fd16}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=93b2b07ab0211707c1ba5c73e294196d}{%
+           family={Edunov},
+           familyi={E\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=80489b75bcde120c9f335f4995d789c2}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c72a3d232da4308c6bc03c7020600109}{%
+           family={Yih},
+           familyi={Y\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{e2975c3d0146d1b154012de90327c961}
+      \strng{authornamehash}{e2975c3d0146d1b154012de90327c961}
+      \strng{authorfullhash}{321716929dcd4619f369ce4be5302438}
+      \strng{authorfullhashraw}{321716929dcd4619f369ce4be5302438}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)}
+      \field{langid}{russian}
+      \field{title}{Dense Passage Retrieval for Open-Domain Question Answering}
+      \field{year}{2020}
+      \field{pages}{6769\bibrangedash 6781}
+      \range{pages}{13}
       \keyw{eng}
     \endentry
     \entry{Gao_2023}{article}{useauthor=false}{}
@@ -211,11 +380,11 @@
       \strng{authornamehash}{eff5c0acbfcff31f941869f34a8fcc5d}
       \strng{authorfullhash}{b4c1f8a9c230e6cd015f8b0d8ae0428e}
       \strng{authorfullhashraw}{b4c1f8a9c230e6cd015f8b0d8ae0428e}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2312.10997}
-      \field{langid}{english}
+      \field{langid}{russian}
       \field{title}{Retrieval-Augmented Generation for Large Language Models: A Survey}
       \field{year}{2023}
       \keyw{eng}
@@ -267,11 +436,11 @@
       \strng{authornamehash}{6a97a6326192811c512c193bd549bde8}
       \strng{authorfullhash}{04288a1a327812a9aa042ed5f65f41f1}
       \strng{authorfullhashraw}{04288a1a327812a9aa042ed5f65f41f1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2404.16130}
-      \field{langid}{english}
+      \field{langid}{russian}
       \field{title}{From Local to Global: A Graph RAG Approach to Query-Focused Summarization}
       \field{year}{2024}
       \keyw{eng}
@@ -290,11 +459,12 @@
       \strng{authornamehash}{133cb30e9deead9470f51478b2e64685}
       \strng{authorfullhash}{133cb30e9deead9470f51478b2e64685}
       \strng{authorfullhashraw}{133cb30e9deead9470f51478b2e64685}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{LLM Graph Builder}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -323,11 +493,12 @@
       \strng{authornamehash}{6ae46f0fca7307a4b89086193f241fb5}
       \strng{authorfullhash}{6ae46f0fca7307a4b89086193f241fb5}
       \strng{authorfullhashraw}{6ae46f0fca7307a4b89086193f241fb5}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Unstructured2Graph}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -339,6 +510,40 @@
       \endverb
       \verb{url}
       \verb https://github.com/memgraph/ai-toolkit/tree/main/unstructured2graph
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Chase_langchain}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=93736f2b27fc4a248bcba1f2c331f8a3}{%
+           family={Chase},
+           familyi={C\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \strng{fullhash}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \strng{fullhashraw}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \strng{bibnamehash}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \strng{authorbibnamehash}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \strng{authornamehash}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \strng{authorfullhash}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \strng{authorfullhashraw}{93736f2b27fc4a248bcba1f2c331f8a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{LangChain}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/langchain-ai/langchain
+      \endverb
+      \verb{url}
+      \verb https://github.com/langchain-ai/langchain
       \endverb
       \keyw{eng}
     \endentry
@@ -379,15 +584,121 @@
       \strng{authornamehash}{eecba499c24af15526102b3e384e957b}
       \strng{authorfullhash}{f607a823362c414232211e0e626cfa88}
       \strng{authorfullhashraw}{f607a823362c414232211e0e626cfa88}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2509.05392}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{An optimized pipeline for automatic educational knowledge graph construction}
       \field{year}{2025}
       \verb{doi}
       \verb 10.48550/arXiv.2509.05392
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Iandola_2020}{article}{useauthor=false}{}
+      \name{author}{4}{}{%
+        {{hash=9e8489aa5c77e8e94e00fcfa497a9c39}{%
+           family={Iandola},
+           familyi={I\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=bb00129dbd1969598273d730b8f6d3d0}{%
+           family={Shaw},
+           familyi={S\bibinitperiod},
+           given={A.\bibnamedelimi E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=c93563a052d1fd7f464bca5746e528c7}{%
+           family={Krishna},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=63479249e82a76c6d0d46556a20063df}{%
+           family={Keutzer},
+           familyi={K\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{18fcca51cdfe3d33291fc1017fd0295b}
+      \strng{authornamehash}{18fcca51cdfe3d33291fc1017fd0295b}
+      \strng{authorfullhash}{a9ae2300f5068aab326f8e7c32295a69}
+      \strng{authorfullhashraw}{a9ae2300f5068aab326f8e7c32295a69}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{journaltitle}{arXiv preprint}
+      \field{langid}{russian}
+      \field{title}{SqueezeBERT: What can computer vision teach NLP about efficient neural networks?}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 2006.11316
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Reimers_2019}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=801b19afcf2e42c434203135ebb5c5ee}{%
+           family={Reimers},
+           familyi={R\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=b53a6d5c25df7525be485c14504595f8}{%
+           family={Gurevych},
+           familyi={G\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{e8086cd548ad0350581458bb9a689945}
+      \strng{fullhash}{e8086cd548ad0350581458bb9a689945}
+      \strng{fullhashraw}{e8086cd548ad0350581458bb9a689945}
+      \strng{bibnamehash}{e8086cd548ad0350581458bb9a689945}
+      \strng{authorbibnamehash}{e8086cd548ad0350581458bb9a689945}
+      \strng{authornamehash}{e8086cd548ad0350581458bb9a689945}
+      \strng{authorfullhash}{e8086cd548ad0350581458bb9a689945}
+      \strng{authorfullhashraw}{e8086cd548ad0350581458bb9a689945}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP)}
+      \field{langid}{russian}
+      \field{title}{Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks}
+      \field{year}{2019}
+      \field{pages}{3982\bibrangedash 3992}
+      \range{pages}{11}
+      \keyw{eng}
+    \endentry
+    \entry{Mem_ai}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=00230a340804016e5b69a5461f98fdad}{%
+           family={{Mem Labs}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{fullhash}{00230a340804016e5b69a5461f98fdad}
+      \strng{fullhashraw}{00230a340804016e5b69a5461f98fdad}
+      \strng{bibnamehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authorbibnamehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authornamehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authorfullhash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authorfullhashraw}{00230a340804016e5b69a5461f98fdad}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Mem.ai: The self-organizing workspace}
+      \field{urlday}{8}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://mem.ai/
+      \endverb
+      \verb{url}
+      \verb https://mem.ai/
       \endverb
       \keyw{eng}
     \endentry
@@ -405,11 +716,12 @@
       \strng{authornamehash}{dda35a9ba5d556b3e45803289441c40e}
       \strng{authorfullhash}{dda35a9ba5d556b3e45803289441c40e}
       \strng{authorfullhashraw}{dda35a9ba5d556b3e45803289441c40e}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Smart Connections Plugin for Obsidian}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -441,7 +753,8 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Graph Analysis for Obsidian}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -453,6 +766,151 @@
       \endverb
       \verb{url}
       \verb https://github.com/SkepticMystic/graph-analysis
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Manning_2008}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=601bfed1013232cc84e96381e6596aa1}{%
+           family={Manning},
+           familyi={M\bibinitperiod},
+           given={C.\bibnamedelimi D.},
+           giveni={C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=c722ec4eb501337b12785307557e9dcd}{%
+           family={Raghavan},
+           familyi={R\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=670c6713a0c403ea74bc0a7604454fc2}{%
+           family={Schütze},
+           familyi={S\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \strng{fullhash}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \strng{fullhashraw}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \strng{bibnamehash}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \strng{authorbibnamehash}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \strng{authornamehash}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \strng{authorfullhash}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \strng{authorfullhashraw}{f77806ea6b64ab05d6920fc2a4deb89d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Introduction to Information Retrieval}
+      \field{year}{2008}
+      \keyw{eng}
+    \endentry
+    \entry{Es_2023}{article}{useauthor=false}{}
+      \name{author}{4}{}{%
+        {{hash=281add2e12425119a37ec48d35d2f514}{%
+           family={Es},
+           familyi={E\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4398ec8b558b501024a062ff5df0e830}{%
+           family={James},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b6bf4c03a13cefe1fb693464ea14e5a1}{%
+           family={Espinosa-Anke},
+           familyi={E\bibinithyphendelim A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e6fed4f7310ad20d6d3b16b1b4689fcc}{%
+           family={Schockaert},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{fea6ade255b05e79a66f7d3579c97f74}
+      \strng{authornamehash}{fea6ade255b05e79a66f7d3579c97f74}
+      \strng{authorfullhash}{bf7c84be8d543bc2b715046a38bb7777}
+      \strng{authorfullhashraw}{bf7c84be8d543bc2b715046a38bb7777}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{journaltitle}{arXiv preprint}
+      \field{langid}{russian}
+      \field{title}{RAGAS: Automated evaluation of retrieval augmented generation}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2309.15217
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{LanceDB_online}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=c8d4f18cd3f82a0451a936239d6441cb}{%
+           family={{LanceDB}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8d4f18cd3f82a0451a936239d6441cb}
+      \strng{fullhash}{c8d4f18cd3f82a0451a936239d6441cb}
+      \strng{fullhashraw}{c8d4f18cd3f82a0451a936239d6441cb}
+      \strng{bibnamehash}{c8d4f18cd3f82a0451a936239d6441cb}
+      \strng{authorbibnamehash}{c8d4f18cd3f82a0451a936239d6441cb}
+      \strng{authornamehash}{c8d4f18cd3f82a0451a936239d6441cb}
+      \strng{authorfullhash}{c8d4f18cd3f82a0451a936239d6441cb}
+      \strng{authorfullhashraw}{c8d4f18cd3f82a0451a936239d6441cb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{LanceDB: Developer-friendly, serverless vector database}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://lancedb.com/
+      \endverb
+      \verb{url}
+      \verb https://lancedb.com/
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Gerganov_llamacpp}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=5109fd055f9efc62b3f042728bd402c5}{%
+           family={Gerganov},
+           familyi={G\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{5109fd055f9efc62b3f042728bd402c5}
+      \strng{fullhash}{5109fd055f9efc62b3f042728bd402c5}
+      \strng{fullhashraw}{5109fd055f9efc62b3f042728bd402c5}
+      \strng{bibnamehash}{5109fd055f9efc62b3f042728bd402c5}
+      \strng{authorbibnamehash}{5109fd055f9efc62b3f042728bd402c5}
+      \strng{authornamehash}{5109fd055f9efc62b3f042728bd402c5}
+      \strng{authorfullhash}{5109fd055f9efc62b3f042728bd402c5}
+      \strng{authorfullhashraw}{5109fd055f9efc62b3f042728bd402c5}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{llama.cpp: Port of Facebook's LLaMA model in C/C++}
+      \field{urlday}{25}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/ggerganov/llama.cpp
+      \endverb
+      \verb{url}
+      \verb https://github.com/ggerganov/llama.cpp
       \endverb
       \keyw{eng}
     \endentry
@@ -470,11 +928,12 @@
       \strng{authornamehash}{9fe160ea248eb19b4e893bb6ac6bac51}
       \strng{authorfullhash}{9fe160ea248eb19b4e893bb6ac6bac51}
       \strng{authorfullhashraw}{9fe160ea248eb19b4e893bb6ac6bac51}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{ObsidianRAG: A Retrieval-Augmented Generation pipeline for Obsidian}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -503,11 +962,12 @@
       \strng{authornamehash}{cb50b06f6b4f37872ca02cbecd318e0a}
       \strng{authorfullhash}{cb50b06f6b4f37872ca02cbecd318e0a}
       \strng{authorfullhashraw}{cb50b06f6b4f37872ca02cbecd318e0a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Personal Notes Repository}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -536,11 +996,12 @@
       \strng{authornamehash}{80324d0a572afc4de706420149d88cef}
       \strng{authorfullhash}{80324d0a572afc4de706420149d88cef}
       \strng{authorfullhashraw}{80324d0a572afc4de706420149d88cef}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{100r.co Source Code and Documentation}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -571,11 +1032,12 @@
       \strng{authornamehash}{6011941d1d932a9b4c2fb8ec66300d18}
       \strng{authorfullhash}{6011941d1d932a9b4c2fb8ec66300d18}
       \strng{authorfullhashraw}{6011941d1d932a9b4c2fb8ec66300d18}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{based.cooking}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -606,11 +1068,12 @@
       \strng{authornamehash}{ff95f91cbafe4072ef4542cf9a02aa9d}
       \strng{authorfullhash}{ff95f91cbafe4072ef4542cf9a02aa9d}
       \strng{authorfullhashraw}{ff95f91cbafe4072ef4542cf9a02aa9d}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Learning Notes}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -639,11 +1102,12 @@
       \strng{authornamehash}{78769ea0c2d3192a7a749a86f01e56b2}
       \strng{authorfullhash}{78769ea0c2d3192a7a749a86f01e56b2}
       \strng{authorfullhashraw}{78769ea0c2d3192a7a749a86f01e56b2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{paraphrase-multilingual-MiniLM-L12-v2}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -673,11 +1137,12 @@
       \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
       \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
       \field{extraname}{1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{bge-reranker-v2-m3}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -706,11 +1171,12 @@
       \strng{authornamehash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
       \strng{authorfullhash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
       \strng{authorfullhashraw}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{jina-reranker-v2-base-multilingual}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -740,11 +1206,12 @@
       \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
       \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
       \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{BGE-M3}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -774,11 +1241,12 @@
       \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
       \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
       \field{extraname}{1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Gemma 3 27B: Open Models Based on Gemini Research and Technology}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -807,11 +1275,12 @@
       \strng{authornamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
       \strng{authorfullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
       \strng{authorfullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Qwen 3 235B Instruct}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -841,11 +1310,12 @@
       \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
       \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
       \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{langid}{english}
+      \field{langid}{russian}
+      \field{media}{eresource}
       \field{title}{Gemma 4 31B: Advanced Open Models}
       \field{urlday}{6}
       \field{urlmonth}{5}
@@ -860,7 +1330,43 @@
       \endverb
       \keyw{eng}
     \endentry
+    \entry{gemini_3_flash}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=0f98f9c132af315a916cf1272843fc7b}{%
+           family={{Google DeepMind}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{fullhash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{fullhashraw}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{bibnamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorbibnamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authornamehash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
+      \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
+      \field{extraname}{3}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{Gemini 3 Flash: Fast and versatile multimodal model}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://ai.google.dev/gemini-api/docs/models/gemini
+      \endverb
+      \verb{url}
+      \verb https://ai.google.dev/gemini-api/docs/models/gemini
+      \endverb
+      \keyw{eng}
+    \endentry
   \enddatalist
+  \missing{Nogueira_2019}
 \endrefsection
 \endinput
 
