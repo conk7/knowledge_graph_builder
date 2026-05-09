@@ -19,32 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
-    \entry{Forte_2022}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=2169225fd05de36dc4d064e70d687414}{%
-           family={Forte},
-           familyi={F\bibinitperiod},
-           given={T.},
-           giveni={T\bibinitperiod}}}%
-      }
-      \strng{namehash}{2169225fd05de36dc4d064e70d687414}
-      \strng{fullhash}{2169225fd05de36dc4d064e70d687414}
-      \strng{fullhashraw}{2169225fd05de36dc4d064e70d687414}
-      \strng{bibnamehash}{2169225fd05de36dc4d064e70d687414}
-      \strng{authorbibnamehash}{2169225fd05de36dc4d064e70d687414}
-      \strng{authornamehash}{2169225fd05de36dc4d064e70d687414}
-      \strng{authorfullhash}{2169225fd05de36dc4d064e70d687414}
-      \strng{authorfullhashraw}{2169225fd05de36dc4d064e70d687414}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Atria Books}
-      \field{langid}{russian}
-      \field{title}{Building a second brain: A proven method to organize your digital life and unlock your creative potential}
-      \field{year}{2022}
-      \keyw{eng}
-    \endentry
     \entry{Ahrens_2017}{book}{}{}
       \name{author}{1}{}{%
         {{hash=00de80b580f735bdb64f73bbc7f15842}{%
@@ -64,8 +38,8 @@
       \strng{authornamehash}{00de80b580f735bdb64f73bbc7f15842}
       \strng{authorfullhash}{00de80b580f735bdb64f73bbc7f15842}
       \strng{authorfullhashraw}{00de80b580f735bdb64f73bbc7f15842}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -73,77 +47,63 @@
       \field{year}{2017}
       \keyw{eng}
     \endentry
-    \entry{Ji_2023}{article}{useauthor=false}{}
-      \name{author}{10}{}{%
-        {{hash=28c4d3b46eb6f65e0971f148e97bf009}{%
-           family={Ji},
-           familyi={J\bibinitperiod},
-           given={Z.},
-           giveni={Z\bibinitperiod}}}%
-        {{hash=f096823e9ec411e83f3747394df23fd1}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={N.},
-           giveni={N\bibinitperiod}}}%
-        {{hash=1b0cd3cfec2afc72d94eee88fd00b5ee}{%
-           family={Frieske},
+    \entry{Obsidian}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=9e37a64f7523829e8a94b38efaa43f17}{%
+           family={{Dynalist Inc.}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{9e37a64f7523829e8a94b38efaa43f17}
+      \strng{fullhash}{9e37a64f7523829e8a94b38efaa43f17}
+      \strng{fullhashraw}{9e37a64f7523829e8a94b38efaa43f17}
+      \strng{bibnamehash}{9e37a64f7523829e8a94b38efaa43f17}
+      \strng{authorbibnamehash}{9e37a64f7523829e8a94b38efaa43f17}
+      \strng{authornamehash}{9e37a64f7523829e8a94b38efaa43f17}
+      \strng{authorfullhash}{9e37a64f7523829e8a94b38efaa43f17}
+      \strng{authorfullhashraw}{9e37a64f7523829e8a94b38efaa43f17}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{Obsidian: A knowledge base that works on local Markdown files}
+      \field{urlday}{9}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://obsidian.md/
+      \endverb
+      \verb{url}
+      \verb https://obsidian.md/
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Forte_2022}{bool}{}{}
+      \name{author}{1}{}{%
+        {{hash=2169225fd05de36dc4d064e70d687414}{%
+           family={Forte},
            familyi={F\bibinitperiod},
-           given={R.},
-           giveni={R\bibinitperiod}}}%
-        {{hash=18e76f77ed34fdca4f257e73464ae03a}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
            given={T.},
            giveni={T\bibinitperiod}}}%
-        {{hash=d487cbb64d20b98b41b5d556894c1b28}{%
-           family={Su},
-           familyi={S\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod}}}%
-        {{hash=2efac453cb818e3e871c3147d9153d6d}{%
-           family={Xu},
-           familyi={X\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=fd51e475047e86a1077b5dd72d128363}{%
-           family={Ishii},
-           familyi={I\bibinitperiod},
-           given={E.},
-           giveni={E\bibinitperiod}}}%
-        {{hash=8724245c78e1fa158f3ecdb346264562}{%
-           family={Bang},
-           familyi={B\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=92af4a90f94f9f24bac01190dec6ffdc}{%
-           family={Madotto},
-           familyi={M\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod}}}%
-        {{hash=6db76faceb296fc23fe3c90591813c58}{%
-           family={Fung},
-           familyi={F\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod}}}%
       }
-      \strng{authorbibnamehash}{fb4bcf342af84906104f062186e24f7a}
-      \strng{authornamehash}{fb4bcf342af84906104f062186e24f7a}
-      \strng{authorfullhash}{4ec847eb27f05dd17602c835eafbfe75}
-      \strng{authorfullhashraw}{4ec847eb27f05dd17602c835eafbfe75}
+      \strng{namehash}{2169225fd05de36dc4d064e70d687414}
+      \strng{fullhash}{2169225fd05de36dc4d064e70d687414}
+      \strng{fullhashraw}{2169225fd05de36dc4d064e70d687414}
+      \strng{bibnamehash}{2169225fd05de36dc4d064e70d687414}
+      \strng{authorbibnamehash}{2169225fd05de36dc4d064e70d687414}
+      \strng{authornamehash}{2169225fd05de36dc4d064e70d687414}
+      \strng{authorfullhash}{2169225fd05de36dc4d064e70d687414}
+      \strng{authorfullhashraw}{2169225fd05de36dc4d064e70d687414}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{internalsortvolume}{55}
-      \field{journaltitle}{ACM Computing Surveys}
+      \field{journaltitle}{Atria Books}
       \field{langid}{russian}
-      \field{title}{Survey of hallucination in natural language generation}
-      \field{year}{2023}
-      \field{number}{12}
-      \range{number}{1}
-      \field{pages}{1\bibrangedash 38}
-      \range{pages}{38}
-      \field{volume}{55}
-      \range{volume}{1}
+      \field{title}{Building a second brain: A proven method to organize your digital life and unlock your creative potential}
+      \field{year}{2022}
       \keyw{eng}
     \endentry
     \entry{Lewis_2020}{inproceedings}{useauthor=false}{}
@@ -436,8 +396,8 @@
       \strng{authornamehash}{6a97a6326192811c512c193bd549bde8}
       \strng{authorfullhash}{04288a1a327812a9aa042ed5f65f41f1}
       \strng{authorfullhashraw}{04288a1a327812a9aa042ed5f65f41f1}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2404.16130}
       \field{langid}{russian}
@@ -459,8 +419,8 @@
       \strng{authornamehash}{133cb30e9deead9470f51478b2e64685}
       \strng{authorfullhash}{133cb30e9deead9470f51478b2e64685}
       \strng{authorfullhashraw}{133cb30e9deead9470f51478b2e64685}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -493,8 +453,8 @@
       \strng{authornamehash}{6ae46f0fca7307a4b89086193f241fb5}
       \strng{authorfullhash}{6ae46f0fca7307a4b89086193f241fb5}
       \strng{authorfullhashraw}{6ae46f0fca7307a4b89086193f241fb5}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -510,6 +470,276 @@
       \endverb
       \verb{url}
       \verb https://github.com/memgraph/ai-toolkit/tree/main/unstructured2graph
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Mem_ai}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=00230a340804016e5b69a5461f98fdad}{%
+           family={{Mem Labs}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{fullhash}{00230a340804016e5b69a5461f98fdad}
+      \strng{fullhashraw}{00230a340804016e5b69a5461f98fdad}
+      \strng{bibnamehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authorbibnamehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authornamehash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authorfullhash}{00230a340804016e5b69a5461f98fdad}
+      \strng{authorfullhashraw}{00230a340804016e5b69a5461f98fdad}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{title}{Mem.ai: The self-organizing workspace}
+      \field{urlday}{8}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://mem.ai/
+      \endverb
+      \verb{url}
+      \verb https://mem.ai/
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Zhao_2023_LLM}{article}{useauthor=false}{}
+      \name{author}{22}{}{%
+        {{hash=54bc8b241c7fc66af8f3bfae3dff8b3e}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={W.\bibnamedelimi X.},
+           giveni={W\bibinitperiod\bibinitdelim X\bibinitperiod}}}%
+        {{hash=b828859093337f367dec073885b8bfaa}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=ef065b28c31984323fd6d3483d29aafd}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=d6eab3f022aa676ad7dd8374888863f8}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=bbe869383a7d3458b82c516a21e4482c}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=8105bc402aeb6a8aad48c14037aee967}{%
+           family={Hou},
+           familyi={H\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=8a09f9df206b3c560d802ae998a5318e}{%
+           family={Min},
+           familyi={M\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=14fd6c4762d5113df9a2a4c45d09c456}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8afab9bdc9b292debbeb136dfd97036c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3358bb8d2183bc2d9cc5c5547517238b}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=95afa5bc0488f1c916157ba828abd6c6}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=8a9ab49f0fe827e25142df0f1ec23209}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ff38b98d2dc65002f66d028a85b9d58d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d90f53b6c47cfea3540b0fb9da23dbd7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=850b9e61b9cc106cd1b82515e62128e8}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=f626721357d28ded831a84d1f290d619}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=66d548e0e670e107fc4a80dc0c3825b3}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f5b6a698669c62232fdf42115d528d64}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=4502ea5dcc2b2cf1ac11fe01b5f68826}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=92260edf3b6211aefedc2e8e883915fb}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f505540b4499442eb132f44cd528ed3f}{%
+           family={Nie},
+           familyi={N\bibinitperiod},
+           given={J.-Y.},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=402278e8de9b8715f55509fced65086c}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={J.-R.},
+           giveni={J\bibinithyphendelim R\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{bc9732ac7884ee3c57d67de8e1d1b4cb}
+      \strng{authornamehash}{bc9732ac7884ee3c57d67de8e1d1b4cb}
+      \strng{authorfullhash}{ba133e558cd14710a18ebd7b340a883d}
+      \strng{authorfullhashraw}{ba133e558cd14710a18ebd7b340a883d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{journaltitle}{arXiv preprint}
+      \field{langid}{russian}
+      \field{title}{A Survey of Large Language Models}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2303.18223
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{Ji_2023}{article}{useauthor=false}{}
+      \name{author}{10}{}{%
+        {{hash=28c4d3b46eb6f65e0971f148e97bf009}{%
+           family={Ji},
+           familyi={J\bibinitperiod},
+           given={Z.},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f096823e9ec411e83f3747394df23fd1}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=1b0cd3cfec2afc72d94eee88fd00b5ee}{%
+           family={Frieske},
+           familyi={F\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=18e76f77ed34fdca4f257e73464ae03a}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d487cbb64d20b98b41b5d556894c1b28}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=2efac453cb818e3e871c3147d9153d6d}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=fd51e475047e86a1077b5dd72d128363}{%
+           family={Ishii},
+           familyi={I\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=8724245c78e1fa158f3ecdb346264562}{%
+           family={Bang},
+           familyi={B\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=92af4a90f94f9f24bac01190dec6ffdc}{%
+           family={Madotto},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6db76faceb296fc23fe3c90591813c58}{%
+           family={Fung},
+           familyi={F\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{authorbibnamehash}{fb4bcf342af84906104f062186e24f7a}
+      \strng{authornamehash}{fb4bcf342af84906104f062186e24f7a}
+      \strng{authorfullhash}{4ec847eb27f05dd17602c835eafbfe75}
+      \strng{authorfullhashraw}{4ec847eb27f05dd17602c835eafbfe75}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{internalsortvolume}{55}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{langid}{russian}
+      \field{title}{Survey of hallucination in natural language generation}
+      \field{year}{2023}
+      \field{number}{12}
+      \range{number}{1}
+      \field{pages}{1\bibrangedash 38}
+      \range{pages}{38}
+      \field{volume}{55}
+      \range{volume}{1}
+      \keyw{eng}
+    \endentry
+    \entry{Nogueira_2019}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5080459b5ebeb680f905017437b49749}{%
+           family={Nogueira},
+           familyi={N\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0f841893a4e03c6a159374cc7136b961}{%
+           family={Cho},
+           familyi={C\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{325932eca971671424380afa7cb7d3a0}
+      \strng{fullhash}{325932eca971671424380afa7cb7d3a0}
+      \strng{fullhashraw}{325932eca971671424380afa7cb7d3a0}
+      \strng{bibnamehash}{325932eca971671424380afa7cb7d3a0}
+      \strng{authorbibnamehash}{325932eca971671424380afa7cb7d3a0}
+      \strng{authornamehash}{325932eca971671424380afa7cb7d3a0}
+      \strng{authorfullhash}{325932eca971671424380afa7cb7d3a0}
+      \strng{authorfullhashraw}{325932eca971671424380afa7cb7d3a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arxiv}
+      \field{journaltitle}{arXiv preprint}
+      \field{langid}{russian}
+      \field{title}{Passage Re-ranking with BERT}
+      \field{year}{2019}
+      \verb{eprint}
+      \verb 1901.04085
       \endverb
       \keyw{eng}
     \endentry
@@ -529,8 +759,8 @@
       \strng{authornamehash}{93736f2b27fc4a248bcba1f2c331f8a3}
       \strng{authorfullhash}{93736f2b27fc4a248bcba1f2c331f8a3}
       \strng{authorfullhashraw}{93736f2b27fc4a248bcba1f2c331f8a3}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -584,8 +814,8 @@
       \strng{authornamehash}{eecba499c24af15526102b3e384e957b}
       \strng{authorfullhash}{f607a823362c414232211e0e626cfa88}
       \strng{authorfullhashraw}{f607a823362c414232211e0e626cfa88}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{journaltitle}{arXiv preprint arXiv:2509.05392}
       \field{langid}{russian}
@@ -624,8 +854,8 @@
       \strng{authornamehash}{18fcca51cdfe3d33291fc1017fd0295b}
       \strng{authorfullhash}{a9ae2300f5068aab326f8e7c32295a69}
       \strng{authorfullhashraw}{a9ae2300f5068aab326f8e7c32295a69}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{eprinttype}{arxiv}
       \field{journaltitle}{arXiv preprint}
@@ -658,8 +888,8 @@
       \strng{authornamehash}{e8086cd548ad0350581458bb9a689945}
       \strng{authorfullhash}{e8086cd548ad0350581458bb9a689945}
       \strng{authorfullhashraw}{e8086cd548ad0350581458bb9a689945}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP)}
@@ -668,38 +898,6 @@
       \field{year}{2019}
       \field{pages}{3982\bibrangedash 3992}
       \range{pages}{11}
-      \keyw{eng}
-    \endentry
-    \entry{Mem_ai}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=00230a340804016e5b69a5461f98fdad}{%
-           family={{Mem Labs}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{00230a340804016e5b69a5461f98fdad}
-      \strng{fullhash}{00230a340804016e5b69a5461f98fdad}
-      \strng{fullhashraw}{00230a340804016e5b69a5461f98fdad}
-      \strng{bibnamehash}{00230a340804016e5b69a5461f98fdad}
-      \strng{authorbibnamehash}{00230a340804016e5b69a5461f98fdad}
-      \strng{authornamehash}{00230a340804016e5b69a5461f98fdad}
-      \strng{authorfullhash}{00230a340804016e5b69a5461f98fdad}
-      \strng{authorfullhashraw}{00230a340804016e5b69a5461f98fdad}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{russian}
-      \field{title}{Mem.ai: The self-organizing workspace}
-      \field{urlday}{8}
-      \field{urlmonth}{5}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://mem.ai/
-      \endverb
-      \verb{url}
-      \verb https://mem.ai/
-      \endverb
       \keyw{eng}
     \endentry
     \entry{smart_connections}{online}{}{}
@@ -716,8 +914,8 @@
       \strng{authornamehash}{dda35a9ba5d556b3e45803289441c40e}
       \strng{authorfullhash}{dda35a9ba5d556b3e45803289441c40e}
       \strng{authorfullhashraw}{dda35a9ba5d556b3e45803289441c40e}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -749,8 +947,8 @@
       \strng{authornamehash}{21674bc8e78c469972fb457d65d37247}
       \strng{authorfullhash}{21674bc8e78c469972fb457d65d37247}
       \strng{authorfullhashraw}{21674bc8e78c469972fb457d65d37247}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -798,8 +996,8 @@
       \strng{authornamehash}{f77806ea6b64ab05d6920fc2a4deb89d}
       \strng{authorfullhash}{f77806ea6b64ab05d6920fc2a4deb89d}
       \strng{authorfullhashraw}{f77806ea6b64ab05d6920fc2a4deb89d}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -834,8 +1032,8 @@
       \strng{authornamehash}{fea6ade255b05e79a66f7d3579c97f74}
       \strng{authorfullhash}{bf7c84be8d543bc2b715046a38bb7777}
       \strng{authorfullhashraw}{bf7c84be8d543bc2b715046a38bb7777}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{eprinttype}{arxiv}
       \field{journaltitle}{arXiv preprint}
@@ -861,8 +1059,8 @@
       \strng{authornamehash}{c8d4f18cd3f82a0451a936239d6441cb}
       \strng{authorfullhash}{c8d4f18cd3f82a0451a936239d6441cb}
       \strng{authorfullhashraw}{c8d4f18cd3f82a0451a936239d6441cb}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -895,8 +1093,8 @@
       \strng{authornamehash}{5109fd055f9efc62b3f042728bd402c5}
       \strng{authorfullhash}{5109fd055f9efc62b3f042728bd402c5}
       \strng{authorfullhashraw}{5109fd055f9efc62b3f042728bd402c5}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -928,8 +1126,8 @@
       \strng{authornamehash}{9fe160ea248eb19b4e893bb6ac6bac51}
       \strng{authorfullhash}{9fe160ea248eb19b4e893bb6ac6bac51}
       \strng{authorfullhashraw}{9fe160ea248eb19b4e893bb6ac6bac51}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -962,8 +1160,8 @@
       \strng{authornamehash}{cb50b06f6b4f37872ca02cbecd318e0a}
       \strng{authorfullhash}{cb50b06f6b4f37872ca02cbecd318e0a}
       \strng{authorfullhashraw}{cb50b06f6b4f37872ca02cbecd318e0a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -996,8 +1194,8 @@
       \strng{authornamehash}{80324d0a572afc4de706420149d88cef}
       \strng{authorfullhash}{80324d0a572afc4de706420149d88cef}
       \strng{authorfullhashraw}{80324d0a572afc4de706420149d88cef}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1032,8 +1230,8 @@
       \strng{authornamehash}{6011941d1d932a9b4c2fb8ec66300d18}
       \strng{authorfullhash}{6011941d1d932a9b4c2fb8ec66300d18}
       \strng{authorfullhashraw}{6011941d1d932a9b4c2fb8ec66300d18}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1068,8 +1266,8 @@
       \strng{authornamehash}{ff95f91cbafe4072ef4542cf9a02aa9d}
       \strng{authorfullhash}{ff95f91cbafe4072ef4542cf9a02aa9d}
       \strng{authorfullhashraw}{ff95f91cbafe4072ef4542cf9a02aa9d}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1102,8 +1300,8 @@
       \strng{authornamehash}{78769ea0c2d3192a7a749a86f01e56b2}
       \strng{authorfullhash}{78769ea0c2d3192a7a749a86f01e56b2}
       \strng{authorfullhashraw}{78769ea0c2d3192a7a749a86f01e56b2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1137,8 +1335,8 @@
       \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
       \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
       \field{extraname}{1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1171,8 +1369,8 @@
       \strng{authornamehash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
       \strng{authorfullhash}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
       \strng{authorfullhashraw}{f6f3b34aae9ec3cb46ed58a5ab0244e8}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1206,8 +1404,8 @@
       \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
       \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
       \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1241,8 +1439,8 @@
       \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
       \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
       \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1275,8 +1473,8 @@
       \strng{authornamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
       \strng{authorfullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
       \strng{authorfullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1310,8 +1508,8 @@
       \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
       \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
       \field{extraname}{2}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1345,8 +1543,8 @@
       \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
       \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
       \field{extraname}{3}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1366,7 +1564,6 @@
       \keyw{eng}
     \endentry
   \enddatalist
-  \missing{Nogueira_2019}
 \endrefsection
 \endinput
 
