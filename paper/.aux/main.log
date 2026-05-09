@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  9 MAY 2026 15:48
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  9 MAY 2026 16:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1288,26 +1288,12 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (.aux/main.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                Nogueira_2019
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
-
-Package biblatex Warning: citation 'Nogueira_2019'
-(biblatex)                was not found at all in the .bbl file,
-(biblatex)                bibliography labels cannot be generated,
-(biblatex)                please correct the citation.
-
+ (.aux/main.bbl)
 Package biblatex Info: Reference section=0 on input line 136.
 Package biblatex Info: Reference segment=0 on input line 136.
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 182.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 182.
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 182.
@@ -1319,13 +1305,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] (.aux/main.toc
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [2
 
 ])
@@ -1334,44 +1313,62 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [3] (./text/0_Введение.tex
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 27.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 29.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 30.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 35.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 37.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 37.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 41.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 44.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 60.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 60.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 61.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 64.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 65.
+
+
 
 [4
 
 
 ]
 
+[5]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 101.
 
-[5]) (./text/1.1_PKM.tex
+)
 
+[6] (./text/1.1_PKM.tex
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[6]
+[7]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17.
 
@@ -1380,37 +1377,16 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 28
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[7
+[8
 
 ]
 File: images/KG.jpg Graphic file (type bmp)
 <images/KG.jpg>
 
 
+[9]) (./text/1.2_RAG.tex
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[8]) (./text/1.2_RAG.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[9]
+[10]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 6.
 
@@ -1425,14 +1401,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 31
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[10]
+[11]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 42.
 
@@ -1444,56 +1413,28 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 67
 
 
 
+[12]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[11]
-
-LaTeX Warning: Citation 'Nogueira_2019' on page 12 undefined on input line 80.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 80.
 
 ) (./text/1.3_Готовые_Решения.tex
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[12]
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [13]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
+
+
+
+[14]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 49.
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[14]
+[15]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 89.
 
@@ -1505,27 +1446,13 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[15]
+[16]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 134.
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[16]
+[17]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 165.
 
@@ -1534,41 +1461,13 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[17]) (./text/1.4_Оценка_Качества.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[18]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+[18]) (./text/1.4_Оценка_Качества.tex
 
 [19]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [20]
+
+[21]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 108.
 
@@ -1577,163 +1476,51 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 12
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[21]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [22]
 
+[23]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+[24]) (./text/2.1_Построение_Графа.tex
 
-[23]) (./text/2.1_Построение_Графа.tex
+[25]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[24]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[25
+[26
 
 ]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[26]
+[27]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 104.
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[27]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [28]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [29]
+
+[30]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 218.
 
 
 
+[31]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[30]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[31]) (./text/2.2_GraphRAG.tex
+[32]) (./text/2.2_GraphRAG.tex
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 3.
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[32]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [33]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [34]
 
+[35]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+[36]) (./text/3_Данные.tex
 
-[35]) (./text/3_Данные.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[36]
+[37]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 14.
 
@@ -1748,93 +1535,30 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[37
+[38
 
 ]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[38]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [39]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [40]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [41]
+
+[42]
 Overfull \hbox (26.64793pt too wide) in paragraph at lines 197--210
  [][] 
  []
 
 
 
+[43]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+[44]) (./text/4_Эксперименты.tex
 
-[42]
+[45]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[43]) (./text/4_Эксперименты.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[44]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[45
+[46
 
 ]
 
@@ -1851,14 +1575,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[46]
+[47]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 127.
 
@@ -1878,23 +1595,9 @@ Overfull \hbox (23.6988pt too wide) in paragraph at lines 123--138
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[47]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [48]
+
+[49]
 LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 273.
 
 
@@ -1911,14 +1614,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.77509> not available
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[49]
+[50]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 307.
 
@@ -1935,68 +1631,19 @@ Overfull \hbox (11.16223pt too wide) in paragraph at lines 301--316
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[50]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [51]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [52]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [53]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [54]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [55]
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [56]
+
+[57]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 692.
 
@@ -2007,102 +1654,15 @@ Overfull \hbox (3.32857pt too wide) in paragraph at lines 696--721
 
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[57]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
 [58]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
 
 [59]
 
+[60]
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+[61]) (./text/5_Заключение.tex
 
-[60]) (./text/5_Заключение.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[61]) (./text/6_Литература.tex
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[62
-
-]
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+[62]) (./text/6_Литература.tex
 
 [63
 
@@ -2117,7 +1677,8 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No driver for 'bool'.
+(biblatex)                Using fallback driver on input line 10.
 
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
@@ -2142,14 +1703,9 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
+[64
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[64]
+]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
@@ -2178,13 +1734,12 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
 
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
 
 [65]
 
@@ -2196,16 +1751,51 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
-) (./text/7_Приложение.tex
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
 
 [66]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+) (./text/7_Приложение.tex
+
+[67]
 File: images/light/hub.png Graphic file (type bmp)
 <images/light/hub.png>
 File: images/light/realistic.png Graphic file (type bmp)
@@ -2218,25 +1808,11 @@ File: images/light/personal.png Graphic file (type bmp)
 <images/light/personal.png>
 
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[67
+[68
 
 ])
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.79994pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.79994pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-4.79994pt}.
-
-[68] (.aux/main.aux)
+[69] (.aux/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -2253,12 +1829,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 48355 strings out of 475848
- 1130878 string characters out of 5776013
- 2311681 words of memory out of 5000000
- 70474 multiletter control sequences out of 15000+600000
+ 48370 strings out of 475848
+ 1131560 string characters out of 5776013
+ 2311921 words of memory out of 5000000
+ 70489 multiletter control sequences out of 15000+600000
  567179 words of font info for 131 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,19n,107p,1212b,5658s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .aux/main.xdv (68 pages, 1111988 bytes).
+Output written on .aux/main.xdv (69 pages, 1132916 bytes).
