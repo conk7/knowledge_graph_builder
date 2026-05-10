@@ -51,7 +51,7 @@ Strict на валидационном датасете для алгоритм�
 Общее время работы стратегии на всем датасете составило 206 секунд,
 что около 41 секунды на подкорпус в среднем.
 Кроме того, лемматизация текста заняла около 194 секунд,
-а сам поиск -- оставшиеся 12 секунд.
+а сам поиск~--- оставшиеся 12 секунд.
 
 \subsubsection*{Стратегия Broad.}
 
@@ -139,12 +139,12 @@ ObsidianRAG~\cite{obsidianrag} и neo4j Graph Builder~\cite{neo4j_graph_builder}
     \vspace{1ex}
     \raggedright\footnotesize
     \textit{Примечание:} Используемые модели: \\
-    MiniLM -- \texttt{paraphrase-multilingual-MiniLM-L12-v2}, \\
-    bge-e -- \texttt{BAAI/bge-m3}, \\
-    bge-r -- \texttt{BAAI/bge-reranker-v2-m3}, \\
-    jina --\texttt{jina-reranker-v2-base-multilingual}. \\
-    CS -- Chunk Size, CO -- Chunk Overlap,
-    E -- Embedding Model, CE -- Cross Encoder, Порог -- минимально допустимая оценка CE,
+    MiniLM~--- \texttt{paraphrase-multilingual-MiniLM-L12-v2}, \\
+    bge-e~--- \texttt{BAAI/bge-m3}, \\
+    bge-r~--- \texttt{BAAI/bge-reranker-v2-m3}, \\
+    jina~--- \texttt{jina-reranker-v2-base-multilingual}. \\
+    CS~--- Chunk Size, CO~--- Chunk Overlap,
+    E~--- Embedding Model, CE~--- Cross Encoder, Порог~--- минимально допустимая оценка CE,
     время в минутах
 
     \caption{Анализ конфигураций стратегии Broad.}
@@ -528,7 +528,7 @@ $\text{R} = 0.829$, что говорит о способности алгори
 \texttt{personal} (с $0.625$ до $1.000$) и
 \texttt{versus} (с $0.617$ до $0.920$).
 
-Кроме того, CP также вырос --
+Кроме того, CP также вырос~---
 в среднем $0.821$ против $0.663$ у ObsidianRAG.
 Это говорит об отличной способности neo4j фильтровать контекст.
 
