@@ -1400,6 +1400,41 @@
       \endverb
       \keyw{eng}
     \endentry
+    \entry{bge_reranker_v2}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=1fab717e08035b611c8b3956f71206c9}{%
+           family={{Beijing Academy of Artificial Intelligence (BAAI)}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \strng{bibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorbibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authornamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{bge-reranker-v2-m3}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
+      \endverb
+      \keyw{eng}
+    \endentry
     \entry{noodleslove_notes}{online}{}{}
       \name{author}{1}{}{%
         {{hash=cb50b06f6b4f37872ca02cbecd318e0a}{%
@@ -1414,8 +1449,8 @@
       \strng{authornamehash}{cb50b06f6b4f37872ca02cbecd318e0a}
       \strng{authorfullhash}{cb50b06f6b4f37872ca02cbecd318e0a}
       \strng{authorfullhashraw}{cb50b06f6b4f37872ca02cbecd318e0a}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1540,6 +1575,41 @@
       \endverb
       \keyw{eng}
     \endentry
+    \entry{wikipediaapi}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=06a1535c799f0787f3789120499aef2b}{%
+           family={Majlis},
+           familyi={M\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{06a1535c799f0787f3789120499aef2b}
+      \strng{fullhash}{06a1535c799f0787f3789120499aef2b}
+      \strng{fullhashraw}{06a1535c799f0787f3789120499aef2b}
+      \strng{bibnamehash}{06a1535c799f0787f3789120499aef2b}
+      \strng{authorbibnamehash}{06a1535c799f0787f3789120499aef2b}
+      \strng{authornamehash}{06a1535c799f0787f3789120499aef2b}
+      \strng{authorfullhash}{06a1535c799f0787f3789120499aef2b}
+      \strng{authorfullhashraw}{06a1535c799f0787f3789120499aef2b}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{Wikipedia-API: Easy to use Python wrapper for Wikipedias' API}
+      \field{urlday}{10}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/martin-majlis/Wikipedia-API
+      \endverb
+      \verb{url}
+      \verb https://github.com/martin-majlis/Wikipedia-API
+      \endverb
+      \keyw{eng}
+    \endentry
     \entry{minilm_v2}{online}{}{}
       \name{author}{1}{}{%
         {{hash=78769ea0c2d3192a7a749a86f01e56b2}{%
@@ -1554,8 +1624,8 @@
       \strng{authornamehash}{78769ea0c2d3192a7a749a86f01e56b2}
       \strng{authorfullhash}{78769ea0c2d3192a7a749a86f01e56b2}
       \strng{authorfullhashraw}{78769ea0c2d3192a7a749a86f01e56b2}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1571,41 +1641,6 @@
       \endverb
       \verb{url}
       \verb https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
-      \endverb
-      \keyw{eng}
-    \endentry
-    \entry{bge_reranker_v2}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=1fab717e08035b611c8b3956f71206c9}{%
-           family={{Beijing Academy of Artificial Intelligence (BAAI)}},
-           familyi={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{fullhash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{fullhashraw}{1fab717e08035b611c8b3956f71206c9}
-      \strng{bibnamehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authorbibnamehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authornamehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
-      \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{russian}
-      \field{media}{eresource}
-      \field{title}{bge-reranker-v2-m3}
-      \field{urlday}{6}
-      \field{urlmonth}{5}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
-      \endverb
-      \verb{url}
-      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
       \endverb
       \keyw{eng}
     \endentry
@@ -1762,8 +1797,8 @@
       \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
       \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
       \field{extraname}{3}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}

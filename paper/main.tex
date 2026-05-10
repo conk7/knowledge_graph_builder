@@ -37,12 +37,16 @@
 \renewcommand{\cftsecfont}{\normalfont\mdseries}% titles in non-bold
 \renewcommand{\cftsecpagefont}{\normalfont\mdseries}% page numbers in non-bold
 \renewcommand{\cftsecleader}{\mdseries\cftdotfill{\cftdotsep}}% dot leaders in non-bold
-% \renewcommand{\cftsecnumwidth}{0pt} % Remove section numbers
-% \renewcommand{\cftsecindent}{0pt} % Remove indentation for sections
-\renewcommand{\contentsname}{}
-% \setlocalecaption{russian}{contents}{}
+
+% --- ПОЛНОСТЬЮ ОТКЛЮЧАЕМ АВТОМАТИЧЕСКИЙ ЗАГОЛОВОК ---
+\makeatletter
+\renewcommand{\@cftmaketoctitle}{}
+\makeatother
+% ----------------------------------------------------
+
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
+
 \usepackage{titlesec}
 \titleformat{\section}{\normalfont\center\bfseries\uppercase}{}{0em}{}
 \titleformat{\subsection}{\normalfont\center\bfseries}{\thesubsection}{0.5em}{}

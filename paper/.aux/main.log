@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  10 MAY 2026 15:07
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  10 MAY 2026 21:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1113,26 +1113,26 @@ Package fontspec Info:
  (.aux/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 136.
-LaTeX Font Info:    ... okay on input line 136.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 140.
+LaTeX Font Info:    ... okay on input line 140.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1168,7 +1168,7 @@ LaTeX Font Info:    ... okay on input line 136.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 136.
+Package hyperref Info: Link coloring OFF on input line 140.
 (.aux/main.out) (.aux/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1180,56 +1180,56 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 136.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 136.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 136.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 136.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 136.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 136.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 136.
-LaTeX Font Info:    Redeclaring math accent \check on input line 136.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 136.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 136.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 136.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 136.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 136.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 140.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 140.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 140.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 140.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 140.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 140.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 140.
+LaTeX Font Info:    Redeclaring math accent \check on input line 140.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 140.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 140.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 140.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 140.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 140.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 136.
+(Font)              `operators' in the math version `normal' on input line 140.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 136.
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 140.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 136.
+(Font)              `operators' in the math version `bold' on input line 140.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 136.
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 140.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on input line 136.
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on input line 140.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 136.
+(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 140.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 136.
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 140.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 136.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 140.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/CourierNew(0)/m/n on input line 136.
+(Font)                  OT1/cmtt/m/n --> TU/CourierNew(0)/m/n on input line 140.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on input line 136.
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on input line 140.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input line 136.
+(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input line 140.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 136.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 140.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/CourierNew(0)/b/n on input line 136.
+(Font)                  OT1/cmtt/m/n --> TU/CourierNew(0)/b/n on input line 140.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -1289,14 +1289,14 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (.aux/main.bbl)
-Package biblatex Info: Reference section=0 on input line 136.
-Package biblatex Info: Reference segment=0 on input line 136.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 182.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 182.
+Package biblatex Info: Reference section=0 on input line 140.
+Package biblatex Info: Reference segment=0 on input line 140.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 186.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 186.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 182.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 186.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1364,11 +1364,9 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 65
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 101.
 
-)
+) (./text/1.1_PKM.tex
 
-[6] (./text/1.1_PKM.tex
-
-[7]
+[6]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 21.
 
@@ -1380,7 +1378,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 44
 
 
 
-[8
+[7
 
 ]
 File: images/KG.jpg Graphic file (type bmp)
@@ -1391,13 +1389,13 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 65
 
 
 
-[9]
+[8]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 87.
 
 
 
-[10]) (./text/1.2_RAG.tex
+[9]) (./text/1.2_RAG.tex
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 6.
 
@@ -1409,7 +1407,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 25
 
 
 
-[11]
+[10]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 38.
 
@@ -1421,7 +1419,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 63
 
 
 
-[12]
+[11]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 81.
 
@@ -1433,7 +1431,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 11
 
 ) (./text/1.3_Готовые_Решения.tex
 
-[13]
+[12]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17.
 
@@ -1445,7 +1443,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 33
 
 
 
-[14]
+[13]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 51.
 
@@ -1454,7 +1452,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 54
 
 
 
-[15]
+[14]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 94.
 
@@ -1463,13 +1461,13 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
-[16]
+[15]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 111.
 
 
 
-[17]
+[16]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 141.
 
@@ -1478,51 +1476,51 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17
 
 
 
-[18]
+[17]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 178.
 
 ) (./text/1.4_Оценка_Качества.tex
 
-[19]
+[18]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 50.
 
 
 
-[20]
+[19]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 81.
 
 
 
-[21]
+[20]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 111.
 
 
 
-[22]
+[21]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 129.
 
 
 
-[23]
+[22]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 185.
 
 
 
-[24]) (./text/2.1_Построение_Графа.tex
+[23]) (./text/2.1_Построение_Графа.tex
 
-[25]
+[24]
 
-[26
+[25
 
 ]
 
-[27]
+[26]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 102.
 
@@ -1534,21 +1532,27 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 12
 
 
 
+[27]
+
 [28]
 
 [29]
-
-[30]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 219.
 
 
 
-[31]
+[30]
 
-[32]) (./text/2.2_GraphRAG.tex
+[31]) (./text/2.2_GraphRAG.tex
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 3.
+
+
+
+[32]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 16.
 
 
 
@@ -1556,11 +1560,9 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 3.
 
 [34]
 
-[35]
+[35]) (./text/3_Данные.tex
 
-[36]) (./text/3_Данные.tex
-
-[37]
+[36]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 14.
 
@@ -1575,30 +1577,34 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 17
 
 
 
-[38
+[37
 
 ]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 64.
+
+
+
+[38]
 
 [39]
 
 [40]
 
 [41]
-
-[42]
-Overfull \hbox (26.64793pt too wide) in paragraph at lines 197--210
+Overfull \hbox (26.64793pt too wide) in paragraph at lines 202--215
  [][] 
  []
 
 
 
-[43]
+[42]
 
-[44]) (./text/4_Эксперименты.tex
+[43]) (./text/4_Эксперименты.tex
 
-[45]
+[44]
 
-[46
+[45
 
 ]
 
@@ -1615,7 +1621,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
-[47]
+[46]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 127.
 
@@ -1635,9 +1641,9 @@ Overfull \hbox (23.6988pt too wide) in paragraph at lines 123--138
 
 
 
-[48]
+[47]
 
-[49]
+[48]
 LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 273.
 
 
@@ -1654,7 +1660,7 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.77509> not available
 
 
 
-[50]
+[49]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 307.
 
@@ -1671,6 +1677,8 @@ Overfull \hbox (11.16223pt too wide) in paragraph at lines 301--316
 
 
 
+[50]
+
 [51]
 
 [52]
@@ -1683,8 +1691,6 @@ Overfull \hbox (11.16223pt too wide) in paragraph at lines 301--316
 
 [56]
 
-[57]
-
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 692.
 
 
@@ -1694,17 +1700,17 @@ Overfull \hbox (3.32857pt too wide) in paragraph at lines 696--721
 
 
 
+[57]
+
 [58]
 
 [59]
 
-[60]
+[60]) (./text/5_Заключение.tex
 
-[61]) (./text/5_Заключение.tex
+[61]) (./text/6_Литература.tex
 
-[62]) (./text/6_Литература.tex
-
-[63
+[62
 
 ]
 
@@ -1743,7 +1749,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
-[64
+[63
 
 ]
 
@@ -1781,7 +1787,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
-[65]
+[64]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
@@ -1818,6 +1824,36 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 
 
+[65]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+
+
+
 [66]
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
@@ -1828,36 +1864,9 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
 
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-
-[67]
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
-
 ) (./text/7_Приложение.tex
 
-[68]
+[67]
 File: images/light/hub.png Graphic file (type bmp)
 <images/light/hub.png>
 File: images/light/realistic.png Graphic file (type bmp)
@@ -1870,11 +1879,11 @@ File: images/light/personal.png Graphic file (type bmp)
 <images/light/personal.png>
 
 
-[69
+[68
 
 ])
 
-[70] (.aux/main.aux)
+[69] (.aux/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1892,11 +1901,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  48400 strings out of 475848
- 1132956 string characters out of 5776013
- 2312476 words of memory out of 5000000
- 70517 multiletter control sequences out of 15000+600000
- 567195 words of font info for 133 fonts, out of 8000000 for 9000
+ 1132969 string characters out of 5776013
+ 2312473 words of memory out of 5000000
+ 70519 multiletter control sequences out of 15000+600000
+ 567179 words of font info for 131 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,19n,107p,1212b,5679s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .aux/main.xdv (70 pages, 1157800 bytes).
+Output written on .aux/main.xdv (69 pages, 1158592 bytes).
