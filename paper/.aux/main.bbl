@@ -1883,6 +1883,42 @@
       \endverb
       \keyw{eng}
     \endentry
+    \entry{my_github_repo}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=75a88d0155d7ed918bd7e7990bc3349f}{%
+           family={Тюрин},
+           familyi={Т\bibinitperiod},
+           given={В.\bibnamedelimi Н.},
+           giveni={В\bibinitperiod\bibinitdelim Н\bibinitperiod}}}%
+      }
+      \strng{namehash}{75a88d0155d7ed918bd7e7990bc3349f}
+      \strng{fullhash}{75a88d0155d7ed918bd7e7990bc3349f}
+      \strng{fullhashraw}{75a88d0155d7ed918bd7e7990bc3349f}
+      \strng{bibnamehash}{75a88d0155d7ed918bd7e7990bc3349f}
+      \strng{authorbibnamehash}{75a88d0155d7ed918bd7e7990bc3349f}
+      \strng{authornamehash}{75a88d0155d7ed918bd7e7990bc3349f}
+      \strng{authorfullhash}{75a88d0155d7ed918bd7e7990bc3349f}
+      \strng{authorfullhashraw}{75a88d0155d7ed918bd7e7990bc3349f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{Knowledge Graph Builder}
+      \field{urlday}{11}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://github.com/conk7/knowledge_graph_builder
+      \endverb
+      \verb{url}
+      \verb https://github.com/conk7/knowledge_graph_builder
+      \endverb
+      \keyw{eng}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

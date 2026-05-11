@@ -1,16 +1,11 @@
 \clearpage
-\section{Приложение A}
-
-\subsection{Репозиторий с кодом:}
-\url{https://github.com/conk7/knowledge_graph_builder}
-
-
-
-\subsection{Визуализации подкорпусов датасета}
+\section{Приложение А. Графики датасета}
 \label{sec:appendix_plots}
 
-% Не забудьте добавить в преамбулу документа (до \begin{document}):
-% \usepackage{subcaption}
+% --- Настройка нумерации для Приложения А ---
+\setcounter{figure}{0} % Обнуляем счетчик рисунков
+\renewcommand{\thefigure}{А.\arabic{figure}} % Добавляем букву "А." к номеру
+% ---------------------------------------------
 
 \begin{figure}[H]
     \centering
@@ -55,7 +50,7 @@
         \label{fig:app_personal}
     \end{subfigure}
 
-    \caption{Визуальные представления семантических графов подкорпусов датасета}
+    \caption{Визуальные представления графов знаний подкорпусов датасета}
     \label{fig:all_dataset_graphs}
 \end{figure}
 

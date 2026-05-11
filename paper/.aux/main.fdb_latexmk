@@ -1,22 +1,22 @@
 # Fdb version 4
-["biber .aux/main"] 0 ".aux/main.bcf" ".aux/main.bbl" ".aux/main" 1778501444.73343 -1
-  ".aux/main.bcf" 1778501444.15651 159799 529bf57bd55f3bcd866ba8a19d69fb4c "xelatex"
-  "references.bib" 1778480068.90756 13267 f9e88046482ca567a06162eb37ca4ea7 ""
+["biber .aux/main"] 1778504867.6072 ".aux/main.bcf" ".aux/main.bbl" ".aux/main" 1778522176.60429 0
+  ".aux/main.bcf" 1778522176.02451 159869 4b87cde43f9b0d34d085088253a21f40 "xelatex"
+  "references.bib" 1778504828.21714 13567 6b34c95dbc038ed1303333e62cb7d160 ""
   (generated)
   ".aux/main.bbl"
   ".aux/main.blg"
   (rewritten before read)
-["xdvipdfmx"] 1778501444.2474 ".aux/main.xdv" "main.pdf" "main" 1778501444.73654 0
-  ".aux/main.xdv" 1778501444.15794 1221456 aac030c3d677c0d98b0ba948b5fb6c8f "xelatex"
+["xdvipdfmx"] 1778522176.11792 ".aux/main.xdv" "main.pdf" "main" 1778522176.60767 0
+  ".aux/main.xdv" 1778522176.02586 1225732 bf4edd339ecb170a525478603047e658 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1778501441.20673 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1778501444.73357 0
-  ".aux/main.aux" 1778501444.15251 27508 4011699dcaf8307235b58edbdc3b0fcf "xelatex"
-  ".aux/main.bbl" 1778480069.88059 72382 3e3e3940249ffee42afed3436fefe65f "biber .aux/main"
-  ".aux/main.out" 1778501444.15551 9083 efb3943bf1b8694d56c68b0e684f38f2 "xelatex"
-  ".aux/main.run.xml" 1778501444.15782 2637 2519899124583fb06b87d09edf170f1c "xelatex"
-  ".aux/main.toc" 1778501444.15782 3888 56cedb0db3077f4a560d2b807ee7148d "xelatex"
+["xelatex"] 1778522172.94517 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1778522176.6044 0
+  ".aux/main.aux" 1778522176.02109 27433 07a0d1ed13716113128bfb4042265d55 "xelatex"
+  ".aux/main.bbl" 1778504868.37006 73804 11614a12079b0da5225c15e340d637ce "biber .aux/main"
+  ".aux/main.out" 1778522176.02314 8690 f4e05ddb9960c090d85f5e6ac85ff9aa "xelatex"
+  ".aux/main.run.xml" 1778522176.02586 2637 2519899124583fb06b87d09edf170f1c "xelatex"
+  ".aux/main.toc" 1778522176.02586 3687 343076baecbfd3d073e18d387ec6d2c4 "xelatex"
   "/home/conk/Files/Diploma/paper/main.tex" 1778483198.43139 6474 f611072cde8ef6bb25ea2b488a40afe2 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1767555874 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1767555874 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -275,15 +275,15 @@
   "text/0_Введение.tex" 1778437086.52531 10085 1c815ec795ccfda893efe3b4c5aa3fd5 ""
   "text/1.1_PKM.tex" 1778409921.01256 9773 9b9d7a660877a05d24748cf7d35b316c ""
   "text/1.2_RAG.tex" 1778404524.42238 9793 af9a36e29a8fce1ec8721aded1faa1d2 ""
-  "text/1.3_Готовые_Решения.tex" 1778407463.30535 18654 72042dbd46fc711e52f9b5d76c621ddd ""
-  "text/1.4_Оценка_Качества.tex" 1778482012.13716 19578 ed1e160288bc89aabbeca65bbbc456de ""
+  "text/1.3_Готовые_Решения.tex" 1778505688.64404 18676 de11673cbf77652e88cb2ae328b8b4c8 ""
+  "text/1.4_Оценка_Качества.tex" 1778505714.52413 19626 c42ab0ecda6ce81b9139dbc90eb331c7 ""
   "text/2.1_Построение_Графа.tex" 1778482100.76332 24854 8c5bd575a0dd3a13616d563d90f683a0 ""
-  "text/2.2_GraphRAG.tex" 1778481535.48747 12781 d505a70ca8c4b89370ee65b7e0714274 ""
-  "text/3_Данные.tex" 1778482128.58497 23895 528e6f4b9c6965793d1c1fdb8cc691c7 ""
-  "text/4_Эксперименты.tex" 1778484029.90732 70071 0ae0a531a8d899c0c7bad62a119a234b ""
-  "text/5_Заключение.tex" 1778501441.03856 19725 4836e1ad538d5d39e18bc10b950cf02b ""
+  "text/2.2_GraphRAG.tex" 1778505749.17563 12813 6202e1e2298e9b2c4535199a5d665ef4 ""
+  "text/3_Данные.tex" 1778505994.26168 23949 2ed720cf3de53320b4c5fba8b31cc789 ""
+  "text/4_Эксперименты.tex" 1778521677.14194 70116 0681d1f05f37c454021b0c335db70e9d ""
+  "text/5_Заключение.tex" 1778522172.77981 10114 c460d358253425c027220e5d31c6145e ""
   "text/6_Литература.tex" 1778257826.74416 338 e76b9d8c94aa02460fada8ece402ad8c ""
-  "text/7_Приложение.tex" 1778261207.83687 1936 dc5f18738710f6d19a0a8c9ddd5861b0 ""
+  "text/7_Приложение.tex" 1778505575.65664 1936 d1f04aead07cb0b28ad56804a4eafaee ""
   (generated)
   ".aux/main.aux"
   ".aux/main.bcf"

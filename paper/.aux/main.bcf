@@ -3604,6 +3604,7 @@
     <bcf:citekey order="70" intorder="1">gemma_4_31b</bcf:citekey>
     <bcf:citekey order="71" intorder="1">vertex_ai</bcf:citekey>
     <bcf:citekey order="72" intorder="1">gemini_3_flash</bcf:citekey>
+    <bcf:citekey order="73" intorder="1">my_github_repo</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
