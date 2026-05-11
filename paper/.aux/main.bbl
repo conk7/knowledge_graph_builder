@@ -1637,10 +1637,10 @@
       \field{year}{2026}
       \field{urldateera}{ce}
       \verb{urlraw}
-      \verb https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
+      \verb https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
       \endverb
       \verb{url}
-      \verb https://huggingface.co/cross-encoder/mmarco-mMiniLMv2-L12-H384-v1
+      \verb https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
       \endverb
       \keyw{eng}
     \endentry
@@ -1675,6 +1675,73 @@
       \endverb
       \verb{url}
       \verb https://huggingface.co/jinaai/jina-reranker-v2-base-multilingual
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{qwen_3_235b}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=da7e055abb5fc1aa8ed2d2a502b3a612}{%
+           family={{Alibaba Cloud}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{fullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{fullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{bibnamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authorbibnamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authornamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authorfullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \strng{authorfullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{Qwen 3 235B Instruct}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{cerebras_api}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=8a2e3e8c57e1b77cee0dfc6891c4e050}{%
+           family={{Cerebras Systems}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \strng{fullhash}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \strng{fullhashraw}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \strng{bibnamehash}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \strng{authorbibnamehash}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \strng{authornamehash}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \strng{authorfullhash}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \strng{authorfullhashraw}{8a2e3e8c57e1b77cee0dfc6891c4e050}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{Cerebras Inference API Documentation}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://inference.cerebras.ai/
+      \endverb
+      \verb{url}
+      \verb https://inference.cerebras.ai/
       \endverb
       \keyw{eng}
     \endentry
@@ -1713,40 +1780,6 @@
       \endverb
       \keyw{eng}
     \endentry
-    \entry{qwen_3_235b}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=da7e055abb5fc1aa8ed2d2a502b3a612}{%
-           family={{Alibaba Cloud}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \strng{fullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \strng{fullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \strng{bibnamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \strng{authorbibnamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \strng{authornamehash}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \strng{authorfullhash}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \strng{authorfullhashraw}{da7e055abb5fc1aa8ed2d2a502b3a612}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{russian}
-      \field{media}{eresource}
-      \field{title}{Qwen 3 235B Instruct}
-      \field{urlday}{6}
-      \field{urlmonth}{5}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
-      \endverb
-      \verb{url}
-      \verb https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507
-      \endverb
-      \keyw{eng}
-    \endentry
     \entry{gemma_4_31b}{online}{}{}
       \name{author}{1}{}{%
         {{hash=0f98f9c132af315a916cf1272843fc7b}{%
@@ -1762,8 +1795,8 @@
       \strng{authorfullhash}{0f98f9c132af315a916cf1272843fc7b}
       \strng{authorfullhashraw}{0f98f9c132af315a916cf1272843fc7b}
       \field{extraname}{2}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{russian}
@@ -1779,6 +1812,39 @@
       \endverb
       \verb{url}
       \verb https://huggingface.co/google/gemma-4-31B
+      \endverb
+      \keyw{eng}
+    \endentry
+    \entry{vertex_ai}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=57f3af2a3d1051c172ab3c3db7d5409d}{%
+           family={{Google Cloud}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \strng{fullhash}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \strng{fullhashraw}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \strng{bibnamehash}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \strng{authorbibnamehash}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \strng{authornamehash}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \strng{authorfullhash}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \strng{authorfullhashraw}{57f3af2a3d1051c172ab3c3db7d5409d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{Vertex AI: Machine Learning Platform}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://cloud.google.com/vertex-ai
+      \endverb
+      \verb{url}
+      \verb https://cloud.google.com/vertex-ai
       \endverb
       \keyw{eng}
     \endentry
