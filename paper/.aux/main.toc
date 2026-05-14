@@ -5,27 +5,27 @@
 \contentsline {subsection}{\numberline {1.2}Технологии поиска и обработки естественного языка в системах RAG}{10}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Анализ существующих решений для построения графов знаний}{13}{subsection.1.3}%
 \contentsline {subsection}{\numberline {1.4}Методология оценки качества}{19}{subsection.1.4}%
-\contentsline {section}{\numberline {2}Разработка алгоритмов}{26}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Архитектура алгоритма построения графа знаний}{26}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Алгоритм GraphRAG}{33}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Сбор и подготовка данных}{38}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Поиск данных}{38}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Создание валидационного датасета}{39}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Алгоритм генерации связей}{41}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Алгоритм извлечения контекста}{44}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Алгоритм LLM-типизации связей}{45}{subsubsection.3.2.3}%
-\contentsline {section}{\numberline {4}Эксперименты}{46}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Параметры воспроизводимости}{46}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Оценка конвейера построения графа знаний}{46}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Извлечение кандидатных пар}{46}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Типизация связей}{51}{subsubsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.3}Сравнение сгенерированных ссылок с эталонными}{54}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Оценка конвейера GraphRAG}{55}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Анализ референсных решений}{55}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Сравнение собственных алгоритмов с аналогами}{57}{subsubsection.4.4.2}%
+\contentsline {section}{\numberline {2}Разработка алгоритмов}{25}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Архитектура алгоритма построения графа знаний}{25}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Алгоритм GraphRAG}{32}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Сбор и подготовка данных}{37}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Поиск данных}{37}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Создание валидационного датасета}{38}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Алгоритм генерации связей}{40}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Алгоритм извлечения контекста}{43}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Алгоритм LLM-типизации связей}{43}{subsubsection.3.2.3}%
+\contentsline {section}{\numberline {4}Эксперименты}{45}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Параметры воспроизводимости}{45}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Оценка конвейера построения графа знаний}{45}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Извлечение кандидатных пар}{45}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Типизация связей}{50}{subsubsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.3}Сравнение сгенерированных ссылок с эталонными}{53}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Оценка конвейера GraphRAG}{54}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Анализ референсных решений}{54}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Сравнение собственных алгоритмов с аналогами}{56}{subsubsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.3}Влияние промпта и языковой модели}{58}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Анализ влияния графа.}{61}{subsubsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.5}Выводы и ограничения исследования}{62}{subsection.4.5}%
-\contentsline {section}{\numberline {5}Заключение}{64}{section.5}%
-\contentsline {section}{\numberline {6}Список литературы}{67}{section.6}%
-\contentsline {section}{\numberline {7}Приложение А. Графики датасета}{73}{section.7}%
+\contentsline {subsubsection}{\numberline {4.4.4}Анализ влияния графа.}{60}{subsubsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.5}Выводы и ограничения исследования}{61}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Заключение}{63}{section.5}%
+\contentsline {section}{\numberline {6}Список литературы}{66}{section.6}%
+\contentsline {section}{\numberline {7}Приложение А. Визуализация датасета}{72}{section.7}%
