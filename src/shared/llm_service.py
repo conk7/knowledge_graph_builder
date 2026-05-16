@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 
 _LLM_TIMEOUT_SEC: int = 240
 _BATCH_MAX_RETRIES: int = 3
-_DEFAULT_TOP_N = 5
+_LLM_TOP_K_CTX = 5
 _DEFAULT_BATCH_SIZE = 5
 _DEFAULT_CONCURRENT_REQUESTS = 5
 
@@ -207,9 +207,8 @@ class LLMService:
     def _group_candidate_pairs(
         self,
         candidate_pairs: List[CandidatePair],
-        top_n: int = _DEFAULT_TOP_N,
+        top_n: int = _LLM_TOP_K_CTX,
     ) -> List[GroupedCandidatePair]:
-        """Group CandidatePairs by (source_path, target_path) and keep top-N snippets."""
         groups: Dict[Tuple[Path, Path], List[ContextSnippet]] = defaultdict(list)
         for pair in candidate_pairs:
             key = (pair.source_path, pair.target_path)
@@ -511,11 +510,9 @@ class LLMService:
         if not candidate_pairs:
             return {}
 
-        # Group all candidate pairs by (source_path, target_path) and rank contexts
-        grouped = self._group_candidate_pairs(candidate_pairs, top_n=_DEFAULT_TOP_N)
+        grouped = self._group_candidate_pairs(candidate_pairs, top_n=_LLM_TOP_K_CTX)
         total = len(grouped)
 
-        # Load checkpoint: keys already processed from a previous (interrupted) run
         completed_predictions = self.metadata_manager.load_partial_predictions()
 
         to_process = [

@@ -3579,9 +3579,9 @@
     <bcf:citekey order="41" intorder="1">spacy_software</bcf:citekey>
     <bcf:citekey order="42" intorder="1">LanceDB_online</bcf:citekey>
     <bcf:citekey order="43" intorder="1">sentence_transformers_hf</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">Gerganov_llamacpp</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">obsidianrag</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">bge_reranker_v2</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">bge_reranker_v2</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">Gerganov_llamacpp</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">obsidianrag</bcf:citekey>
     <bcf:citekey order="47" intorder="1">noodleslove_notes</bcf:citekey>
     <bcf:citekey order="48" intorder="1">100r_co</bcf:citekey>
     <bcf:citekey order="49" intorder="1">based_cooking</bcf:citekey>

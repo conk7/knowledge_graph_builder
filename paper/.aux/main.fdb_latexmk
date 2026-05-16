@@ -1,22 +1,22 @@
 # Fdb version 4
-["biber .aux/main"] 0 ".aux/main.bcf" ".aux/main.bbl" ".aux/main" 1778776797.51437 -1
-  ".aux/main.bcf" 1778776796.90464 159667 5323412314e49d9bb4db6b8a3385c215 "xelatex"
+["biber .aux/main"] 1778925815.60204 ".aux/main.bcf" ".aux/main.bbl" ".aux/main" 1778927874.40537 0
+  ".aux/main.bcf" 1778927873.81885 159667 43748f9fa0d43f796bb37dcdc04bb1a8 "xelatex"
   "references.bib" 1778762650.16147 13261 a9b73002c9f9f61af9dbf7ba8e417679 ""
   (generated)
   ".aux/main.bbl"
   ".aux/main.blg"
   (rewritten before read)
-["xdvipdfmx"] 1778776797.00856 ".aux/main.xdv" "main.pdf" "main" 1778776797.51753 0
-  ".aux/main.xdv" 1778776796.90613 1219276 21f242d2848f931353982c949ddf32d8 "xelatex"
+["xdvipdfmx"] 1778927873.91966 ".aux/main.xdv" "main.pdf" "main" 1778927874.4083 0
+  ".aux/main.xdv" 1778927873.82028 1231104 846a605cf3b0716e13389c2fcbc5c919 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1778776793.46113 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1778776797.51448 0
-  ".aux/main.aux" 1778776796.90094 26970 d9ce967840cf63ec376b0f61ed67d6c1 "xelatex"
-  ".aux/main.bbl" 1778768332.72413 72323 29feb8bedb941ec13830277f942b8770 "biber .aux/main"
-  ".aux/main.out" 1778776796.90358 8730 8f721a9ef8021da3ee7a85b2835ad196 "xelatex"
-  ".aux/main.run.xml" 1778776796.90613 2637 2519899124583fb06b87d09edf170f1c "xelatex"
-  ".aux/main.toc" 1778776796.90613 3697 922badb4845ef13f34fe46982c717185 "xelatex"
+["xelatex"] 1778927870.71353 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1778927874.40548 0
+  ".aux/main.aux" 1778927873.81485 27140 9038426d3e0cbdf7fb8d39d8c3d54748 "xelatex"
+  ".aux/main.bbl" 1778925816.36346 72323 90b6607fa301673a6fdcfb6c6c8713a9 "biber .aux/main"
+  ".aux/main.out" 1778927873.81785 9030 5895305347903a1439503e4a0eea9a66 "xelatex"
+  ".aux/main.run.xml" 1778927873.82028 2637 2519899124583fb06b87d09edf170f1c "xelatex"
+  ".aux/main.toc" 1778927873.82028 3826 1aa724b77122f44d28810e2f49e81f1f "xelatex"
   "/home/conk/Files/Diploma/paper/main.tex" 1778522362.24914 6485 4a7d21d1932ad2f636c2c6904597b0a8 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1767555874 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1767555874 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -275,11 +275,11 @@
   "text/1.1_PKM.tex" 1778769449.88425 11627 2d2d3bffa691c5307dd9e7b0eb2886b6 ""
   "text/1.2_RAG.tex" 1778769467.67624 10092 98bb5ec325435d6bed9bfc3d43767495 ""
   "text/1.3_Готовые_Решения.tex" 1778765819.49629 18197 689a6f52647baf4e4a1629897a0a0b2b ""
-  "text/1.4_Оценка_Качества.tex" 1778769333.45758 18428 659bcf621bf78d94137c1eb8899b9a85 ""
-  "text/2.1_Построение_Графа.tex" 1778770629.8796 24150 b707be611c5df763fb1810abaedcbdab ""
-  "text/2.2_GraphRAG.tex" 1778770557.20487 12818 d35a74cfb206855168471777720f098c ""
-  "text/3_Данные.tex" 1778776786.38982 23393 e47acd947926c3608cc3ed2b6c3c2db8 ""
-  "text/4_Эксперименты.tex" 1778776102.44019 69617 8b5a51cb488c6633f32b1c5c20392f7d ""
+  "text/1.4_Оценка_Качества.tex" 1778926123.15559 20731 dafddbce77d293e32e8bf61e4907be8f ""
+  "text/2.1_Построение_Графа.tex" 1778925812.20919 23114 40073461f814ee5a68a2be101ae41872 ""
+  "text/2.2_GraphRAG.tex" 1778926046.8089 12314 da7fdd46b2c22b1be12173923e6672c9 ""
+  "text/3_Данные.tex" 1778927870.49384 24422 deae4eb449a931eb7babe27ae1c0f2b3 ""
+  "text/4_Эксперименты.tex" 1778927798.53738 69895 b02442dfa9d31e417d4878389c4efd8a ""
   "text/5_Заключение.tex" 1778522172.77981 10114 c460d358253425c027220e5d31c6145e ""
   "text/6_Литература.tex" 1778257826.74416 338 e76b9d8c94aa02460fada8ece402ad8c ""
   "text/7_Приложение.tex" 1778522710.18128 1946 939d6c7830b282382bdc2c28fe54e2f6 ""

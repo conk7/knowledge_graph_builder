@@ -1263,6 +1263,41 @@
       \endverb
       \keyw{eng}
     \endentry
+    \entry{bge_reranker_v2}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=1fab717e08035b611c8b3956f71206c9}{%
+           family={{Beijing Academy of Artificial Intelligence (BAAI)}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{fullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \strng{bibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorbibnamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authornamehash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
+      \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
+      \field{extraname}{1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{russian}
+      \field{media}{eresource}
+      \field{title}{bge-reranker-v2-m3}
+      \field{urlday}{6}
+      \field{urlmonth}{5}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
+      \endverb
+      \verb{url}
+      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
+      \endverb
+      \keyw{eng}
+    \endentry
     \entry{Gerganov_llamacpp}{online}{}{}
       \name{author}{1}{}{%
         {{hash=5109fd055f9efc62b3f042728bd402c5}{%
@@ -1329,41 +1364,6 @@
       \endverb
       \verb{url}
       \verb https://github.com/Vasallo94/ObsidianRAG
-      \endverb
-      \keyw{eng}
-    \endentry
-    \entry{bge_reranker_v2}{online}{}{}
-      \name{author}{1}{}{%
-        {{hash=1fab717e08035b611c8b3956f71206c9}{%
-           family={{Beijing Academy of Artificial Intelligence (BAAI)}},
-           familyi={B\bibinitperiod}}}%
-      }
-      \strng{namehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{fullhash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{fullhashraw}{1fab717e08035b611c8b3956f71206c9}
-      \strng{bibnamehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authorbibnamehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authornamehash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authorfullhash}{1fab717e08035b611c8b3956f71206c9}
-      \strng{authorfullhashraw}{1fab717e08035b611c8b3956f71206c9}
-      \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{russian}
-      \field{media}{eresource}
-      \field{title}{bge-reranker-v2-m3}
-      \field{urlday}{6}
-      \field{urlmonth}{5}
-      \field{urlyear}{2026}
-      \field{year}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
-      \endverb
-      \verb{url}
-      \verb https://huggingface.co/BAAI/bge-reranker-v2-m3
       \endverb
       \keyw{eng}
     \endentry
