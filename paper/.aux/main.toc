@@ -25,8 +25,8 @@
 \contentsline {subsubsection}{\numberline {4.4.1}Анализ референсных решений}{54}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Сравнение собственных алгоритмов с аналогами}{56}{subsubsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.3}Влияние промпта и языковой модели}{58}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Анализ влияния графа.}{60}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.4}Анализ влияния графа}{60}{subsubsection.4.4.4}%
 \contentsline {subsection}{\numberline {4.5}Выводы и ограничения исследования}{61}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Заключение}{63}{section.5}%
 \contentsline {section}{\numberline {6}Список литературы}{66}{section.6}%
-\contentsline {section}{\numberline {7}Приложение А. Визуализация датасета}{72}{section.7}%
+\contentsline {section}{\numberline {7}Приложение А. Визуализация датасета}{71}{section.7}%

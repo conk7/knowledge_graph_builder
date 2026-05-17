@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  16 MAY 2026 13:37
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2026/dev/Arch Linux) (preloaded format=xelatex 2026.2.19)  17 MAY 2026 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1639,20 +1639,23 @@ Overfull \hbox (11.4818pt too wide) in paragraph at lines 200--213
 
 ]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 63.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 62.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 63.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 62.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 108.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 107.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 108.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 107.
 
 
 
 [46]
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 148.
+
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 149.
 
@@ -1663,46 +1666,43 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 15
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 151.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 152.
-
-
 
 [47]
 
 [48]
 
 [49]
-LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 279.
+LaTeX Font Info:    Calculating math sizes for size <12.77509> on input line 278.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.77509> not available
-(Font)              size <12> substituted on input line 279.
+(Font)              size <12> substituted on input line 278.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.77509> not available
-(Font)              size <12> substituted on input line 279.
+(Font)              size <12> substituted on input line 278.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.77509> not available
-(Font)              size <12> substituted on input line 279.
+(Font)              size <12> substituted on input line 278.
 
 
 
 [50]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 307.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 306.
+
+
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 306.
 
 
 Package biblatex Warning: No hyphenation patterns for 'russian' on input line 307.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 308.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 307.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 308.
-
-
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 308.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 307.
 
 
 
@@ -1722,7 +1722,7 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 30
 
 [58]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 708.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 707.
 
 
 
@@ -1746,34 +1746,34 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 13
 
 [65]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
 
@@ -1781,126 +1781,124 @@ Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10
 
 ]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
 
 [67]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
 Package biblatex Warning: No driver for 'software'.
-(biblatex)                Using fallback driver on input line 10.
+(biblatex)                Using fallback driver on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
 
 [68]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
 
 [69]
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 
-Package biblatex Warning: No hyphenation patterns for 'russian' on input line 10.
+Package biblatex Warning: No hyphenation patterns for 'russian' on input line 5.
 
 ) (./text/7_Приложение.tex
-
-[70]
 File: images/light/hub.png Graphic file (type bmp)
 <images/light/hub.png>
 File: images/light/realistic.png Graphic file (type bmp)
@@ -1913,14 +1911,12 @@ File: images/light/personal.png Graphic file (type bmp)
 <images/light/personal.png>
 
 
-[71
-
-]
+[70]
 Overfull \vbox (0.64616pt too high) has occurred while \output is active []
 
 
 
-[72]) (.aux/main.aux)
+[71]) (.aux/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1931,7 +1927,7 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.77509pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5895305347903A1439503E4A0EEA9A66;9030.
+(rerunfilecheck)             Checksum: C6D7E7801F6F3CCF6E599D108AE6B59E;9025.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
@@ -1939,10 +1935,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  48486 strings out of 475848
  1134756 string characters out of 5776013
- 2313430 words of memory out of 5000000
+ 2313443 words of memory out of 5000000
  70608 multiletter control sequences out of 15000+600000
  567179 words of font info for 131 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,19n,113p,1212b,5662s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on .aux/main.xdv (72 pages, 1231104 bytes).
+Output written on .aux/main.xdv (71 pages, 1229212 bytes).
