@@ -29,4 +29,4 @@
 \contentsline {subsection}{\numberline {4.5}Выводы и ограничения исследования}{61}{subsection.4.5}%
 \contentsline {section}{\numberline {5}Заключение}{63}{section.5}%
 \contentsline {section}{\numberline {6}Список литературы}{66}{section.6}%
-\contentsline {section}{\numberline {7}Приложение А. Визуализация датасета}{71}{section.7}%
+\contentsline {section}{\numberline {7}Приложение 1. Визуализация датасета}{71}{section.7}%

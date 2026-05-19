@@ -28,6 +28,8 @@
 \texttt{Strict} на валидационном датасете для алгоритмов извлечения.
 
 \begin{table}[H]
+    \caption{Результат \texttt{Strict} на валидационном датасете}
+    \label{tab:strict_retrieval}
     \centering
     \begin{tabular}{cccc}
         \hline
@@ -36,8 +38,6 @@
         1.0                & 0.376           & 0.547                       & 206               \\
         \hline
     \end{tabular}
-    \caption{Результат \texttt{Strict} на валидационном датасете}
-    \label{tab:strict_retrieval}
 \end{table}
 
 Список извлеченных фрагментов не содержит ложноположительных результатов,
@@ -74,6 +74,8 @@ ObsidianRAG~\cite{obsidianrag} и Neo4j Graph Builder~\cite{neo4j_graph_builder}
 что соответствует их оригинальной спецификации.
 
 \begin{table}[H]
+    \caption{Изначальные гиперпараметры алгоритма извлечения}
+    \label{tab:initial_hyperparameters}
     \centering
     \renewcommand{\arraystretch}{1.0}
     \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{6cm}|>{\raggedright\arraybackslash}X|}
@@ -105,8 +107,6 @@ ObsidianRAG~\cite{obsidianrag} и Neo4j Graph Builder~\cite{neo4j_graph_builder}
         Порог                 & 0.7                                                                                                                                                                           \\
         \hline
     \end{tabularx}
-    \caption{Изначальные гиперпараметры алгоритма извлечения}
-    \label{tab:initial_hyperparameters}
 \end{table}
 
 Для поиска оптимальной конфигурации был проведен ряд экспериментов,
@@ -125,6 +125,8 @@ ObsidianRAG~\cite{obsidianrag} и Neo4j Graph Builder~\cite{neo4j_graph_builder}
 при сохранении точности выше порога.
 
 \begin{table}[H]
+    \caption{Анализ конфигураций стратегии \texttt{Broad}.}
+    \label{tab:broad_rest}
     \centering
     \begin{tabular}{ccclclccccc}
         \hline
@@ -152,9 +154,6 @@ ObsidianRAG~\cite{obsidianrag} и Neo4j Graph Builder~\cite{neo4j_graph_builder}
     CS~--- Chunk Size, CO~--- Chunk Overlap,
     E~--- Embedding Model, CE~--- Cross Encoder, Порог~--- минимально допустимая оценка CE,
     время в минутах
-
-    \caption{Анализ конфигураций стратегии \texttt{Broad}.}
-    \label{tab:broad_rest}
 \end{table}
 
 \subsubsection*{Влияние размера чанка}
@@ -224,6 +223,8 @@ ObsidianRAG~\cite{obsidianrag} и Neo4j Graph Builder~\cite{neo4j_graph_builder}
 между высокой точностью и полнотой.
 
 \begin{table}[H]
+    \caption{Результат \texttt{Combined} на валидационном датасете}
+    \label{tab:combined_retrieval}
     \centering
     \begin{tabular}{clllccc}
         \hline
@@ -232,8 +233,6 @@ ObsidianRAG~\cite{obsidianrag} и Neo4j Graph Builder~\cite{neo4j_graph_builder}
         0.675              & 0.685           & 0.680                       \\
         \hline
     \end{tabular}
-    \caption{Результат \texttt{Combined} на валидационном датасете}
-    \label{tab:combined_retrieval}
 \end{table}
 
 \begin{figure}[H]
@@ -310,6 +309,8 @@ LLM модели использовались посредством API обл�
 Скрипт оценивания расположен в директории \texttt{src/eval/classification}.
 
 \begin{table}[H]
+    \caption{Weighted F\textsubscript{1} классификации типов связей}
+    \label{tab:classification_results}
     \centering
     \begin{tabular}{llccccccc}
         \hline
@@ -331,9 +332,6 @@ LLM модели использовались посредством API обл�
     \raggedright\footnotesize
     \textit{Примечание:} Используемые промпты
     доступны в репозитории проекта по пути: \texttt{artifacts/prompts/classification.} \\
-
-    \caption{Weighted F\textsubscript{1} классификации типов связей}
-    \label{tab:classification_results}
 \end{table}
 
 \subsubsection*{Влияние пакетного промптинга}
@@ -401,6 +399,8 @@ LLM модели использовались посредством API обл�
 (Gemma-4-31B, few-shot промпт, \texttt{batch=1}).
 
 \begin{table}[H]
+    \caption{Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}
+    \label{tab:generated_links_eval}
     \centering
     \begin{tabular}{lcccccc}
         \hline
@@ -417,8 +417,6 @@ LLM модели использовались посредством API обл�
         \textbf{Взвеш. усред.}              & 0.776                                                 & 0.829                                              & 0.802                       & 0.635      & 0.679      & 0.656                       \\
         \hline
     \end{tabular}
-    \caption{Оценка качества сгенерированных связей: факт наличия (Untyped) и точное совпадение типа (Typed)}
-    \label{tab:generated_links_eval}
 \end{table}
 
 Точность извлеченных ссылок без учета их типа находится на высоком уровне:
@@ -445,6 +443,8 @@ $\text{R} = 0.829$, что говорит о способности алгори
 а не собрать контекст всех заметок разом.
 
 \begin{table}[H]
+    \caption{Значения гиперпараметров алгоритма GraphRAG по умолчанию}
+    \label{tab:graphrag_default_params}
     \centering
     \renewcommand{\arraystretch}{1.0}
     \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|l|c|}
@@ -460,8 +460,6 @@ $\text{R} = 0.829$, что говорит о способности алгори
         Итоговое количество чанков в контексте & \texttt{TOP\_K\_CONTEXT}  & 10                \\
         \hline
     \end{tabularx}
-    \caption{Значения гиперпараметров алгоритма GraphRAG по умолчанию}
-    \label{tab:graphrag_default_params}
 \end{table}
 
 Оценка проводилась в соответствии с методологией,
@@ -478,6 +476,8 @@ $\text{R} = 0.829$, что говорит о способности алгори
 для оценки Gemma-4-31B.
 
 \begin{table}[H]
+    \caption{Результаты решения ObsidianRAG}
+    \label{tab:reference_results_obsidianrag}
     \centering
     \begin{tabular}{lcccc}
         \hline
@@ -492,8 +492,6 @@ $\text{R} = 0.829$, что говорит о способности алгори
         \textbf{Среднее}       & 0.786       & 0.663       & 0.941      & 0.496       \\
         \hline
     \end{tabular}
-    \caption{Результаты решения ObsidianRAG}
-    \label{tab:reference_results_obsidianrag}
 \end{table}
 
 Результаты оценки референсного решения ObsidianRAG приведены в таблице~\ref{tab:reference_results_obsidianrag}.
@@ -512,6 +510,8 @@ $\text{R} = 0.829$, что говорит о способности алгори
 полного и точного ответа.
 
 \begin{table}[H]
+    \caption{Результаты решения Neo4j на сгенерированном ГЗ}
+    \label{tab:reference_results_neo4j}
     \centering
     \begin{tabular}{lcccc}
         \hline
@@ -526,8 +526,6 @@ $\text{R} = 0.829$, что говорит о способности алгори
         \textbf{Среднее}       & 0.977       & 0.821       & 0.957      & 0.602       \\
         \hline
     \end{tabular}
-    \caption{Результаты решения Neo4j на сгенерированном ГЗ}
-    \label{tab:reference_results_neo4j}
 \end{table}
 
 В таблице~\ref{tab:reference_results_neo4j} представлены результаты Neo4j,
@@ -562,6 +560,8 @@ $\text{R} = 0.829$, что говорит о способности алгори
 Сравнение представлено в таблице~\ref{tab:complex_graphrag_comparison}.
 
 \begin{table}[H]
+    \caption{Сравнение собственных алгоритмов с аналогами на размеченном (GT) и сгенерированном (GEN) графах.}
+    \label{tab:complex_graphrag_comparison}
     \centering
     \renewcommand{\arraystretch}{1.1}
     \setlength{\tabcolsep}{4pt}
@@ -597,8 +597,6 @@ $\text{R} = 0.829$, что говорит о способности алгори
                                             & GEN                              & 0.764                             & 0.482                              & 0.952                               & 0.587                              & 0.930       & 0.585       & 0.977       & 0.602       \\
         \hline
     \end{tabular}
-    \caption{Сравнение собственных алгоритмов с аналогами на размеченном (GT) и сгенерированном (GEN) графах.}
-    \label{tab:complex_graphrag_comparison}
 \end{table}
 
 \subsubsection*{Оценка GraphRAG на размеченных данных}
@@ -670,6 +668,8 @@ $0.496$ до $0.579$ (Base) и $0.577$ (Typed)
 Модели для оценки и генерации остались теми же.
 
 \begin{table}[H]
+    \caption{Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27B)}
+    \label{tab:prompt_effect_full_versus}
     \centering
     \begin{tabular}{llcccccc}
         \hline
@@ -687,9 +687,6 @@ $0.496$ до $0.579$ (Base) и $0.577$ (Typed)
     \raggedright\footnotesize
     \textit{Примечание:} Используемые промпты
     доступны в репозитории проекта по пути: \texttt{artifacts/prompts/graphrag.} \\
-
-    \caption{Сравнение базового и few-shot промптов на алгоритмах Base и Typed (метрика AC, модель Gemma-3-27B)}
-    \label{tab:prompt_effect_full_versus}
 \end{table}
 
 Новый промпт продемонстрировал прирост AC в среднем лишь +0.13.
@@ -705,6 +702,8 @@ $0.496$ до $0.579$ (Base) и $0.577$ (Typed)
 моделью-судьей будет Gemini-3-flash~\cite{gemini_3_flash}.
 
 \begin{table}[H]
+    \caption{Сравнение моделей Gemma-3-27B и Gemma-4-31B (few-shot промпт)}
+    \label{tab:model_comparison_2_3}
     \centering
     \begin{tabular}{llccc|ccc}
         \hline
@@ -731,8 +730,6 @@ $0.496$ до $0.579$ (Base) и $0.577$ (Typed)
                                             & Typed                              & 0.823                                               & 0.945                                              & 0.600       & 0.581 $\downarrow$ & 0.808 $\downarrow$ & 0.711 $\uparrow$ \\
         \hline
     \end{tabular}
-    \caption{Сравнение моделей Gemma-3-27B и Gemma-4-31B (few-shot промпт)}
-    \label{tab:model_comparison_2_3}
 \end{table}
 
 Результаты представлены в таблице~\ref{tab:model_comparison_2_3}.
@@ -772,6 +769,8 @@ CR (0.808 против 0.859 у Base).
 так и для оценки.
 
 \begin{table}[H]
+    \caption{Сравнение качества работы GraphRAG между размеченным графом и сгенерированным.}
+    \label{tab:exp3_vs_exp5}
     \centering
     \begin{tabular}{llccc|ccc}
         \hline
@@ -798,8 +797,6 @@ CR (0.808 против 0.859 у Base).
                                             & Typed                              & 0.581                                  & 0.807                                        & 0.711       & 0.578 $\downarrow$ & 0.812 $\uparrow$   & 0.708  $\downarrow$ \\
         \hline
     \end{tabular}
-    \caption{Сравнение качества работы GraphRAG между размеченным графом и сгенерированным.}
-    \label{tab:exp3_vs_exp5}
 \end{table}
 
 
