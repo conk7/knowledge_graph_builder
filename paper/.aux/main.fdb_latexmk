@@ -1,23 +1,23 @@
 # Fdb version 4
-["biber .aux/main"] 1778925815.60204 ".aux/main.bcf" ".aux/main.bbl" ".aux/main" 1779198020.08197 0
-  ".aux/main.bcf" 1779198019.51575 159667 43748f9fa0d43f796bb37dcdc04bb1a8 "xelatex"
+["biber .aux/main"] 1778925815.60204 ".aux/main.bcf" ".aux/main.bbl" ".aux/main" 1779201643.13067 0
+  ".aux/main.bcf" 1779201642.57566 159667 43748f9fa0d43f796bb37dcdc04bb1a8 "xelatex"
   "references.bib" 1778762650.16147 13261 a9b73002c9f9f61af9dbf7ba8e417679 ""
   (generated)
   ".aux/main.bbl"
   ".aux/main.blg"
   (rewritten before read)
-["xdvipdfmx"] 1779198019.60501 ".aux/main.xdv" "main.pdf" "main" 1779198020.08444 0
-  ".aux/main.xdv" 1779198019.5172 1229376 b5bccf8ba51ee9a71ac2b0d86bd73b07 "xelatex"
+["xdvipdfmx"] 1779201642.66611 ".aux/main.xdv" "main.pdf" "main" 1779201643.1331 0
+  ".aux/main.xdv" 1779201642.57724 1229316 cd2dc0835c7c8bbe68782392b281f3ee "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1779198016.4509 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1779198020.08206 0
-  ".aux/main.aux" 1779198019.5126 27256 0a3107826fcc763fdb758a9430cd73b0 "xelatex"
+["xelatex"] 1779201639.45746 "/home/conk/Files/Diploma/paper/main.tex" ".aux/main.xdv" "main" 1779201643.13076 0
+  ".aux/main.aux" 1779201642.57246 27256 0a3107826fcc763fdb758a9430cd73b0 "xelatex"
   ".aux/main.bbl" 1778925816.36346 72323 90b6607fa301673a6fdcfb6c6c8713a9 "biber .aux/main"
-  ".aux/main.out" 1779198019.51516 9022 8c11961b1ca48225aa549885442c8c16 "xelatex"
-  ".aux/main.run.xml" 1779198019.51706 2637 2519899124583fb06b87d09edf170f1c "xelatex"
-  ".aux/main.toc" 1779198019.51706 3824 9f87d9380884efe47958bb653ba497ad "xelatex"
-  "/home/conk/Files/Diploma/paper/main.tex" 1779197826.74121 7159 9acfee65ea955ce531aa0a6a7bef6be9 ""
+  ".aux/main.out" 1779201642.57405 9022 8c11961b1ca48225aa549885442c8c16 "xelatex"
+  ".aux/main.run.xml" 1779201642.57703 2637 2519899124583fb06b87d09edf170f1c "xelatex"
+  ".aux/main.toc" 1779201642.57703 3824 9f87d9380884efe47958bb653ba497ad "xelatex"
+  "/home/conk/Files/Diploma/paper/main.tex" 1779201636.11095 7161 819f7787539b9a359be784b6522a39f9 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1767555874 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1767555874 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1767555874 1004 54797486969f23fa377b128694d548df ""
@@ -270,16 +270,16 @@
   "images/light/realistic.png" 1777211802.99371 106577 45eb668079009dd737ef07311fc00e68 ""
   "images/light/sequence.png" 1777211773.16229 44699 9380b4662ed278a1b5b465b1777403b9 ""
   "images/light/versus.png" 1777211889.82095 52395 1ad116377dd463d1d08fcb7a04b101b4 ""
-  "main.tex" 1779197826.74121 7159 9acfee65ea955ce531aa0a6a7bef6be9 ""
+  "main.tex" 1779201636.11095 7161 819f7787539b9a359be784b6522a39f9 ""
   "text/0_Введение.tex" 1778769072.24144 10084 9746b2ea86a1144b2b41882fa8da9463 ""
   "text/1.1_PKM.tex" 1779018100.8986 11683 3b8734db9f3e495383b56bcc5c1301a0 ""
   "text/1.2_RAG.tex" 1779027599.9043 10077 468af31307d39cfc29bbc8922bfe9888 ""
   "text/1.3_Готовые_Решения.tex" 1779028028.02336 18209 37df1086204731b9d12e44c72df9e939 ""
   "text/1.4_Оценка_Качества.tex" 1779028351.80775 20741 a9541ccb2b36c713fa906b8a93ba0da0 ""
-  "text/2.1_Построение_Графа.tex" 1779029078.38581 23036 1e1b66965fe130e7ff128634b4eee5a8 ""
-  "text/2.2_GraphRAG.tex" 1779029743.44417 12379 f6a2f0dcdce92ce116b91ee8d4195469 ""
+  "text/2.1_Построение_Графа.tex" 1779199947.92996 23036 1e1b66965fe130e7ff128634b4eee5a8 ""
+  "text/2.2_GraphRAG.tex" 1779199944.12174 12379 f6a2f0dcdce92ce116b91ee8d4195469 ""
   "text/3_Данные.tex" 1779198016.28801 24424 6a7f9873405c197a3d97938f47d46191 ""
-  "text/4_Эксперименты.tex" 1779196445.78619 69613 a8749e8c9c873d9b6090f87f56ad7444 ""
+  "text/4_Эксперименты.tex" 1779201404.89316 69620 f8f6f057bcee6090aa3a6ecd86cbcad4 ""
   "text/5_Заключение.tex" 1779014443.71391 10100 f71712541a60b2b62cf3dcdda3d7c58e ""
   "text/6_Литература.tex" 1779030009.12121 147 e73e9b6579a311b6f36fd1a6c159f636 ""
   "text/7_Приложение.tex" 1779197918.12206 1933 118306a8b4d425c5b755d02706678103 ""
