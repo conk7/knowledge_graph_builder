@@ -178,14 +178,23 @@
 
 \KOMAoption{fontsize}{14pt} % font size = 14
 \renewcommand{\footnotesize}{\fontsize{14pt}{14pt}\selectfont} % footnote font size = 14
-\vspace{10pt}
+\vspace{50pt}
 
-\begin{flushright}
-    Научный руководитель \\
-    к. ф. – м. н., старший преподаватель \\
-    \underline{\hspace{5cm}} \\
-    В. М. Кочеганов
-\end{flushright}
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+    Рецензент \\
+    \\ % Пустая строка для выравнивания, если нужно место под ФИО
+    \underline{\hspace{5cm}}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{flushright}
+        Научный руководитель \\
+        к. ф. – м. н., старший преподаватель \\
+        \underline{\hspace{5cm}} \\
+        В. М. Кочеганов
+    \end{flushright}
+\end{minipage}
 
 \begin{center}
     \vspace*{\fill}
