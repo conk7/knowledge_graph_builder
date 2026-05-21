@@ -1,0 +1,87 @@
+[
+  {
+    "entity": "Malus",
+    "source_file": "Apple.md",
+    "sentence": "When first classified by Linnaeus in 1753, the pears, apples, and quinces were combined into one genus that he named Pyrus and he named the apple as Pyrus malus."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Apple_Corps.md",
+    "sentence": "The company's name is a pun on \"apple core\"."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Mac_(computer).md",
+    "sentence": "The name is short for Macintosh (its official name until 1999), a reference to the McIntosh apple."
+  },
+  {
+    "entity": "IPhone",
+    "source_file": "Mac_(computer).md",
+    "sentence": "iPhone-like multi-touch technology was progressively added to all MacBook trackpads, and to desktop Macs through the Magic Mouse, and Magic Trackpad."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Steve_Jobs.md",
+    "sentence": "The two decided on the name \"Apple\" after Jobs returned from the All One Farm commune in Oregon and told Wozniak about his time in the farm's apple orchard."
+  },
+  {
+    "entity": "IPhone",
+    "source_file": "Apple_Inc..md",
+    "sentence": "In April 2022, Apple opened an online store that allowed anyone in the US to view repair manuals and order replacement parts for specific recent iPhones, although the difference in cost between this method and official repair is anticipated to be minimal."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Apple_Inc..md",
+    "sentence": "Marketing\nBranding\nAccording to Steve Jobs, the company's name was inspired by his visit to an apple farm while on a fruitarian diet."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "MacOS.md",
+    "sentence": "As most Mac hardware components, or components similar to those, since the Intel transition are available for purchase, some technology-capable groups have developed software to install macOS on non-Apple computers."
+  },
+  {
+    "entity": "IPhone",
+    "source_file": "MacOS.md",
+    "sentence": "Apple's showcase new feature in Yosemite is Handoff, which enables users with iPhones running iOS 8.1 or later to answer phone calls, receive and send SMS messages, and complete unfinished iPhone emails on their Mac."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Malus.md",
+    "sentence": "Malus ( or ) is a genus of about 32–57 species of small deciduous trees or shrubs in the family Rosaceae, including the domesticated orchard apple, crab apples (sometimes known in North America as crabapples) and wild apples."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Steve_Wozniak.md",
+    "sentence": "The two decided on the name \"Apple\" shortly after Jobs returned from Oregon and told Wozniak about his time spent on an apple orchard there."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Isaac_Newton.md",
+    "sentence": "Apple story\nNewton often told the story that he was inspired to formulate his theory of gravitation by watching the fall of an apple from a tree."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Granny_Smith.md",
+    "sentence": "The Granny Smith is an apple cultivar that originated in Australia in 1868."
+  },
+  {
+    "entity": "Apple_pie",
+    "source_file": "Granny_Smith.md",
+    "sentence": "They are popularly used in many apple dishes, such as apple pie, apple cobbler, apple crumble, and apple cake."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Apple_pie.md",
+    "sentence": "An apple pie is a pie in which the principal filling is apples."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Tim_Cook.md",
+    "sentence": "Career\nPre-Apple era\nAfter graduating from Auburn University, Cook spent twelve years in IBM's personal computer business, ultimately as director of North American fulfillment."
+  },
+  {
+    "entity": "Apple",
+    "source_file": "Big_Apple.md",
+    "sentence": "The earliest known usage of \"big apple\" appears in the book The Wayfarer in New York (1909), in which Edward Sandford Martin writes: Kansas is apt to see in New York a greedy city ..."
+  }
+]

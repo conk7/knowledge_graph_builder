@@ -1,0 +1,222 @@
+[
+  {
+    "entity": "Integrated_circuit",
+    "source_file": "Semiconductor_device_fabrication.md",
+    "sentence": "Semiconductor device fabrication is the process used to manufacture semiconductor devices, typically integrated circuits (ICs) such as microprocessors, microcontrollers, and memories (such as RAM and flash memory)."
+  },
+  {
+    "entity": "Photolithography",
+    "source_file": "Semiconductor_device_fabrication.md",
+    "sentence": "Steps such as etching and photolithography can be used to manufacture other devices, such as LCD and OLED displays."
+  },
+  {
+    "entity": "Cleanroom",
+    "source_file": "Semiconductor_device_fabrication.md",
+    "sentence": "The insides of the processing equipment and FOUPs is kept cleaner than the surrounding air in the cleanroom."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Semiconductor_device_fabrication.md",
+    "sentence": "In some cases, this allows a simple die shrink of a currently produced chip design to reduce costs, improve performance, and increase transistor density (number of transistors per unit area) without the expense of a new design."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Semiconductor_device_fabrication.md",
+    "sentence": "History\n20th century\nIn 1955, Carl Frosch and Lincoln Derick, working at Bell Telephone Laboratories, accidentally grew a layer of silicon dioxide over the silicon wafer, for which they observed surface passivation effects."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "ARM_architecture_family.md",
+    "sentence": "ARM1\nAcorn chose VLSI Technology as the \"silicon partner\", as they were a source of ROMs and custom chips for Acorn."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "ARM_architecture_family.md",
+    "sentence": "The ARM2 had a transistor count of just 30,000, compared to Motorola's six-year-older 68000 model with around 68,000."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Silicon.md",
+    "sentence": "Silicon is widely used as a semiconductor material in various electrical devices such as transistors, solar cells, and integrated circuits."
+  },
+  {
+    "entity": "Integrated_circuit",
+    "source_file": "Silicon.md",
+    "sentence": "The small portion of very highly purified elemental silicon used in semiconductor electronics (<15%) is essential to the transistors and integrated circuit chips used in most modern technology such as smartphones and other computers."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Photolithography.md",
+    "sentence": "Photolithography (also known as optical lithography) is a process that involves using light to transfer a pattern onto a photoresist layer deposited on a sample, typically a silicon wafer."
+  },
+  {
+    "entity": "Extreme_ultraviolet_lithography",
+    "source_file": "Photolithography.md",
+    "sentence": "Photolithography processes can be classified according to the type of light used, including ultraviolet lithography, deep ultraviolet lithography, extreme ultraviolet lithography (EUVL), and X-ray lithography."
+  },
+  {
+    "entity": "Integrated_circuit",
+    "source_file": "Photolithography.md",
+    "sentence": "In complex integrated circuits, a wafer may go through the photolithographic cycle as many as 50 times."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Photolithography.md",
+    "sentence": "Inspired by the application of photoresist, a photosensitive liquid used to mark the boundaries of rivet holes in metal aircraft wings, Nall determined that a similar process can be used to protect the germanium in the transistors and even pattern the surface with light."
+  },
+  {
+    "entity": "Cleanroom",
+    "source_file": "Photolithography.md",
+    "sentence": "Modern cleanrooms use automated, robotic wafer track systems to coordinate the process."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Transistor.md",
+    "sentence": "Most transistors are made from very pure silicon, and some from germanium, but certain other semiconductor materials are sometimes used."
+  },
+  {
+    "entity": "Integrated_circuit",
+    "source_file": "Transistor.md",
+    "sentence": "With its high scalability, much lower power consumption, and higher density than bipolar junction transistors, the MOSFET made it possible to build high-density integrated circuits, allowing the integration of more than 10,000 transistors in a single IC."
+  },
+  {
+    "entity": "Semiconductor_device_fabrication",
+    "source_file": "Transistor.md",
+    "sentence": "Its ability to be mass-produced by a highly automated process (semiconductor device fabrication), from relatively basic materials, allows astonishingly low per-transistor costs."
+  },
+  {
+    "entity": "Integrated_circuit",
+    "source_file": "System_on_a_chip.md",
+    "sentence": "Types\nIn general, there are three distinguishable types of SoCs:\n\nSoCs built around a microcontroller,\nSoCs built around a microprocessor, often found in mobile phones;\nSpecialized application-specific integrated circuit SoCs designed for specific applications that do not fit into the above two categories."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "System_on_a_chip.md",
+    "sentence": "Because of high transistor counts on modern devices, oftentimes a layout of sufficient throughput and high transistor density is physically realizable from fabrication processes but would result in unacceptably high amounts of heat in the circuit's volume."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Fin_field-effect_transistor.md",
+    "sentence": "A fin field-effect transistor (FinFET) is a multigate device, a MOSFET (metal–oxide–semiconductor field-effect transistor) built on a substrate where the gate is placed on two, three, or four sides of the channel or wrapped around the channel (gate all around), forming a double or even multi gate structure."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Fin_field-effect_transistor.md",
+    "sentence": "These devices have been given the generic name \"FinFETs\" because the source/drain region forms fins on the silicon surface."
+  },
+  {
+    "entity": "Semiconductor_device_fabrication",
+    "source_file": "Fin_field-effect_transistor.md",
+    "sentence": "It is the basis for modern nanoelectronic semiconductor device fabrication."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Apple_M1.md",
+    "sentence": "It is part of the Apple silicon series, as a central processing unit (CPU) and graphics processing unit (GPU), used for its Mac desktops and notebooks and the iPad Pro and iPad Air tablets."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Apple_M1.md",
+    "sentence": "These chips differ largely in size and the number of functional units: for example, while the original M1 has about 16 billion transistors, the M1 Ultra has 114 billion."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "TSMC.md",
+    "sentence": "In July 2020, TSMC confirmed it would halt the shipment of silicon wafers to Chinese telecommunications equipment manufacturer Huawei and its subsidiary HiSilicon by 14 September."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "TSMC.md",
+    "sentence": "N7+ offers a 15–20 percent higher transistor density and 10 percent reduction in power consumption than previous technology."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Moores_law.md",
+    "sentence": "Moore's law is the observation that the number of transistors in an integrated circuit (IC) doubles about every two years, and thus projection of a historical trend."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Moores_law.md",
+    "sentence": "Also due to Dennard scaling, this increased performance would not be accompanied by increased power, i.e., the energy-efficiency of silicon-based computer chips roughly doubles every 18 months."
+  },
+  {
+    "entity": "Extreme_ultraviolet_lithography",
+    "source_file": "Moores_law.md",
+    "sentence": "The cost of the tools, principally extreme ultraviolet lithography (EUVL), used to manufacture chips doubles every 4 years."
+  },
+  {
+    "entity": "Integrated_circuit",
+    "source_file": "Moores_law.md",
+    "sentence": "Some of the key innovations are listed below, as examples of breakthroughs that have advanced integrated circuit and semiconductor device fabrication technology, allowing transistor counts to grow by more than seven orders of magnitude in less than five decades."
+  },
+  {
+    "entity": "Semiconductor_device_fabrication",
+    "source_file": "Moores_law.md",
+    "sentence": "Some of the key innovations are listed below, as examples of breakthroughs that have advanced integrated circuit and semiconductor device fabrication technology, allowing transistor counts to grow by more than seven orders of magnitude in less than five decades."
+  },
+  {
+    "entity": "Photolithography",
+    "source_file": "Moores_law.md",
+    "sentence": "Deep UV excimer laser photolithography: Invented by Kanti Jain at IBM circa 1980."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Integrated_circuit.md",
+    "sentence": "An integrated circuit (IC), also known as a microchip or simply chip, is a compact assembly of electronic circuits formed from various electronic components — such as transistors, resistors, and capacitors — and their interconnections."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Integrated_circuit.md",
+    "sentence": "These components are fabricated onto a thin, flat piece (\"chip\") of semiconductor material, most commonly silicon."
+  },
+  {
+    "entity": "Semiconductor_device_fabrication",
+    "source_file": "Integrated_circuit.md",
+    "sentence": "Very-large-scale integration was made practical by technological advancements in semiconductor device fabrication."
+  },
+  {
+    "entity": "Photolithography",
+    "source_file": "Integrated_circuit.md",
+    "sentence": "The size and cost is low because the chips, with all their components, are printed as a unit by photolithography rather than being constructed one transistor at a time."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Wafer_(electronics).md",
+    "sentence": "In electronics, a wafer (also called a slice or substrate) is a thin slice of semiconductor, such as a crystalline silicon (c-Si, silicium), used for the fabrication of integrated circuits and, in photovoltaics, to manufacture solar cells."
+  },
+  {
+    "entity": "Photolithography",
+    "source_file": "ASML_Holding.md",
+    "sentence": "ASML Holding N.V., commonly known as ASML (originally standing for Advanced Semiconductor Materials Lithography), is a Dutch multinational corporation and semiconductor company that specializes in the development and manufacturing of photolithography machines which are used to produce integrated circuits."
+  },
+  {
+    "entity": "Extreme_ultraviolet_lithography",
+    "source_file": "ASML_Holding.md",
+    "sentence": "It is the largest supplier for the semiconductor industry, as well as the most advanced producer of extreme ultraviolet lithography (EUV) machines that are required to manufacture the most advanced chips."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "ASML_Holding.md",
+    "sentence": "In these machines, patterns are optically imaged onto a silicon wafer that is covered with a film of light-sensitive material (photoresist)."
+  },
+  {
+    "entity": "Integrated_circuit",
+    "source_file": "Extreme_ultraviolet_lithography.md",
+    "sentence": "Extreme ultraviolet lithography (EUVL or simply EUV) is a technology used in the semiconductor industry for manufacturing integrated circuits (ICs)."
+  },
+  {
+    "entity": "Photolithography",
+    "source_file": "Extreme_ultraviolet_lithography.md",
+    "sentence": "It is a type of photolithography that uses 13.5 nm extreme ultraviolet (EUV) light from a laser-pulsed tin (Sn) plasma to create intricate patterns on semiconductor substrates."
+  },
+  {
+    "entity": "Transistor",
+    "source_file": "Extreme_ultraviolet_lithography.md",
+    "sentence": "Along with multiple patterning, EUV has paved the way for higher transistor densities, allowing the production of higher-performance processors."
+  },
+  {
+    "entity": "Silicon",
+    "source_file": "Extreme_ultraviolet_lithography.md",
+    "sentence": "Masks\nEUV photomasks work by reflecting light, which is achieved by using multiple alternating layers of molybdenum and silicon."
+  }
+]

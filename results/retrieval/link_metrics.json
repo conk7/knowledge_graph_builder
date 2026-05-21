@@ -1,0 +1,692 @@
+{
+  "gold_root": "data/test_vaults/gold",
+  "pred_root": "results/links",
+  "samples": {
+    "hub_n_spoke": {
+      "typed_micro": {
+        "tp": 54,
+        "fp": 30,
+        "fn": 23,
+        "precision": 0.6428571428571429,
+        "recall": 0.7012987012987013,
+        "f1": 0.6708074534161491
+      },
+      "untyped_micro": {
+        "tp": 68,
+        "fp": 16,
+        "fn": 9,
+        "precision": 0.8095238095238095,
+        "recall": 0.8831168831168831,
+        "f1": 0.84472049689441
+      },
+      "typed_weighted_by_relation": {
+        "precision": 0.6972222222222222,
+        "recall": 0.7012987012987013,
+        "f1": 0.671620226815032
+      },
+      "per_relation": {
+        "applies to": {
+          "tp": 7,
+          "fp": 1,
+          "fn": 7,
+          "precision": 0.875,
+          "recall": 0.5,
+          "f1": 0.6363636363636364,
+          "support": 14
+        },
+        "contains": {
+          "tp": 5,
+          "fp": 3,
+          "fn": 1,
+          "precision": 0.625,
+          "recall": 0.8333333333333334,
+          "f1": 0.7142857142857143,
+          "support": 6
+        },
+        "develops": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 3
+        },
+        "is a": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 4,
+          "precision": 0.75,
+          "recall": 0.42857142857142855,
+          "f1": 0.5454545454545454,
+          "support": 7
+        },
+        "made of": {
+          "tp": 3,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.6,
+          "recall": 1.0,
+          "f1": 0.7499999999999999,
+          "support": 3
+        },
+        "manufactured by": {
+          "tp": 3,
+          "fp": 2,
+          "fn": 1,
+          "precision": 0.6,
+          "recall": 0.75,
+          "f1": 0.6666666666666665,
+          "support": 4
+        },
+        "manufactures": {
+          "tp": 6,
+          "fp": 2,
+          "fn": 1,
+          "precision": 0.75,
+          "recall": 0.8571428571428571,
+          "f1": 0.7999999999999999,
+          "support": 7
+        },
+        "mentions": {
+          "tp": 5,
+          "fp": 5,
+          "fn": 3,
+          "precision": 0.5,
+          "recall": 0.625,
+          "f1": 0.5555555555555556,
+          "support": 8
+        },
+        "relies on": {
+          "tp": 5,
+          "fp": 4,
+          "fn": 0,
+          "precision": 0.5555555555555556,
+          "recall": 1.0,
+          "f1": 0.7142857142857143,
+          "support": 5
+        },
+        "requires": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8,
+          "support": 3
+        },
+        "sustains": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.8333333333333334,
+          "recall": 0.7142857142857143,
+          "f1": 0.7692307692307692,
+          "support": 7
+        },
+        "uses": {
+          "tp": 7,
+          "fp": 9,
+          "fn": 3,
+          "precision": 0.4375,
+          "recall": 0.7,
+          "f1": 0.5384615384615384,
+          "support": 10
+        }
+      },
+      "counts": {
+        "gt_typed": 77,
+        "pred_typed": 84,
+        "gt_untyped": 77,
+        "pred_untyped": 84
+      }
+    },
+    "personal": {
+      "typed_micro": {
+        "tp": 10,
+        "fp": 1,
+        "fn": 13,
+        "precision": 0.9090909090909091,
+        "recall": 0.43478260869565216,
+        "f1": 0.5882352941176471
+      },
+      "untyped_micro": {
+        "tp": 10,
+        "fp": 1,
+        "fn": 13,
+        "precision": 0.9090909090909091,
+        "recall": 0.43478260869565216,
+        "f1": 0.5882352941176471
+      },
+      "typed_weighted_by_relation": {
+        "precision": 0.8260869565217391,
+        "recall": 0.43478260869565216,
+        "f1": 0.4975845410628019
+      },
+      "per_relation": {
+        "discusses": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 2
+        },
+        "mentions": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 7,
+          "precision": 1.0,
+          "recall": 0.125,
+          "f1": 0.2222222222222222,
+          "support": 8
+        },
+        "part of": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 2
+        },
+        "requires": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "scheduled on": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "uses": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "watch": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        }
+      },
+      "counts": {
+        "gt_typed": 23,
+        "pred_typed": 11,
+        "gt_untyped": 23,
+        "pred_untyped": 11
+      }
+    },
+    "realistic": {
+      "typed_micro": {
+        "tp": 57,
+        "fp": 26,
+        "fn": 22,
+        "precision": 0.6867469879518072,
+        "recall": 0.7215189873417721,
+        "f1": 0.7037037037037036
+      },
+      "untyped_micro": {
+        "tp": 64,
+        "fp": 19,
+        "fn": 15,
+        "precision": 0.7710843373493976,
+        "recall": 0.810126582278481,
+        "f1": 0.7901234567901234
+      },
+      "typed_weighted_by_relation": {
+        "precision": 0.7445823866709943,
+        "recall": 0.7215189873417721,
+        "f1": 0.7071339257381896
+      },
+      "per_relation": {
+        "belongs to": {
+          "tp": 6,
+          "fp": 7,
+          "fn": 0,
+          "precision": 0.46153846153846156,
+          "recall": 1.0,
+          "f1": 0.631578947368421,
+          "support": 6
+        },
+        "competes with": {
+          "tp": 5,
+          "fp": 2,
+          "fn": 2,
+          "precision": 0.7142857142857143,
+          "recall": 0.7142857142857143,
+          "f1": 0.7142857142857143,
+          "support": 7
+        },
+        "criticized by": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "critiques": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.8333333333333334,
+          "recall": 0.8333333333333334,
+          "f1": 0.8333333333333334,
+          "support": 6
+        },
+        "developed by": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1": 0.5,
+          "support": 1
+        },
+        "develops": {
+          "tp": 2,
+          "fp": 3,
+          "fn": 2,
+          "precision": 0.4,
+          "recall": 0.5,
+          "f1": 0.4444444444444445,
+          "support": 4
+        },
+        "encompasses": {
+          "tp": 7,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.7777777777777778,
+          "recall": 1.0,
+          "f1": 0.8750000000000001,
+          "support": 7
+        },
+        "mentions": {
+          "tp": 12,
+          "fp": 0,
+          "fn": 8,
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.7499999999999999,
+          "support": 20
+        },
+        "trains": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "triggers": {
+          "tp": 3,
+          "fp": 5,
+          "fn": 2,
+          "precision": 0.375,
+          "recall": 0.6,
+          "f1": 0.4615384615384615,
+          "support": 5
+        },
+        "uses": {
+          "tp": 10,
+          "fp": 2,
+          "fn": 2,
+          "precision": 0.8333333333333334,
+          "recall": 0.8333333333333334,
+          "f1": 0.8333333333333334,
+          "support": 12
+        },
+        "validates": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.8,
+          "recall": 0.6666666666666666,
+          "f1": 0.7272727272727272,
+          "support": 6
+        }
+      },
+      "counts": {
+        "gt_typed": 79,
+        "pred_typed": 83,
+        "gt_untyped": 79,
+        "pred_untyped": 83
+      }
+    },
+    "sequence": {
+      "typed_micro": {
+        "tp": 16,
+        "fp": 14,
+        "fn": 7,
+        "precision": 0.5333333333333333,
+        "recall": 0.6956521739130435,
+        "f1": 0.6037735849056605
+      },
+      "untyped_micro": {
+        "tp": 22,
+        "fp": 8,
+        "fn": 1,
+        "precision": 0.7333333333333333,
+        "recall": 0.9565217391304348,
+        "f1": 0.8301886792452831
+      },
+      "typed_weighted_by_relation": {
+        "precision": 0.6086956521739131,
+        "recall": 0.6956521739130435,
+        "f1": 0.6105908584169454
+      },
+      "per_relation": {
+        "contradicts": {
+          "tp": 1,
+          "fp": 3,
+          "fn": 1,
+          "precision": 0.25,
+          "recall": 0.5,
+          "f1": 0.3333333333333333,
+          "support": 2
+        },
+        "incorporates": {
+          "tp": 3,
+          "fp": 3,
+          "fn": 1,
+          "precision": 0.5,
+          "recall": 0.75,
+          "f1": 0.6,
+          "support": 4
+        },
+        "mentions": {
+          "tp": 4,
+          "fp": 4,
+          "fn": 1,
+          "precision": 0.5,
+          "recall": 0.8,
+          "f1": 0.6153846153846154,
+          "support": 5
+        },
+        "precedes": {
+          "tp": 3,
+          "fp": 3,
+          "fn": 1,
+          "precision": 0.5,
+          "recall": 0.75,
+          "f1": 0.6,
+          "support": 4
+        },
+        "produces": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.6666666666666666,
+          "recall": 0.6666666666666666,
+          "f1": 0.6666666666666666,
+          "support": 3
+        },
+        "reveals": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "supersedes": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5,
+          "support": 3
+        }
+      },
+      "counts": {
+        "gt_typed": 23,
+        "pred_typed": 30,
+        "gt_untyped": 23,
+        "pred_untyped": 30
+      }
+    },
+    "versus": {
+      "typed_micro": {
+        "tp": 30,
+        "fp": 25,
+        "fn": 14,
+        "precision": 0.5454545454545454,
+        "recall": 0.6818181818181818,
+        "f1": 0.6060606060606061
+      },
+      "untyped_micro": {
+        "tp": 40,
+        "fp": 15,
+        "fn": 4,
+        "precision": 0.7272727272727273,
+        "recall": 0.9090909090909091,
+        "f1": 0.8080808080808082
+      },
+      "typed_weighted_by_relation": {
+        "precision": 0.6234848484848485,
+        "recall": 0.6818181818181818,
+        "f1": 0.6412337662337663
+      },
+      "per_relation": {
+        "belongs to genus": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "collaborates with": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "compared with": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "conflicts with": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1": 0.5,
+          "support": 1
+        },
+        "contains": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "develops": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 8
+        },
+        "founds": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.6666666666666666,
+          "recall": 0.5,
+          "f1": 0.5714285714285715,
+          "support": 4
+        },
+        "includes": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5,
+          "support": 2
+        },
+        "influences": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "is a": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "support": 1
+        },
+        "manages": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666,
+          "support": 2
+        },
+        "mentions": {
+          "tp": 8,
+          "fp": 7,
+          "fn": 5,
+          "precision": 0.5333333333333333,
+          "recall": 0.6153846153846154,
+          "f1": 0.5714285714285715,
+          "support": 13
+        },
+        "originates from": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "part of": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "runs on": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "serves as ingredient for": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "succeeds": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "uses": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "uses as symbol": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        }
+      },
+      "counts": {
+        "gt_typed": 44,
+        "pred_typed": 55,
+        "gt_untyped": 44,
+        "pred_untyped": 55
+      }
+    }
+  },
+  "overall": {
+    "typed_micro": {
+      "tp": 167,
+      "fp": 96,
+      "fn": 79,
+      "precision": 0.6349809885931559,
+      "recall": 0.6788617886178862,
+      "f1": 0.6561886051080551
+    },
+    "untyped_micro": {
+      "tp": 204,
+      "fp": 59,
+      "fn": 42,
+      "precision": 0.7756653992395437,
+      "recall": 0.8292682926829268,
+      "f1": 0.8015717092337918
+    }
+  }
+}

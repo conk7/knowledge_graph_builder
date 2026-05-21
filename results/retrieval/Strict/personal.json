@@ -1,0 +1,27 @@
+[
+  {
+    "entity": "21 марта",
+    "source_file": "Fix_Bike.md",
+    "sentence": "надо сделать это 21 марта"
+  },
+  {
+    "entity": "21 марта",
+    "source_file": "Haircut_Appointment.md",
+    "sentence": "Записался к мастеру на 11:00 21 марта."
+  },
+  {
+    "entity": "20 марта",
+    "source_file": "Goodfellas.md",
+    "sentence": "Выделил время на вечер 20 марта"
+  },
+  {
+    "entity": "21 марта",
+    "source_file": "Meeting_Ivan_Ivanov.md",
+    "sentence": "Встретимся в центре часов в 6 вечера 21 марта"
+  },
+  {
+    "entity": "21 марта",
+    "source_file": "Go_Shopping.md",
+    "sentence": "Вроде есть на это время 21 марта."
+  }
+]

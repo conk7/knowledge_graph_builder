@@ -1,0 +1,72 @@
+[
+  {
+    "entity": "Electron",
+    "source_file": "Plum_pudding_model.md",
+    "sentence": "It was first proposed by J. J. Thomson in 1904 following his discovery of the electron in 1897, and was rendered obsolete by Ernest Rutherford's discovery of the atomic nucleus in 1911."
+  },
+  {
+    "entity": "Cathode_ray",
+    "source_file": "Plum_pudding_model.md",
+    "sentence": "Thomson discovered the electron by studying cathode rays, and in 1900 Henri Becquerel determined that the radiation from uranium, now called beta particles, had the same charge/mass ratio as cathode rays."
+  },
+  {
+    "entity": "Plum_pudding_model",
+    "source_file": "Rutherford_model.md",
+    "sentence": "The concept arose after Ernest Rutherford directed the Geiger–Marsden experiment in 1909, which showed much more alpha particle recoil than J. J. Thomson's plum pudding model of the atom could explain."
+  },
+  {
+    "entity": "Electron",
+    "source_file": "Rutherford_model.md",
+    "sentence": "Rutherford did not discuss the organization of electrons in the atom and did not himself propose a model for the atom."
+  },
+  {
+    "entity": "Cathode_ray",
+    "source_file": "Rutherford_model.md",
+    "sentence": "In the same paper that Thomson announced his results on \"corpuscle\" nature of cathode rays, an event considered the discovery of the electron, he began speculating on atomic models composed of electrons."
+  },
+  {
+    "entity": "Plum_pudding_model",
+    "source_file": "Bohr_model.md",
+    "sentence": "Developed from 1911 to 1918 by Niels Bohr and building on Ernest Rutherford's discovery of the atom's nucleus, it supplanted the plum pudding model of J. J. Thomson only to be replaced by the quantum atomic model in the 1920s."
+  },
+  {
+    "entity": "Electron",
+    "source_file": "Bohr_model.md",
+    "sentence": "It consists of a small, dense atomic nucleus surrounded by orbiting electrons."
+  },
+  {
+    "entity": "Electron",
+    "source_file": "Rutherford_scattering_experiments.md",
+    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series."
+  },
+  {
+    "entity": "Cathode_ray",
+    "source_file": "Rutherford_scattering_experiments.md",
+    "sentence": "Thomson had discovered the electron through his work on cathode rays and proposed that they existed within atoms, and an electric current is electrons hopping from one atom to an adjacent one in a series."
+  },
+  {
+    "entity": "Plum_pudding_model",
+    "source_file": "Rutherford_scattering_experiments.md",
+    "sentence": "Rutherford's paper does not discuss any electron arrangement beyond discussions on the scattering from Thomson's plum pudding model and Nagaoka's Saturnian model."
+  },
+  {
+    "entity": "Electron",
+    "source_file": "Geissler_tube.md",
+    "sentence": "A Geissler tube is a precursor to modern gas discharge tubes, demonstrating the principles of electrical glow discharge, akin to contemporary neon lights, and central to the discovery of the electron."
+  },
+  {
+    "entity": "Cathode_ray",
+    "source_file": "Geissler_tube.md",
+    "sentence": "These were named cathode rays."
+  },
+  {
+    "entity": "Electron",
+    "source_file": "Cathode_ray.md",
+    "sentence": "Cathode rays are streams of electrons observed in discharge tubes."
+  },
+  {
+    "entity": "Cathode_ray",
+    "source_file": "Electron.md",
+    "sentence": "As particle beams in a vacuum, free electrons can be accelerated, focused, and used for applications such as cathode ray tubes, electron microscopes, electron beam welding, lithography, and particle accelerators that generate synchrotron radiation."
+  }
+]
