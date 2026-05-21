@@ -1,9 +1,3 @@
-"""
-RAGAS end-to-end evaluation of the ReferenceGraphRAGPipeline
-(ObsidianRAG re-implementation: hybrid search → CrossEncoder rerank →
-single-hop wikilink expansion → LLM generation).
-"""
-
 import argparse
 import asyncio
 import json
@@ -172,7 +166,7 @@ def main() -> None:
         type=int,
         default=DEFAULT_TOP_K_SEED,
         help="Passed to GraphRAGConfig (not used by reference pipeline directly, "
-             "kept for config parity).",
+        "kept for config parity).",
     )
     parser.add_argument(
         "--top-k-context",
@@ -209,14 +203,14 @@ def main() -> None:
         type=float,
         default=None,
         help=f"Sampling temperature for both pipeline and eval LLMs "
-             f"(default: {_DEFAULT_TEMPERATURE}; falls back to LLM_TEMPERATURE env).",
+        f"(default: {_DEFAULT_TEMPERATURE}; falls back to LLM_TEMPERATURE env).",
     )
     parser.add_argument(
         "--top-p",
         type=float,
         default=None,
         help=f"Nucleus sampling probability "
-             f"(default: {_DEFAULT_TOP_P}; falls back to LLM_TOP_P env).",
+        f"(default: {_DEFAULT_TOP_P}; falls back to LLM_TOP_P env).",
     )
     parser.add_argument(
         "--llm-max-retries",
@@ -294,7 +288,9 @@ def main() -> None:
         config=pipeline_config,
         ignore_local_config=args.ignore_local_config,
     ) as pipeline:
-        vm = VaultManager(vault_path=vault_dir, ignored_dirs=[vault_dir / META_DIR_NAME])
+        vm = VaultManager(
+            vault_path=vault_dir, ignored_dirs=[vault_dir / META_DIR_NAME]
+        )
 
         dataset, raw_results = run_evaluation(
             vault_dir=vault_dir,
@@ -327,7 +323,9 @@ def main() -> None:
     scores["_evaluated_samples"] = int(
         df.shape[0] - nan_cols.max() if not nan_cols.empty else df.shape[0]
     )
-    _print_results(scores, title="RAGAS Reference GraphRAG (ObsidianRAG) Evaluation Results")
+    _print_results(
+        scores, title="RAGAS Reference GraphRAG (ObsidianRAG) Evaluation Results"
+    )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output = {

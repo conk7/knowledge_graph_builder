@@ -16,7 +16,6 @@ DEFAULT_LANG = "en"
 
 
 def get_sample_config(sample_dir: Path) -> tuple[str, str]:
-    """Returns (lang, link_header) from .kg_builder/config.json, or defaults."""
     config_path = sample_dir / META_DIR_NAME / LINKS_CONFIG_FILE_NAME
     if config_path.exists():
         try:

@@ -32,7 +32,7 @@ CHUNK_SIZE = 3000
 CHUNK_OVERLAP = 300
 CHUNK_SEPARATORS = ["\n# ", "\n## ", "\n### ", "\n\n", ". ", "? ", "! ", "\n", " ", ""]
 
-SPLITTER_TYPE = "recursive"  # "recursive" | "sentence_window"
+SPLITTER_TYPE = "recursive"
 SENTENCE_WINDOW_BEFORE = 1
 SENTENCE_WINDOW_AFTER = 1
 

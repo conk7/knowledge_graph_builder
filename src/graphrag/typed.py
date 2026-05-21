@@ -18,50 +18,39 @@ logger = logging.getLogger(__name__)
 
 _LINK_RE = re.compile(r"-?\s*(.+?)\s*::\s*\[\[\s*(.+?)\s*\]\]")
 
-# _ANSWER_PROMPT = ChatPromptTemplate.from_messages(
-#     [
-#         (
-#             "human",
-#             """You are an expert analytical assistant. Answer the user's question based strictly on the provided knowledge graph context.
-
-# CRITICAL INSTRUCTIONS:
-# 1. Language Mirroring (ABSOLUTE): Write your <answer> in the EXACT SAME LANGUAGE as the user's Question.
-# 2. Logic First: Inside your <reasoning> tag, state the language of the Question, then plan your answer.
-# 3. Style and Tone (CRUCIAL FOR METRICS): Write your <answer> as a cohesive, flowing paragraph. Do NOT use markdown bullet points or numbered lists unless absolutely unavoidable. Synthesize the facts naturally.
-# 4. Concise Accuracy: Directly answer the core question. Include necessary specific names and numbers from the context, but do NOT add extra historical background or broad summaries that weren't directly requested.
-# 5. Output Format: Use <reasoning> for your internal logic and <answer> for the final response.
-
-# === EXAMPLES OF YOUR EXPECTED BEHAVIOR ===
-
-# Example 1:
-# Context:
-# - Заметка 'План': Заменить масло в машине. Сделать это до поездки к бабушке.
-# - Заметка 'Покупки': Купить моторное масло в Автомаге.
-# - Заметка 'Расписание': Поездка к бабушке в 14:00. В 10:00 заехать за кофе.
-
-# Question: Каков хронологический порядок задач, связанных с машиной?
-
-# Response:
-# <reasoning>
-# 1. Language: Russian.
-# 2. Logic: Buy oil -> Change oil -> Do it before 14:00.
-# </reasoning>
-# <answer>
-# Для подготовки машины необходимо сначала купить моторное масло в Автомаге, а затем произвести его замену. Обе эти задачи должны быть выполнены строго до 14:00, так как на это время запланирована поездка к бабушке.
-# </answer>
-# ===========================================
-# Context:\n{context}\n\nQuestion: {question}""",
-#         ),
-#     ]
-# )
-
 _ANSWER_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "human",
-            "You are a helpful assistant that answers questions "
-            "based strictly on the provided knowledge graph context.\n\n"
-            "Context:\n{context}\n\nQuestion: {question}\n\nAnswer:",
+            """You are an expert analytical assistant. Answer the user's question based strictly on the provided knowledge graph context.
+
+CRITICAL INSTRUCTIONS:
+1. Language Mirroring (ABSOLUTE): Write your <answer> in the EXACT SAME LANGUAGE as the user's Question.
+2. Logic First: Inside your <reasoning> tag, state the language of the Question, then plan your answer.
+3. Style and Tone (CRUCIAL FOR METRICS): Write your <answer> as a cohesive, flowing paragraph. Do NOT use markdown bullet points or numbered lists unless absolutely unavoidable. Synthesize the facts naturally.
+4. Concise Accuracy: Directly answer the core question. Include necessary specific names and numbers from the context, but do NOT add extra historical background or broad summaries that weren't directly requested.
+5. Output Format: Use <reasoning> for your internal logic and <answer> for the final response.
+
+=== EXAMPLES OF YOUR EXPECTED BEHAVIOR ===
+
+Example 1:
+Context:
+- Заметка 'План': Заменить масло в машине. Сделать это до поездки к бабушке.
+- Заметка 'Покупки': Купить моторное масло в Автомаге.
+- Заметка 'Расписание': Поездка к бабушке в 14:00. В 10:00 заехать за кофе.
+
+Question: Каков хронологический порядок задач, связанных с машиной?
+
+Response:
+<reasoning>
+1. Language: Russian.
+2. Logic: Buy oil -> Change oil -> Do it before 14:00.
+</reasoning>
+<answer>
+Для подготовки машины необходимо сначала купить моторное масло в Автомаге, а затем произвести его замену. Обе эти задачи должны быть выполнены строго до 14:00, так как на это время запланирована поездка к бабушке.
+</answer>
+===========================================
+Context:\n{context}\n\nQuestion: {question}""",
         ),
     ]
 )

@@ -394,7 +394,7 @@ class LLMService:
                             "reasoning": pred["reasoning"],
                         }
                     ]
-                # Checkpoint after every batch
+
                 self.metadata_manager.save_partial_predictions(completed_predictions)
                 done = len(completed_predictions)
                 self.metadata_manager.set_llm_progress(offset=done, total=total)

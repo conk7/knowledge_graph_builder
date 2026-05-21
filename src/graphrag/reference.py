@@ -1,16 +1,3 @@
-"""
-ReferenceGraphRAGPipeline — faithful re-implementation of ObsidianRAG
-(https://github.com/Vasallo94/ObsidianRAG) built on top of the project's
-own VectorStore / VaultManager infrastructure.
-
-Pipeline (4 stages):
-  1. Hybrid search (BM25 + vector) → top-INITIAL_K chunks
-  2. CrossEncoder rerank → top-RERANK_TOP_K with score ≥ RERANK_THRESHOLD
-  3. Single-hop [[wikilink]] expansion → up to LINK_EXPAND_K linked notes
-     (linked-note chunks receive a LINK_SCORE_MULT score penalty)
-  4. Combine & sort all chunks by score → LLM generation
-"""
-
 import json
 import logging
 import re
@@ -28,78 +15,53 @@ from src.kg_builder.vector_store import VectorStore
 
 logger = logging.getLogger(__name__)
 
-# Matches [[Note]] and [[Note|Alias]] — plain Obsidian wikilinks.
-# Also captures typed links of the form `- rel:: [[Target]]` because the
-# target `[[Target]]` sub-pattern is present inside those strings too.
+
 _WIKILINK_RE = re.compile(r"\[\[\s*([^|\]\n]+?)(?:\|[^\]]+)?\s*\]\]")
-
-# _ANSWER_PROMPT = ChatPromptTemplate.from_messages(
-#     [
-#         (
-#             "human",
-#             """You are an expert analytical assistant. Answer the user's question based strictly on the provided knowledge graph context.
-
-# CRITICAL INSTRUCTIONS:
-# 1. Language Mirroring (ABSOLUTE): Write your <answer> in the EXACT SAME LANGUAGE as the user's Question.
-# 2. Logic First: Inside your <reasoning> tag, state the language of the Question, then plan your answer.
-# 3. Style and Tone (CRUCIAL FOR METRICS): Write your <answer> as a cohesive, flowing paragraph. Do NOT use markdown bullet points or numbered lists unless absolutely unavoidable. Synthesize the facts naturally.
-# 4. Concise Accuracy: Directly answer the core question. Include necessary specific names and numbers from the context, but do NOT add extra historical background or broad summaries that weren't directly requested.
-# 5. Output Format: Use <reasoning> for your internal logic and <answer> for the final response.
-
-# === EXAMPLES OF YOUR EXPECTED BEHAVIOR ===
-
-# Example 1:
-# Context:
-# - Заметка 'План': Заменить масло в машине. Сделать это до поездки к бабушке.
-# - Заметка 'Покупки': Купить моторное масло в Автомаге.
-# - Заметка 'Расписание': Поездка к бабушке в 14:00. В 10:00 заехать за кофе.
-
-# Question: Каков хронологический порядок задач, связанных с машиной?
-
-# Response:
-# <reasoning>
-# 1. Language: Russian.
-# 2. Logic: Buy oil -> Change oil -> Do it before 14:00.
-# </reasoning>
-# <answer>
-# Для подготовки машины необходимо сначала купить моторное масло в Автомаге, а затем произвести его замену. Обе эти задачи должны быть выполнены строго до 14:00, так как на это время запланирована поездка к бабушке.
-# </answer>
-# ===========================================
-# Context:\n{context}\n\nQuestion: {question}""",
-#         ),
-#     ]
-# )
 
 _ANSWER_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "human",
-            "You are a helpful assistant that answers questions "
-            "based strictly on the provided knowledge graph context.\n\n"
-            "Context:\n{context}\n\nQuestion: {question}\n\nAnswer:",
+            """You are an expert analytical assistant. Answer the user's question based strictly on the provided knowledge graph context.
+
+CRITICAL INSTRUCTIONS:
+1. Language Mirroring (ABSOLUTE): Write your <answer> in the EXACT SAME LANGUAGE as the user's Question.
+2. Logic First: Inside your <reasoning> tag, state the language of the Question, then plan your answer.
+3. Style and Tone (CRUCIAL FOR METRICS): Write your <answer> as a cohesive, flowing paragraph. Do NOT use markdown bullet points or numbered lists unless absolutely unavoidable. Synthesize the facts naturally.
+4. Concise Accuracy: Directly answer the core question. Include necessary specific names and numbers from the context, but do NOT add extra historical background or broad summaries that weren't directly requested.
+5. Output Format: Use <reasoning> for your internal logic and <answer> for the final response.
+
+=== EXAMPLES OF YOUR EXPECTED BEHAVIOR ===
+
+Example 1:
+Context:
+- Заметка 'План': Заменить масло в машине. Сделать это до поездки к бабушке.
+- Заметка 'Покупки': Купить моторное масло в Автомаге.
+- Заметка 'Расписание': Поездка к бабушке в 14:00. В 10:00 заехать за кофе.
+
+Question: Каков хронологический порядок задач, связанных с машиной?
+
+Response:
+<reasoning>
+1. Language: Russian.
+2. Logic: Buy oil -> Change oil -> Do it before 14:00.
+</reasoning>
+<answer>
+Для подготовки машины необходимо сначала купить моторное масло в Автомаге, а затем произвести его замену. Обе эти задачи должны быть выполнены строго до 14:00, так как на это время запланирована поездка к бабушке.
+</answer>
+===========================================
+Context:\n{context}\n\nQuestion: {question}""",
         ),
     ]
 )
 
-# ── ObsidianRAG hyper-parameters ──────────────────────────────────────────────
-_RERANK_THRESHOLD = 0.3  # minimum CrossEncoder score to keep a chunk
-_LINK_EXPAND_K = 5  # maximum number of linked notes to expand (one hop)
-_LINK_SCORE_MULT = 0.9  # score multiplier applied to linked-note chunks
-# ─────────────────────────────────────────────────────────────────────────────
+
+_RERANK_THRESHOLD = 0.3
+_LINK_EXPAND_K = 5
+_LINK_SCORE_MULT = 0.9
 
 
 class ReferenceGraphRAGPipeline:
-    """
-    Single-hop GraphRAG that closely follows the ObsidianRAG reference design.
-
-    Key differences from BaseGraphRAGPipeline / TypedGraphRAGPipeline:
-      • CrossEncoder reranking is applied *before* graph expansion (not after).
-      • Graph expansion is limited to a *single hop* over plain [[wikilinks]].
-      • Relation types are *ignored* — only wikilink targets are followed.
-      • Expanded notes are scored with a penalty (× LINK_SCORE_MULT) and
-        merged with the reranked seed chunks; no second reranking pass.
-    """
-
     def __init__(
         self,
         vault_dir: Path,
@@ -126,10 +88,6 @@ class ReferenceGraphRAGPipeline:
                 )
             else:
                 self._name_to_path[stem] = md_file
-
-    # ------------------------------------------------------------------
-    # Factory
-    # ------------------------------------------------------------------
 
     @classmethod
     def from_vault(
@@ -187,10 +145,6 @@ class ReferenceGraphRAGPipeline:
             _tmp_dir=tmp_dir,
         )
 
-    # ------------------------------------------------------------------
-    # Context manager support
-    # ------------------------------------------------------------------
-
     def __enter__(self) -> "ReferenceGraphRAGPipeline":
         return self
 
@@ -202,10 +156,6 @@ class ReferenceGraphRAGPipeline:
         if self._tmp_dir:
             shutil.rmtree(self._tmp_dir, ignore_errors=True)
             self._tmp_dir = None
-
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
 
     def run(self, user_query: str) -> tuple[list[str], str]:
         reranked = self._seed_and_rerank(user_query)
@@ -219,19 +169,11 @@ class ReferenceGraphRAGPipeline:
     # ------------------------------------------------------------------
 
     def _seed_and_rerank(self, query: str) -> list[tuple[str, float, Path]]:
-        """
-        Returns up to RERANK_TOP_K tuples of (chunk_text, score, file_path)
-        after CrossEncoder reranking of the initial hybrid-search results.
-        Mirrors ObsidianRAG's EnsembleRetriever + CrossEncoder stage.
-        """
         search_results = self.vs.search(query, k=self.cfg.top_k_seed)
         if not search_results:
             logger.debug("Stage 1 (seed): no results from hybrid search")
             return []
 
-        # Build a text → file_path map so we can recover paths after reranking.
-        # If two chunks happen to share the same text, the later one wins —
-        # acceptable because we only need a valid path per unique text.
         text_to_path: dict[str, Path] = {
             r.text: Path(r.file_path) for r in search_results
         }
@@ -255,18 +197,9 @@ class ReferenceGraphRAGPipeline:
     def _expand_links(
         self, reranked: list[tuple[str, float, Path]]
     ) -> list[tuple[str, float]]:
-        """
-        For each unique file in the reranked set, extract all [[wikilinks]]
-        from the file's full content and fetch the first chunk of each
-        linked note (up to LINK_EXPAND_K total).
-
-        Linked-note chunks receive a score penalty (× LINK_SCORE_MULT)
-        to reflect lower confidence, mirroring ObsidianRAG's 0.9× multiplier.
-        """
         if not reranked:
             return []
 
-        # Files already in the result set — do not re-add them.
         seen_paths: set[Path] = {fp for _, _, fp in reranked}
 
         expanded: list[tuple[str, float]] = []
@@ -308,10 +241,6 @@ class ReferenceGraphRAGPipeline:
         reranked: list[tuple[str, float, Path]],
         expanded: list[tuple[str, float]],
     ) -> list[str]:
-        """
-        Merge reranked seed chunks and linked-note chunks, sort by score
-        (descending), and return ordered text list for the LLM.
-        """
         all_scored: list[tuple[str, float]] = [
             (text, score) for text, score, _ in reranked
         ] + expanded

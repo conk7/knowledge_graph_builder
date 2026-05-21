@@ -489,9 +489,7 @@ class MetadataManager:
     def has_pending_pairs(self) -> bool:
         return bool(self.pending_pairs)
 
-    def clear_run_state(self, keep_snapshot: bool = True):  # noqa: ARG002
-        # keep_snapshot is no longer meaningful: config (including hyperparameters)
-        # is always persisted independently of run state. Parameter kept for compat.
+    def clear_run_state(self, keep_snapshot: bool = True):
         self.pending_pairs = []
         if self.candidates_path.exists():
             try:
