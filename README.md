@@ -1,12 +1,9 @@
 
 # Knowledge Graph Builder & Data Parser
 
-Проект — набор инструментов для построения и анализа графа знаний поверх Markdown-хранилища заметок (например, Obsidian).
-В репозитории есть два основных направления:
-
 - `src/kg_builder` — основной модуль: находит и добавляет семантические связи между заметками.
-- `src/data_parser` — пайплайн получения данных (скачивание/краулинг Wikipedia и разметка ссылок).
-- `src/eval` — набор скриптов для оценки качества (links/retrieval/RAG/Neo4j).
+- `src/data_parser` — пайплайн получения данных (скачивание Wikipedia).
+- `src/eval` — набор скриптов для оценки качества (links/retrieval/RAG).
 
 По умолчанию связи записываются в Markdown в секцию `## Related Connections` в виде Dataview-строк:
 
@@ -18,8 +15,8 @@
 
 ## Требования
 
-- Python >= 3.13 (см. `pyproject.toml`)
-- `uv` (менеджер окружения/зависимостей)
+- Python >= 3.13
+- `uv`
 - torch+cuda (в некоторых местах `cuda` может быть захардкожена)
 - Для Neo4j-оценки: Docker + docker compose
 
@@ -49,9 +46,9 @@ uv run python -m spacy download ru_core_news_sm
 
 ---
 
-## Запуск
+# Запуск
 
-# Data parser
+## Data parser
 
 Hub-n-Spoke пайплайн (Wikipedia → vault):
 
@@ -71,9 +68,9 @@ uv run python -m src.data_parser.flex.main \
 ```
 
 ----------
-# KG builder
+## KG builder
 
-Инициализация (создаёт структуру метаданных в vault):
+Инициализация (создает структуру метаданных в vault):
 
 ```bash
 uv run python -m src.kg_builder.main init </path/to/vault>
@@ -97,7 +94,7 @@ uv run python -m src.kg_builder.main run </path/to/vault> \
 - `--save-mode`: `inplace | json | export`
 - `--fresh-start`: очищает прошлые метаданные/индекс; в `inplace` также удаляет ранее добавленные ссылки
 - `--api`: использовать внешнее API для LLM (см. переменные окружения ниже)
-- `--ignore-local-config`: игнорировать сохранённый в vault `config.json` и взять параметры из `src/kg_builder/config.py`
+- `--ignore-local-config`: игнорировать сохраненный в vault `config.json` и взять параметры из `src/kg_builder/config.py`
 
 ### Настройка LLM
 
@@ -164,7 +161,7 @@ uv run python -m src.kg_builder.main "data/test_vaults/gold/sequence" \
 
 ----------
 
-# Оценка
+## Оценка
 
 ### Оценка ссылок на наличие и тип (vault vs vault)
 
